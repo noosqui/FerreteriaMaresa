@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{0DFCC74E-43B6-4887-A8FF-0888BB625553}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{B0300682-BDBF-4C42-87DF-FBD81408E6FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentacion", "Presentacion\Presentacion.csproj", "{3BF0D79F-C288-4980-BED3-704EB21498F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DFCC74E-43B6-4887-A8FF-0888BB625553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DFCC74E-43B6-4887-A8FF-0888BB625553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DFCC74E-43B6-4887-A8FF-0888BB625553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DFCC74E-43B6-4887-A8FF-0888BB625553}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0300682-BDBF-4C42-87DF-FBD81408E6FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0300682-BDBF-4C42-87DF-FBD81408E6FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0300682-BDBF-4C42-87DF-FBD81408E6FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0300682-BDBF-4C42-87DF-FBD81408E6FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BF0D79F-C288-4980-BED3-704EB21498F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BF0D79F-C288-4980-BED3-704EB21498F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BF0D79F-C288-4980-BED3-704EB21498F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BF0D79F-C288-4980-BED3-704EB21498F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD2D9312-8996-4F05-AD7E-CD71B94E5321}
+	EndGlobalSection
+EndGlobal
