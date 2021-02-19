@@ -20,12 +20,10 @@ namespace Dominio
         {
 
         }
-        public DMO_Empleados(int empleado,string nombre_empleado)
+       public DMO_Empleados(string empleado, string nombre)
         {
-            this.id_empleado = empleado;
-            this.nombre_empleado = nombre_empleado;
-
+            //this.id_empleado = empleado;
+            this.nombre = nombre;
         }
-
     }
 }
