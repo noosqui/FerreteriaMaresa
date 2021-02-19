@@ -1,0 +1,30 @@
+[33mcommit 30a9a83a592346f3de1b73aff43184e4989a71eb[m[33m ([m[1;36mHEAD -> [m[1;32mBackend[m[33m)[m
+Author: Alex Sandoval <sandovalex2001.as@gmail.com>
+Date:   Thu Feb 18 20:59:46 2021 -0600
+
+    Se agrego atributos y metodo en la clase Empleados
+
+[33mcommit fa0c6366a7480637393672e5cbed59e7029d28d7[m[33m ([m[1;31mupstream/Frontend[m[33m, [m[1;31mupstream/Backend[m[33m, [m[1;31morigin/Frontend[m[33m, [m[1;31morigin/Backend[m[33m)[m
+Author: Andres Martinez <aaama322@gmail.com>
+Date:   Tue Feb 16 21:55:56 2021 -0600
+
+    Esta es la rama de pruebas
+    
+    Antes de cada revision se trabajara aqui
+    
+    quit
+    q
+
+[33mcommit 3f8ff85d659d14157b8252ca2bc41b605a754547[m
+Author: Andres Martinez <aaama322@gmail.com>
+Date:   Tue Feb 16 16:59:58 2021 -0600
+
+    Base del proyecto
+    
+    Se agregaron las capas al igual que sus referencias
+
+[33mcommit df0f3d4ce564f77edb0fb85333c175db08086cb2[m
+Author: noosqui <79149159+noosqui@users.noreply.github.com>
+Date:   Tue Feb 16 07:21:19 2021 -0600
+
+    Initial commit
