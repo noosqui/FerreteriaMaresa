@@ -20,19 +20,10 @@ namespace Dominio
         {
 
         }
-        /*
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         */
+        public DMO_Empleados(string empleado, string nombre)
+        {
+            //this.id_empleado = empleado;
+            this.nombre = nombre;
+        }
     }
 }
