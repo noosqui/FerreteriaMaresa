@@ -1,0 +1,6 @@
+﻿
+         * 1. Todos los metodos que reciben paramteros los reciben de la forma indicada pues ya todo fue convertido en dominio.
+         * 2. No se debe hacer ningun tipo de conversion con datos entrantes
+         * 3. El nombre de todos los componentes de la capa sera "DAT_nombre"
+         
+     
