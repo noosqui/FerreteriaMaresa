@@ -16,13 +16,6 @@ namespace Dominio
         private string direccion;
         private int id_usuario;
 
-        /* Cosas a seguir 
-         * 1. Todos los metodos reciben strings ninguno recibe algo mas.
-         * 2. Como todo recibe string hay que hacer las conversiones dentro de los metodos (mirar ejemplo de constructor)
-         * 3. Los procesos hacen referencia a capas inexistentes y metodos inexistentes de la capa datos, esos dejarlos asi
-         * 4. Las de capa datos sera DAT_nombre
-         * */
-
         public DOM_Empleados()
         {
 
