@@ -17,7 +17,16 @@ values('Empleado'),
 	('Gerente');
 	go
 
-select * from direcciones
+
+create table Usuarios
+(
+id_usuario int primary key identity(1,1),
+contrasenia nvarchar(80) not null,
+id_rol int not null
+
+CONSTRAINT fk_Roles_id_usuario FOREIGN KEY (id_rol) REFERENCES Roles (id_rol),
+)
+go
 
 create table Empleados
 (
@@ -41,7 +50,8 @@ CONSTRAINT fk_Empleados_id_rol FOREIGN KEY (id_rol_empleado) REFERENCES Roles (i
 go
 
 insert into Empleados values('0318199877441', 'Noe Ignacio', 'Manueles Guerrero', 'nachoman@hotmail.com', '44551122', 'Barrio el Parnazo', 'Siguatepeque', 'Comayagua', '12111', 'Honduras','2', '1998-05-25', 'Activo', '12345'),
-('0318199802010', 'Danny Fernando', 'Martinez Romero', 'danny12345@hotmail.com', '99554477', 'Barrio buena Esperanza', 'Siguatepeque', 'Comayagua', '12111', 'Honduras', '1', '1998-02-02', 'Activo', '12345');
+('0318199802010', 'Danny Fernando', 'Martinez Romero', 'danny12345@hotmail.com', '99554477', 'Barrio buena Esperanza', 'Siguatepeque', 'Comayagua', '12111', 'Honduras', '1', '1998-02-02', 'Activo', '12345'),
+('0318199230254', 'Jose Luis', 'Carranza Oviedo', 'luisjose@hotmail.com', '99554477', 'Las Americas', 'Siguatepeque', 'Comayagua', '12111', 'Honduras', '1', '1992-08-27', 'Despedido', '12345');
 
 select * from Empleados
 
@@ -52,6 +62,10 @@ nom_cliente nvarchar(80) not null,
 apellido_cliente nvarchar(80) not null,
 RTN nvarchar(80) not null,
 direccion nvarchar(80) not null,
+ciudad nvarchar(80) not null,
+region nvarchar(80) not null,
+codigo_postal nvarchar(80) not null,
+pais nvarchar(80) not null,
 tel_cliente nvarchar(30) not null
 )
 go
@@ -63,14 +77,16 @@ nom_proveedor nvarchar(80)not null,
 apellido_proveedor nvarchar(80)not null,
 telefono nvarchar(30)not null,
 correo nvarchar(80)not null,
-cod_direccion int not null,
+direccion nvarchar(80) not null,
+ciudad nvarchar(80) not null,
+region nvarchar(80) not null,
+codigo_postal nvarchar(80) not null,
+pais nvarchar(80) not null,
 Estado varchar(20) not null
-
-CONSTRAINT fk_Empleados_cod_direccion_proveedor FOREIGN KEY (cod_direccion) REFERENCES direcciones (cod_direccion)
 )
 go
 
-Insert into Proveedores values('Sergio', 'Espinoza', '94152236', 'Espinoza41@gamil.com', '2', 'Activo');
+Insert into Proveedores values('Sergio', 'Espinoza', '94152236', 'Espinoza41@gamil.com', 'Barrio el Parnazo', 'Siguatepeque', 'Comayagua', '12111', 'Honduras','Activo');
 go
 
 create table TipoPago

@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    class DAT_Empleados
+   public class DAT_Empleados
     {
 
         private DAT_Conexion conexion = new DAT_Conexion();
@@ -16,35 +16,80 @@ namespace Datos
 
         DataTable tabla = new DataTable();
 
-        public SqlDataReader verifica(string user, string pass)
+        public SqlDataReader VerificarUsuario(string usuario, string contrasenia)
         {
             SqlCommand comando = new SqlCommand();
             DataTable tabla = new DataTable();
             comando.Connection = conexion.abrir();
-            comando.CommandText = "validarUsuario";
-            comando.Parameters.AddWithValue("@userName", user);
-            comando.Parameters.AddWithValue("@psw", pass);
+            comando.CommandText = "VerificarUsuario";
+            comando.Parameters.AddWithValue("@usuario", usuario);
+            comando.Parameters.AddWithValue("@contrasenia", contrasenia);
             comando.CommandType = CommandType.StoredProcedure;
             leer = comando.ExecuteReader();
 
             return leer;
         }
 
-        public DataTable mostrarempleados()
+        public DataTable Mostrar_Empleados_Activos()
         {
             SqlDataReader lee;
             DataTable tablaa = new DataTable();
-            SqlCommand comandoo = new SqlCommand();
-            comandoo.Connection = conexion.abrir();
-            comandoo.CommandText = "Mostrar_Empleados";
-            comandoo.CommandType = CommandType.StoredProcedure;
-            lee = comandoo.ExecuteReader();
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "Mostrar_Empleados_Activos";
+            comando.CommandType = CommandType.StoredProcedure;
+            lee = comando.ExecuteReader();
             tablaa.Load(lee);
             conexion.cerrar();
             return tablaa;
         }
 
-        public void insertar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, int coddireccion, int idrol, DateTime fnacimiento, string estado, string contrasenia)
+        public DataTable Buscar_Empleado_Activo(string id_empleado)
+        {
+            SqlDataReader lee;
+            DataTable tablaa = new DataTable();
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "buscar_Empleado_Activo";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@idempleado", id_empleado);
+            comando.ExecuteNonQuery();
+            lee = comando.ExecuteReader();
+            tablaa.Load(lee);
+            conexion.cerrar();
+            return tablaa;
+        }
+
+        public DataTable Mostrar_Empleados_Despedidos()
+        {
+            SqlDataReader lee;
+            DataTable tablaa = new DataTable();
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "Mostrar_Empleados_Despedidos";
+            comando.CommandType = CommandType.StoredProcedure;
+            lee = comando.ExecuteReader();
+            tablaa.Load(lee);
+            conexion.cerrar();
+            return tablaa;
+        }
+
+        public DataTable Buscar_Empleado_Despedido(string id_empleado)
+        {
+            SqlDataReader lee;
+            DataTable tablaa = new DataTable();
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "buscar_Empleado_Despedido";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@idempleado", id_empleado);
+            comando.ExecuteNonQuery();
+            lee = comando.ExecuteReader();
+            tablaa.Load(lee);
+            conexion.cerrar();
+            return tablaa;
+        }
+        public void insertar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado, string contrasenia)
         {
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexion.abrir();
@@ -55,7 +100,11 @@ namespace Datos
             comando.Parameters.AddWithValue("@apellidoEmpleado", apellidoEmpleado);
             comando.Parameters.AddWithValue("@correoEmpleado", correoEmpleado);
             comando.Parameters.AddWithValue("@telEmpleado", telEmpleado);
-            comando.Parameters.AddWithValue("@cod_direccion", coddireccion);
+            comando.Parameters.AddWithValue("@direccion", direccion);
+            comando.Parameters.AddWithValue("@ciudad", ciudad);
+            comando.Parameters.AddWithValue("@region", region);
+            comando.Parameters.AddWithValue("@codigo_postal", codigopostal);
+            comando.Parameters.AddWithValue("@pais", pais);
             comando.Parameters.AddWithValue("@id_rol_empleado", idrol);
             comando.Parameters.AddWithValue("@fnacimiento_empleado", fnacimiento);
             comando.Parameters.AddWithValue("@estado", estado);
@@ -64,7 +113,7 @@ namespace Datos
             comando.ExecuteNonQuery();
         }
 
-        public void Editar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, int cod_direccion, int idrol, DateTime fnacimiento, string estado, string contrasenia)
+        public void Editar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado, string contrasenia)
         {
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexion.abrir();
@@ -75,7 +124,11 @@ namespace Datos
             comando.Parameters.AddWithValue("@apellidoEmpleado", apellidoEmpleado);
             comando.Parameters.AddWithValue("@correoEmpleado", correoEmpleado);
             comando.Parameters.AddWithValue("@telEmpleado", telEmpleado);
-            comando.Parameters.AddWithValue("@cod_direccion", cod_direccion);
+            comando.Parameters.AddWithValue("@direccion", direccion);
+            comando.Parameters.AddWithValue("@ciudad", ciudad);
+            comando.Parameters.AddWithValue("@region", region);
+            comando.Parameters.AddWithValue("@codigo_postal", codigopostal);
+            comando.Parameters.AddWithValue("@pais", pais);
             comando.Parameters.AddWithValue("@id_rol_empleado", idrol);
             comando.Parameters.AddWithValue("@fnacimiento_empleado", fnacimiento);
             comando.Parameters.AddWithValue("@estado", estado);
@@ -84,14 +137,15 @@ namespace Datos
             comando.ExecuteNonQuery();
         }
 
-        public void eliminarempleado(string idempleado)
+        public void DespedirEmpleado(string idempleado)
         {
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexion.abrir();
-            comando.CommandText = "eliminar_empleado";
+            comando.CommandText = "Despedir_Empleado";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idempleado", idempleado);
             comando.ExecuteNonQuery();
+
         }
     }
 }
