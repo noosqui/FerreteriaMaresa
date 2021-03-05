@@ -15,22 +15,12 @@ go
 insert into Roles
 values('Empleado'),
 	('Gerente');
-	go
-
-
-create table Usuarios
-(
-id_usuario int primary key identity(1,1),
-contrasenia nvarchar(80) not null,
-id_rol int not null
-
-CONSTRAINT fk_Roles_id_usuario FOREIGN KEY (id_rol) REFERENCES Roles (id_rol),
-)
+	
 go
 
 create table Empleados
 (
-id_empleado Nvarchar(20) primary key,
+id_empleado nvarchar(20) primary key,
 nom_empleado nvarchar(80) not null,
 apellido_empleado nvarchar(80) not null, 
 correo_empleado nvarchar(80) not null,
@@ -43,17 +33,36 @@ pais nvarchar(80) not null,
 id_rol_empleado int not null,
 fnacimiento_empleado date not null,
 Estado varchar(20) not null,
-contrasenia nvarchar(80) not null
+
 
 CONSTRAINT fk_Empleados_id_rol FOREIGN KEY (id_rol_empleado) REFERENCES Roles (id_rol),
 )
 go
 
-insert into Empleados values('0318199877441', 'Noe Ignacio', 'Manueles Guerrero', 'nachoman@hotmail.com', '44551122', 'Barrio el Parnazo', 'Siguatepeque', 'Comayagua', '12111', 'Honduras','2', '1998-05-25', 'Activo', '12345'),
-('0318199802010', 'Danny Fernando', 'Martinez Romero', 'danny12345@hotmail.com', '99554477', 'Barrio buena Esperanza', 'Siguatepeque', 'Comayagua', '12111', 'Honduras', '1', '1998-02-02', 'Activo', '12345'),
-('0318199230254', 'Jose Luis', 'Carranza Oviedo', 'luisjose@hotmail.com', '99554477', 'Las Americas', 'Siguatepeque', 'Comayagua', '12111', 'Honduras', '1', '1992-08-27', 'Despedido', '12345');
+insert into Empleados values('0318199877441', 'Noe Ignacio', 'Manueles Guerrero', 'nachoman@hotmail.com', '44551122', 'Barrio el Parnazo', 'Siguatepeque', 'Comayagua', '12111', 'Honduras','2', '1998-05-25', 'Activo'),
+('0318199802010', 'Danny Fernando', 'Martinez Romero', 'danny12345@hotmail.com', '99554477', 'Barrio buena Esperanza', 'Siguatepeque', 'Comayagua', '12111', 'Honduras', '1', '1998-02-02', 'Activo'),
+('0318199230254', 'Jose Luis', 'Carranza Oviedo', 'luisjose@hotmail.com', '99554477', 'Las Americas', 'Siguatepeque', 'Comayagua', '12111', 'Honduras', '1', '1992-08-27', 'Despedido');
 
+go
 select * from Empleados
+
+go
+
+create table Usuarios
+(
+id_usuario nvarchar(20) primary key,
+contrasenia nvarchar(80) not null,
+id_rol int not null
+
+CONSTRAINT fk_Roles_id_usuario FOREIGN KEY (id_rol) REFERENCES Roles (id_rol),
+CONSTRAINT fk_Empleados_id_empleado FOREIGN KEY (id_usuario) REFERENCES Empleados (id_empleado),
+)
+go
+
+insert into Usuarios values('0318199877441', '12345', '2'),
+('0318199802010', '12345', '1');
+
+go
 
 create table Clientes
 (

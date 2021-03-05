@@ -8,15 +8,14 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-   public class DAT_Empleados
+    public class DAT_Empleados
     {
 
         private DAT_Conexion conexion = new DAT_Conexion();
-        SqlDataReader leer;
+        SqlDataReader lee;
         DataTable tablaa = new DataTable();
         SqlCommand comando = new SqlCommand();
 
-        DataTable tabla = new DataTable();
 
         public SqlDataReader VerificarUsuario(string usuario, string contrasenia)
         {
@@ -25,14 +24,13 @@ namespace Datos
             comando.Parameters.AddWithValue("@usuario", usuario);
             comando.Parameters.AddWithValue("@contrasenia", contrasenia);
             comando.CommandType = CommandType.StoredProcedure;
-            leer = comando.ExecuteReader();
+            lee = comando.ExecuteReader();
             conexion.cerrar();
-            return leer;
+            return lee;
         }
 
         public DataTable Mostrar_Empleados()
         {
-            SqlDataReader lee;
             comando.Connection = conexion.abrir();
             comando.CommandText = "Mostrar_Empleados";
             comando.CommandType = CommandType.StoredProcedure;
@@ -44,7 +42,6 @@ namespace Datos
 
         public DataTable Buscar_Empleado(string id_empleado)
         {
-            SqlDataReader lee;
             comando.Connection = conexion.abrir();
             comando.CommandText = "buscar_Empleado";
             comando.CommandType = CommandType.StoredProcedure;
@@ -56,7 +53,7 @@ namespace Datos
             return tablaa;
         }
 
-        public void insertar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado, string contrasenia)
+        public void insertar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "insertar_Empleado";
@@ -74,13 +71,12 @@ namespace Datos
             comando.Parameters.AddWithValue("@id_rol_empleado", idrol);
             comando.Parameters.AddWithValue("@fnacimiento_empleado", fnacimiento);
             comando.Parameters.AddWithValue("@estado", estado);
-            comando.Parameters.AddWithValue("@contrasenia", contrasenia);
 
             comando.ExecuteNonQuery();
             conexion.cerrar();
         }
 
-        public void Editar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado, string contrasenia)
+        public void Editar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "editar_Empleado";
@@ -98,7 +94,6 @@ namespace Datos
             comando.Parameters.AddWithValue("@id_rol_empleado", idrol);
             comando.Parameters.AddWithValue("@fnacimiento_empleado", fnacimiento);
             comando.Parameters.AddWithValue("@estado", estado);
-            comando.Parameters.AddWithValue("@contrasenia", contrasenia);
 
             comando.ExecuteNonQuery();
             conexion.cerrar();
