@@ -113,13 +113,13 @@ create table Inventario
 (
 id_producto int primary key identity(1,1),
 nom_producto nvarchar(80) not null,
-id_marca int,
+id_marca int not null,
 Cantidad_por_Unidad nvarchar(50) not null,
 Costo_producto money not null,
 precio_actual money not null,
 stock int not null,
 Estado varchar(20) not null,
-id_categoria int,
+id_categoria int not null,
 CONSTRAINT fk_Inventario_id_categoria FOREIGN KEY (id_categoria) REFERENCES Categorias (id_categoria),
 CONSTRAINT fk_Inventario_id_marca FOREIGN KEY (id_marca) REFERENCES Marcas (id_marca)
 )
@@ -128,13 +128,11 @@ go
 
 create table FacturaCompra
 (
-id_compra int primary key not null identity(1,1),
+id_compra int primary key identity(1,1),
 fecha date not null,
-id_proveedor int,
-id_empleado nvarchar(20),
-id_tipo_pago int,
-descuento float,
-subtotal float,
+id_proveedor int not null,
+id_empleado nvarchar(20) not null,
+id_tipo_pago int not null,
 CONSTRAINT fk_FacturaCompra_id_proveedor FOREIGN KEY (id_proveedor) REFERENCES Proveedores (id_proveedor),
 CONSTRAINT fk_FacturaCompra_empleado FOREIGN KEY (id_empleado) REFERENCES Empleados (id_empleado),
 CONSTRAINT fk_FacturaCompra_tipo_pago FOREIGN KEY (id_tipo_pago) REFERENCES TipoPago (id_tipo_pago)
@@ -143,14 +141,19 @@ go
 
 create table DetalleCompra
 (
-id_detalle_compra int not null identity(1,1),
-id_producto int,
+id_detalle_compra int identity(1,1),
+id_compra int not null,
+id_producto int not null,
+id_categoria int not null,
 precio money not null,
 cantidad int not null,
-isv float,
-id_categoria int,
+isv float not null,
+descuento float not null,
+subtotal float not null
+
 CONSTRAINT fk_DetalleCompra_id_categoria FOREIGN KEY (id_categoria) REFERENCES Categorias (id_categoria),
 CONSTRAINT fk_DetalleCompra_id_producto FOREIGN KEY (id_producto) REFERENCES Inventario (id_producto),
+CONSTRAINT fk_DetalleCompra_id_compra FOREIGN KEY (id_compra) REFERENCES FacturaCompra (id_compra),
 CONSTRAINT pk_DetalleCompra PRIMARY KEY (id_detalle_compra,id_producto)
 )
 go
@@ -158,12 +161,10 @@ go
 create table FacturaVenta
 (
 id_venta int primary key not null identity(1,1),
-fecha date,
-id_cliente nvarchar(20),
-id_empleado nvarchar(20),
-id_tipo_pago int,
-descuento float,
-subtotal float,
+fecha date not null,
+id_cliente nvarchar(20) not null,
+id_empleado nvarchar(20) not null,
+id_tipo_pago int not null,
 CONSTRAINT fk_FacturaVenta_cliente FOREIGN KEY (id_cliente) REFERENCES Clientes (id_cliente),
 CONSTRAINT fk_FacturaVenta_empleado FOREIGN KEY (id_empleado) REFERENCES Empleados (id_empleado),
 CONSTRAINT fk_FacturaVenta_tipo_pago FOREIGN KEY (id_tipo_pago) REFERENCES TipoPago (id_tipo_pago)
@@ -173,10 +174,12 @@ go
 create table DetalleVenta
 (
 id_detalle_venta int not null identity(1,1),
-id_producto int,
-id_venta int,
+id_producto int not null,
+id_venta int not null,
 precio money not null,
 cantidad int not null,
+descuento float not null,
+subtotal float not null,
 isv float,
 CONSTRAINT fk_DetalleVenta_id_compra FOREIGN KEY (id_venta) REFERENCES FacturaVenta (id_venta),
 CONSTRAINT fk_DetalleVenta_id_producto FOREIGN KEY (id_producto) REFERENCES Inventario (id_producto),
@@ -188,19 +191,22 @@ create table Bancos
 (
 id_banco int primary key identity(1,1),
 descripcion nvarchar(50) not null,
-direccion nvarchar(80) not null
+direccion nvarchar(80) not null,
+ciudad nvarchar(80) not null,
+region nvarchar(80) not null,
+codigo_postal nvarchar(80) not null
 )
 go
 
 create table Cheques(
 numero_cuenta varchar(40) not null primary key,
-fecha date,
+fecha date not null,
 id_cliente nvarchar(20),
 ruta_bancaria nvarchar(40) not null,
 numero_cheque nvarchar(40) not null,
 monto money not null,
-id_banco int,
-id_tipo_pago int,
+id_banco int not null,
+id_tipo_pago int not null,
 CONSTRAINT fk_Cheques_id_cliente FOREIGN KEY (id_cliente) REFERENCES Clientes (id_cliente),
 CONSTRAINT fk_Cheques_id_banco FOREIGN KEY (id_banco) REFERENCES Bancos (id_banco),
 CONSTRAINT fk_Cheques_id_tipo_pago FOREIGN KEY (id_tipo_pago) REFERENCES TipoPago (id_tipo_pago)

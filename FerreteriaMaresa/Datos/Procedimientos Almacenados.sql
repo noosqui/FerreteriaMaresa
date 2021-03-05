@@ -64,55 +64,21 @@ as
 
 go
 
-create PROCEDURE Mostrar_Empleados_Activos
+create PROCEDURE Mostrar_Empleados
 as
 SELECT        dbo.Empleados.id_empleado 'Identidad', dbo.Empleados.nom_empleado +' '+ dbo.Empleados.apellido_empleado as 'Nombre Empleado', dbo.Empleados.correo_empleado as 'Correo', dbo.Empleados.telefono_empleado as 'Teléfono', dbo.Empleados.direccion as 'Dirección', dbo.Empleados.ciudad as 'Ciudad', 
                          dbo.Empleados.region as 'Región', dbo.Empleados.codigo_postal as 'Codigo Postal', dbo.Empleados.pais as 'País', dbo.Roles.descripcion as 'Rol', dbo.Empleados.fnacimiento_empleado 'Fecha de Nacimiento', dbo.Empleados.Estado
 FROM            dbo.Empleados INNER JOIN
                          dbo.Roles ON dbo.Empleados.id_rol_empleado = dbo.Roles.id_rol
-						 where dbo.Empleados.Estado = 'Activo'
 order by dbo.Empleados.id_empleado ASC
 
-go						
-
-create PROCEDURE Mostrar_Empleados_Despedidos
-as
-SELECT        dbo.Empleados.id_empleado as 'Identidad', dbo.Empleados.nom_empleado +' '+ dbo.Empleados.apellido_empleado as 'Nombre Empleado', dbo.Empleados.correo_empleado as 'Correo', dbo.Empleados.telefono_empleado as 'Teléfono', dbo.Empleados.direccion as 'Dirección', dbo.Empleados.ciudad as 'Ciudad', 
-                         dbo.Empleados.region as 'Región', dbo.Empleados.codigo_postal as 'Codigo Postal', dbo.Empleados.pais as 'País', dbo.Roles.descripcion as 'Rol', dbo.Empleados.fnacimiento_empleado 'Fecha de Nacimiento', dbo.Empleados.Estado
-FROM            dbo.Empleados INNER JOIN
-                         dbo.Roles ON dbo.Empleados.id_rol_empleado = dbo.Roles.id_rol
-						 where dbo.Empleados.Estado = 'Despedido'
-order by dbo.Empleados.id_empleado ASC
-
-go	
-
- exec.Mostrar_Empleados_Activos
- exec.Mostrar_Empleados_Despedidos
- go
-
---Buscar Empleado
-create procedure buscar_Empleado_Despedido
+create procedure buscar_Empleado
 @idempleado nvarchar(20)
 as
 select dbo.Empleados.id_empleado as 'Identidad', dbo.Empleados.nom_empleado +' '+ dbo.Empleados.apellido_empleado as 'Nombre Empleado', dbo.Empleados.correo_empleado as 'Correo', dbo.Empleados.telefono_empleado as 'Teléfono', dbo.Empleados.direccion as 'Dirección', dbo.Empleados.ciudad as 'Ciudad', 
                          dbo.Empleados.region as 'Región', dbo.Empleados.codigo_postal as 'Codigo Postal', dbo.Empleados.pais as 'País', dbo.Roles.descripcion as 'Rol', dbo.Empleados.fnacimiento_empleado 'Fecha de Nacimiento', dbo.Empleados.Estado
 	  FROM            dbo.Empleados INNER JOIN
                          dbo.Roles ON dbo.Empleados.id_rol_empleado = dbo.Roles.id_rol
-	where dbo.Empleados.id_empleado like '%' +@idempleado+ '%' and dbo.Empleados.Estado like '%' +'Despedido'+ '%'
+	where dbo.Empleados.id_empleado like '%' +@idempleado+ '%'
 
 	go
-
-	create procedure buscar_Empleado_Activo
-@idempleado nvarchar(20)
-as
-select dbo.Empleados.id_empleado as 'Identidad', dbo.Empleados.nom_empleado +' '+ dbo.Empleados.apellido_empleado as 'Nombre Empleado', dbo.Empleados.correo_empleado as 'Correo', dbo.Empleados.telefono_empleado as 'Teléfono', dbo.Empleados.direccion as 'Dirección', dbo.Empleados.ciudad as 'Ciudad', 
-                         dbo.Empleados.region as 'Región', dbo.Empleados.codigo_postal as 'Codigo Postal', dbo.Empleados.pais as 'País', dbo.Roles.descripcion as 'Rol', dbo.Empleados.fnacimiento_empleado 'Fecha de Nacimiento', dbo.Empleados.Estado
-	  FROM            dbo.Empleados INNER JOIN
-                         dbo.Roles ON dbo.Empleados.id_rol_empleado = dbo.Roles.id_rol
-	where dbo.Empleados.id_empleado like '%' +@idempleado+ '%' and dbo.Empleados.Estado like '%' +'Activo'+ '%'
-
-	go
-
-exec.buscar_Empleado_Despedido '0318199230254'
-exec.buscar_Empleado_Activo '0318199802010'
-
