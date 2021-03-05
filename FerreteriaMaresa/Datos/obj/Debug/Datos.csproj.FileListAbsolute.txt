@@ -4,9 +4,18 @@ C:\Users\andre\Documents\GIT\FerreteriaMaresa\FerreteriaMaresa\Datos\obj\Debug\D
 C:\Users\andre\Documents\GIT\FerreteriaMaresa\FerreteriaMaresa\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
 C:\Users\andre\Documents\GIT\FerreteriaMaresa\FerreteriaMaresa\Datos\obj\Debug\Datos.dll
 C:\Users\andre\Documents\GIT\FerreteriaMaresa\FerreteriaMaresa\Datos\obj\Debug\Datos.pdb
+<<<<<<< HEAD
 C:\Users\ajare\Desktop\Desarrollo de Software\GIT\FerreteriaMaresa\FerreteriaMaresa\Datos\bin\Debug\Datos.dll
 C:\Users\ajare\Desktop\Desarrollo de Software\GIT\FerreteriaMaresa\FerreteriaMaresa\Datos\bin\Debug\Datos.pdb
 C:\Users\ajare\Desktop\Desarrollo de Software\GIT\FerreteriaMaresa\FerreteriaMaresa\Datos\obj\Debug\Datos.csprojAssemblyReference.cache
 C:\Users\ajare\Desktop\Desarrollo de Software\GIT\FerreteriaMaresa\FerreteriaMaresa\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
 C:\Users\ajare\Desktop\Desarrollo de Software\GIT\FerreteriaMaresa\FerreteriaMaresa\Datos\obj\Debug\Datos.dll
 C:\Users\ajare\Desktop\Desarrollo de Software\GIT\FerreteriaMaresa\FerreteriaMaresa\Datos\obj\Debug\Datos.pdb
+=======
+C:\Users\Familia Bustillo\Desktop\gitFrontEnd\FerreteriaMaresa\FerreteriaMaresa\Datos\bin\Debug\Datos.dll
+C:\Users\Familia Bustillo\Desktop\gitFrontEnd\FerreteriaMaresa\FerreteriaMaresa\Datos\bin\Debug\Datos.pdb
+C:\Users\Familia Bustillo\Desktop\gitFrontEnd\FerreteriaMaresa\FerreteriaMaresa\Datos\obj\Debug\Datos.csprojAssemblyReference.cache
+C:\Users\Familia Bustillo\Desktop\gitFrontEnd\FerreteriaMaresa\FerreteriaMaresa\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\Familia Bustillo\Desktop\gitFrontEnd\FerreteriaMaresa\FerreteriaMaresa\Datos\obj\Debug\Datos.dll
+C:\Users\Familia Bustillo\Desktop\gitFrontEnd\FerreteriaMaresa\FerreteriaMaresa\Datos\obj\Debug\Datos.pdb
+>>>>>>> upstream/frontend
