@@ -12,15 +12,13 @@ namespace Datos
     {
         private CD_Conexion conexion = new CD_Conexion();
         SqlDataReader leer;
-
         DataTable tabla = new DataTable();
+        SqlCommand comandoo = new SqlCommand();
 
-       
+
         public DataTable Mostrar_Proveedor()
         {
-            SqlDataReader lee;
-            DataTable tablaa = new DataTable();
-            SqlCommand comandoo = new SqlCommand();
+           
             comandoo.Connection = conexion.abrir();
             comandoo.CommandText = "Mostrar_Proveedor";
             comandoo.CommandType = CommandType.StoredProcedure;
@@ -32,7 +30,7 @@ namespace Datos
 
         public void insertar_Proveedor(string idProveedor, string nombreProveedor, string apellidoProveedor, long telProveedor, string correo, int direccion, string estado)
         {
-            SqlCommand comando = new SqlCommand();
+            
             comando.Connection = conexion.abrir();
             comando.CommandText = "pro_insertar";
             comando.CommandType = CommandType.StoredProcedure;
@@ -45,11 +43,12 @@ namespace Datos
             comando.Parameters.AddWithValue("@Estado", estado);
 
             comando.ExecuteNonQuery();
+            conexion.cerrar();
         }
 
         public void Editar_Proveedores(string idProveedor, string nombreProveedor, string apellidoProveedor, long telProveedor, string correo, int direccion, string estado)
         {
-            SqlCommand comando = new SqlCommand();
+            
             comando.Connection = conexion.abrir();
             comando.CommandText = "modificar_Proveedrores";
             comando.CommandType = CommandType.StoredProcedure;
@@ -62,16 +61,18 @@ namespace Datos
             comando.Parameters.AddWithValue("@Estado", estado);
 
             comando.ExecuteNonQuery();
+            conexion.cerrar();
         }
 
         public void eliminarempleado(string idproveedor)
         {
-            SqlCommand comando = new SqlCommand();
+            
             comando.Connection = conexion.abrir();
             comando.CommandText = "eliminar_proveedor";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@id_proveedor", idproveedor);
             comando.ExecuteNonQuery();
+            conexion.cerrar();
         }
 
     }
