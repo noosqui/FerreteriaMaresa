@@ -13,30 +13,28 @@ namespace Datos
 
         private DAT_Conexion conexion = new DAT_Conexion();
         SqlDataReader leer;
+        DataTable tablaa = new DataTable();
+        SqlCommand comando = new SqlCommand();
 
         DataTable tabla = new DataTable();
 
         public SqlDataReader VerificarUsuario(string usuario, string contrasenia)
         {
-            SqlCommand comando = new SqlCommand();
-            DataTable tabla = new DataTable();
             comando.Connection = conexion.abrir();
             comando.CommandText = "VerificarUsuario";
             comando.Parameters.AddWithValue("@usuario", usuario);
             comando.Parameters.AddWithValue("@contrasenia", contrasenia);
             comando.CommandType = CommandType.StoredProcedure;
             leer = comando.ExecuteReader();
-
+            conexion.cerrar();
             return leer;
         }
 
-        public DataTable Mostrar_Empleados_Activos()
+        public DataTable Mostrar_Empleados()
         {
             SqlDataReader lee;
-            DataTable tablaa = new DataTable();
-            SqlCommand comando = new SqlCommand();
             comando.Connection = conexion.abrir();
-            comando.CommandText = "Mostrar_Empleados_Activos";
+            comando.CommandText = "Mostrar_Empleados";
             comando.CommandType = CommandType.StoredProcedure;
             lee = comando.ExecuteReader();
             tablaa.Load(lee);
@@ -44,13 +42,11 @@ namespace Datos
             return tablaa;
         }
 
-        public DataTable Buscar_Empleado_Activo(string id_empleado)
+        public DataTable Buscar_Empleado(string id_empleado)
         {
             SqlDataReader lee;
-            DataTable tablaa = new DataTable();
-            SqlCommand comando = new SqlCommand();
             comando.Connection = conexion.abrir();
-            comando.CommandText = "buscar_Empleado_Activo";
+            comando.CommandText = "buscar_Empleado";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idempleado", id_empleado);
             comando.ExecuteNonQuery();
@@ -60,38 +56,8 @@ namespace Datos
             return tablaa;
         }
 
-        public DataTable Mostrar_Empleados_Despedidos()
-        {
-            SqlDataReader lee;
-            DataTable tablaa = new DataTable();
-            SqlCommand comando = new SqlCommand();
-            comando.Connection = conexion.abrir();
-            comando.CommandText = "Mostrar_Empleados_Despedidos";
-            comando.CommandType = CommandType.StoredProcedure;
-            lee = comando.ExecuteReader();
-            tablaa.Load(lee);
-            conexion.cerrar();
-            return tablaa;
-        }
-
-        public DataTable Buscar_Empleado_Despedido(string id_empleado)
-        {
-            SqlDataReader lee;
-            DataTable tablaa = new DataTable();
-            SqlCommand comando = new SqlCommand();
-            comando.Connection = conexion.abrir();
-            comando.CommandText = "buscar_Empleado_Despedido";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@idempleado", id_empleado);
-            comando.ExecuteNonQuery();
-            lee = comando.ExecuteReader();
-            tablaa.Load(lee);
-            conexion.cerrar();
-            return tablaa;
-        }
         public void insertar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado, string contrasenia)
         {
-            SqlCommand comando = new SqlCommand();
             comando.Connection = conexion.abrir();
             comando.CommandText = "insertar_Empleado";
             comando.CommandType = CommandType.StoredProcedure;
@@ -111,11 +77,11 @@ namespace Datos
             comando.Parameters.AddWithValue("@contrasenia", contrasenia);
 
             comando.ExecuteNonQuery();
+            conexion.cerrar();
         }
 
         public void Editar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado, string contrasenia)
         {
-            SqlCommand comando = new SqlCommand();
             comando.Connection = conexion.abrir();
             comando.CommandText = "editar_Empleado";
             comando.CommandType = CommandType.StoredProcedure;
@@ -135,17 +101,17 @@ namespace Datos
             comando.Parameters.AddWithValue("@contrasenia", contrasenia);
 
             comando.ExecuteNonQuery();
+            conexion.cerrar();
         }
 
         public void DespedirEmpleado(string idempleado)
         {
-            SqlCommand comando = new SqlCommand();
             comando.Connection = conexion.abrir();
             comando.CommandText = "Despedir_Empleado";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idempleado", idempleado);
             comando.ExecuteNonQuery();
-
+            conexion.cerrar();
         }
     }
 }
