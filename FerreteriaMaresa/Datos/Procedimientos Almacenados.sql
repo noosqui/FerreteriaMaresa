@@ -26,10 +26,9 @@ create procedure insertar_Empleado
 	@pais as nvarchar(80),
 	@id_rol_empleado as int,
 	@fnacimiento_empleado as date,
-	@estado as varchar(20),
-	@contrasenia as nvarchar(80)    
+	@estado as varchar(20)  
 	as begin
-		insert into Empleados values(@idEmpleado, @nombreEmpleado, @apellidoEmpleado, @correoEmpleado, @telEmpleado, @direccion, @ciudad, @region,  @codigo_postal, @pais, @id_rol_empleado, @fnacimiento_empleado, @estado, @contrasenia) 
+		insert into Empleados values(@idEmpleado, @nombreEmpleado, @apellidoEmpleado, @correoEmpleado, @telEmpleado, @direccion, @ciudad, @region,  @codigo_postal, @pais, @id_rol_empleado, @fnacimiento_empleado, @estado) 
 end
 go
 
@@ -47,10 +46,9 @@ create procedure editar_Empleado
 	@pais as nvarchar(80),
 	@id_rol_empleado as int,
 	@fnacimiento_empleado as date,
-	@estado as varchar(20),
-	@contrasenia as nvarchar(80)      
+	@estado as varchar(20)    
 	as 
-	   update Empleados set id_empleado=@idEmpleado, nom_empleado=@nombreEmpleado, apellido_empleado=@apellidoEmpleado, correo_empleado=@correoEmpleado, telefono_empleado=@telEmpleado, direccion=@direccion, ciudad=@ciudad, region=@region, codigo_postal=@codigo_postal, pais=@pais, id_rol_empleado=@id_rol_empleado, fnacimiento_empleado=@fnacimiento_empleado, Estado=@estado, contrasenia=@contrasenia
+	   update Empleados set id_empleado=@idEmpleado, nom_empleado=@nombreEmpleado, apellido_empleado=@apellidoEmpleado, correo_empleado=@correoEmpleado, telefono_empleado=@telEmpleado, direccion=@direccion, ciudad=@ciudad, region=@region, codigo_postal=@codigo_postal, pais=@pais, id_rol_empleado=@id_rol_empleado, fnacimiento_empleado=@fnacimiento_empleado, Estado=@estado
 	   where id_empleado=@idEmpleado
 go
 
