@@ -81,8 +81,3 @@ select dbo.Empleados.id_empleado as 'Identidad', dbo.Empleados.nom_empleado +' '
 
 	go
 
-	create PROCEDURE Mostrar_Proveedores
-as
-SELECT        nom_proveedor + '' +apellido_proveedor as 'Nombre Proveedor', telefono as Teléfono, correo as Correo, direccion as Dirección, ciudad as Ciudad, region as Región, codigo_postal as 'Codigo Postal' , pais as País, Estado
-FROM            dbo.Proveedores
-go
