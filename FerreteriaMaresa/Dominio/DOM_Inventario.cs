@@ -18,46 +18,93 @@ namespace Dominio
         private double costo_producto;
         private double precio_actual;
         private int stock;
+        private string estado;
         private int id_categoria;
 
-        //Procedure
-
-        //string query =
-        //    "INSERT INTO Inventario (nom_producto, id_marca, Cantidad_por_Unidad, Costo_producto, precio_actual, stock, id_categoria)" +
-        //    "VALUES (@nom_producto, @id_marca, @Cantidad_por_Unidad, @Costo_producto, @precio_actual, @stock, @id_categoria)";
-        //conexion.Open(); //Cuando tengamos conexion
-        //SqlCommand comando = new SqlComand(Query, conexion);
-        //comando.Parameters.AddWithValue("@nom_producto", txtNombre.text);
-        //comando.Parameters.AddWithValue("@id_marca", txtMarca.text);
-        //comando.Parameters.AddWithValue("@Cantidad_por_Unidad", txtCantidad.text);
-        //comando.Parameters.AddWithValue("@Costo_producto", txtCosto.text);
-        //comando.Parameters.AddWithValue("@precio_actual", txtPrecio.text);
-        //comando.Parameters.AddWithValue("@stock", txtStock.text);
-        //comando.Parameters.AddWithValue("@id_categoria", txtCategoria.text);
-        //comando.ExecuteNonQuery();
+        public DOM_Inventario(string id_producto, string nom_producto, string marca, string cantidad, string costo,
+            string precio_actual, string stock, string estado, string categoria)
+        {
+            this.id_producto = int.Parse(id_producto);
+            this.nom_producto = nom_producto;
+            this.id_marca = int.Parse(marca);
+            this.cantidad_unidad = double.Parse(cantidad);
+            this.costo_producto = double.Parse(costo);
+            this.precio_actual = double.Parse(precio_actual);
+            this.stock = int.Parse(stock);
+            this.estado = estado;
+            this.id_categoria = int.Parse(categoria);
+        }
 
 
-        //Update
+        public int Id_producto
+        {
+            get { return id_producto; }
+            set { id_producto = value; }
 
-        //String query = ("UPDATE Inventario SET " +
-        //    "nom_producto = @nom_producto" +
-        //    "id_marca = @id_marca" +
-        //    "Cantidad_por_Unidad = @Cantidad_por_Unidad" +
-        //    "Costo_producto = @Costo_producto" +
-        //    "precio_actual = @precio_actual" +
-        //    "stock = @stock" +
-        //    "id_categoria = @id_categoria" +
-        //    "WHERE id_producto = @id_producto");
-        //conexion.Open(); //Cuando tengamos conexion
-        //SqlCommand comando = new SqlCommand(Query, conexion);
-        //comando.Parameters.AddWithValue("@nom_producto", txtNombre.text);
-        //comando.Parameters.AddWithValue("@id_marca", txtMarca.text);
-        //comando.Parameters.AddWithValue("@Cantidad_por_Unidad", txtCantidad.text);
-        //comando.Parameters.AddWithValue("@Costo_producto", txtCosto.text);
-        //comando.Parameters.AddWithValue("@precio_actual", txtPrecio.text);
-        //comando.Parameters.AddWithValue("@stock", txtStock.text);
-        //comando.Parameters.AddWithValue("@id_categoria", txtCategoria.text);
-        //conexion.Close();
+        }
+
+        public string Nom_producto
+        {
+            get { return nom_producto; }
+            set { nom_producto = value; }
+        }
+
+        public int Id_marca
+        {
+            get { return id_marca; }
+            set { id_marca = value; }
+        }
+
+        public double Cantidad_unidad
+        {
+            get { return cantidad_unidad; }
+            set { cantidad_unidad = value; }
+        }
+
+        public double Costo_producto
+        {
+            get { return costo_producto; }
+            set { costo_producto = value; }
+        }
+
+        public double Precio_actual
+        {
+            get { return precio_actual; }
+            set { precio_actual = value; }
+        }
+
+        public int Stock
+        {
+            get { return stock; }
+            set { stock = value; }
+        }
+        
+        public string Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
+        
+        public int Id_categoria
+        {
+            get { return id_categoria; }
+            set { id_categoria = value; }
+        }
+
+
+        //Metodos
+        public void insertar_inventario()
+        {
+            // objeto.insertar(id_producto, nom_producto, id_marca, cantidad_unidad, costo_producto, precio_actual,
+            //stock, estado, id_categoria) /
+        }
+
+        public void mostrar_inventario()
+        {
+            // objeto.mostrar(id_producto, nom_producto, id_marca, cantidad_unidad, costo_producto, precio_actual,
+            //stock, estado, id_categoria) /
+        }
+
 
 
 
