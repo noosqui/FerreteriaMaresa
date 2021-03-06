@@ -23,7 +23,6 @@ namespace Dominio
 
         }
         public DOM_Empleados(string empleado, string nombre, string apellido)
-
         {
             this.id_empleado = int.Parse(empleado);
             this.nombre = nombre;
