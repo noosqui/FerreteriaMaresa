@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 ﻿namespace Presentacion
 {
     partial class Inventario
+=======
+﻿
+namespace Presentacion
+{
+    partial class Form1
+>>>>>>> origin/backend
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +35,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
             this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nom_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -187,5 +195,14 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
+=======
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "Form1";
+        }
+
+        #endregion
+>>>>>>> origin/backend
     }
 }
