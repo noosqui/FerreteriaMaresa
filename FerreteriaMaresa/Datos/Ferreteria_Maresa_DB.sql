@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [Ferreteria_Maresa]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Database [Ferreteria_Maresa]    Script Date: 06/03/2021 10:52:23 ******/
 CREATE DATABASE [Ferreteria_Maresa]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,11 +82,14 @@ ALTER DATABASE [Ferreteria_Maresa] SET QUERY_STORE = OFF
 GO
 USE [Ferreteria_Maresa]
 GO
-/****** Object:  Table [dbo].[Bancos]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Table [dbo].[Bancos]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
+Use Ferreteria_Maresa
+
 CREATE TABLE [dbo].[Bancos](
 	[id_banco] [int] IDENTITY(1,1) NOT NULL,
 	[descripcion] [nvarchar](50) NOT NULL,
@@ -100,7 +103,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Categorias]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Table [dbo].[Categorias]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -114,7 +117,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Cheques]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Table [dbo].[Cheques]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -122,19 +125,19 @@ GO
 CREATE TABLE [dbo].[Cheques](
 	[numero_cuenta] [varchar](40) NOT NULL,
 	[fecha] [date] NOT NULL,
-	[id_cliente] [nvarchar](20) NULL,
+	[id_cliente] [nvarchar](20) NOT NULL,
 	[ruta_bancaria] [nvarchar](40) NOT NULL,
 	[numero_cheque] [nvarchar](40) NOT NULL,
 	[monto] [money] NOT NULL,
 	[id_banco] [int] NOT NULL,
 	[id_tipo_pago] [int] NOT NULL,
-PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK__Cheques__C6B74B89D35CBA1E] PRIMARY KEY CLUSTERED 
 (
 	[numero_cuenta] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Clientes]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Table [dbo].[Clientes]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -156,7 +159,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[DetalleCompra]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Table [dbo].[DetalleCompra]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -164,17 +167,16 @@ GO
 CREATE TABLE [dbo].[DetalleCompra](
 	[id_detalle_compra] [int] IDENTITY(1,1) NOT NULL,
 	[id_producto] [int] NOT NULL,
-	[id_compra] [int] NULL,
+	[id_compra] [int] NOT NULL,
 	[precio] [money] NOT NULL,
 	[cantidad] [int] NOT NULL,
-	[isv] [float] NULL,
  CONSTRAINT [PK_DetalleCompra_1] PRIMARY KEY CLUSTERED 
 (
 	[id_detalle_compra] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[DetalleVenta]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Table [dbo].[DetalleVenta]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -182,17 +184,16 @@ GO
 CREATE TABLE [dbo].[DetalleVenta](
 	[id_detalle_venta] [int] IDENTITY(1,1) NOT NULL,
 	[id_producto] [int] NOT NULL,
-	[id_venta] [int] NULL,
+	[id_venta] [int] NOT NULL,
 	[precio] [money] NOT NULL,
 	[cantidad] [int] NOT NULL,
-	[isv] [float] NULL,
  CONSTRAINT [PK_DetalleVenta_1] PRIMARY KEY CLUSTERED 
 (
 	[id_detalle_venta] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Empleados]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Table [dbo].[Empleados]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -217,7 +218,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FacturaCompra]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Table [dbo].[FacturaCompra]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -225,39 +226,39 @@ GO
 CREATE TABLE [dbo].[FacturaCompra](
 	[id_compra] [int] IDENTITY(1,1) NOT NULL,
 	[fecha] [date] NOT NULL,
-	[id_producto] [int] NULL,
-	[id_proveedor] [int] NULL,
-	[id_empleado] [nvarchar](20) NULL,
-	[id_tipo_pago] [int] NULL,
-	[descuento] [float] NULL,
-	[subtotal] [float] NULL,
-PRIMARY KEY CLUSTERED 
+	[id_proveedor] [int] NOT NULL,
+	[id_empleado] [nvarchar](20) NOT NULL,
+	[id_tipo_pago] [int] NOT NULL,
+	[descuento] [float] NOT NULL,
+	[subtotal] [float] NOT NULL,
+	[isv] [float] NOT NULL,
+ CONSTRAINT [PK__FacturaC__C4BAA60441121C89] PRIMARY KEY CLUSTERED 
 (
 	[id_compra] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FacturaVenta]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Table [dbo].[FacturaVenta]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[FacturaVenta](
 	[id_venta] [int] IDENTITY(1,1) NOT NULL,
-	[fecha] [date] NULL,
-	[id_producto] [int] NULL,
-	[id_cliente] [nvarchar](20) NULL,
-	[id_empleado] [nvarchar](20) NULL,
-	[id_tipo_pago] [int] NULL,
-	[descuento] [float] NULL,
-	[subtotal] [float] NULL,
-PRIMARY KEY CLUSTERED 
+	[fecha] [date] NOT NULL,
+	[id_cliente] [nvarchar](20) NOT NULL,
+	[id_empleado] [nvarchar](20) NOT NULL,
+	[id_tipo_pago] [int] NOT NULL,
+	[descuento] [float] NOT NULL,
+	[subtotal] [float] NOT NULL,
+	[isv] [float] NOT NULL,
+ CONSTRAINT [PK__FacturaV__459533BF7D9FE543] PRIMARY KEY CLUSTERED 
 (
 	[id_venta] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Inventario]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Table [dbo].[Inventario]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -278,7 +279,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Marcas]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Table [dbo].[Marcas]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -292,7 +293,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Proveedores]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Table [dbo].[Proveedores]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -315,21 +316,21 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Roles]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Table [dbo].[Roles]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Roles](
 	[id_rol] [int] IDENTITY(1,1) NOT NULL,
-	[descripcion] [nvarchar](40) NULL,
-PRIMARY KEY CLUSTERED 
+	[descripcion] [nvarchar](40) NOT NULL,
+ CONSTRAINT [PK__Roles__6ABCB5E057D528D9] PRIMARY KEY CLUSTERED 
 (
 	[id_rol] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TipoPago]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Table [dbo].[TipoPago]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -343,7 +344,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Usuarios]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  Table [dbo].[Usuarios]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -404,11 +405,6 @@ REFERENCES [dbo].[Empleados] ([id_empleado])
 GO
 ALTER TABLE [dbo].[FacturaCompra] CHECK CONSTRAINT [fk_FacturaCompra_empleado]
 GO
-ALTER TABLE [dbo].[FacturaCompra]  WITH CHECK ADD  CONSTRAINT [fk_FacturaCompra_id_producto] FOREIGN KEY([id_producto])
-REFERENCES [dbo].[Inventario] ([id_producto])
-GO
-ALTER TABLE [dbo].[FacturaCompra] CHECK CONSTRAINT [fk_FacturaCompra_id_producto]
-GO
 ALTER TABLE [dbo].[FacturaCompra]  WITH CHECK ADD  CONSTRAINT [fk_FacturaCompra_id_proveedor] FOREIGN KEY([id_proveedor])
 REFERENCES [dbo].[Proveedores] ([id_proveedor])
 GO
@@ -428,11 +424,6 @@ ALTER TABLE [dbo].[FacturaVenta]  WITH CHECK ADD  CONSTRAINT [fk_FacturaVenta_em
 REFERENCES [dbo].[Empleados] ([id_empleado])
 GO
 ALTER TABLE [dbo].[FacturaVenta] CHECK CONSTRAINT [fk_FacturaVenta_empleado]
-GO
-ALTER TABLE [dbo].[FacturaVenta]  WITH CHECK ADD  CONSTRAINT [fk_FacturaVenta_id_producto] FOREIGN KEY([id_producto])
-REFERENCES [dbo].[Inventario] ([id_producto])
-GO
-ALTER TABLE [dbo].[FacturaVenta] CHECK CONSTRAINT [fk_FacturaVenta_id_producto]
 GO
 ALTER TABLE [dbo].[FacturaVenta]  WITH CHECK ADD  CONSTRAINT [fk_FacturaVenta_tipo_pago] FOREIGN KEY([id_tipo_pago])
 REFERENCES [dbo].[TipoPago] ([id_tipo_pago])
@@ -454,7 +445,7 @@ REFERENCES [dbo].[Empleados] ([id_empleado])
 GO
 ALTER TABLE [dbo].[Usuarios] CHECK CONSTRAINT [fk_Empleados_id_empleado]
 GO
-/****** Object:  StoredProcedure [dbo].[buscar_Empleado]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  StoredProcedure [dbo].[buscar_Empleado]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -469,7 +460,7 @@ select dbo.Empleados.id_empleado as 'Identidad', dbo.Empleados.nom_empleado +' '
 	where dbo.Empleados.id_empleado like '%' +@idempleado+ '%'
 
 GO
-/****** Object:  StoredProcedure [dbo].[buscar_Usuario]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  StoredProcedure [dbo].[buscar_Usuario]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -484,7 +475,7 @@ FROM            dbo.Usuarios INNER JOIN
 	where dbo.Usuarios.id_empleado like '%' +@idempleado+ '%'
 
 GO
-/****** Object:  StoredProcedure [dbo].[Despedir_Empleado]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  StoredProcedure [dbo].[Despedir_Empleado]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -496,7 +487,7 @@ as
 	   where id_empleado = @idEmpleado
 
 GO
-/****** Object:  StoredProcedure [dbo].[editar_Empleado]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  StoredProcedure [dbo].[editar_Empleado]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -521,7 +512,7 @@ create procedure [dbo].[editar_Empleado]
 	   update Empleados set id_empleado=@idEmpleado, nom_empleado=@nombreEmpleado, apellido_empleado=@apellidoEmpleado, correo_empleado=@correoEmpleado, telefono_empleado=@telEmpleado, direccion=@direccion, ciudad=@ciudad, region=@region, codigo_postal=@codigo_postal, pais=@pais, id_rol_empleado=@id_rol_empleado, fnacimiento_empleado=@fnacimiento_empleado, Estado=@estado
 	   where id_empleado=@idEmpleado
 GO
-/****** Object:  StoredProcedure [dbo].[insertar_Empleado]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  StoredProcedure [dbo].[insertar_Empleado]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -545,7 +536,7 @@ create procedure [dbo].[insertar_Empleado]
 		insert into Empleados values(@idEmpleado, @nombreEmpleado, @apellidoEmpleado, @correoEmpleado, @telEmpleado, @direccion, @ciudad, @region,  @codigo_postal, @pais, @id_rol_empleado, @fnacimiento_empleado, @estado) 
 end
 GO
-/****** Object:  StoredProcedure [dbo].[Mostrar_Empleados]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  StoredProcedure [dbo].[Mostrar_Empleados]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -558,7 +549,7 @@ FROM            dbo.Empleados INNER JOIN
                          dbo.Roles ON dbo.Empleados.id_rol_empleado = dbo.Roles.id_rol
 order by dbo.Empleados.id_empleado ASC
 GO
-/****** Object:  StoredProcedure [dbo].[ReContratar_Empleado]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  StoredProcedure [dbo].[ReContratar_Empleado]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -570,7 +561,7 @@ as
 	   where id_empleado = @idEmpleado
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Banco]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Banco]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -581,7 +572,7 @@ As
 SELECT        id_banco, descripcion, direccion
 FROM            dbo.Bancos
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Compra]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Compra]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -594,7 +585,7 @@ As
 SELECT        id_compra, fecha, id_producto, id_proveedor, id_empleado, id_tipo_pago, descuento, subtotal
 FROM            dbo.FacturaCompra
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Detalle_Compra]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Detalle_Compra]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -605,7 +596,7 @@ As
 SELECT        id_detalle_compra, id_producto, id_compra, id_categoria, precio, cantidad, isv
 FROM            dbo.DetalleCompra
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Detalle_Venta]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Detalle_Venta]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -616,7 +607,7 @@ As
 SELECT        id_detalle_venta, id_producto, id_venta, precio, cantidad, isv
 FROM            dbo.DetalleVenta
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Inventario]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Inventario]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -626,7 +617,7 @@ As
 SELECT        id_producto, nom_producto, id_marca, Cantidad_por_Unidad, Costo_producto, precio_actual, stock, Estado, id_categoria
 FROM            dbo.Inventario
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Pago_Cheque]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Pago_Cheque]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -641,7 +632,7 @@ SELECT        dbo.TipoPago.id_tipo_pago, dbo.TipoPago.descripcion, dbo.Cheques.n
 FROM            dbo.TipoPago INNER JOIN
                          dbo.Cheques ON dbo.TipoPago.id_tipo_pago = dbo.Cheques.id_tipo_pago
 GO
-/****** Object:  StoredProcedure [dbo].[SP_Venta]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  StoredProcedure [dbo].[SP_Venta]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -651,7 +642,7 @@ As
 SELECT        id_venta, fecha, id_producto, id_cliente, id_empleado, id_tipo_pago, descuento, subtotal
 FROM            dbo.FacturaVenta
 GO
-/****** Object:  StoredProcedure [dbo].[VerificarUsuario]    Script Date: 06/03/2021 0:50:43 ******/
+/****** Object:  StoredProcedure [dbo].[VerificarUsuario]    Script Date: 06/03/2021 10:52:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

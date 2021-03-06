@@ -8,12 +8,12 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class DAT_Empleados
+    public class CD_Empleados
     {
 
-        private DAT_Conexion conexion = new DAT_Conexion();
+        private CD_Conexion conexion = new CD_Conexion();
         SqlDataReader lee;
-        DataTable tablaa = new DataTable();
+        DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
 
 
@@ -25,7 +25,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@contrasenia", contrasenia);
             comando.CommandType = CommandType.StoredProcedure;
             lee = comando.ExecuteReader();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
             return lee;
         }
 
@@ -35,9 +35,9 @@ namespace Datos
             comando.CommandText = "Mostrar_Empleados";
             comando.CommandType = CommandType.StoredProcedure;
             lee = comando.ExecuteReader();
-            tablaa.Load(lee);
-            conexion.cerrar();
-            return tablaa;
+            tabla.Load(lee);
+            comando.Connection = conexion.cerrar();
+            return tabla;
         }
 
         public DataTable Buscar_Empleado(string id_empleado)
@@ -48,9 +48,9 @@ namespace Datos
             comando.Parameters.AddWithValue("@idempleado", id_empleado);
             comando.ExecuteNonQuery();
             lee = comando.ExecuteReader();
-            tablaa.Load(lee);
-            conexion.cerrar();
-            return tablaa;
+            tabla.Load(lee);
+            comando.Connection = conexion.cerrar();
+            return tabla;
         }
 
         public void insertar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado)
@@ -73,7 +73,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@estado", estado);
 
             comando.ExecuteNonQuery();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
         }
 
         public void Editar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado)
@@ -96,7 +96,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@estado", estado);
 
             comando.ExecuteNonQuery();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
         }
 
         public void DespedirEmpleado(string idempleado)
@@ -106,7 +106,17 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idempleado", idempleado);
             comando.ExecuteNonQuery();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
+        }
+
+        public void ReContratarEmpleado(string idempleado)
+        {
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "ReContratar_Empleado";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@idempleado", idempleado);
+            comando.ExecuteNonQuery();
+            comando.Connection = conexion.cerrar();
         }
     }
 }
