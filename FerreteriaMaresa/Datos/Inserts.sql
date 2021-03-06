@@ -29,7 +29,8 @@ Insert into Proveedores values('Sergio Gustavo', 'Espinoza Almendarez', '9415223
 ('Giselle Abigail', 'Mejia Hernandez', '33521699', 'abi_hernz@gmail.com', 'Barrio Limonal', 'Trujillo', 'Colón', '32101', 'Honduras', 'Activo');
 go
 
-insert into TipoPago values('Credito'),
+insert into TipoPago values
+('Credito'),
 ('Contado');
 
 go

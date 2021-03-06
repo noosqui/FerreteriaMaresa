@@ -24,7 +24,7 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             leer = comando.ExecuteReader();
             tabla.Load(leer);
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
             return tabla;
         }
 
@@ -37,7 +37,7 @@ namespace Datos
             comando.ExecuteNonQuery();
             leer = comando.ExecuteReader();
             tabla.Load(leer);
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
             return tabla;
         }
 
@@ -60,7 +60,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@Estado", estado);
 
             comando.ExecuteNonQuery();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
         }
 
         public void Editar_Proveedores(string idProveedor, string nombreProveedor, string apellidoProveedor, long telProveedor, string correo, string direccion, string ciudad, string region, string codigopostal, string pais, string estado)
@@ -82,7 +82,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@Estado", estado);
 
             comando.ExecuteNonQuery();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
         }
 
         public void eliminarempleado(string idproveedor)
@@ -93,7 +93,7 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@id_proveedor", idproveedor);
             comando.ExecuteNonQuery();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
         }
 
         public void Reactivar_proveedor(string idproveedor)
@@ -104,7 +104,7 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@id_proveedor", idproveedor);
             comando.ExecuteNonQuery();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
         }
 
     }

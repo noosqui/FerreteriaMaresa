@@ -23,7 +23,7 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             lee = comando.ExecuteReader();
             tabla.Load(lee);
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
             return tabla;
         }
 
@@ -36,7 +36,7 @@ namespace Datos
             comando.ExecuteNonQuery();
             lee = comando.ExecuteReader();
             tabla.Load(lee);
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
             return tabla;
         }
 
@@ -57,7 +57,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@telefono", telefono);
 
             comando.ExecuteNonQuery();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
         }
 
         public void Editar_Cliente(string idcliente, string nombrecliente, string apellidocliente, string RTN, string direccion, string ciudad, string region, string codigopostal, string pais, long telefono)
@@ -77,7 +77,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@telefono", telefono);
 
             comando.ExecuteNonQuery();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
         }
 
         public void Eliminar_Cliente(string idcliente)
@@ -87,7 +87,7 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idcliente", idcliente);
             comando.ExecuteNonQuery();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
         }
 }
 }
