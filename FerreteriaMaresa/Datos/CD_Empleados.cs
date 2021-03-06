@@ -25,7 +25,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@contrasenia", contrasenia);
             comando.CommandType = CommandType.StoredProcedure;
             lee = comando.ExecuteReader();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
             return lee;
         }
 
@@ -36,7 +36,7 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             lee = comando.ExecuteReader();
             tabla.Load(lee);
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
             return tabla;
         }
 
@@ -49,7 +49,7 @@ namespace Datos
             comando.ExecuteNonQuery();
             lee = comando.ExecuteReader();
             tabla.Load(lee);
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
             return tabla;
         }
 
@@ -73,7 +73,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@estado", estado);
 
             comando.ExecuteNonQuery();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
         }
 
         public void Editar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado)
@@ -96,7 +96,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@estado", estado);
 
             comando.ExecuteNonQuery();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
         }
 
         public void DespedirEmpleado(string idempleado)
@@ -106,7 +106,7 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idempleado", idempleado);
             comando.ExecuteNonQuery();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
         }
 
         public void ReContratarEmpleado(string idempleado)
@@ -116,7 +116,7 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idempleado", idempleado);
             comando.ExecuteNonQuery();
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
         }
     }
 }

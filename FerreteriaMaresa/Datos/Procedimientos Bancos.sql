@@ -12,10 +12,10 @@ exec Mostrar_Bancos
 go
 
 create PROCEDURE Buscar_Bancos
-@Nombrebanco nvarchar(50)
+@id_banco int
 as
 SELECT        id_banco AS 'Id Banco', descripcion AS Nombre, direccion AS Dirección, ciudad AS Ciudad, region AS Región, codigo_postal AS 'Codigo Postal'
 FROM            dbo.Bancos
-	where dbo.Bancos.descripcion like '%' +@Nombrebanco+ '%'
+	where Bancos.id_banco = @id_banco
 
-exec Buscar_Bancos 'Banco de Occidente'
+exec Buscar_Bancos 1

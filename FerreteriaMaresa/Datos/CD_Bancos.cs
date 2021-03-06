@@ -23,7 +23,7 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             lee = comando.ExecuteReader();
             tabla.Load(lee);
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
             return tabla;
         }
 
@@ -36,7 +36,7 @@ namespace Datos
             comando.ExecuteNonQuery();
             lee = comando.ExecuteReader();
             tabla.Load(lee);
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
             return tabla;
         }
 

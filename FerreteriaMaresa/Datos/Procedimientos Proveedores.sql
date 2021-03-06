@@ -61,18 +61,18 @@ create proc pro_insertar
  end
  go
 
- create PROCEDURE Mostrar_Proveedores
+create PROCEDURE Mostrar_Proveedores
 as
-SELECT        nom_proveedor + ' ' +apellido_proveedor as 'Nombre Proveedor', telefono as Teléfono, correo as Correo, direccion as Dirección, ciudad as Ciudad, region as Región, codigo_postal as 'Codigo Postal' , pais as País, Estado
+SELECT        id_proveedor,nom_proveedor + ' ' +apellido_proveedor as 'Nombre Proveedor', telefono as Teléfono, correo as Correo, direccion as Dirección, ciudad as Ciudad, region as Región, codigo_postal as 'Codigo Postal' , pais as País, Estado
 FROM            dbo.Proveedores
 go
 
 create procedure buscar_Proveedores
-@nombre nvarchar(20)
+@id_proveedor int
 as
-SELECT        nom_proveedor + ' ' +apellido_proveedor as 'Nombre Proveedor', telefono as Teléfono, correo as Correo, direccion as Dirección, ciudad as Ciudad, region as Región, codigo_postal as 'Codigo Postal' , pais as País, Estado
+SELECT        id_proveedor,nom_proveedor + ' ' +apellido_proveedor as 'Nombre Proveedor', telefono as Teléfono, correo as Correo, direccion as Dirección, ciudad as Ciudad, region as Región, codigo_postal as 'Codigo Postal' , pais as País, Estado
 FROM            dbo.Proveedores
-	where dbo.Proveedores.nom_proveedor +' '+ dbo.Proveedores.apellido_proveedor like '%' +@nombre+ '%'
+	where dbo.Proveedores.id_proveedor=@id_proveedor
 
 exec Mostrar_Proveedores
-exec buscar_Proveedores 'Denis Noe'
+exec buscar_Proveedores 2
