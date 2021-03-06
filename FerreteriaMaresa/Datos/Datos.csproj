@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAT_Conexion.cs" />
-    <Compile Include="DAT_Empleados.cs" />
+    <Compile Include="CD_Conexion.cs" />
+    <Compile Include="CD_Empleados.cs" />
+    <Compile Include="CD_Proveedores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

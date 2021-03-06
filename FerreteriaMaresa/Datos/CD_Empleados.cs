@@ -8,12 +8,12 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class DAT_Empleados
+    public class CD_Empleados
     {
 
-        private DAT_Conexion conexion = new DAT_Conexion();
+        private CD_Conexion conexion = new CD_Conexion();
         SqlDataReader lee;
-        DataTable tablaa = new DataTable();
+        DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
 
 
@@ -35,9 +35,9 @@ namespace Datos
             comando.CommandText = "Mostrar_Empleados";
             comando.CommandType = CommandType.StoredProcedure;
             lee = comando.ExecuteReader();
-            tablaa.Load(lee);
+            tabla.Load(lee);
             conexion.cerrar();
-            return tablaa;
+            return tabla;
         }
 
         public DataTable Buscar_Empleado(string id_empleado)
@@ -48,9 +48,9 @@ namespace Datos
             comando.Parameters.AddWithValue("@idempleado", id_empleado);
             comando.ExecuteNonQuery();
             lee = comando.ExecuteReader();
-            tablaa.Load(lee);
+            tabla.Load(lee);
             conexion.cerrar();
-            return tablaa;
+            return tabla;
         }
 
         public void insertar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado)

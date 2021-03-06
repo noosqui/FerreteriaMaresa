@@ -9,7 +9,7 @@ using System.Data;
 
 namespace Datos
 {
-  public class DAT_Conexion
+  public class CD_Conexion
     {
         private SqlConnection Conectarbd = new SqlConnection("server=(local);DataBase= Ferreteria_Maresa;Integrated Security=True");
 
