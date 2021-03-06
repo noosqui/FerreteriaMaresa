@@ -18,7 +18,7 @@ namespace Dominio
         private string direccion;
 
 
-        public DATOS_proveedor()
+        public DATOS_proveedor(string empleado,string nombre,string apellido)
         {
             this.id_proveedor = int.Parse(empleado);
             this.nom_proveedor = nombre;
@@ -59,11 +59,11 @@ namespace Dominio
 
         public void editar_proveedor()
         {
-            // objeto.editar_proveedor(id_proveedor, nom_proveedor, apellido_proveedor, correo, long.Parse(telefono), direccion);/
+            // objeto.editar_proveedor(id_proveedor, nom_proveedor, apellido_proveedor, correo, telefono, direccion);/
         }
         public void eliminar_empleado()
         {
-            // objeto.eliminarproveedor_(id_proveedor);/
+            // objeto.eliminarproveedor(id_proveedor);/
         }
         public void crear_proveedor()
         {
