@@ -87,6 +87,9 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+
+Use Ferreteria_Maresa
+
 CREATE TABLE [dbo].[Bancos](
 	[id_banco] [int] IDENTITY(1,1) NOT NULL,
 	[descripcion] [nvarchar](50) NOT NULL,

@@ -28,6 +28,19 @@ namespace Datos
             return tabla;
         }
 
+        public DataTable buscar_Proveedores(string nombre)
+        {
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "buscar_Proveedores";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@nombre", nombre);
+            comando.ExecuteNonQuery();
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conexion.cerrar();
+            return tabla;
+        }
+
         public void insertar_Proveedor(string idProveedor, string nombreProveedor, string apellidoProveedor, long telProveedor, string correo, string direccion, string ciudad, string region, string codigopostal, string pais, string estado)
         {
 
@@ -77,6 +90,17 @@ namespace Datos
 
             comando.Connection = conexion.abrir();
             comando.CommandText = "eliminar_proveedor";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@id_proveedor", idproveedor);
+            comando.ExecuteNonQuery();
+            conexion.cerrar();
+        }
+
+        public void Reactivar_proveedor(string idproveedor)
+        {
+
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "Reactivar_proveedor";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@id_proveedor", idproveedor);
             comando.ExecuteNonQuery();

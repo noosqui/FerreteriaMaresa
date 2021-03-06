@@ -108,5 +108,15 @@ namespace Datos
             comando.ExecuteNonQuery();
             conexion.cerrar();
         }
+
+        public void ReContratarEmpleado(string idempleado)
+        {
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "ReContratar_Empleado";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@idempleado", idempleado);
+            comando.ExecuteNonQuery();
+            conexion.cerrar();
+        }
     }
 }
