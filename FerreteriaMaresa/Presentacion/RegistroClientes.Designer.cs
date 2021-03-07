@@ -60,7 +60,7 @@ namespace Presentacion
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(466, 267);
+            this.textBox7.Location = new System.Drawing.Point(159, 267);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(41, 20);
             this.textBox7.TabIndex = 63;
@@ -70,7 +70,7 @@ namespace Presentacion
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(394, 268);
+            this.label8.Location = new System.Drawing.Point(87, 268);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 16);
             this.label8.TabIndex = 62;
@@ -78,7 +78,7 @@ namespace Presentacion
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(579, 264);
+            this.textBox6.Location = new System.Drawing.Point(311, 259);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 20);
             this.textBox6.TabIndex = 61;
@@ -88,7 +88,7 @@ namespace Presentacion
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(513, 268);
+            this.label7.Location = new System.Drawing.Point(245, 263);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 16);
             this.label7.TabIndex = 60;
@@ -101,7 +101,7 @@ namespace Presentacion
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button6.Location = new System.Drawing.Point(635, 463);
+            this.button6.Location = new System.Drawing.Point(630, 465);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(89, 33);
             this.button6.TabIndex = 59;
@@ -115,7 +115,7 @@ namespace Presentacion
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(527, 463);
+            this.button5.Location = new System.Drawing.Point(522, 465);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(89, 33);
             this.button5.TabIndex = 58;
@@ -129,7 +129,7 @@ namespace Presentacion
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(418, 463);
+            this.button4.Location = new System.Drawing.Point(413, 465);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(89, 33);
             this.button4.TabIndex = 57;
@@ -143,7 +143,7 @@ namespace Presentacion
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAgregar.Location = new System.Drawing.Point(304, 463);
+            this.btnAgregar.Location = new System.Drawing.Point(299, 465);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(89, 33);
             this.btnAgregar.TabIndex = 56;
@@ -155,7 +155,7 @@ namespace Presentacion
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(583, 151);
+            this.label6.Location = new System.Drawing.Point(435, 151);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 20);
             this.label6.TabIndex = 55;
@@ -163,9 +163,9 @@ namespace Presentacion
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(675, 151);
+            this.textBox5.Location = new System.Drawing.Point(527, 151);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.Size = new System.Drawing.Size(226, 20);
             this.textBox5.TabIndex = 54;
             // 
             // label5
@@ -173,7 +173,7 @@ namespace Presentacion
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(583, 106);
+            this.label5.Location = new System.Drawing.Point(435, 106);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 20);
             this.label5.TabIndex = 53;
@@ -181,9 +181,9 @@ namespace Presentacion
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(675, 106);
+            this.textBox4.Location = new System.Drawing.Point(527, 106);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.Size = new System.Drawing.Size(226, 20);
             this.textBox4.TabIndex = 52;
             // 
             // label4
@@ -191,7 +191,7 @@ namespace Presentacion
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(275, 196);
+            this.label4.Location = new System.Drawing.Point(86, 196);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 20);
             this.label4.TabIndex = 51;
@@ -199,9 +199,9 @@ namespace Presentacion
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(367, 196);
+            this.textBox3.Location = new System.Drawing.Point(178, 196);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.Size = new System.Drawing.Size(233, 20);
             this.textBox3.TabIndex = 50;
             // 
             // label3
@@ -209,7 +209,7 @@ namespace Presentacion
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(275, 151);
+            this.label3.Location = new System.Drawing.Point(86, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 49;
@@ -217,9 +217,9 @@ namespace Presentacion
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(367, 151);
+            this.textBox2.Location = new System.Drawing.Point(178, 151);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(233, 20);
             this.textBox2.TabIndex = 48;
             // 
             // label2
@@ -227,7 +227,7 @@ namespace Presentacion
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(275, 107);
+            this.label2.Location = new System.Drawing.Point(86, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 20);
             this.label2.TabIndex = 47;
@@ -240,7 +240,7 @@ namespace Presentacion
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(686, 256);
+            this.button1.Location = new System.Drawing.Point(418, 251);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 33);
             this.button1.TabIndex = 46;
@@ -256,9 +256,9 @@ namespace Presentacion
             this.rtn_cliente,
             this.direccion_cliente,
             this.telefono_cliente});
-            this.dgvEmpleados.Location = new System.Drawing.Point(228, 295);
+            this.dgvEmpleados.Location = new System.Drawing.Point(90, 295);
             this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.Size = new System.Drawing.Size(536, 150);
+            this.dgvEmpleados.Size = new System.Drawing.Size(855, 150);
             this.dgvEmpleados.TabIndex = 45;
             // 
             // id_cliente
@@ -288,9 +288,9 @@ namespace Presentacion
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(367, 107);
+            this.textBox1.Location = new System.Drawing.Point(178, 107);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(233, 20);
             this.textBox1.TabIndex = 44;
             // 
             // label1
