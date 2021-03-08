@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{B0300682-BDBF-4C42-87DF-FBD81408E6FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentacion", "..\..\..\..\source\repos\FerreteriaMaresa\FerreteriaMaresa\Presentacion.csproj", "{7E53BE36-C0A4-454E-86CF-F7F2CEC7BED7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentacion", "Presentacion\Presentacion.csproj", "{8DAACDC6-4036-4B37-B103-5B1252F2F6D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{B0300682-BDBF-4C42-87DF-FBD81408E6FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0300682-BDBF-4C42-87DF-FBD81408E6FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0300682-BDBF-4C42-87DF-FBD81408E6FE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7E53BE36-C0A4-454E-86CF-F7F2CEC7BED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E53BE36-C0A4-454E-86CF-F7F2CEC7BED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E53BE36-C0A4-454E-86CF-F7F2CEC7BED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E53BE36-C0A4-454E-86CF-F7F2CEC7BED7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DAACDC6-4036-4B37-B103-5B1252F2F6D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DAACDC6-4036-4B37-B103-5B1252F2F6D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DAACDC6-4036-4B37-B103-5B1252F2F6D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DAACDC6-4036-4B37-B103-5B1252F2F6D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

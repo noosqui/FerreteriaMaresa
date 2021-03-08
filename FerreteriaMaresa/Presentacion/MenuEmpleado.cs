@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace Presentacion
 {
@@ -53,15 +46,12 @@ namespace Presentacion
 
         private extern static void SendMessage(System.IntPtr hwnd, int wMsg, int wParam, int lParam);
 
-        private void BarraTitulo_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
         private void btnReportesE_Click(object sender, EventArgs e)
         {
-            SubMenuReportes.Visible = true;
+            if (SubMenuReportes.Visible == true)
+                SubMenuReportes.Visible = false;
+            else
+                SubMenuReportes.Visible = true;
         }
 
         private void btnReporteIE_Click(object sender, EventArgs e)
@@ -84,6 +74,12 @@ namespace Presentacion
             this.panelContenedor.Controls.Add(f);
             this.panelContenedor.Tag = f;
             f.Show();
+        }
+
+        private void BarraTitulo_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }
