@@ -1,3 +1,6 @@
+Use Ferreteria_Maresa
+GO
+
 --Mostrar Clientes
 create procedure Mostrar_Clientes
 as
