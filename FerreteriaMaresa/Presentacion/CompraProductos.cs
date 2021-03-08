@@ -21,11 +21,11 @@ namespace Presentacion
             btnModificar.Enabled = false;
             habilitar.Enabled = true;
 
-            nombre.Enabled = true;
-            marcas.Enabled = true;
-            precio.Enabled = true;
-            costo.Enabled = true;
-            CantidadCompra.Enabled = true;
+            txtnombre.Enabled = true;
+            txtmarca.Enabled = true;
+            txtPrecio.Enabled = true;
+            txtCosto.Enabled = true;
+            txtCantidad.Enabled = true;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -48,11 +48,11 @@ namespace Presentacion
             btnModificar.Enabled = true;
             btnEliminar.Enabled = true;
 
-            nombre.Enabled = true;
-            marcas.Enabled = true;
-            precio.Enabled = true;
-            costo.Enabled = true;
-            CantidadCompra.Enabled = true;
+            txtnombre.Enabled = true;
+            txtmarca.Enabled = true;
+            txtPrecio.Enabled = true;
+            txtCosto.Enabled = true;
+            txtCantidad.Enabled = true;
         }
     }
 }

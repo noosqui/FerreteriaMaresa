@@ -39,7 +39,7 @@ namespace Presentacion
             this.costo_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.precio = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -48,19 +48,21 @@ namespace Presentacion
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.CantidadCompra = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.costo = new System.Windows.Forms.TextBox();
+            this.txtCosto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.marcas = new System.Windows.Forms.TextBox();
+            this.txtmarca = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.nombre = new System.Windows.Forms.TextBox();
+            this.txtnombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvListaProductos = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbProveedor = new System.Windows.Forms.ComboBox();
             this.habilitar = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtSubtotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).BeginInit();
             this.SuspendLayout();
@@ -146,13 +148,13 @@ namespace Presentacion
             this.label9.TabIndex = 112;
             this.label9.Text = "Precio Actual:";
             // 
-            // precio
+            // txtPrecio
             // 
-            this.precio.Enabled = false;
-            this.precio.Location = new System.Drawing.Point(243, 203);
-            this.precio.Name = "precio";
-            this.precio.Size = new System.Drawing.Size(100, 20);
-            this.precio.TabIndex = 111;
+            this.txtPrecio.Enabled = false;
+            this.txtPrecio.Location = new System.Drawing.Point(243, 203);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(100, 20);
+            this.txtPrecio.TabIndex = 111;
             // 
             // btnEliminar
             // 
@@ -246,13 +248,13 @@ namespace Presentacion
             this.label6.TabIndex = 102;
             this.label6.Text = "Costo del Producto:";
             // 
-            // CantidadCompra
+            // txtCantidad
             // 
-            this.CantidadCompra.Enabled = false;
-            this.CantidadCompra.Location = new System.Drawing.Point(605, 163);
-            this.CantidadCompra.Name = "CantidadCompra";
-            this.CantidadCompra.Size = new System.Drawing.Size(126, 20);
-            this.CantidadCompra.TabIndex = 101;
+            this.txtCantidad.Enabled = false;
+            this.txtCantidad.Location = new System.Drawing.Point(605, 163);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(126, 20);
+            this.txtCantidad.TabIndex = 101;
             // 
             // label4
             // 
@@ -265,13 +267,13 @@ namespace Presentacion
             this.label4.TabIndex = 100;
             this.label4.Text = "Cantidad a Comprar:";
             // 
-            // costo
+            // txtCosto
             // 
-            this.costo.Enabled = false;
-            this.costo.Location = new System.Drawing.Point(605, 121);
-            this.costo.Name = "costo";
-            this.costo.Size = new System.Drawing.Size(126, 20);
-            this.costo.TabIndex = 99;
+            this.txtCosto.Enabled = false;
+            this.txtCosto.Location = new System.Drawing.Point(605, 121);
+            this.txtCosto.Name = "txtCosto";
+            this.txtCosto.Size = new System.Drawing.Size(126, 20);
+            this.txtCosto.TabIndex = 99;
             // 
             // label3
             // 
@@ -284,13 +286,13 @@ namespace Presentacion
             this.label3.TabIndex = 98;
             this.label3.Text = "Nombre Producto:";
             // 
-            // marcas
+            // txtmarca
             // 
-            this.marcas.Enabled = false;
-            this.marcas.Location = new System.Drawing.Point(243, 163);
-            this.marcas.Name = "marcas";
-            this.marcas.Size = new System.Drawing.Size(100, 20);
-            this.marcas.TabIndex = 97;
+            this.txtmarca.Enabled = false;
+            this.txtmarca.Location = new System.Drawing.Point(243, 163);
+            this.txtmarca.Name = "txtmarca";
+            this.txtmarca.Size = new System.Drawing.Size(100, 20);
+            this.txtmarca.TabIndex = 97;
             // 
             // label2
             // 
@@ -317,13 +319,13 @@ namespace Presentacion
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // nombre
+            // txtnombre
             // 
-            this.nombre.Enabled = false;
-            this.nombre.Location = new System.Drawing.Point(243, 119);
-            this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(100, 20);
-            this.nombre.TabIndex = 94;
+            this.txtnombre.Enabled = false;
+            this.txtnombre.Location = new System.Drawing.Point(243, 119);
+            this.txtnombre.Name = "txtnombre";
+            this.txtnombre.Size = new System.Drawing.Size(100, 20);
+            this.txtnombre.TabIndex = 94;
             // 
             // label5
             // 
@@ -339,9 +341,9 @@ namespace Presentacion
             // dgvListaProductos
             // 
             this.dgvListaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaProductos.Location = new System.Drawing.Point(775, 116);
+            this.dgvListaProductos.Location = new System.Drawing.Point(775, 117);
             this.dgvListaProductos.Name = "dgvListaProductos";
-            this.dgvListaProductos.Size = new System.Drawing.Size(240, 310);
+            this.dgvListaProductos.Size = new System.Drawing.Size(240, 225);
             this.dgvListaProductos.TabIndex = 115;
             // 
             // label10
@@ -355,13 +357,13 @@ namespace Presentacion
             this.label10.TabIndex = 116;
             this.label10.Text = "Proveedor";
             // 
-            // comboBox1
+            // cmbProveedor
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(605, 202);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(126, 21);
-            this.comboBox1.TabIndex = 118;
+            this.cmbProveedor.FormattingEnabled = true;
+            this.cmbProveedor.Location = new System.Drawing.Point(605, 202);
+            this.cmbProveedor.Name = "cmbProveedor";
+            this.cmbProveedor.Size = new System.Drawing.Size(126, 21);
+            this.cmbProveedor.TabIndex = 118;
             // 
             // habilitar
             // 
@@ -378,20 +380,41 @@ namespace Presentacion
             this.habilitar.UseVisualStyleBackColor = false;
             this.habilitar.Click += new System.EventHandler(this.habilitar_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label11.Location = new System.Drawing.Point(771, 363);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(69, 20);
+            this.label11.TabIndex = 121;
+            this.label11.Text = "Subtotal";
+            // 
+            // txtSubtotal
+            // 
+            this.txtSubtotal.Enabled = false;
+            this.txtSubtotal.Location = new System.Drawing.Point(889, 363);
+            this.txtSubtotal.Name = "txtSubtotal";
+            this.txtSubtotal.Size = new System.Drawing.Size(126, 20);
+            this.txtSubtotal.TabIndex = 120;
+            // 
             // CompraProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(1064, 573);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txtSubtotal);
             this.Controls.Add(this.habilitar);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbProveedor);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dgvListaProductos);
             this.Controls.Add(this.dgvProducto);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.precio);
+            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label8);
@@ -400,14 +423,14 @@ namespace Presentacion
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.CantidadCompra);
+            this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.costo);
+            this.Controls.Add(this.txtCosto);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.marcas);
+            this.Controls.Add(this.txtmarca);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.nombre);
+            this.Controls.Add(this.txtnombre);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -432,7 +455,7 @@ namespace Presentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn costo_product;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox precio;
+        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label8;
@@ -441,18 +464,20 @@ namespace Presentacion
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox CantidadCompra;
+        private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox costo;
+        private System.Windows.Forms.TextBox txtCosto;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox marcas;
+        private System.Windows.Forms.TextBox txtmarca;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox nombre;
+        private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvListaProductos;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbProveedor;
         private System.Windows.Forms.Button habilitar;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtSubtotal;
     }
 }

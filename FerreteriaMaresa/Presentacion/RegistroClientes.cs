@@ -20,8 +20,8 @@ namespace Presentacion
             nombre.Enabled = false;
             Apellido.Enabled = false;
             rtn.Enabled = false;
-            direccion.Enabled = false;
-            telefono.Enabled = false;
+            txtDireccion.Enabled = false;
+            txtTelefono.Enabled = false;
         }
 
         private void button6_Click(object sender, System.EventArgs e)
@@ -39,8 +39,8 @@ namespace Presentacion
             nombre.Enabled = true;
             Apellido.Enabled = true;
             rtn.Enabled = true;
-            direccion.Enabled = true;
-            telefono.Enabled = true;
+            txtDireccion.Enabled = true;
+            txtTelefono.Enabled = true;
         }
 
         private void btnMostrar_Click(object sender, System.EventArgs e)
@@ -59,8 +59,8 @@ namespace Presentacion
             nombre.Enabled = true;
             Apellido.Enabled = true;
             rtn.Enabled = true;
-            direccion.Enabled = true;
-            telefono.Enabled = true;
+            txtDireccion.Enabled = true;
+            txtTelefono.Enabled = true;
         }
     }
 }

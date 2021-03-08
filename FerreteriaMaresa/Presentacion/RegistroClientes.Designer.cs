@@ -38,9 +38,9 @@ namespace Presentacion
             this.btnMostrar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.telefono = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.direccion = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.rtn = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,12 +56,20 @@ namespace Presentacion
             this.nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnhabilitar = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtCiudad = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtRegion = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtCodPost = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtPais = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(159, 267);
+            this.textBox7.Location = new System.Drawing.Point(162, 263);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(41, 20);
             this.textBox7.TabIndex = 63;
@@ -71,7 +79,7 @@ namespace Presentacion
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(87, 268);
+            this.label8.Location = new System.Drawing.Point(90, 264);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 16);
             this.label8.TabIndex = 62;
@@ -79,7 +87,7 @@ namespace Presentacion
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(311, 259);
+            this.textBox6.Location = new System.Drawing.Point(299, 264);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 20);
             this.textBox6.TabIndex = 61;
@@ -89,7 +97,7 @@ namespace Presentacion
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(245, 263);
+            this.label7.Location = new System.Drawing.Point(233, 268);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 16);
             this.label7.TabIndex = 60;
@@ -160,38 +168,38 @@ namespace Presentacion
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(435, 151);
+            this.label6.Location = new System.Drawing.Point(680, 194);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 20);
             this.label6.TabIndex = 55;
             this.label6.Text = "Telefono:";
             // 
-            // telefono
+            // txtTelefono
             // 
-            this.telefono.Enabled = false;
-            this.telefono.Location = new System.Drawing.Point(527, 151);
-            this.telefono.Name = "telefono";
-            this.telefono.Size = new System.Drawing.Size(226, 20);
-            this.telefono.TabIndex = 54;
+            this.txtTelefono.Enabled = false;
+            this.txtTelefono.Location = new System.Drawing.Point(787, 196);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(173, 20);
+            this.txtTelefono.TabIndex = 54;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(435, 106);
+            this.label5.Location = new System.Drawing.Point(388, 104);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 20);
+            this.label5.Size = new System.Drawing.Size(75, 20);
             this.label5.TabIndex = 53;
-            this.label5.Text = "Direecion:";
+            this.label5.Text = "Direccion";
             // 
-            // direccion
+            // txtDireccion
             // 
-            this.direccion.Enabled = false;
-            this.direccion.Location = new System.Drawing.Point(527, 106);
-            this.direccion.Name = "direccion";
-            this.direccion.Size = new System.Drawing.Size(226, 20);
-            this.direccion.TabIndex = 52;
+            this.txtDireccion.Enabled = false;
+            this.txtDireccion.Location = new System.Drawing.Point(480, 104);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(173, 20);
+            this.txtDireccion.TabIndex = 52;
             // 
             // label4
             // 
@@ -209,7 +217,7 @@ namespace Presentacion
             this.rtn.Enabled = false;
             this.rtn.Location = new System.Drawing.Point(178, 196);
             this.rtn.Name = "rtn";
-            this.rtn.Size = new System.Drawing.Size(233, 20);
+            this.rtn.Size = new System.Drawing.Size(191, 20);
             this.rtn.TabIndex = 50;
             // 
             // label3
@@ -228,7 +236,7 @@ namespace Presentacion
             this.Apellido.Enabled = false;
             this.Apellido.Location = new System.Drawing.Point(178, 151);
             this.Apellido.Name = "Apellido";
-            this.Apellido.Size = new System.Drawing.Size(233, 20);
+            this.Apellido.Size = new System.Drawing.Size(191, 20);
             this.Apellido.TabIndex = 48;
             // 
             // label2
@@ -249,7 +257,7 @@ namespace Presentacion
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnBuscar.Location = new System.Drawing.Point(418, 251);
+            this.btnBuscar.Location = new System.Drawing.Point(424, 251);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(89, 33);
             this.btnBuscar.TabIndex = 46;
@@ -267,7 +275,7 @@ namespace Presentacion
             this.telefono_cliente});
             this.dgvEmpleados.Location = new System.Drawing.Point(90, 295);
             this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.Size = new System.Drawing.Size(855, 150);
+            this.dgvEmpleados.Size = new System.Drawing.Size(870, 150);
             this.dgvEmpleados.TabIndex = 45;
             // 
             // id_cliente
@@ -300,7 +308,7 @@ namespace Presentacion
             this.nombre.Enabled = false;
             this.nombre.Location = new System.Drawing.Point(178, 107);
             this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(233, 20);
+            this.nombre.Size = new System.Drawing.Size(191, 20);
             this.nombre.TabIndex = 44;
             // 
             // label1
@@ -321,7 +329,7 @@ namespace Presentacion
             this.btnhabilitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnhabilitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnhabilitar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnhabilitar.Location = new System.Drawing.Point(726, 258);
+            this.btnhabilitar.Location = new System.Drawing.Point(885, 258);
             this.btnhabilitar.Name = "btnhabilitar";
             this.btnhabilitar.Size = new System.Drawing.Size(75, 25);
             this.btnhabilitar.TabIndex = 64;
@@ -329,12 +337,96 @@ namespace Presentacion
             this.btnhabilitar.UseVisualStyleBackColor = false;
             this.btnhabilitar.Click += new System.EventHandler(this.habilitar_Click_1);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label9.Location = new System.Drawing.Point(388, 153);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 20);
+            this.label9.TabIndex = 66;
+            this.label9.Text = "Ciudad";
+            // 
+            // txtCiudad
+            // 
+            this.txtCiudad.Enabled = false;
+            this.txtCiudad.Location = new System.Drawing.Point(480, 153);
+            this.txtCiudad.Name = "txtCiudad";
+            this.txtCiudad.Size = new System.Drawing.Size(173, 20);
+            this.txtCiudad.TabIndex = 65;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label10.Location = new System.Drawing.Point(388, 198);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(60, 20);
+            this.label10.TabIndex = 68;
+            this.label10.Text = "Region";
+            // 
+            // txtRegion
+            // 
+            this.txtRegion.Enabled = false;
+            this.txtRegion.Location = new System.Drawing.Point(480, 198);
+            this.txtRegion.Name = "txtRegion";
+            this.txtRegion.Size = new System.Drawing.Size(173, 20);
+            this.txtRegion.TabIndex = 67;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label11.Location = new System.Drawing.Point(680, 104);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(107, 20);
+            this.label11.TabIndex = 70;
+            this.label11.Text = "Codigo Postal";
+            // 
+            // txtCodPost
+            // 
+            this.txtCodPost.Enabled = false;
+            this.txtCodPost.Location = new System.Drawing.Point(787, 104);
+            this.txtCodPost.Name = "txtCodPost";
+            this.txtCodPost.Size = new System.Drawing.Size(173, 20);
+            this.txtCodPost.TabIndex = 69;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label12.Location = new System.Drawing.Point(680, 151);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(43, 20);
+            this.label12.TabIndex = 72;
+            this.label12.Text = "Pais:";
+            // 
+            // txtPais
+            // 
+            this.txtPais.Enabled = false;
+            this.txtPais.Location = new System.Drawing.Point(787, 151);
+            this.txtPais.Name = "txtPais";
+            this.txtPais.Size = new System.Drawing.Size(173, 20);
+            this.txtPais.TabIndex = 71;
+            // 
             // RegistroClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(1048, 534);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txtPais);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txtCodPost);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txtRegion);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtCiudad);
             this.Controls.Add(this.btnhabilitar);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label8);
@@ -345,9 +437,9 @@ namespace Presentacion
             this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.telefono);
+            this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.direccion);
+            this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.rtn);
             this.Controls.Add(this.label3);
@@ -377,9 +469,9 @@ namespace Presentacion
         private System.Windows.Forms.Button btnMostrar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox telefono;
+        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox direccion;
+        private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox rtn;
         private System.Windows.Forms.Label label3;
@@ -395,5 +487,13 @@ namespace Presentacion
         private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnhabilitar;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtCiudad;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtRegion;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtCodPost;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtPais;
     }
 }
