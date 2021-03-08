@@ -1,3 +1,6 @@
+use Ferreteria_Maresa
+go
+
 insert into Roles
 values('Empleado'),
 	('Gerente');
@@ -30,8 +33,8 @@ Insert into Proveedores values('Sergio Gustavo', 'Espinoza Almendarez', '9415223
 go
 
 insert into TipoPago values
-('Credito'),
-('Contado');
+('Cheque'),
+('Efectivo');
 
 go
 insert into Bancos values ('Banco de Occidente', 'Barrio el centro', 'Siguatepeque', 'Comayagua', '12111'),
@@ -55,7 +58,7 @@ values('Herramientas Para el hogar'),
 
 go
 insert into Inventario (nom_producto, id_marca, Cantidad_por_Unidad, Costo_producto, precio_actual, stock, Estado, id_categoria)
-values ('Clavos','1','Libras','25','26','20','Activo','1'),
-('Sierras','2','Unidad','3000','3500','10','Activo','3'),
-('Laminas para techos','3','unidad','150','200','500','Activo','2'),
-('Desarmadores','4','unidad','50','70','300','Activo','1');
+values ('Clavos','1','Caja de 100 Clavos','25','26','20','Activo','1'),
+('Sierras','2','Unidad, Sierra de inglete de 12 pulgadas','3000','3500','10','Activo','3'),
+('Laminas para techos','3','Unidad 5 Metro','150','200','500','Activo','2'),
+('Desarmadores','2','unidad','50','70','300','Activo','1');

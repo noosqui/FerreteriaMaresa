@@ -1,6 +1,0 @@
-﻿/* Cosas a seguir 
-         * 1. Todos los metodos enviaran strings a la capa de dominio
-         * 2. NO convertir nada
-         * 3. Los datos seran tomados de las propiedades getter y setter de los objetos de la capa Dominio
-         * 4. Ponerle frm_nombre a los formularios y dividirlos por carpetas segun el modulo
-         * */

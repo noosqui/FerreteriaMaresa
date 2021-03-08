@@ -18,4 +18,4 @@ SELECT        id_banco AS 'Id Banco', descripcion AS Nombre, direccion AS Direcc
 FROM            dbo.Bancos
 	where Bancos.id_banco = @id_banco
 
-exec Buscar_Bancos 1
+EXEC Buscar_Bancos '1'
