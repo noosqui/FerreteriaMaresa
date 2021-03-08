@@ -14,5 +14,45 @@ namespace Presentacion
         {
 
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
+            habilitar.Enabled = true;
+
+            nombre.Enabled = true;
+            marcas.Enabled = true;
+            precio.Enabled = true;
+            costo.Enabled = true;
+            CantidadCompra.Enabled = true;
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            btnEliminar.Enabled = false;
+            btnAgregar.Enabled = false;
+            habilitar.Enabled = true;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            btnAgregar.Enabled = false;
+            btnModificar.Enabled = false;
+            habilitar.Enabled = true;
+        }
+
+        private void habilitar_Click(object sender, EventArgs e)
+        {
+            btnAgregar.Enabled = true;
+            btnModificar.Enabled = true;
+            btnEliminar.Enabled = true;
+
+            nombre.Enabled = true;
+            marcas.Enabled = true;
+            precio.Enabled = true;
+            costo.Enabled = true;
+            CantidadCompra.Enabled = true;
+        }
     }
 }
