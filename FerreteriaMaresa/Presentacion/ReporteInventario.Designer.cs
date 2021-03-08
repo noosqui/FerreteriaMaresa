@@ -46,7 +46,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(455, 9);
+            this.label1.Location = new System.Drawing.Point(452, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(238, 31);
             this.label1.TabIndex = 35;
@@ -62,9 +62,9 @@
             this.costo_producto,
             this.precio_producto,
             this.stock});
-            this.dgvEmpleados.Location = new System.Drawing.Point(267, 66);
+            this.dgvEmpleados.Location = new System.Drawing.Point(205, 73);
             this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.Size = new System.Drawing.Size(645, 425);
+            this.dgvEmpleados.Size = new System.Drawing.Size(742, 425);
             this.dgvEmpleados.TabIndex = 36;
             // 
             // id_producto

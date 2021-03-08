@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Presentacion
@@ -19,6 +12,70 @@ namespace Presentacion
 
         private void RegistroEmpleado_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
+            btnMostrar.Enabled = false;
+            habilitar.Enabled = true;
+
+            nombre.Enabled = true;
+            Apellido.Enabled = true;
+            correo.Enabled = true;
+            direccion.Enabled = true;
+            telefono.Enabled = true;
+
+        }
+
+        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+            btnEliminar.Enabled = false;
+            btnAgregar.Enabled = false;
+            habilitar.Enabled = true;
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            btnEliminar.Enabled = false;
+            btnAgregar.Enabled = false;
+            habilitar.Enabled = true;
+
+            nombre.Enabled = true;
+            Apellido.Enabled = true;
+            correo.Enabled = true;
+            direccion.Enabled = true;
+            telefono.Enabled = true;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            btnAgregar.Enabled = false;
+            btnModificar.Enabled = false;
+            btnMostrar.Enabled = false;
+            habilitar.Enabled = true;
+        }
+
+        private void habilitar_Click(object sender, EventArgs e)
+        {
+            habilitar.Enabled = false;
+            btnAgregar.Enabled = true;
+            btnModificar.Enabled = true;
+            btnMostrar.Enabled = true;
+            btnEliminar.Enabled = true;
+
+            nombre.Enabled = false;
+            Apellido.Enabled = false;
+            correo.Enabled = false;
+            direccion.Enabled = false;
+            telefono.Enabled = false;
 
         }
     }

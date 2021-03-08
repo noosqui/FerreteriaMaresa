@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace Presentacion
 {
@@ -17,7 +10,7 @@ namespace Presentacion
         {
             InitializeComponent();
         }
-
+        private Form activeform = null;
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -50,15 +43,19 @@ namespace Presentacion
 
         private void panelContenedor_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+
         }
 
         private void AbrirForm(object formulario)
         {
+            if (activeform != null)
+                activeform.Close();
+
+
             if (this.panelContenedor.Controls.Count > 0)
                 this.panelContenedor.Controls.RemoveAt(0);
             Form f = formulario as Form;
+            activeform = f;
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
             this.panelContenedor.Controls.Add(f);
@@ -72,7 +69,7 @@ namespace Presentacion
 
         private void btnCompras_Click(object sender, EventArgs e)
         {
-                AbrirForm(new CompraProductos());        
+            AbrirForm(new CompraProductos());
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
@@ -110,6 +107,25 @@ namespace Presentacion
         private void btnReporteProveedor_Click(object sender, EventArgs e)
         {
             panelSubMenu.Visible = false;
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            if (panelSubMenu.Visible == true)
+                panelSubMenu.Visible = false;
+            else
+                panelSubMenu.Visible = true;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BarraTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }
