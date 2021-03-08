@@ -14,5 +14,14 @@ namespace Presentacion
         {
 
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Id.Enabled = true;
+            Nombre.Enabled = true;
+            Strock.Enabled = true;
+            precio.Enabled = true;
+            Cantidad.Enabled = true;
+        }
     }
 }

@@ -39,27 +39,28 @@ namespace Presentacion
             this.costo_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.precio = new System.Windows.Forms.TextBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.CantidadCompra = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.costo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.marcas = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvListaProductos = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.habilitar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).BeginInit();
             this.SuspendLayout();
@@ -145,26 +146,28 @@ namespace Presentacion
             this.label9.TabIndex = 112;
             this.label9.Text = "Precio Actual:";
             // 
-            // textBox8
+            // precio
             // 
-            this.textBox8.Location = new System.Drawing.Point(243, 203);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 111;
+            this.precio.Enabled = false;
+            this.precio.Location = new System.Drawing.Point(243, 203);
+            this.precio.Name = "precio";
+            this.precio.Size = new System.Drawing.Size(100, 20);
+            this.precio.TabIndex = 111;
             // 
-            // button2
+            // btnEliminar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(520, 460);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(219, 33);
-            this.button2.TabIndex = 110;
-            this.button2.Text = "Eliminar Producto";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEliminar.Location = new System.Drawing.Point(520, 460);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(219, 33);
+            this.btnEliminar.TabIndex = 110;
+            this.btnEliminar.Text = "Eliminar Producto";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // textBox7
             // 
@@ -202,19 +205,20 @@ namespace Presentacion
             this.label7.TabIndex = 106;
             this.label7.Text = "Nombre:";
             // 
-            // button5
+            // btnModificar
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(295, 460);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(219, 33);
-            this.button5.TabIndex = 105;
-            this.button5.Text = "Modificar Producto";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnModificar.Location = new System.Drawing.Point(295, 460);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(219, 33);
+            this.btnModificar.TabIndex = 105;
+            this.btnModificar.Text = "Modificar Producto";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAgregar
             // 
@@ -229,6 +233,7 @@ namespace Presentacion
             this.btnAgregar.TabIndex = 103;
             this.btnAgregar.Text = "Agregar Producto";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // label6
             // 
@@ -241,12 +246,13 @@ namespace Presentacion
             this.label6.TabIndex = 102;
             this.label6.Text = "Costo del Producto:";
             // 
-            // textBox5
+            // CantidadCompra
             // 
-            this.textBox5.Location = new System.Drawing.Point(605, 163);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(126, 20);
-            this.textBox5.TabIndex = 101;
+            this.CantidadCompra.Enabled = false;
+            this.CantidadCompra.Location = new System.Drawing.Point(605, 163);
+            this.CantidadCompra.Name = "CantidadCompra";
+            this.CantidadCompra.Size = new System.Drawing.Size(126, 20);
+            this.CantidadCompra.TabIndex = 101;
             // 
             // label4
             // 
@@ -259,12 +265,13 @@ namespace Presentacion
             this.label4.TabIndex = 100;
             this.label4.Text = "Cantidad a Comprar:";
             // 
-            // textBox3
+            // costo
             // 
-            this.textBox3.Location = new System.Drawing.Point(605, 121);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(126, 20);
-            this.textBox3.TabIndex = 99;
+            this.costo.Enabled = false;
+            this.costo.Location = new System.Drawing.Point(605, 121);
+            this.costo.Name = "costo";
+            this.costo.Size = new System.Drawing.Size(126, 20);
+            this.costo.TabIndex = 99;
             // 
             // label3
             // 
@@ -277,12 +284,13 @@ namespace Presentacion
             this.label3.TabIndex = 98;
             this.label3.Text = "Nombre Producto:";
             // 
-            // textBox2
+            // marcas
             // 
-            this.textBox2.Location = new System.Drawing.Point(243, 163);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 97;
+            this.marcas.Enabled = false;
+            this.marcas.Location = new System.Drawing.Point(243, 163);
+            this.marcas.Name = "marcas";
+            this.marcas.Size = new System.Drawing.Size(100, 20);
+            this.marcas.TabIndex = 97;
             // 
             // label2
             // 
@@ -309,12 +317,13 @@ namespace Presentacion
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // nombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(243, 119);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 94;
+            this.nombre.Enabled = false;
+            this.nombre.Location = new System.Drawing.Point(243, 119);
+            this.nombre.Name = "nombre";
+            this.nombre.Size = new System.Drawing.Size(100, 20);
+            this.nombre.TabIndex = 94;
             // 
             // label5
             // 
@@ -354,35 +363,51 @@ namespace Presentacion
             this.comboBox1.Size = new System.Drawing.Size(126, 21);
             this.comboBox1.TabIndex = 118;
             // 
+            // habilitar
+            // 
+            this.habilitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.habilitar.FlatAppearance.BorderSize = 0;
+            this.habilitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.habilitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.habilitar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.habilitar.Location = new System.Drawing.Point(88, 255);
+            this.habilitar.Name = "habilitar";
+            this.habilitar.Size = new System.Drawing.Size(82, 28);
+            this.habilitar.TabIndex = 119;
+            this.habilitar.Text = "Habilitar";
+            this.habilitar.UseVisualStyleBackColor = false;
+            this.habilitar.Click += new System.EventHandler(this.habilitar_Click);
+            // 
             // CompraProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(1064, 573);
+            this.Controls.Add(this.habilitar);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dgvListaProductos);
             this.Controls.Add(this.dgvProducto);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.precio);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.CantidadCompra);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.costo);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.marcas);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nombre);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -407,26 +432,27 @@ namespace Presentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn costo_product;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox precio;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox CantidadCompra;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox costo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox marcas;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvListaProductos;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button habilitar;
     }
 }

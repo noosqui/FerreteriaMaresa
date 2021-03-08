@@ -43,15 +43,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.precio = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.Strock = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Cantidad = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Nombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Id = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -86,6 +86,7 @@
             this.btnAgregar.TabIndex = 62;
             this.btnAgregar.Text = "Agregar Producto";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // dgvEmpleados
             // 
@@ -193,12 +194,13 @@
             this.label6.TabIndex = 84;
             this.label6.Text = "Precio:";
             // 
-            // textBox5
+            // precio
             // 
-            this.textBox5.Location = new System.Drawing.Point(404, 121);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 83;
+            this.precio.Enabled = false;
+            this.precio.Location = new System.Drawing.Point(404, 121);
+            this.precio.Name = "precio";
+            this.precio.Size = new System.Drawing.Size(100, 20);
+            this.precio.TabIndex = 83;
             // 
             // label5
             // 
@@ -211,12 +213,13 @@
             this.label5.TabIndex = 82;
             this.label5.Text = "Stock:";
             // 
-            // textBox4
+            // Strock
             // 
-            this.textBox4.Location = new System.Drawing.Point(404, 76);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 81;
+            this.Strock.Enabled = false;
+            this.Strock.Location = new System.Drawing.Point(404, 76);
+            this.Strock.Name = "Strock";
+            this.Strock.Size = new System.Drawing.Size(100, 20);
+            this.Strock.TabIndex = 81;
             // 
             // label4
             // 
@@ -229,12 +232,13 @@
             this.label4.TabIndex = 80;
             this.label4.Text = "Cantidad:";
             // 
-            // textBox3
+            // Cantidad
             // 
-            this.textBox3.Location = new System.Drawing.Point(613, 76);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 79;
+            this.Cantidad.Enabled = false;
+            this.Cantidad.Location = new System.Drawing.Point(613, 76);
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Size = new System.Drawing.Size(100, 20);
+            this.Cantidad.TabIndex = 79;
             // 
             // label3
             // 
@@ -247,12 +251,13 @@
             this.label3.TabIndex = 78;
             this.label3.Text = "Nombre Producto:";
             // 
-            // textBox2
+            // Nombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(197, 120);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 77;
+            this.Nombre.Enabled = false;
+            this.Nombre.Location = new System.Drawing.Point(197, 120);
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Size = new System.Drawing.Size(100, 20);
+            this.Nombre.TabIndex = 77;
             // 
             // label2
             // 
@@ -265,12 +270,13 @@
             this.label2.TabIndex = 76;
             this.label2.Text = "Id Producto:";
             // 
-            // textBox1
+            // Id
             // 
-            this.textBox1.Location = new System.Drawing.Point(197, 76);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 75;
+            this.Id.Enabled = false;
+            this.Id.Location = new System.Drawing.Point(197, 76);
+            this.Id.Name = "Id";
+            this.Id.Size = new System.Drawing.Size(100, 20);
+            this.Id.TabIndex = 75;
             // 
             // label9
             // 
@@ -313,15 +319,15 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.precio);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.Strock);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.Cantidad);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.Nombre);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Id);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox6);
@@ -357,15 +363,15 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox precio;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox Strock;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox Cantidad;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Nombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Id;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
