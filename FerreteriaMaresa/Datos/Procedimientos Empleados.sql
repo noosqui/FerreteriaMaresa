@@ -1,5 +1,5 @@
 use Ferreteria_Maresa
-
+GO
 -------------------------PROCEDIMIENTOS ALMACENADOS-------------------------
 ----EMPLEADO----
 
@@ -78,6 +78,7 @@ SELECT        dbo.Empleados.id_empleado 'Identidad', dbo.Empleados.nom_empleado 
 FROM            dbo.Empleados INNER JOIN
                          dbo.Roles ON dbo.Empleados.id_rol_empleado = dbo.Roles.id_rol
 order by dbo.Empleados.id_empleado ASC
+GO
 
 create procedure buscar_Empleado
 @idempleado nvarchar(20)
