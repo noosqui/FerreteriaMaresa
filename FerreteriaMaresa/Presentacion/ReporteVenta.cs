@@ -2,9 +2,9 @@
 
 namespace Presentacion
 {
-    public partial class Inventario : Form
+    public partial class ReporteVenta : Form
     {
-        public Inventario()
+        public ReporteVenta()
         {
             InitializeComponent();
         }

@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CD_Bancos.cs" />
+    <Compile Include="CD_Clientes.cs" />
+    <Compile Include="CD_Conexion.cs" />
+    <Compile Include="CD_Empleados.cs" />
+    <Compile Include="CD_Proveedores.cs" />
+    <Compile Include="Factura Venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
