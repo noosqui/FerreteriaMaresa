@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class DATOS_proveedor
+     public class DOM_proveedor
     {
 
 
@@ -16,16 +16,21 @@ namespace Dominio
         private string correo;
         private string telefono;
         private string direccion;
+        //arreglar direccion
 
 
-        public DATOS_proveedor(string empleado,string nombre,string apellido)
+        public DOM_proveedor(string empleado,string nombre,string apellido)
         {
             this.id_proveedor = int.Parse(empleado);
             this.nom_proveedor = nombre;
             this.apellido_proveedor = apellido;
         }
 
-        public int Id_empleado
+        public DOM_proveedor()
+        {
+
+        }
+        public int Id_proveedor
         {
             get { return id_proveedor; }
             set { id_proveedor = value; }

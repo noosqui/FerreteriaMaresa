@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class DOM_Empleados
+    public class DOM_Empleados
     {
-        private int id_empleado;
+        private string id_empleado;
         private string nombre;
         private string apellido;
         private string correo;
         private string telefono;
         private string direccion;
+        //arreglar 
         private int id_usuario;
         private int tipo_emp;
         private int estado;
@@ -24,12 +25,12 @@ namespace Dominio
         }
         public DOM_Empleados(string empleado, string nombre, string apellido)
         {
-            this.id_empleado = int.Parse(empleado);
+            this.id_empleado = empleado;
             this.nombre = nombre;
             this.apellido = apellido;
         }
 
-        public int Id_empleado
+        public string Id_empleado
         {
             get { return id_empleado; }
             set { id_empleado = value; }
@@ -63,6 +64,16 @@ namespace Dominio
         {
             get { return id_usuario; }
             set { id_usuario = value; }
+        }
+        public int Tipoemp
+        {
+            get { return tipo_emp; }
+            set { tipo_emp = value; }
+        }
+        public int Estado
+        {
+            get { return estado; }
+            set { estado = value; }
         }
 
         public void editar_empleado()

@@ -37,7 +37,7 @@ namespace Presentacion
             this.precio_actual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costo_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnSiguiente = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -123,19 +123,20 @@ namespace Presentacion
             this.costo_product.HeaderText = "Costo";
             this.costo_product.Name = "costo_product";
             // 
-            // button3
+            // btnSiguiente
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(926, 528);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(89, 33);
-            this.button3.TabIndex = 113;
-            this.button3.Text = "Siguiente";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnSiguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnSiguiente.FlatAppearance.BorderSize = 0;
+            this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSiguiente.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSiguiente.Location = new System.Drawing.Point(926, 528);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(89, 33);
+            this.btnSiguiente.TabIndex = 113;
+            this.btnSiguiente.Text = "Siguiente";
+            this.btnSiguiente.UseVisualStyleBackColor = false;
+            this.btnSiguiente.Click += new System.EventHandler(this.button3_Click);
             // 
             // label9
             // 
@@ -412,7 +413,7 @@ namespace Presentacion
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dgvListaProductos);
             this.Controls.Add(this.dgvProducto);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.btnEliminar);
@@ -453,7 +454,7 @@ namespace Presentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_actual;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn costo_product;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnEliminar;

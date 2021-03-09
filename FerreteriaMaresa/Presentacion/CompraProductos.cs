@@ -1,10 +1,17 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Data;
+using Dominio;
 
 namespace Presentacion
 {
     public partial class CompraProductos : Form
     {
+
+        DOM_Empleados empleados = new DOM_Empleados();
+        DOM_Facturacion facturacion = new DOM_Facturacion();
+        DOM_Inventario inventario = new DOM_Inventario();
+
         public CompraProductos()
         {
             InitializeComponent();
@@ -26,6 +33,11 @@ namespace Presentacion
             txtPrecio.Enabled = true;
             txtCosto.Enabled = true;
             txtCantidad.Enabled = true;
+
+            dgvListaProductos.Rows.Add(dgvProducto.SelectedRows, txtCantidad.Text);
+
+
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -53,6 +65,22 @@ namespace Presentacion
             txtPrecio.Enabled = true;
             txtCosto.Enabled = true;
             txtCantidad.Enabled = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            facturacion.InsertarFacturaVenta(empleados, txtSubtotal.Text,"0");
+
+            foreach (DataRow row in dgvListaProductos.Rows)
+            {
+                inventario.Id_producto = row.Field<int>("id_producto");
+                inventario.Id_marca = row.Field<int>("id_marca");
+                inventario.Nom_producto = row.Field<string>("nom_producto");
+                inventario.Cantidad_unidad = row.Field<string>("Cantidad_por_Unidad");
+                inventario.Precio_actual = row.Field<double>("precio_actual");
+                inventario.Id_categoria = row.Field<int>("id_categoria");
+                facturacion.insertarDetalleCompra(row.Field<string>("cantidad"), inventario);
+            }
         }
     }
 }
