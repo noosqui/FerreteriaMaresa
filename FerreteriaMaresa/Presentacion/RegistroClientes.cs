@@ -42,6 +42,16 @@ namespace Presentacion
             rtn.Enabled = true;
             txtDireccion.Enabled = true;
             txtTelefono.Enabled = true;
+<<<<<<< HEAD
+=======
+        }
+
+        private void btnMostrar_Click(object sender, System.EventArgs e)
+        {
+            btnAgregar.Enabled = false;
+            btnEliminar.Enabled = false;
+            btnhabilitar.Enabled = true;
+>>>>>>> upstream/Beta
         }
 
         private void btnModificar_Click(object sender, System.EventArgs e)
@@ -55,6 +65,7 @@ namespace Presentacion
             rtn.Enabled = true;
             txtDireccion.Enabled = true;
             txtTelefono.Enabled = true;
+<<<<<<< HEAD
         }
 
         private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -68,6 +79,8 @@ namespace Presentacion
             txtCodPost.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
             txtPais.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
             txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
+=======
+>>>>>>> upstream/Beta
         }
     }
 }

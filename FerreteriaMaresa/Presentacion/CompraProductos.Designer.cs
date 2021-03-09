@@ -60,6 +60,10 @@ namespace Presentacion
             this.dgvListaProductos = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.cmbProveedor = new System.Windows.Forms.ComboBox();
+<<<<<<< HEAD
+=======
+            this.habilitar = new System.Windows.Forms.Button();
+>>>>>>> upstream/Beta
             this.label11 = new System.Windows.Forms.Label();
             this.txtSubtotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
@@ -366,6 +370,42 @@ namespace Presentacion
             this.cmbProveedor.Size = new System.Drawing.Size(126, 21);
             this.cmbProveedor.TabIndex = 118;
             // 
+<<<<<<< HEAD
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label11.Location = new System.Drawing.Point(771, 363);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(69, 20);
+            this.label11.TabIndex = 121;
+            this.label11.Text = "Subtotal";
+            // 
+            // txtSubtotal
+            // 
+            this.txtSubtotal.Enabled = false;
+            this.txtSubtotal.Location = new System.Drawing.Point(889, 363);
+            this.txtSubtotal.Name = "txtSubtotal";
+            this.txtSubtotal.Size = new System.Drawing.Size(126, 20);
+            this.txtSubtotal.TabIndex = 120;
+=======
+            // habilitar
+            // 
+            this.habilitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.habilitar.FlatAppearance.BorderSize = 0;
+            this.habilitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.habilitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.habilitar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.habilitar.Location = new System.Drawing.Point(88, 255);
+            this.habilitar.Name = "habilitar";
+            this.habilitar.Size = new System.Drawing.Size(82, 28);
+            this.habilitar.TabIndex = 119;
+            this.habilitar.Text = "Habilitar";
+            this.habilitar.UseVisualStyleBackColor = false;
+            this.habilitar.Click += new System.EventHandler(this.habilitar_Click);
+>>>>>>> upstream/Beta
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -393,6 +433,10 @@ namespace Presentacion
             this.ClientSize = new System.Drawing.Size(1064, 573);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtSubtotal);
+<<<<<<< HEAD
+=======
+            this.Controls.Add(this.habilitar);
+>>>>>>> upstream/Beta
             this.Controls.Add(this.cmbProveedor);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dgvListaProductos);
@@ -461,6 +505,10 @@ namespace Presentacion
         private System.Windows.Forms.DataGridView dgvListaProductos;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbProveedor;
+<<<<<<< HEAD
+=======
+        private System.Windows.Forms.Button habilitar;
+>>>>>>> upstream/Beta
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtSubtotal;
     }
