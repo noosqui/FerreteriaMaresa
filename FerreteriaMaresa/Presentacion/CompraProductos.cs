@@ -19,40 +19,37 @@ namespace Presentacion
         {
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
-            habilitar.Enabled = true;
+            btnSiguiente.Visible = true;
 
-            nombre.Enabled = true;
-            marcas.Enabled = true;
-            precio.Enabled = true;
-            costo.Enabled = true;
-            CantidadCompra.Enabled = true;
+            txtnombre.Enabled = true;
+            txtmarca.Enabled = true;
+            txtPrecio.Enabled = true;
+            txtCosto.Enabled = true;
+            txtCantidad.Enabled = true;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             btnEliminar.Enabled = false;
             btnAgregar.Enabled = false;
-            habilitar.Enabled = true;
+            btnSiguiente.Visible = true;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             btnAgregar.Enabled = false;
             btnModificar.Enabled = false;
-            habilitar.Enabled = true;
+            btnSiguiente.Visible = true;
         }
 
-        private void habilitar_Click(object sender, EventArgs e)
+        private void dgvProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnAgregar.Enabled = true;
-            btnModificar.Enabled = true;
-            btnEliminar.Enabled = true;
-
-            nombre.Enabled = true;
-            marcas.Enabled = true;
-            precio.Enabled = true;
-            costo.Enabled = true;
-            CantidadCompra.Enabled = true;
+            txtnombre.Text = dgvProducto.CurrentRow.Cells[1].Value.ToString();
+            txtmarca.Text = dgvProducto.CurrentRow.Cells[2].Value.ToString();
+            txtPrecio.Text = dgvProducto.CurrentRow.Cells[3].Value.ToString();
+            txtCosto.Text = dgvProducto.CurrentRow.Cells[4].Value.ToString();
+            txtCantidad.Text = dgvProducto.CurrentRow.Cells[5].Value.ToString();
+           
         }
     }
 }
