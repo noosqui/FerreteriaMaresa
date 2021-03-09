@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Dominio
 {
@@ -105,7 +106,14 @@ namespace Dominio
             //stock, estado, id_categoria) /
         }
 
+        public void Realizar_venta(DataGridView dgv)
+        {
 
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+               // object.insertar_venta(informacion necesaria)
+            }
+        }
 
 
 
