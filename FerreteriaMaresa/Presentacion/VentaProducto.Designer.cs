@@ -30,7 +30,7 @@
         {
             this.button5 = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.dgvEmpleados = new System.Windows.Forms.DataGridView();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.id_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nom_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,20 +47,21 @@
             this.label5 = new System.Windows.Forms.Label();
             this.Strock = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Cantidad = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Nombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvListProduct = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSubtotal = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
+            this.btnSiguiente = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // button5
@@ -92,20 +93,20 @@
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // dgvEmpleados
+            // dgvProductos
             // 
-            this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_empleado,
             this.nom_empleado,
             this.apellido_empleado,
             this.correo_empleado,
             this.direccion_empleado,
             this.telefono_empleado});
-            this.dgvEmpleados.Location = new System.Drawing.Point(68, 197);
-            this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.Size = new System.Drawing.Size(645, 233);
-            this.dgvEmpleados.TabIndex = 65;
+            this.dgvProductos.Location = new System.Drawing.Point(68, 197);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.Size = new System.Drawing.Size(645, 233);
+            this.dgvProductos.TabIndex = 65;
             // 
             // id_empleado
             // 
@@ -236,13 +237,13 @@
             this.label4.TabIndex = 80;
             this.label4.Text = "Cantidad:";
             // 
-            // Cantidad
+            // txtCantidad
             // 
-            this.Cantidad.Enabled = false;
-            this.Cantidad.Location = new System.Drawing.Point(613, 76);
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Size = new System.Drawing.Size(100, 20);
-            this.Cantidad.TabIndex = 79;
+            this.txtCantidad.Enabled = false;
+            this.txtCantidad.Location = new System.Drawing.Point(613, 76);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(100, 20);
+            this.txtCantidad.TabIndex = 79;
             // 
             // label3
             // 
@@ -289,9 +290,9 @@
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label9.Location = new System.Drawing.Point(823, 80);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(143, 17);
+            this.label9.Size = new System.Drawing.Size(133, 17);
             this.label9.TabIndex = 85;
-            this.label9.Text = "Productos A Comprar";
+            this.label9.Text = "Productos A vender";
             // 
             // label1
             // 
@@ -305,13 +306,13 @@
             this.label1.Text = "Venta Productos";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // dataGridView1
+            // dgvListProduct
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(779, 133);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(261, 217);
-            this.dataGridView1.TabIndex = 87;
+            this.dgvListProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListProduct.Location = new System.Drawing.Point(779, 133);
+            this.dgvListProduct.Name = "dgvListProduct";
+            this.dgvListProduct.Size = new System.Drawing.Size(261, 217);
+            this.dgvListProduct.TabIndex = 87;
             // 
             // label10
             // 
@@ -324,13 +325,13 @@
             this.label10.TabIndex = 89;
             this.label10.Text = "Subtotal:";
             // 
-            // textBox1
+            // txtSubtotal
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(866, 366);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 88;
+            this.txtSubtotal.Enabled = false;
+            this.txtSubtotal.Location = new System.Drawing.Point(866, 366);
+            this.txtSubtotal.Name = "txtSubtotal";
+            this.txtSubtotal.Size = new System.Drawing.Size(100, 20);
+            this.txtSubtotal.TabIndex = 88;
             // 
             // label11
             // 
@@ -343,13 +344,28 @@
             this.label11.TabIndex = 91;
             this.label11.Text = "Descuento:";
             // 
-            // textBox2
+            // txtDescuento
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(855, 410);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(111, 20);
-            this.textBox2.TabIndex = 90;
+            this.txtDescuento.Enabled = false;
+            this.txtDescuento.Location = new System.Drawing.Point(855, 410);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(111, 20);
+            this.txtDescuento.TabIndex = 90;
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnSiguiente.FlatAppearance.BorderSize = 0;
+            this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSiguiente.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSiguiente.Location = new System.Drawing.Point(931, 467);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(109, 33);
+            this.btnSiguiente.TabIndex = 92;
+            this.btnSiguiente.Text = "Siguiente";
+            this.btnSiguiente.UseVisualStyleBackColor = false;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // VentaProducto
             // 
@@ -357,11 +373,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(1080, 574);
+            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtDescuento);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.txtSubtotal);
+            this.Controls.Add(this.dgvListProduct);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
@@ -369,7 +386,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Strock);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.Cantidad);
+            this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Nombre);
             this.Controls.Add(this.label2);
@@ -379,14 +396,14 @@
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dgvEmpleados);
+            this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btnAgregar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VentaProducto";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,7 +413,7 @@
 
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.DataGridView dgvEmpleados;
+        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_empleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn nom_empleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido_empleado;
@@ -413,17 +430,18 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox Strock;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox Cantidad;
+        private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Nombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Id;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvListProduct;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSubtotal;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDescuento;
+        private System.Windows.Forms.Button btnSiguiente;
     }
 }

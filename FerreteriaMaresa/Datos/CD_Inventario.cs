@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 namespace Datos
 {
-    class CD_Inventario
+     public class CD_Inventario
     {
         private CD_Conexion conexion = new CD_Conexion();
         SqlDataReader lee;

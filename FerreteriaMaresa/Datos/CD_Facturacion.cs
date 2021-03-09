@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    class CD_Facturacion
+     public class CD_Facturacion
     {
         private CD_Conexion conexion = new CD_Conexion();
         SqlDataReader lee;
@@ -41,7 +41,7 @@ namespace Datos
             return tabla;
         }
 
-        public void insertar_FacturaCompra(DateTime Fecha, string IdProveedor, string IdEmpleado, int Tipopago, double Descuento, double Subtotal)
+        public void insertar_FacturaCompra(DateTime Fecha, int IdProveedor, string IdEmpleado, int Tipopago, double Descuento, double Subtotal)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "insertar_FacturaCompra";

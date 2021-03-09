@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class DOM_Inventario
+     public class DOM_Inventario
     {
 
         //Atributos 
@@ -14,28 +14,32 @@ namespace Dominio
         private int id_producto;
         private string nom_producto;
         private int id_marca;
-        private double cantidad_unidad;
+        private string cantidad_unidad;
         private double costo_producto;
         private double precio_actual;
         private int stock;
         private string estado;
         private int id_categoria;
+        public DOM_Inventario ()
+        {
 
-        public DOM_Inventario(string id_producto, string nom_producto, string marca, string cantidad, string costo,
-            string precio_actual, string stock, string estado, string categoria)
+        }
+        public DOM_Inventario(
+            string id_producto, string nom_producto, string marca, string cantidad, string costo,
+            string precio_actual, string stock, string estado, string categoria,string cantidad_unidad)
         {
             this.id_producto = int.Parse(id_producto);
             this.nom_producto = nom_producto;
             this.id_marca = int.Parse(marca);
-            this.cantidad_unidad = double.Parse(cantidad);
             this.costo_producto = double.Parse(costo);
             this.precio_actual = double.Parse(precio_actual);
             this.stock = int.Parse(stock);
             this.estado = estado;
             this.id_categoria = int.Parse(categoria);
+            this.cantidad_unidad = cantidad_unidad;
         }
 
-
+ 
         public int Id_producto
         {
             get { return id_producto; }
@@ -55,7 +59,7 @@ namespace Dominio
             set { id_marca = value; }
         }
 
-        public double Cantidad_unidad
+        public string Cantidad_unidad
         {
             get { return cantidad_unidad; }
             set { cantidad_unidad = value; }
