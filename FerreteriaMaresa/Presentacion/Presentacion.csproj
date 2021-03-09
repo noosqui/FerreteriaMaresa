@@ -90,6 +90,12 @@
     <Compile Include="RegistroEmpleado.Designer.cs">
       <DependentUpon>RegistroEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteEmpleados.Designer.cs">
+      <DependentUpon>ReporteEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReporteInventario.cs">
       <SubType>Form</SubType>
     </Compile>

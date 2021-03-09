@@ -20,7 +20,7 @@ namespace Presentacion
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
             btnMostrar.Enabled = false;
-            habilitar.Enabled = true;
+            btnhabilitar.Enabled = true;
 
             nombre.Enabled = true;
             Apellido.Enabled = true;
@@ -39,14 +39,14 @@ namespace Presentacion
         {
             btnEliminar.Enabled = false;
             btnAgregar.Enabled = false;
-            habilitar.Enabled = true;
+            btnhabilitar.Enabled = true;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             btnEliminar.Enabled = false;
             btnAgregar.Enabled = false;
-            habilitar.Enabled = true;
+            btnhabilitar.Enabled = true;
 
             nombre.Enabled = true;
             Apellido.Enabled = true;
@@ -60,12 +60,12 @@ namespace Presentacion
             btnAgregar.Enabled = false;
             btnModificar.Enabled = false;
             btnMostrar.Enabled = false;
-            habilitar.Enabled = true;
+            btnhabilitar.Enabled = true;
         }
 
         private void habilitar_Click(object sender, EventArgs e)
         {
-            habilitar.Enabled = false;
+            btnhabilitar.Enabled = false;
             btnAgregar.Enabled = true;
             btnModificar.Enabled = true;
             btnMostrar.Enabled = true;

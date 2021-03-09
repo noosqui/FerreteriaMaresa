@@ -127,7 +127,7 @@
             this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuVertical.Location = new System.Drawing.Point(0, 35);
             this.MenuVertical.Name = "MenuVertical";
-            this.MenuVertical.Size = new System.Drawing.Size(220, 615);
+            this.MenuVertical.Size = new System.Drawing.Size(220, 565);
             this.MenuVertical.TabIndex = 1;
             // 
             // SubMenuReportes
@@ -237,24 +237,25 @@
             // 
             // panelContenedor
             // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(220, 35);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1080, 615);
-            this.panelContenedor.TabIndex = 2;
+            this.panelContenedor.Size = new System.Drawing.Size(1080, 565);
+            this.panelContenedor.TabIndex = 6;
             // 
             // MenuEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 650);
+            this.ClientSize = new System.Drawing.Size(1300, 600);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.MenuVertical);
             this.Controls.Add(this.BarraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuEmpleado";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.MenuEmpleado_Load);
             this.BarraTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
@@ -274,7 +275,6 @@
         private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel MenuVertical;
-        private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.PictureBox btnRestaurar;
         private System.Windows.Forms.Button btnInventario;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -283,5 +283,6 @@
         private System.Windows.Forms.Panel SubMenuReportes;
         private System.Windows.Forms.Button btnReporteVE;
         private System.Windows.Forms.Button btnReporteIE;
+        private System.Windows.Forms.Panel panelContenedor;
     }
 }
