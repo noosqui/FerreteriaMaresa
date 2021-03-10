@@ -78,7 +78,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAgregar.Location = new System.Drawing.Point(96, 455);
+            this.btnAgregar.Location = new System.Drawing.Point(284, 455);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(201, 33);
             this.btnAgregar.TabIndex = 62;
@@ -88,51 +88,11 @@
             // 
             // dgvProductos
             // 
-
-            this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_empleado,
-            this.nom_empleado,
-            this.apellido_empleado,
-            this.correo_empleado,
-            this.direccion_empleado,
-            this.telefono_empleado});
-            this.dgvEmpleados.Location = new System.Drawing.Point(68, 197);
-            this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.Size = new System.Drawing.Size(645, 233);
-            this.dgvEmpleados.TabIndex = 65;
-            this.dgvEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellContentClick);
-            // 
-            // id_empleado
-            // 
-            this.id_empleado.HeaderText = "Id Empleado";
-            this.id_empleado.Name = "id_empleado";
-            // 
-            // nom_empleado
-            // 
-            this.nom_empleado.HeaderText = "Nombre";
-            this.nom_empleado.Name = "nom_empleado";
-            // 
-            // apellido_empleado
-            // 
-            this.apellido_empleado.HeaderText = "Apellido";
-            this.apellido_empleado.Name = "apellido_empleado";
-            // 
-            // correo_empleado
-            // 
-            this.correo_empleado.HeaderText = "Correo";
-            this.correo_empleado.Name = "correo_empleado";
-            // 
-            // direccion_empleado
-            // 
-            this.direccion_empleado.HeaderText = "Direccion";
-            this.direccion_empleado.Name = "direccion_empleado";
-            // 
-            // telefono_empleado
-            // 
-            this.telefono_empleado.HeaderText = "Telefono";
-            this.telefono_empleado.Name = "telefono_empleado";
-
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Location = new System.Drawing.Point(68, 198);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.Size = new System.Drawing.Size(645, 233);
+            this.dgvProductos.TabIndex = 65;
             // 
             // textBox7
             // 

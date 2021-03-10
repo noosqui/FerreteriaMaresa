@@ -20,7 +20,7 @@ namespace Presentacion
         {
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
-            btnSiguiente.Visible = true;
+            habilitar.Enabled = true;
 
             txtnombre.Enabled = true;
             txtmarca.Enabled = true;
@@ -33,26 +33,18 @@ namespace Presentacion
         {
             btnEliminar.Enabled = false;
             btnAgregar.Enabled = false;
-            btnSiguiente.Visible = true;
+            habilitar.Enabled = true;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             btnAgregar.Enabled = false;
             btnModificar.Enabled = false;
-            btnSiguiente.Visible = true;
+            habilitar.Enabled = true;
         }
 
-        private void dgvProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void habilitar_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            txtnombre.Text = dgvProducto.CurrentRow.Cells[1].Value.ToString();
-            txtmarca.Text = dgvProducto.CurrentRow.Cells[2].Value.ToString();
-            txtPrecio.Text = dgvProducto.CurrentRow.Cells[3].Value.ToString();
-            txtCosto.Text = dgvProducto.CurrentRow.Cells[4].Value.ToString();
-            txtCantidad.Text = dgvProducto.CurrentRow.Cells[5].Value.ToString();
-           
-=======
             btnAgregar.Enabled = true;
             btnModificar.Enabled = true;
             btnEliminar.Enabled = true;
@@ -62,7 +54,6 @@ namespace Presentacion
             txtPrecio.Enabled = true;
             txtCosto.Enabled = true;
             txtCantidad.Enabled = true;
->>>>>>> upstream/Beta
         }
     }
 }

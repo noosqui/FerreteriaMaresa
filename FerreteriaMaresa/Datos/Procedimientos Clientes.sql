@@ -9,7 +9,7 @@ FROM            dbo.Clientes
 order by dbo.Clientes.id_cliente ASC
 go
 
---Insertar Cliente
+--Insertar Empleado
 create procedure insertar_Cliente
 	@idcliente as nvarchar(20),
 	@nombrecliente as nvarchar(80),
