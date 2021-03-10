@@ -80,11 +80,12 @@ namespace Datos
             comando.Connection = conexion.cerrar();
         }
 
-        public DataTable SP_Detalle_Compra()
+        public DataTable SP_Detalle_Compra(int idcompra)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "SP_Detalle_Compra";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@idcompra", idcompra);
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
@@ -104,11 +105,12 @@ namespace Datos
             comando.Connection = conexion.cerrar();
         }
 
-        public DataTable SP_Detalle_Venta()
+        public DataTable SP_Detalle_Venta(int idventa)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "SP_Detalle_Venta";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@idventa", idventa);
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
