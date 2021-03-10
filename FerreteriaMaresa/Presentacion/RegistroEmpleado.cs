@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Dominio;
 
 namespace Presentacion
 {
@@ -82,6 +83,7 @@ namespace Presentacion
             Apellido.Enabled = false;
             correo.Enabled = false;
             txtDireccion.Enabled = false;
+
             txtCiudad.Enabled = false;
             txtRegion.Enabled = false;
             txtCodPost.Enabled = false;
