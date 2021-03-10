@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Presentacion
 {
@@ -15,6 +16,11 @@ namespace Presentacion
         public ReporteEmpleados()
         {
             InitializeComponent();
+        }
+
+        private void ReporteEmpleados_Load(object sender, EventArgs e)
+        {
+            string conexionString = "server=localhost;user=root;password=0te0n2021;datosbase= Ferreteria_Maresa;port=3306";
         }
     }
 }
