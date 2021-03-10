@@ -8,7 +8,7 @@ using System.Data;
 
 namespace Dominio
 {
-    class DOM_Inventario
+     public class DOM_Inventario
     {
 
         //Atributos 
@@ -22,7 +22,7 @@ namespace Dominio
         private int stock;
         private string estado;
         private int id_categoria;
-
+        private CD_Inventario inventario = new CD_Inventario();
         public DOM_Inventario(string id_producto, string nom_producto, string marca, string cantidad, string costo,
             string precio_actual, string stock, string estado, string categoria)
         {
@@ -35,6 +35,10 @@ namespace Dominio
             this.stock = int.Parse(stock);
             this.estado = estado;
             this.id_categoria = int.Parse(categoria);
+        }
+        public DOM_Inventario()
+        {
+
         }
 
 
@@ -101,10 +105,9 @@ namespace Dominio
             //stock, estado, id_categoria) /
         }
 
-        public void mostrar_inventario()
+        public DataTable mostrar_inventario()
         {
-            // objeto.mostrar(id_producto, nom_producto, id_marca, cantidad_unidad, costo_producto, precio_actual,
-            //stock, estado, id_categoria) /
+            return inventario.Mostrar_Inventario();
         }
 
 

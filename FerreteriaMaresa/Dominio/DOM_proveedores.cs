@@ -19,7 +19,10 @@ namespace Dominio
         private string telefono;
         private string direccion;
 
+        public DOM_proveedor()
+        {
 
+        }
         public DOM_proveedor(string empleado,string nombre,string apellido)
         {
             this.id_proveedor = int.Parse(empleado);

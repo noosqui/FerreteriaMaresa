@@ -6,6 +6,7 @@ namespace Presentacion
 {
     public partial class VentaProducto : Form
     {
+        DOM_Inventario inventario = new DOM_Inventario();
         public VentaProducto()
         {
             InitializeComponent();
@@ -23,6 +24,12 @@ namespace Presentacion
             Strock.Enabled = true;
             precio.Enabled = true;
             Cantidad.Enabled = true;
+        }
+
+        private void VentaProducto_Load(object sender, EventArgs e)
+        {
+
+            dgvProductos.DataSource = inventario.mostrar_inventario() ;
         }
     }
 }
