@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Datos;
+using System.Data;
 
 namespace Dominio
 {
-    class DOM_Empleados
+     public class DOM_Empleados
     {
         private int id_empleado;
         private string nombre;

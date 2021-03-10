@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-
+using Dominio;
 namespace Presentacion
 {
     public partial class MenuEmpleado : Form

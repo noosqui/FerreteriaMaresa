@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Dominio;
 
 namespace Presentacion
 {
@@ -30,6 +31,7 @@ namespace Presentacion
             txtRegion.Enabled = true;
             txtCodPost.Enabled = true;
             txtPais.Enabled = true;
+
             txtTelefono.Enabled = true;
 
         }
@@ -57,10 +59,12 @@ namespace Presentacion
             Apellido.Enabled = true;
             correo.Enabled = true;
             txtDireccion.Enabled = true;
+
             txtCiudad.Enabled = true;
             txtRegion.Enabled = true;
             txtCodPost.Enabled = true;
             txtPais.Enabled = true;
+
             txtTelefono.Enabled = true;
         }
 
@@ -82,10 +86,12 @@ namespace Presentacion
             Apellido.Enabled = false;
             correo.Enabled = false;
             txtDireccion.Enabled = false;
+
             txtCiudad.Enabled = false;
             txtRegion.Enabled = false;
             txtCodPost.Enabled = false;
             txtPais.Enabled = false;
+
             txtTelefono.Enabled = false;
 
         }

@@ -1,10 +1,12 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
+using Dominio;
 
 namespace Presentacion
 {
     public partial class VentaProducto : Form
     {
+        DOM_Inventario inventario = new DOM_Inventario();
         public VentaProducto()
         {
             InitializeComponent();
@@ -31,6 +33,12 @@ namespace Presentacion
             Strock.Text = dgvProducto.CurrentRow.Cells[3].Value.ToString();
             precio.Text = dgvProducto.CurrentRow.Cells[4].Value.ToString();
             Cantidad.Text = dgvProducto.CurrentRow.Cells[5].Value.ToString();
+
+        private void VentaProducto_Load(object sender, EventArgs e)
+        {
+
+            dgvProductos.DataSource = inventario.mostrar_inventario() ;
+
         }
     }
 }
