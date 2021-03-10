@@ -6,10 +6,35 @@ namespace Presentacion
 {
     public partial class MenuAdministrador : Form
     {
+        //Fields
+        private Button currentButton;
+        private Random random;
+        private int tempIndex;
+        
         public MenuAdministrador()
         {
             InitializeComponent();
         }
+
+        /*
+        private Color SelectThemeColor()
+        {
+            int index = random.Next(ThemeColor.ColorList.Count);
+            while (tempIndex == index)
+            {
+                random.Next(ThemeColor.ColorList.Count);
+            }
+            tempIndex = index;
+            string color = ThemeColor.ColorList[index];
+            return ColorTranslator.FromHtml(color);
+        }
+
+        private void ActiveButton(object btnSender)
+        {
+            if(btnSender != null)
+        }
+        */
+
         private Form activeform = null;
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -63,8 +88,12 @@ namespace Presentacion
             f.Show();
         }
         private void btnEmpleados_Click(object sender, EventArgs e)
-        {
-            AbrirForm(new RegistroEmpleado());
+        {      
+            if(btnEmpleados != null)
+            {
+                AbrirForm(new RegistroEmpleado());
+                
+            }          
         }
 
         private void btnCompras_Click(object sender, EventArgs e)
@@ -97,6 +126,7 @@ namespace Presentacion
         private void btnReporteEmpleados_Click(object sender, EventArgs e)
         {
             panelSubMenu.Visible = false;
+            AbrirForm(new ReporteEmpleados());
         }
 
         private void btnReporteCompras_Click(object sender, EventArgs e)
@@ -126,6 +156,11 @@ namespace Presentacion
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void BarraTitulo_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

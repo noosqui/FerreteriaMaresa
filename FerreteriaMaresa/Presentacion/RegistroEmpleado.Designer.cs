@@ -74,6 +74,7 @@ namespace Presentacion
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -85,6 +86,7 @@ namespace Presentacion
             // 
             // dgvEmpleados
             // 
+            this.dgvEmpleados.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_empleado,
@@ -155,6 +157,7 @@ namespace Presentacion
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.Location = new System.Drawing.Point(108, 259);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(112, 20);
@@ -162,6 +165,7 @@ namespace Presentacion
             // 
             // textBox6
             // 
+            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox6.Location = new System.Drawing.Point(296, 256);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(112, 20);
@@ -169,6 +173,7 @@ namespace Presentacion
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -180,6 +185,7 @@ namespace Presentacion
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -194,6 +200,7 @@ namespace Presentacion
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -205,6 +212,7 @@ namespace Presentacion
             // 
             // btnAgregar
             // 
+            this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnAgregar.FlatAppearance.BorderSize = 0;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -220,6 +228,7 @@ namespace Presentacion
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -235,6 +244,7 @@ namespace Presentacion
             // 
             // btnModificar
             // 
+            this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnModificar.FlatAppearance.BorderSize = 0;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -250,6 +260,7 @@ namespace Presentacion
             // 
             // btnMostrar
             // 
+            this.btnMostrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnMostrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnMostrar.FlatAppearance.BorderSize = 0;
             this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -265,6 +276,7 @@ namespace Presentacion
             // 
             // nombre
             // 
+            this.nombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nombre.Enabled = false;
             this.nombre.Location = new System.Drawing.Point(183, 100);
             this.nombre.Name = "nombre";
@@ -273,6 +285,7 @@ namespace Presentacion
             // 
             // Apellido
             // 
+            this.Apellido.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Apellido.Enabled = false;
             this.Apellido.Location = new System.Drawing.Point(183, 144);
             this.Apellido.Name = "Apellido";
@@ -281,6 +294,7 @@ namespace Presentacion
             // 
             // correo
             // 
+            this.correo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.correo.Enabled = false;
             this.correo.Location = new System.Drawing.Point(183, 189);
             this.correo.Name = "correo";
@@ -289,6 +303,7 @@ namespace Presentacion
             // 
             // direccion
             // 
+            this.direccion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.direccion.Enabled = false;
             this.direccion.Location = new System.Drawing.Point(473, 97);
             this.direccion.Name = "direccion";
@@ -297,6 +312,7 @@ namespace Presentacion
             // 
             // ciudad
             // 
+            this.ciudad.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ciudad.Enabled = false;
             this.ciudad.Location = new System.Drawing.Point(473, 146);
             this.ciudad.Name = "ciudad";
@@ -305,6 +321,7 @@ namespace Presentacion
             // 
             // region
             // 
+            this.region.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.region.Enabled = false;
             this.region.Location = new System.Drawing.Point(473, 191);
             this.region.Name = "region";
@@ -313,6 +330,7 @@ namespace Presentacion
             // 
             // codpost
             // 
+            this.codpost.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.codpost.Enabled = false;
             this.codpost.Location = new System.Drawing.Point(806, 99);
             this.codpost.Name = "codpost";
@@ -321,6 +339,7 @@ namespace Presentacion
             // 
             // pais
             // 
+            this.pais.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pais.Enabled = false;
             this.pais.Location = new System.Drawing.Point(806, 146);
             this.pais.Name = "pais";
@@ -329,6 +348,7 @@ namespace Presentacion
             // 
             // telefono
             // 
+            this.telefono.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.telefono.Enabled = false;
             this.telefono.Location = new System.Drawing.Point(806, 191);
             this.telefono.Name = "telefono";
@@ -337,6 +357,7 @@ namespace Presentacion
             // 
             // label12
             // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -348,6 +369,7 @@ namespace Presentacion
             // 
             // label11
             // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -359,6 +381,7 @@ namespace Presentacion
             // 
             // label10
             // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -370,6 +393,7 @@ namespace Presentacion
             // 
             // label9
             // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -381,6 +405,7 @@ namespace Presentacion
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -392,6 +417,7 @@ namespace Presentacion
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -403,6 +429,7 @@ namespace Presentacion
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -414,6 +441,7 @@ namespace Presentacion
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -425,6 +453,7 @@ namespace Presentacion
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -436,6 +465,7 @@ namespace Presentacion
             // 
             // btnhabilitar
             // 
+            this.btnhabilitar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnhabilitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnhabilitar.FlatAppearance.BorderSize = 0;
             this.btnhabilitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
