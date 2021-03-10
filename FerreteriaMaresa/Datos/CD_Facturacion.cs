@@ -137,6 +137,30 @@ namespace Datos
             return tabla;
         }
 
+        public DataTable buscar_DetalleVenta(int id_venta)
+        {
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "Buscar_Detalle_Venta";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@idventa", id_venta);
+            comando.ExecuteNonQuery();
+            lee = comando.ExecuteReader();
+            tabla.Load(lee);
+            comando.Connection = conexion.cerrar();
+            return tabla;
+        }
 
+        public DataTable buscar_Detalle_Compra(int id_compra)
+        {
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "Buscar_Detalle_Venta";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@idcompra", id_compra);
+            comando.ExecuteNonQuery();
+            lee = comando.ExecuteReader();
+            tabla.Load(lee);
+            comando.Connection = conexion.cerrar();
+            return tabla;
+        }
     }
 }
