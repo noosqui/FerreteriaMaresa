@@ -48,28 +48,11 @@ Create procedure SP_Detalle_Venta
 As
 SELECT        id_detalle_venta as 'Id Detalle Venta', id_producto as 'Id Producto', id_venta as 'Id Venta', precio as 'Precio', cantidad as 'Cantidad'
 FROM            dbo.DetalleVenta
-go
-
---Buscar Detalle Venta
-Create procedure Buscar_Detalle_Venta
-@idventa int
-As
-SELECT        id_detalle_venta as 'Id Detalle Venta', id_producto as 'Id Producto', id_venta as 'Id Venta', precio as 'Precio', cantidad as 'Cantidad'
-FROM            dbo.DetalleVenta
 where dbo.DetalleVenta.id_venta = @idventa
 go
 
-
 --Mostrar Detalle Compra
 Create procedure SP_Detalle_Compra
-As
-SELECT        id_detalle_compra as 'Id Detalle Compra', id_producto as 'Id Producto', id_compra as 'Id Compra', precio as Precio, cantidad as Cantidad
-FROM            dbo.DetalleCompra
-go
-
---Buscar Detalle Compra
-Create procedure buscar_Detalle_Compra
-@idcompra int
 As
 SELECT        id_detalle_compra as 'Id Detalle Compra', id_producto as 'Id Producto', id_compra as 'Id Compra', precio as Precio, cantidad as Cantidad
 FROM            dbo.DetalleCompra
