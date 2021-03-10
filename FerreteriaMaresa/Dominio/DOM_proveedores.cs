@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Datos;
+using System.Data;
 
 namespace Dominio
 {
-    class DATOS_proveedor
+     public class DOM_proveedor
     {
 
 
@@ -17,8 +19,11 @@ namespace Dominio
         private string telefono;
         private string direccion;
 
+        public DOM_proveedor()
+        {
 
-        public DATOS_proveedor(string empleado,string nombre,string apellido)
+        }
+        public DOM_proveedor(string empleado,string nombre,string apellido)
         {
             this.id_proveedor = int.Parse(empleado);
             this.nom_proveedor = nombre;

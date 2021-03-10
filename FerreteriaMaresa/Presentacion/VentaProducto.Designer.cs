@@ -30,13 +30,7 @@
         {
             this.button5 = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.dgvProducto = new System.Windows.Forms.DataGridView();
-            this.id_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nom_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correo_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direccion_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefono_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -54,13 +48,13 @@
             this.Id = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProductList = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
             this.SuspendLayout();
             // 
             // button5
@@ -91,52 +85,14 @@
             this.btnAgregar.Text = "Agregar Producto";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+          
+            // dgvProductos
             // 
-            // dgvProducto
-            // 
-            this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_empleado,
-            this.nom_empleado,
-            this.apellido_empleado,
-            this.correo_empleado,
-            this.direccion_empleado,
-            this.telefono_empleado});
-            this.dgvProducto.Location = new System.Drawing.Point(68, 197);
-            this.dgvProducto.Name = "dgvProducto";
-            this.dgvProducto.Size = new System.Drawing.Size(645, 233);
-            this.dgvProducto.TabIndex = 65;
-            this.dgvProducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellContentClick);
-            // 
-            // id_empleado
-            // 
-            this.id_empleado.HeaderText = "Id Empleado";
-            this.id_empleado.Name = "id_empleado";
-            // 
-            // nom_empleado
-            // 
-            this.nom_empleado.HeaderText = "Nombre";
-            this.nom_empleado.Name = "nom_empleado";
-            // 
-            // apellido_empleado
-            // 
-            this.apellido_empleado.HeaderText = "Apellido";
-            this.apellido_empleado.Name = "apellido_empleado";
-            // 
-            // correo_empleado
-            // 
-            this.correo_empleado.HeaderText = "Correo";
-            this.correo_empleado.Name = "correo_empleado";
-            // 
-            // direccion_empleado
-            // 
-            this.direccion_empleado.HeaderText = "Direccion";
-            this.direccion_empleado.Name = "direccion_empleado";
-            // 
-            // telefono_empleado
-            // 
-            this.telefono_empleado.HeaderText = "Telefono";
-            this.telefono_empleado.Name = "telefono_empleado";
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Location = new System.Drawing.Point(68, 198);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.Size = new System.Drawing.Size(645, 233);
+            this.dgvProductos.TabIndex = 65;
             // 
             // textBox7
             // 
@@ -306,13 +262,13 @@
             this.label1.Text = "Venta Productos";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // dataGridView1
+            // dgvProductList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(779, 133);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(261, 217);
-            this.dataGridView1.TabIndex = 87;
+            this.dgvProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductList.Location = new System.Drawing.Point(779, 133);
+            this.dgvProductList.Name = "dgvProductList";
+            this.dgvProductList.Size = new System.Drawing.Size(261, 217);
+            this.dgvProductList.TabIndex = 87;
             // 
             // label10
             // 
@@ -362,7 +318,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProductList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
@@ -380,14 +336,15 @@
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dgvProducto);
+            this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btnAgregar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VentaProducto";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.VentaProducto_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,13 +354,8 @@
 
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.DataGridView dgvProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_empleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nom_empleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellido_empleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn correo_empleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn direccion_empleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefono_empleado;
+        private System.Windows.Forms.DataGridView dgvProductos;
+
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox6;
@@ -421,7 +373,7 @@
         private System.Windows.Forms.TextBox Id;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvProductList;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label11;

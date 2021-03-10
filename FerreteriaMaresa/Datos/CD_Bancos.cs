@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    class CD_Bancos
+     public class CD_Bancos
     {
         private CD_Conexion conexion = new CD_Conexion();
         SqlDataReader lee;
