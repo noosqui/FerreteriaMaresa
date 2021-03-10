@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
-using Dominio;
 
 namespace Presentacion
 {
     public partial class VentaProducto : Form
     {
-        DOM_Inventario inventario = new DOM_Inventario();
         public VentaProducto()
         {
             InitializeComponent();
@@ -26,10 +24,13 @@ namespace Presentacion
             Cantidad.Enabled = true;
         }
 
-        private void VentaProducto_Load(object sender, EventArgs e)
+        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            dgvProductos.DataSource = inventario.mostrar_inventario() ;
+            Id.Text = dgvProducto.CurrentRow.Cells[1].Value.ToString();
+            Nombre.Text = dgvProducto.CurrentRow.Cells[2].Value.ToString();
+            Strock.Text = dgvProducto.CurrentRow.Cells[3].Value.ToString();
+            precio.Text = dgvProducto.CurrentRow.Cells[4].Value.ToString();
+            Cantidad.Text = dgvProducto.CurrentRow.Cells[5].Value.ToString();
         }
     }
 }
