@@ -8,7 +8,7 @@ using System.Data;
 
 namespace Dominio
 {
-    class DOM_Empleados
+     public class DOM_Empleados
     {
         private int id_empleado;
         private string nombre;

@@ -26,8 +26,8 @@ namespace Presentacion
             nombre.Enabled = true;
             Apellido.Enabled = true;
             correo.Enabled = true;
-            direccion.Enabled = true;
-            telefono.Enabled = true;
+            txtDireccion.Enabled = true;
+            txtTelefono.Enabled = true;
 
         }
 
@@ -52,8 +52,8 @@ namespace Presentacion
             nombre.Enabled = true;
             Apellido.Enabled = true;
             correo.Enabled = true;
-            direccion.Enabled = true;
-            telefono.Enabled = true;
+            txtDireccion.Enabled = true;
+            txtTelefono.Enabled = true;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -75,8 +75,8 @@ namespace Presentacion
             nombre.Enabled = false;
             Apellido.Enabled = false;
             correo.Enabled = false;
-            direccion.Enabled = false;
-            telefono.Enabled = false;
+            txtDireccion.Enabled = false;
+            txtTelefono.Enabled = false;
 
         }
     }
