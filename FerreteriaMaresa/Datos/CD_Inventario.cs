@@ -13,7 +13,6 @@ namespace Datos
         SqlDataReader lee;
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
-
         public DataTable Mostrar_Inventario()
         {
             comando.Connection = conexion.abrir();
