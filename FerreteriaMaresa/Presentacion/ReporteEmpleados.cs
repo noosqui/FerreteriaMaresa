@@ -22,5 +22,10 @@ namespace Presentacion
         {
             string conexionString = "server=localhost;user=root;password=0te0n2021;datosbase= Ferreteria_Maresa;port=3306";
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
