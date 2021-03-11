@@ -5,6 +5,7 @@ namespace Presentacion
 {
     public partial class RegistroClientes : Form
     {
+        private Clientes c;
         public RegistroClientes()
         {
             InitializeComponent();
@@ -44,6 +45,15 @@ namespace Presentacion
             txtDireccion.Enabled = true;
             txtTelefono.Enabled = true;
 
+        private void btnMostrar_Click(object sender, System.EventArgs e)
+        {
+            var fuente = new BindingSource();
+            fuente.DataSource = c.Mostrar_Cliente();
+            dgvEmpleados.DataSource = fuente;
+
+            btnAgregar.Enabled = false;
+            btnEliminar.Enabled = false;
+     
         }
 
  
@@ -73,6 +83,11 @@ namespace Presentacion
             txtCodPost.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
             txtPais.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
             txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
+
+        }
+
+        private void RegistroClientes_Load(object sender, System.EventArgs e)
+        {
 
         }
     }
