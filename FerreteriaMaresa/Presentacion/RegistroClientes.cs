@@ -44,19 +44,7 @@ namespace Presentacion
             rtn.Enabled = true;
             txtDireccion.Enabled = true;
             txtTelefono.Enabled = true;
-
-        private void btnMostrar_Click(object sender, System.EventArgs e)
-        {
-            var fuente = new BindingSource();
-            fuente.DataSource = c.Mostrar_Cliente();
-            dgvEmpleados.DataSource = fuente;
-
-            btnAgregar.Enabled = false;
-            btnEliminar.Enabled = false;
-     
         }
-
- 
 
         private void btnModificar_Click(object sender, System.EventArgs e)
         {
@@ -88,6 +76,9 @@ namespace Presentacion
 
         private void RegistroClientes_Load(object sender, System.EventArgs e)
         {
+            var fuente = new BindingSource();
+            fuente.DataSource = c.Mostrar_Cliente();
+            dgvEmpleados.DataSource = fuente;
 
         }
     }

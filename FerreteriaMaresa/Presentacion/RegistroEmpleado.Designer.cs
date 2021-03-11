@@ -43,12 +43,6 @@ namespace Presentacion
             this.label2 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.id_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nom_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correo_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direccion_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefono_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -214,48 +208,11 @@ namespace Presentacion
             // dgvEmpleados
             // 
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_empleado,
-            this.nom_empleado,
-            this.apellido_empleado,
-            this.correo_empleado,
-            this.direccion_empleado,
-            this.telefono_empleado});
             this.dgvEmpleados.Location = new System.Drawing.Point(211, 313);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.Size = new System.Drawing.Size(778, 150);
             this.dgvEmpleados.TabIndex = 24;
             this.dgvEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellContentClick);
-            // 
-            // id_empleado
-            // 
-            this.id_empleado.HeaderText = "Id Empleado";
-            this.id_empleado.Name = "id_empleado";
-            // 
-            // nom_empleado
-            // 
-            this.nom_empleado.HeaderText = "Nombre";
-            this.nom_empleado.Name = "nom_empleado";
-            // 
-            // apellido_empleado
-            // 
-            this.apellido_empleado.HeaderText = "Apellido";
-            this.apellido_empleado.Name = "apellido_empleado";
-            // 
-            // correo_empleado
-            // 
-            this.correo_empleado.HeaderText = "Correo";
-            this.correo_empleado.Name = "correo_empleado";
-            // 
-            // direccion_empleado
-            // 
-            this.direccion_empleado.HeaderText = "Direccion";
-            this.direccion_empleado.Name = "direccion_empleado";
-            // 
-            // telefono_empleado
-            // 
-            this.telefono_empleado.HeaderText = "Telefono";
-            this.telefono_empleado.Name = "telefono_empleado";
             // 
             // nombre
             // 
@@ -276,7 +233,6 @@ namespace Presentacion
             this.label1.TabIndex = 22;
             this.label1.Text = "Empleados";
             // 
-
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -291,121 +247,6 @@ namespace Presentacion
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.habilitar_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label12.Location = new System.Drawing.Point(709, 185);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(43, 20);
-            this.label12.TabIndex = 84;
-            this.label12.Text = "Pais:";
-            // 
-            // txtPais
-            // 
-            this.txtPais.Enabled = false;
-            this.txtPais.Location = new System.Drawing.Point(816, 185);
-            this.txtPais.Name = "txtPais";
-            this.txtPais.Size = new System.Drawing.Size(173, 20);
-            this.txtPais.TabIndex = 83;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(709, 138);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 20);
-            this.label11.TabIndex = 82;
-            this.label11.Text = "Codigo Postal";
-            // 
-            // txtCodPost
-            // 
-            this.txtCodPost.Enabled = false;
-            this.txtCodPost.Location = new System.Drawing.Point(816, 138);
-            this.txtCodPost.Name = "txtCodPost";
-            this.txtCodPost.Size = new System.Drawing.Size(173, 20);
-            this.txtCodPost.TabIndex = 81;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(417, 232);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(60, 20);
-            this.label10.TabIndex = 80;
-            this.label10.Text = "Region";
-            // 
-            // txtRegion
-            // 
-            this.txtRegion.Enabled = false;
-            this.txtRegion.Location = new System.Drawing.Point(509, 232);
-            this.txtRegion.Name = "txtRegion";
-            this.txtRegion.Size = new System.Drawing.Size(173, 20);
-            this.txtRegion.TabIndex = 79;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(417, 187);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 20);
-            this.label9.TabIndex = 78;
-            this.label9.Text = "Ciudad";
-            // 
-            // txtCiudad
-            // 
-            this.txtCiudad.Enabled = false;
-            this.txtCiudad.Location = new System.Drawing.Point(509, 187);
-            this.txtCiudad.Name = "txtCiudad";
-            this.txtCiudad.Size = new System.Drawing.Size(173, 20);
-            this.txtCiudad.TabIndex = 77;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(709, 228);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 20);
-            this.label6.TabIndex = 76;
-            this.label6.Text = "Telefono:";
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Enabled = false;
-            this.txtTelefono.Location = new System.Drawing.Point(816, 230);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(173, 20);
-            this.txtTelefono.TabIndex = 75;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(417, 138);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 20);
-            this.label5.TabIndex = 74;
-            this.label5.Text = "Direccion";
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Enabled = false;
-            this.txtDireccion.Location = new System.Drawing.Point(509, 138);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(173, 20);
-            this.txtDireccion.TabIndex = 73;
-
             // 
             // label12
             // 
@@ -540,7 +381,6 @@ namespace Presentacion
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.btnGuardar);
-
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox6);
@@ -583,12 +423,6 @@ namespace Presentacion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dgvEmpleados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_empleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nom_empleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellido_empleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn correo_empleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn direccion_empleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefono_empleado;
         private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Label label1;
 
