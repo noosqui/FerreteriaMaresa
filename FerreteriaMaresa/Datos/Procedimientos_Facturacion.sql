@@ -45,16 +45,20 @@ go
 
 --Mostrar Detalle Venta
 Create procedure SP_Detalle_Venta
+@idventa int
 As
 SELECT        id_detalle_venta, id_producto, id_venta, precio, cantidad
 FROM            dbo.DetalleVenta
+where dbo.DetalleVenta.id_venta =  @idventa
 go
 
 --Mostrar Detalle Compra
 Create procedure SP_Detalle_Compra
+@idcompra int
 As
 SELECT        id_detalle_compra, id_producto, id_compra, precio, cantidad
 FROM            dbo.DetalleCompra
+where dbo.DetalleCompra.id_compra = @idcompra
 go
 
 
@@ -120,8 +124,9 @@ EXEC insertar_FacturaCompra '2021-01-01', '1', '0318199802010', '1', '0', '0'
 EXEC SP_Compras
 EXEC insertar_FacturaVenta '2021-03-08', '0312197866522', '0318199802010', '1', '0', '0'
 EXEC SP_Venta
-EXEC SP_Detalle_Compra
+EXEC SP_Detalle_Compra '1'
 EXEC insertar_DetalleCompra '1', '1', '26', '2'
-EXEC SP_Detalle_Venta
-EXEC insertar_DetalleVenta  '1', '5', '26', '2'
+EXEC SP_Detalle_Venta '1'
+EXEC insertar_DetalleVenta  '1', '1', '26', '2'
 EXEC Reporte_Compras
+EXEC Reporte_Ventas
