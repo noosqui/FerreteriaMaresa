@@ -8,7 +8,8 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    public  class CD_Clientes
+
+    public class CD_Clientes
     {
         private CD_Conexion conexion = new CD_Conexion();
         SqlDataReader lee;
@@ -18,16 +19,18 @@ namespace Datos
 
         public DataTable Mostrar_Cliente()
         {
+            SqlDataReader lee;
+            DataTable tabla = new DataTable();
             comando.Connection = conexion.abrir();
             comando.CommandText = "Mostrar_Clientes";
             comando.CommandType = CommandType.StoredProcedure;
             lee = comando.ExecuteReader();
             tabla.Load(lee);
-            comando.Connection = conexion.cerrar();
+            conexion.cerrar();
             return tabla;
         }
 
-        public DataTable buscar_Clientes(string id_cliente)
+        public DataTable buscar_Clientes(int id_cliente)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "buscar_Clientes";
@@ -40,7 +43,7 @@ namespace Datos
             return tabla;
         }
 
-        public void insertar_Cliente(string idcliente, string nombrecliente, string apellidocliente, string RTN, string direccion, string ciudad, string region, string codigopostal, string pais, long telefono)
+        public void insertar_Cliente(int idcliente, string nombrecliente, string apellidocliente, string RTN, string direccion, string ciudad, string region, string codigopostal, string pais, long telefono)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "insertar_Cliente";
@@ -48,7 +51,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@idcliente", idcliente);
             comando.Parameters.AddWithValue("@nombrecliente", nombrecliente);
             comando.Parameters.AddWithValue("@apellidocliente", apellidocliente);
-            comando.Parameters.AddWithValue("@RTN", RTN);         
+            comando.Parameters.AddWithValue("@RTN", RTN);
             comando.Parameters.AddWithValue("@direccion", direccion);
             comando.Parameters.AddWithValue("@ciudad", ciudad);
             comando.Parameters.AddWithValue("@region", region);
@@ -60,7 +63,7 @@ namespace Datos
             comando.Connection = conexion.cerrar();
         }
 
-        public void Editar_Cliente(string idcliente, string nombrecliente, string apellidocliente, string RTN, string direccion, string ciudad, string region, string codigopostal, string pais, long telefono)
+        public void Editar_Cliente(int idcliente, string nombrecliente, string apellidocliente, string RTN, string direccion, string ciudad, string region, string codigopostal, string pais, long telefono)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "editar_Cliente";
@@ -80,7 +83,7 @@ namespace Datos
             comando.Connection = conexion.cerrar();
         }
 
-        public void Eliminar_Cliente(string idcliente)
+        public void Eliminar_Cliente(int idcliente)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "Eliminar_Cliente";
@@ -89,5 +92,5 @@ namespace Datos
             comando.ExecuteNonQuery();
             comando.Connection = conexion.cerrar();
         }
-}
+    }
 }
