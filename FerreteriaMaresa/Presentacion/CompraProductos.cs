@@ -43,14 +43,15 @@ namespace Presentacion
             btnSiguiente.Visible = true;
         }
 
-        private void dgvProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+  
+        private void dgvProducto_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            dgvProducto.CurrentRow.Selected = true;
             txtnombre.Text = dgvProducto.CurrentRow.Cells[1].Value.ToString();
             txtmarca.Text = dgvProducto.CurrentRow.Cells[2].Value.ToString();
             txtPrecio.Text = dgvProducto.CurrentRow.Cells[3].Value.ToString();
             txtCosto.Text = dgvProducto.CurrentRow.Cells[4].Value.ToString();
             txtCantidad.Text = dgvProducto.CurrentRow.Cells[5].Value.ToString();
-           
         }
     }
 }

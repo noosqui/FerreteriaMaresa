@@ -60,26 +60,28 @@ namespace Presentacion
 
         }
 
-        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            nombre.Text = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
-            Apellido.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
-            rtn.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
-            txtDireccion.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
-            txtCiudad.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
-            txtRegion.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
-            txtCodPost.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
-            txtPais.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
-            txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
-
-        }
-
+     
         private void RegistroClientes_Load(object sender, System.EventArgs e)
         {
             var fuente = new BindingSource();
             fuente.DataSource = c.Mostrar_Cliente();
-            dgvEmpleados.DataSource = fuente;
+            dgvClientes.DataSource = fuente;
+            dgvClientes.Rows[1].Selected = true;
 
+        }
+
+        private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvClientes.CurrentRow.Selected = true;
+            nombre.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
+            Apellido.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
+            rtn.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
+            txtDireccion.Text = dgvClientes.CurrentRow.Cells[4].Value.ToString();
+            txtCiudad.Text = dgvClientes.CurrentRow.Cells[5].Value.ToString();
+            txtRegion.Text = dgvClientes.CurrentRow.Cells[6].Value.ToString();
+            txtCodPost.Text = dgvClientes.CurrentRow.Cells[7].Value.ToString();
+            txtPais.Text = dgvClientes.CurrentRow.Cells[8].Value.ToString();
+            txtTelefono.Text = dgvClientes.CurrentRow.Cells[9].Value.ToString();
         }
     }
 }

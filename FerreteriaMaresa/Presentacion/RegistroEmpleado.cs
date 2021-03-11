@@ -20,6 +20,7 @@ namespace Presentacion
             tab.DataSource = emplea.Mostrar_Empleados();
             dgvEmpleados.DataSource = tab;
             dgvEmpleados.Refresh();
+            dgvEmpleados.Rows[1].Selected = true;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -40,20 +41,6 @@ namespace Presentacion
             txtTelefono.Enabled = true;
 
         }
-
-        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            nombre.Text = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
-            Apellido.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
-            correo.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
-            txtDireccion.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
-            txtCiudad.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
-            txtRegion.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
-            txtCodPost.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
-            txtPais.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
-            txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
-        }
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             btnAgregar.Enabled = false;
@@ -96,6 +83,20 @@ namespace Presentacion
             txtPais.Enabled = false;
             txtTelefono.Enabled = false;
 
+        }
+
+        private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvEmpleados.CurrentRow.Selected = true;
+            nombre.Text = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
+            Apellido.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
+            correo.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
+            txtDireccion.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
+            txtCiudad.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
+            txtRegion.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
+            txtCodPost.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
+            txtPais.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
+            txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
         }
     }
 }
