@@ -24,7 +24,7 @@ namespace Dominio
         private string fnacimiento;
         private string estado;
         private int tipo_emp;
-        private CD_Empleados emple;
+        private CD_Empleados emple = new CD_Empleados();
 
 
         public DOM_Empleados()

@@ -46,14 +46,8 @@ namespace Presentacion
             this.label2 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rtn_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direccion_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefono_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCiudad = new System.Windows.Forms.TextBox();
@@ -64,7 +58,6 @@ namespace Presentacion
             this.label12 = new System.Windows.Forms.Label();
             this.txtPais = new System.Windows.Forms.TextBox();
             this.btnModificar = new System.Windows.Forms.Button();
-
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -238,42 +231,11 @@ namespace Presentacion
             // dgvEmpleados
             // 
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_cliente,
-            this.nombre_cliente,
-            this.rtn_cliente,
-            this.direccion_cliente,
-            this.telefono_cliente});
             this.dgvEmpleados.Location = new System.Drawing.Point(90, 295);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.Size = new System.Drawing.Size(870, 150);
             this.dgvEmpleados.TabIndex = 45;
             this.dgvEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellContentClick);
-            // 
-            // id_cliente
-            // 
-            this.id_cliente.HeaderText = "Id Cliente";
-            this.id_cliente.Name = "id_cliente";
-            // 
-            // nombre_cliente
-            // 
-            this.nombre_cliente.HeaderText = "Nombre";
-            this.nombre_cliente.Name = "nombre_cliente";
-            // 
-            // rtn_cliente
-            // 
-            this.rtn_cliente.HeaderText = "RTN";
-            this.rtn_cliente.Name = "rtn_cliente";
-            // 
-            // direccion_cliente
-            // 
-            this.direccion_cliente.HeaderText = "Direccion";
-            this.direccion_cliente.Name = "direccion_cliente";
-            // 
-            // telefono_cliente
-            // 
-            this.telefono_cliente.HeaderText = "Telefono";
-            this.telefono_cliente.Name = "telefono_cliente";
             // 
             // nombre
             // 
@@ -400,84 +362,6 @@ namespace Presentacion
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(388, 153);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 20);
-            this.label9.TabIndex = 66;
-            this.label9.Text = "Ciudad";
-            // 
-            // txtCiudad
-            // 
-            this.txtCiudad.Enabled = false;
-            this.txtCiudad.Location = new System.Drawing.Point(480, 153);
-            this.txtCiudad.Name = "txtCiudad";
-            this.txtCiudad.Size = new System.Drawing.Size(173, 20);
-            this.txtCiudad.TabIndex = 65;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(388, 198);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(60, 20);
-            this.label10.TabIndex = 68;
-            this.label10.Text = "Region";
-            // 
-            // txtRegion
-            // 
-            this.txtRegion.Enabled = false;
-            this.txtRegion.Location = new System.Drawing.Point(480, 198);
-            this.txtRegion.Name = "txtRegion";
-            this.txtRegion.Size = new System.Drawing.Size(173, 20);
-            this.txtRegion.TabIndex = 67;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(680, 104);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 20);
-            this.label11.TabIndex = 70;
-            this.label11.Text = "Codigo Postal";
-            // 
-            // txtCodPost
-            // 
-            this.txtCodPost.Enabled = false;
-            this.txtCodPost.Location = new System.Drawing.Point(787, 104);
-            this.txtCodPost.Name = "txtCodPost";
-            this.txtCodPost.Size = new System.Drawing.Size(173, 20);
-            this.txtCodPost.TabIndex = 69;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label12.Location = new System.Drawing.Point(680, 151);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(43, 20);
-            this.label12.TabIndex = 72;
-            this.label12.Text = "Pais:";
-            // 
-            // txtPais
-            // 
-            this.txtPais.Enabled = false;
-            this.txtPais.Location = new System.Drawing.Point(787, 151);
-            this.txtPais.Name = "txtPais";
-            this.txtPais.Size = new System.Drawing.Size(173, 20);
-            this.txtPais.TabIndex = 71;
-
             // 
             // RegistroClientes
             // 
@@ -494,7 +378,6 @@ namespace Presentacion
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtCiudad);
             this.Controls.Add(this.btnGuardar);
-
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox6);
@@ -544,11 +427,6 @@ namespace Presentacion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dgvEmpleados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rtn_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn direccion_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefono_cliente;
         private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnGuardar;

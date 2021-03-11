@@ -9,7 +9,7 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        private DOM_Inventario inventario;
+        public DOM_Inventario inventario = new DOM_Inventario();
 
 
         private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -19,13 +19,13 @@ namespace Presentacion
 
         private void btnBuscar_Click(object sender, System.EventArgs e)
         {
-            inventario.buscar_inventario();
+        }
 
+        private void Inventario_Load(object sender, System.EventArgs e)
+        {
             var fuente = new BindingSource();
             fuente.DataSource = inventario.mostrar_inventario();
             dgvEmpleados.DataSource = fuente;
-
-            
         }
     }
 }

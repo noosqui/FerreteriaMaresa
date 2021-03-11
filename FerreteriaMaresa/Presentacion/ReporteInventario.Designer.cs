@@ -30,12 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nom_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costo_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
@@ -55,47 +49,10 @@
             // dgvEmpleados
             // 
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_producto,
-            this.nom_producto,
-            this.marca,
-            this.costo_producto,
-            this.precio_producto,
-            this.stock});
             this.dgvEmpleados.Location = new System.Drawing.Point(205, 73);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.Size = new System.Drawing.Size(742, 425);
             this.dgvEmpleados.TabIndex = 36;
-            // 
-            // id_producto
-            // 
-            this.id_producto.HeaderText = "Id Producto";
-            this.id_producto.Name = "id_producto";
-            // 
-            // nom_producto
-            // 
-            this.nom_producto.HeaderText = "Nombre";
-            this.nom_producto.Name = "nom_producto";
-            // 
-            // marca
-            // 
-            this.marca.HeaderText = "Marca";
-            this.marca.Name = "marca";
-            // 
-            // costo_producto
-            // 
-            this.costo_producto.HeaderText = "Costo";
-            this.costo_producto.Name = "costo_producto";
-            // 
-            // precio_producto
-            // 
-            this.precio_producto.HeaderText = "Precio";
-            this.precio_producto.Name = "precio_producto";
-            // 
-            // stock
-            // 
-            this.stock.HeaderText = "Stock";
-            this.stock.Name = "stock";
             // 
             // btnRegresar
             // 
@@ -148,12 +105,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvEmpleados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nom_producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costo_producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio_producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button button2;
     }
