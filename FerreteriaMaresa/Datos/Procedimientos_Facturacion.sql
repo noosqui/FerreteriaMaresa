@@ -44,14 +44,24 @@ FROM            dbo.FacturaCompra
 go
 
 --Mostrar Detalle Venta
+<<<<<<< Updated upstream
 Create procedure SP_Detalle_Venta
+=======
+create procedure SP_Detalle_Venta
+@idventa int
+>>>>>>> Stashed changes
 As
 SELECT        id_detalle_venta, id_producto, id_venta, precio, cantidad
 FROM            dbo.DetalleVenta
 go
 
 --Mostrar Detalle Compra
+<<<<<<< Updated upstream
 Create procedure SP_Detalle_Compra
+=======
+create procedure SP_Detalle_Compra
+@idcompra int
+>>>>>>> Stashed changes
 As
 SELECT        id_detalle_compra, id_producto, id_compra, precio, cantidad
 FROM            dbo.DetalleCompra
