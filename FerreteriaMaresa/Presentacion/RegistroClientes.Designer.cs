@@ -477,6 +477,7 @@ namespace Presentacion
             this.txtPais.Name = "txtPais";
             this.txtPais.Size = new System.Drawing.Size(173, 20);
             this.txtPais.TabIndex = 71;
+
             // 
             // RegistroClientes
             // 
@@ -492,7 +493,6 @@ namespace Presentacion
             this.Controls.Add(this.txtRegion);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtCiudad);
-
             this.Controls.Add(this.btnGuardar);
 
             this.Controls.Add(this.textBox7);
@@ -518,6 +518,7 @@ namespace Presentacion
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistroClientes";
             this.Text = "RegistroClientes";
+            this.Load += new System.EventHandler(this.RegistroClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -6,6 +6,7 @@ namespace Presentacion
 {
     public partial class RegistroEmpleado : Form
     {
+        private DOM_Empleados emplea;
         public RegistroEmpleado()
         {
             InitializeComponent();
@@ -37,6 +38,11 @@ namespace Presentacion
 
         private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            emplea.Mostrar_Empleados();
+
+            var tab = new BindingSource();
+            tab.DataSource = emplea.Mostrar_Empleados();
+            dgvEmpleados.DataSource = tab;
             nombre.Text = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
             Apellido.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
             correo.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
