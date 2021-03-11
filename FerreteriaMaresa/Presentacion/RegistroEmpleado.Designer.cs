@@ -51,11 +51,7 @@ namespace Presentacion
             this.telefono_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
             this.btnGuardar = new System.Windows.Forms.Button();
-=======
-            this.habilitar = new System.Windows.Forms.Button();
->>>>>>> upstream/Beta
             this.label12 = new System.Windows.Forms.Label();
             this.txtPais = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -280,7 +276,7 @@ namespace Presentacion
             this.label1.TabIndex = 22;
             this.label1.Text = "Empleados";
             // 
-<<<<<<< HEAD
+
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -409,22 +405,7 @@ namespace Presentacion
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(173, 20);
             this.txtDireccion.TabIndex = 73;
-=======
-            // habilitar
-            // 
-            this.habilitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.habilitar.FlatAppearance.BorderSize = 0;
-            this.habilitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.habilitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.habilitar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.habilitar.Location = new System.Drawing.Point(754, 478);
-            this.habilitar.Name = "habilitar";
-            this.habilitar.Size = new System.Drawing.Size(89, 33);
-            this.habilitar.TabIndex = 43;
-            this.habilitar.Text = "Habilitar";
-            this.habilitar.UseVisualStyleBackColor = false;
-            this.habilitar.Click += new System.EventHandler(this.habilitar_Click);
->>>>>>> upstream/Beta
+
             // 
             // label12
             // 
@@ -558,11 +539,8 @@ namespace Presentacion
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtDireccion);
-<<<<<<< HEAD
             this.Controls.Add(this.btnGuardar);
-=======
-            this.Controls.Add(this.habilitar);
->>>>>>> upstream/Beta
+
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox6);
@@ -613,11 +591,8 @@ namespace Presentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono_empleado;
         private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Label label1;
-<<<<<<< HEAD
+
         private System.Windows.Forms.Button btnGuardar;
-=======
-        private System.Windows.Forms.Button habilitar;
->>>>>>> upstream/Beta
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtPais;
         private System.Windows.Forms.Label label11;

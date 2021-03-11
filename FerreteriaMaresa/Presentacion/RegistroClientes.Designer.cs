@@ -53,11 +53,8 @@ namespace Presentacion
             this.telefono_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
+
             this.btnGuardar = new System.Windows.Forms.Button();
-=======
-            this.btnhabilitar = new System.Windows.Forms.Button();
->>>>>>> upstream/Beta
             this.label9 = new System.Windows.Forms.Label();
             this.txtCiudad = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -66,10 +63,8 @@ namespace Presentacion
             this.txtCodPost = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtPais = new System.Windows.Forms.TextBox();
-<<<<<<< HEAD
             this.btnModificar = new System.Windows.Forms.Button();
-=======
->>>>>>> upstream/Beta
+
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -299,7 +294,6 @@ namespace Presentacion
             this.label1.TabIndex = 43;
             this.label1.Text = "Clientes";
             // 
-<<<<<<< HEAD
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -406,22 +400,7 @@ namespace Presentacion
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-=======
-            // btnhabilitar
-            // 
-            this.btnhabilitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnhabilitar.FlatAppearance.BorderSize = 0;
-            this.btnhabilitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnhabilitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnhabilitar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnhabilitar.Location = new System.Drawing.Point(885, 258);
-            this.btnhabilitar.Name = "btnhabilitar";
-            this.btnhabilitar.Size = new System.Drawing.Size(75, 25);
-            this.btnhabilitar.TabIndex = 64;
-            this.btnhabilitar.Text = "Habilitar";
-            this.btnhabilitar.UseVisualStyleBackColor = false;
-            this.btnhabilitar.Click += new System.EventHandler(this.habilitar_Click_1);
->>>>>>> upstream/Beta
+
             // 
             // label9
             // 
@@ -513,11 +492,9 @@ namespace Presentacion
             this.Controls.Add(this.txtRegion);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtCiudad);
-<<<<<<< HEAD
+
             this.Controls.Add(this.btnGuardar);
-=======
-            this.Controls.Add(this.btnhabilitar);
->>>>>>> upstream/Beta
+
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox6);
@@ -573,11 +550,7 @@ namespace Presentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono_cliente;
         private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Label label1;
-<<<<<<< HEAD
         private System.Windows.Forms.Button btnGuardar;
-=======
-        private System.Windows.Forms.Button btnhabilitar;
->>>>>>> upstream/Beta
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCiudad;
         private System.Windows.Forms.Label label10;
@@ -586,9 +559,7 @@ namespace Presentacion
         private System.Windows.Forms.TextBox txtCodPost;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtPais;
-<<<<<<< HEAD
         private System.Windows.Forms.Button btnModificar;
-=======
->>>>>>> upstream/Beta
+
     }
 }
