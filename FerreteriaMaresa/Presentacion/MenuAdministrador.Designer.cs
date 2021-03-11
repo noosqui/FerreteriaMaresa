@@ -88,6 +88,7 @@ namespace Presentacion
             // 
             // btnRestaurar
             // 
+            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
             this.btnRestaurar.Location = new System.Drawing.Point(1224, 7);
@@ -114,6 +115,7 @@ namespace Presentacion
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
             this.btnCerrar.Location = new System.Drawing.Point(1263, 7);
@@ -138,7 +140,7 @@ namespace Presentacion
             this.MenuVertical.Location = new System.Drawing.Point(0, 38);
             this.MenuVertical.Margin = new System.Windows.Forms.Padding(0);
             this.MenuVertical.Name = "MenuVertical";
-            this.MenuVertical.Size = new System.Drawing.Size(220, 612);
+            this.MenuVertical.Size = new System.Drawing.Size(220, 562);
             this.MenuVertical.TabIndex = 4;
             // 
             // panelSubMenu
@@ -359,15 +361,14 @@ namespace Presentacion
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(220, 38);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1080, 612);
-            this.panelContenedor.TabIndex = 5;
-            this.panelContenedor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelContenedor_MouseDown);
+            this.panelContenedor.Size = new System.Drawing.Size(1080, 562);
+            this.panelContenedor.TabIndex = 7;
             // 
             // MenuAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 650);
+            this.ClientSize = new System.Drawing.Size(1300, 600);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.MenuVertical);
             this.Controls.Add(this.BarraTitulo);
@@ -398,7 +399,6 @@ namespace Presentacion
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button btnInventario;
         private System.Windows.Forms.Button btnEmpleados;
-        private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panelSubMenu;
         private System.Windows.Forms.Button btnReporteProveedor;
@@ -407,5 +407,6 @@ namespace Presentacion
         private System.Windows.Forms.Button btnReporteCompras;
         private System.Windows.Forms.Button btnReporteEmpleados;
         private System.Windows.Forms.Button btnCompras;
+        private System.Windows.Forms.Panel panelContenedor;
     }
 }
