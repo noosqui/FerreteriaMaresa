@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net45\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Corrected.Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1358.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -64,7 +67,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClaseReporteEmpleados.cs" />
     <Compile Include="CompraProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,17 +85,17 @@
     <Compile Include="Inventario.Designer.cs">
       <DependentUpon>Inventario.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuAdministrador.cs">
+    <Compile Include="MenuAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuAdministrador.Designer.cs">
-      <DependentUpon>MenuAdministrador.cs</DependentUpon>
+    <Compile Include="MenuAdmin.Designer.cs">
+      <DependentUpon>MenuAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuEmpleado.cs">
+    <Compile Include="MenuEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuEmpleado.Designer.cs">
-      <DependentUpon>MenuEmpleado.cs</DependentUpon>
+    <Compile Include="MenuEmpleados.Designer.cs">
+      <DependentUpon>MenuEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,6 +111,12 @@
     <Compile Include="RegistroEmpleado.Designer.cs">
       <DependentUpon>RegistroEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteCompras.Designer.cs">
+      <DependentUpon>ReporteCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReporteEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +129,12 @@
     <Compile Include="ReporteInventario.Designer.cs">
       <DependentUpon>ReporteInventario.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteProveedor.Designer.cs">
+      <DependentUpon>ReporteProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReporteVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,7 +142,6 @@
       <DependentUpon>ReporteVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="ThemeColor.cs" />
     <Compile Include="VentaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,11 +154,11 @@
     <EmbeddedResource Include="Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuAdministrador.resx">
-      <DependentUpon>MenuAdministrador.cs</DependentUpon>
+    <EmbeddedResource Include="MenuAdmin.resx">
+      <DependentUpon>MenuAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuEmpleado.resx">
-      <DependentUpon>MenuEmpleado.cs</DependentUpon>
+    <EmbeddedResource Include="MenuEmpleados.resx">
+      <DependentUpon>MenuEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -162,6 +175,10 @@
     <EmbeddedResource Include="RegistroEmpleado.resx">
       <DependentUpon>RegistroEmpleado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCompras.rdlc" />
+    <EmbeddedResource Include="ReporteCompras.resx">
+      <DependentUpon>ReporteCompras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReporteEmpleados.rdlc" />
     <EmbeddedResource Include="ReporteEmpleados.resx">
       <DependentUpon>ReporteEmpleados.cs</DependentUpon>
@@ -169,6 +186,10 @@
     <EmbeddedResource Include="ReporteInventario.rdlc" />
     <EmbeddedResource Include="ReporteInventario.resx">
       <DependentUpon>ReporteInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteProveedor.rdlc" />
+    <EmbeddedResource Include="ReporteProveedor.resx">
+      <DependentUpon>ReporteProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteVenta.resx">
       <DependentUpon>ReporteVenta.cs</DependentUpon>
