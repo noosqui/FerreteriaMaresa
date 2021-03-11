@@ -1,6 +1,9 @@
 ﻿using System.Windows.Forms;
 using Dominio;
+using System.Media;
+using System.Data;
 namespace Presentacion
+
 {
     public partial class Inventario : Form
     {
@@ -12,20 +15,17 @@ namespace Presentacion
         public DOM_Inventario inventario = new DOM_Inventario();
 
 
-        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
-
-        private void btnBuscar_Click(object sender, System.EventArgs e)
-        {
-        }
-
         private void Inventario_Load(object sender, System.EventArgs e)
         {
             var fuente = new BindingSource();
             fuente.DataSource = inventario.mostrar_inventario();
-            dgvEmpleados.DataSource = fuente;
+            dgvInventario.DataSource = fuente;
+            dgvInventario.Rows[1].Selected = true;
+        }
+
+        private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvInventario.CurrentRow.Selected = true;
         }
     }
 }

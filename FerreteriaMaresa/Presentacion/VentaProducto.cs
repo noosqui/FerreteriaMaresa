@@ -19,25 +19,34 @@ namespace Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Id.Enabled = true;
-            Nombre.Enabled = true;
-            Strock.Enabled = true;
-            precio.Enabled = true;
-            Cantidad.Enabled = true;
+            txtId.Enabled = true;
+            txtNombre.Enabled = true;
+            txtStock.Enabled = true;
+            txtprecio.Enabled = true;
+            txtCantidad.Enabled = true;
         }
 
-        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Id.Text = dgvProductos.CurrentRow.Cells[1].Value.ToString();
-            Nombre.Text = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-            Strock.Text = dgvProductos.CurrentRow.Cells[3].Value.ToString();
-            precio.Text = dgvProductos.CurrentRow.Cells[4].Value.ToString();
-            Cantidad.Text = dgvProductos.CurrentRow.Cells[5].Value.ToString();
-       }
+
         private void VentaProducto_Load(object sender, EventArgs e)
         {
 
-            dgvProductos.DataSource = inventario.mostrar_inventario() ;
+            dgvProductos.DataSource = inventario.mostrar_inventario();
+            dgvProductos.Columns["Id Marca"].Visible = false;
+            dgvProductos.Columns["Id Categoria"].Visible = false;
+            dgvProductos.Refresh();
+            dgvProductos.Rows[1].Selected = true;
+            dgvProductos.CurrentRow.Selected = true;
+        }
+
+        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvProductos.CurrentRow.Selected = false;
+            dgvProductos.CurrentRow.Selected = true;
+            txtId.Text = dgvProductos.CurrentRow.Cells[0].Value.ToString();
+            txtNombre.Text = dgvProductos.CurrentRow.Cells[1].Value.ToString();
+            txtStock.Text = dgvProductos.CurrentRow.Cells[9].Value.ToString();
+            txtprecio.Text = dgvProductos.CurrentRow.Cells[8].Value.ToString();
+
         }
     }
 }

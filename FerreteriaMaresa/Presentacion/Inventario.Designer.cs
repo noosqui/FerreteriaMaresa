@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvEmpleados = new System.Windows.Forms.DataGridView();
+            this.dgvInventario = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtcodigo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtnombre = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvEmpleados
+            // dgvInventario
             // 
-            this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Location = new System.Drawing.Point(139, 163);
-            this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.RowHeadersWidth = 51;
-            this.dgvEmpleados.Size = new System.Drawing.Size(746, 354);
-            this.dgvEmpleados.TabIndex = 23;
-            this.dgvEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellContentClick);
+            this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInventario.Location = new System.Drawing.Point(139, 163);
+            this.dgvInventario.Name = "dgvInventario";
+            this.dgvInventario.RowHeadersWidth = 51;
+            this.dgvInventario.Size = new System.Drawing.Size(746, 354);
+            this.dgvInventario.TabIndex = 23;
+            this.dgvInventario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellClick);
             // 
             // label1
             // 
@@ -59,12 +59,12 @@
             this.label1.TabIndex = 34;
             this.label1.Text = "Inventario";
             // 
-            // textBox7
+            // txtcodigo
             // 
-            this.textBox7.Location = new System.Drawing.Point(230, 127);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(58, 20);
-            this.textBox7.TabIndex = 33;
+            this.txtcodigo.Location = new System.Drawing.Point(230, 127);
+            this.txtcodigo.Name = "txtcodigo";
+            this.txtcodigo.Size = new System.Drawing.Size(58, 20);
+            this.txtcodigo.TabIndex = 33;
             // 
             // label8
             // 
@@ -77,12 +77,12 @@
             this.label8.TabIndex = 32;
             this.label8.Text = "Id Empleado:";
             // 
-            // textBox6
+            // txtnombre
             // 
-            this.textBox6.Location = new System.Drawing.Point(375, 127);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(398, 20);
-            this.textBox6.TabIndex = 31;
+            this.txtnombre.Location = new System.Drawing.Point(375, 127);
+            this.txtnombre.Name = "txtnombre";
+            this.txtnombre.Size = new System.Drawing.Size(398, 20);
+            this.txtnombre.TabIndex = 31;
             // 
             // label7
             // 
@@ -110,7 +110,6 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // Inventario
             // 
@@ -119,17 +118,17 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(1080, 615);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.txtcodigo);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtnombre);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.dgvEmpleados);
+            this.Controls.Add(this.dgvInventario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inventario";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Inventario_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,11 +136,11 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvEmpleados;
+        private System.Windows.Forms.DataGridView dgvInventario;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtcodigo;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnBuscar;
     }

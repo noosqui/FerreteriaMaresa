@@ -22,7 +22,7 @@ namespace Dominio
         private string region;
         private string codigo_postal;
         private string pais;
-        private CD_Clientes cli;
+        private CD_Clientes cli = new CD_Clientes();
 
         public Clientes(string Cliente, string nombre, string apellido)
         {
