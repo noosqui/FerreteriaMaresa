@@ -10,15 +10,22 @@ namespace Dominio
 {
      public class DOM_Empleados
     {
-        private int id_empleado;
-        private string nombre;
-        private string apellido;
-        private string correo;
-        private string telefono;
+        private int idEmpleado;
+        private string nombreEmpleado;
+        private string apellidoEmpleado;
+        private string correoEmpleado;
+        private string telEmpleado;
         private string direccion;
-        private int id_usuario;
+        private string ciudad;
+        private string region;
+        private string codigopostal;
+        private string pais;
+        private string idrol;
+        private string fnacimiento;
+        private string estado;
         private int tipo_emp;
-        private int estado;
+        private CD_Empleados emple;
+
 
         public DOM_Empleados()
         {
@@ -26,58 +33,57 @@ namespace Dominio
         }
         public DOM_Empleados(string empleado, string nombre, string apellido)
         {
-            this.id_empleado = int.Parse(empleado);
-            this.nombre = nombre;
-            this.apellido = apellido;
+            this.idEmpleado = int.Parse(empleado);
+            this.nombreEmpleado = nombre;
+            this.apellidoEmpleado = apellido;
         }
 
         public int Id_empleado
         {
-            get { return id_empleado; }
-            set { id_empleado = value; }
+            get { return idEmpleado; }
+            set { idEmpleado = value; }
         }
         public string Nombre
         {
-            get { return nombre; }
-            set { nombre = value; }
+            get { return nombreEmpleado; }
+            set { nombreEmpleado = value; }
         }
         public string Apellido
         {
-            get { return apellido; }
-            set { apellido = value; }
+            get { return apellidoEmpleado; }
+            set { apellidoEmpleado = value; }
         }
         public string Correo
         {
-            get { return correo; }
-            set { correo = value; }
+            get { return correoEmpleado; }
+            set { correoEmpleado = value; }
         }
         public string Telefono
         {
-            get { return telefono; }
-            set { telefono = value; }
+            get { return telEmpleado; }
+            set { telEmpleado = value; }
         }
         public string Direccion
         {
             get { return direccion; }
             set { direccion = value; }
         }
-        public int Id_usuario
+        
+        public DataTable Mostrar_Empleados()
         {
-            get { return id_usuario; }
-            set { id_usuario = value; }
+            return emple.Mostrar_Empleados();
         }
-
-        public void editar_empleado()
+        public void Editar_Empleado()
         {
-            /*objeto.editarempleado(id_empleado, nombre, apellido, correo, long.Parse(telefono), direccion);*/
+            emple.Editar_Empleado(Id_empleado, nombreEmpleado, apellidoEmpleado, correoEmpleado, long.Parse(telEmpleado), direccion, ciudad, region, codigopostal, pais, int.Parse(idrol), DateTime.Parse(fnacimiento), estado);
         }
         public void eliminar_empleado()
         {
-            /*objeto.eliminarempleado_(id_empleado);*/
+            emple.DespedirEmpleado(idEmpleado);
         }
         public void crear_empleado()
         {
-            /*objeto.crearempleado(id_empleado,_nombre,apellido,correo,telefono,direccion,contrasenia)*/
+            emple.insertar_Empleado(Id_empleado, nombreEmpleado, apellidoEmpleado, correoEmpleado, long.Parse(telEmpleado), direccion, ciudad, region, codigopostal, pais, int.Parse(idrol), DateTime.Parse(fnacimiento), estado);
         }
         public Boolean autentificacion_empleado(string usuario, string contrasenia)
         {
