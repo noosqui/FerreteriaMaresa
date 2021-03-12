@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Data;
+using System.Windows.Forms;
 
 namespace Presentacion
 {
@@ -61,6 +62,36 @@ namespace Presentacion
             rtn.Enabled = true;
             txtDireccion.Enabled = true;
             txtTelefono.Enabled = true;
+        }
+
+        private void txtcliente_TextChanged(object sender, System.EventArgs e)
+        {
+            var bd = (BindingSource)dgvClientes.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtcodigocli.Text));
+            // dt.DefaultView.RowFilter = string.Format("[String] LIKE '%1%']", <txtnombre.Text>);
+            dgvClientes.Refresh();
+
+
+            if (dt.DefaultView.Count < 1)
+            {
+                MessageBox.Show("No se encontró Codigo/Nombre",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtnombrecli_TextChanged(object sender, System.EventArgs e)
+        {
+            var bd = (BindingSource)dgvClientes.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Nombre] LIKE '%{1}%'", txtnombrecli.Text);
+            dgvClientes.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                MessageBox.Show("No se encontró Codigo/Nombre",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

@@ -57,7 +57,7 @@
             this.panel1.Controls.Add(this.dgvInventario);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1427, 651);
             this.panel1.TabIndex = 0;
@@ -77,10 +77,11 @@
             // txtcodigo
             // 
             this.txtcodigo.Location = new System.Drawing.Point(423, 146);
-            this.txtcodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtcodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtcodigo.Name = "txtcodigo";
             this.txtcodigo.Size = new System.Drawing.Size(132, 22);
             this.txtcodigo.TabIndex = 50;
+            this.txtcodigo.TextChanged += new System.EventHandler(this.txtcodigo_TextChanged);
             // 
             // label8
             // 
@@ -97,10 +98,11 @@
             // txtnombre
             // 
             this.txtnombre.Location = new System.Drawing.Point(668, 148);
-            this.txtnombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtnombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(132, 22);
             this.txtnombre.TabIndex = 48;
+            this.txtnombre.TextChanged += new System.EventHandler(this.txtnombre_TextChanged);
             // 
             // label7
             // 
@@ -142,7 +144,7 @@
             this.precio_producto,
             this.stock});
             this.dgvInventario.Location = new System.Drawing.Point(285, 191);
-            this.dgvInventario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvInventario.Margin = new System.Windows.Forms.Padding(4);
             this.dgvInventario.Name = "dgvInventario";
             this.dgvInventario.RowHeadersWidth = 51;
             this.dgvInventario.Size = new System.Drawing.Size(857, 436);
@@ -198,7 +200,7 @@
             this.ClientSize = new System.Drawing.Size(1427, 651);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Inventario";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);

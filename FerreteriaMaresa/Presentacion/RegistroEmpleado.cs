@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Presentacion
@@ -25,8 +26,8 @@ namespace Presentacion
             nombre.Enabled = true;
             Apellido.Enabled = true;
             correo.Enabled = true;
-            txtDireccion.Enabled = true;
-            txtTelefono.Enabled = true;
+            direccion.Enabled = true;
+            telefono.Enabled = true;
 
         }
 
@@ -51,8 +52,8 @@ namespace Presentacion
             nombre.Enabled = true;
             Apellido.Enabled = true;
             correo.Enabled = true;
-            txtDireccion.Enabled = true;
-            txtTelefono.Enabled = true;
+            direccion.Enabled = true;
+            telefono.Enabled = true;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -74,9 +75,37 @@ namespace Presentacion
             nombre.Enabled = false;
             Apellido.Enabled = false;
             correo.Enabled = false;
-            txtDireccion.Enabled = false;
-            txtTelefono.Enabled = false;
+            direccion.Enabled = false;
+            telefono.Enabled = false;
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgvEmpleados.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtcodigoemp.Text));
+            dgvEmpleados.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                MessageBox.Show("No se encontró Codigo/Nombre",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtnombreemp_TextChanged(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgvEmpleados.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Nombre] LIKE '%{1}%'", txtnombreemp.Text);
+            dgvEmpleados.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                MessageBox.Show("No se encontró Codigo/Nombre",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
