@@ -35,7 +35,6 @@ namespace Presentacion
             this.label7 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.btnMostrar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.correo = new System.Windows.Forms.TextBox();
@@ -44,15 +43,9 @@ namespace Presentacion
             this.label2 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.id_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nom_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correo_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direccion_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefono_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.habilitar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.txtPais = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -111,7 +104,7 @@ namespace Presentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminar.Location = new System.Drawing.Point(640, 478);
+            this.btnEliminar.Location = new System.Drawing.Point(545, 478);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(89, 33);
             this.btnEliminar.TabIndex = 38;
@@ -126,28 +119,13 @@ namespace Presentacion
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnModificar.Location = new System.Drawing.Point(532, 478);
+            this.btnModificar.Location = new System.Drawing.Point(435, 478);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(89, 33);
             this.btnModificar.TabIndex = 37;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // btnMostrar
-            // 
-            this.btnMostrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnMostrar.FlatAppearance.BorderSize = 0;
-            this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMostrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMostrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnMostrar.Location = new System.Drawing.Point(423, 478);
-            this.btnMostrar.Name = "btnMostrar";
-            this.btnMostrar.Size = new System.Drawing.Size(89, 33);
-            this.btnMostrar.TabIndex = 36;
-            this.btnMostrar.Text = "Mostrar";
-            this.btnMostrar.UseVisualStyleBackColor = false;
-            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
             // btnAgregar
             // 
@@ -230,48 +208,11 @@ namespace Presentacion
             // dgvEmpleados
             // 
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_empleado,
-            this.nom_empleado,
-            this.apellido_empleado,
-            this.correo_empleado,
-            this.direccion_empleado,
-            this.telefono_empleado});
             this.dgvEmpleados.Location = new System.Drawing.Point(211, 313);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.Size = new System.Drawing.Size(778, 150);
             this.dgvEmpleados.TabIndex = 24;
-            this.dgvEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellContentClick);
-            // 
-            // id_empleado
-            // 
-            this.id_empleado.HeaderText = "Id Empleado";
-            this.id_empleado.Name = "id_empleado";
-            // 
-            // nom_empleado
-            // 
-            this.nom_empleado.HeaderText = "Nombre";
-            this.nom_empleado.Name = "nom_empleado";
-            // 
-            // apellido_empleado
-            // 
-            this.apellido_empleado.HeaderText = "Apellido";
-            this.apellido_empleado.Name = "apellido_empleado";
-            // 
-            // correo_empleado
-            // 
-            this.correo_empleado.HeaderText = "Correo";
-            this.correo_empleado.Name = "correo_empleado";
-            // 
-            // direccion_empleado
-            // 
-            this.direccion_empleado.HeaderText = "Direccion";
-            this.direccion_empleado.Name = "direccion_empleado";
-            // 
-            // telefono_empleado
-            // 
-            this.telefono_empleado.HeaderText = "Telefono";
-            this.telefono_empleado.Name = "telefono_empleado";
+            this.dgvEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellClick);
             // 
             // nombre
             // 
@@ -292,20 +233,20 @@ namespace Presentacion
             this.label1.TabIndex = 22;
             this.label1.Text = "Empleados";
             // 
-            // habilitar
+            // btnGuardar
             // 
-            this.habilitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.habilitar.FlatAppearance.BorderSize = 0;
-            this.habilitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.habilitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.habilitar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.habilitar.Location = new System.Drawing.Point(754, 478);
-            this.habilitar.Name = "habilitar";
-            this.habilitar.Size = new System.Drawing.Size(89, 33);
-            this.habilitar.TabIndex = 43;
-            this.habilitar.Text = "Habilitar";
-            this.habilitar.UseVisualStyleBackColor = false;
-            this.habilitar.Click += new System.EventHandler(this.habilitar_Click);
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnGuardar.Location = new System.Drawing.Point(669, 478);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(89, 33);
+            this.btnGuardar.TabIndex = 43;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.habilitar_Click);
             // 
             // label12
             // 
@@ -439,14 +380,13 @@ namespace Presentacion
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtDireccion);
-            this.Controls.Add(this.habilitar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.correo);
@@ -475,7 +415,6 @@ namespace Presentacion
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnMostrar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox correo;
@@ -484,15 +423,10 @@ namespace Presentacion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dgvEmpleados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_empleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nom_empleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellido_empleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn correo_empleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn direccion_empleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefono_empleado;
         private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button habilitar;
+
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtPais;
         private System.Windows.Forms.Label label11;

@@ -42,7 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DOM_Facturacion.cs" />
-    <Compile Include="DOM_Proveedor.cs" />
+    <Compile Include="Clientes.cs" />
+    <Compile Include="DOM_proveedores.cs" />
     <Compile Include="DOM_Empleados.cs" />
     <Compile Include="DOM_Inventario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

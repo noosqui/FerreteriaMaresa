@@ -34,8 +34,6 @@ namespace Presentacion
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnMostrar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -47,15 +45,10 @@ namespace Presentacion
             this.Apellido = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rtn_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direccion_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefono_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnhabilitar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCiudad = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -64,7 +57,8 @@ namespace Presentacion
             this.txtCodPost = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtPais = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
+            this.btnModificar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox7
@@ -110,43 +104,13 @@ namespace Presentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminar.Location = new System.Drawing.Point(630, 465);
+            this.btnEliminar.Location = new System.Drawing.Point(533, 465);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(89, 33);
             this.btnEliminar.TabIndex = 59;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnModificar.Location = new System.Drawing.Point(522, 465);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(89, 33);
-            this.btnModificar.TabIndex = 58;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // btnMostrar
-            // 
-            this.btnMostrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnMostrar.FlatAppearance.BorderSize = 0;
-            this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMostrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMostrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnMostrar.Location = new System.Drawing.Point(413, 465);
-            this.btnMostrar.Name = "btnMostrar";
-            this.btnMostrar.Size = new System.Drawing.Size(89, 33);
-            this.btnMostrar.TabIndex = 57;
-            this.btnMostrar.Text = "Mostrar";
-            this.btnMostrar.UseVisualStyleBackColor = false;
-            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
             // btnAgregar
             // 
@@ -264,44 +228,14 @@ namespace Presentacion
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             // 
-            // dgvEmpleados
+            // dgvClientes
             // 
-            this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_cliente,
-            this.nombre_cliente,
-            this.rtn_cliente,
-            this.direccion_cliente,
-            this.telefono_cliente});
-            this.dgvEmpleados.Location = new System.Drawing.Point(90, 295);
-            this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.Size = new System.Drawing.Size(870, 150);
-            this.dgvEmpleados.TabIndex = 45;
-            // 
-            // id_cliente
-            // 
-            this.id_cliente.HeaderText = "Id Cliente";
-            this.id_cliente.Name = "id_cliente";
-            // 
-            // nombre_cliente
-            // 
-            this.nombre_cliente.HeaderText = "Nombre";
-            this.nombre_cliente.Name = "nombre_cliente";
-            // 
-            // rtn_cliente
-            // 
-            this.rtn_cliente.HeaderText = "RTN";
-            this.rtn_cliente.Name = "rtn_cliente";
-            // 
-            // direccion_cliente
-            // 
-            this.direccion_cliente.HeaderText = "Direccion";
-            this.direccion_cliente.Name = "direccion_cliente";
-            // 
-            // telefono_cliente
-            // 
-            this.telefono_cliente.HeaderText = "Telefono";
-            this.telefono_cliente.Name = "telefono_cliente";
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.Location = new System.Drawing.Point(90, 295);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.Size = new System.Drawing.Size(870, 150);
+            this.dgvClientes.TabIndex = 45;
+            this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellClick);
             // 
             // nombre
             // 
@@ -322,20 +256,21 @@ namespace Presentacion
             this.label1.TabIndex = 43;
             this.label1.Text = "Clientes";
             // 
-            // btnhabilitar
+            // btnGuardar
             // 
-            this.btnhabilitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnhabilitar.FlatAppearance.BorderSize = 0;
-            this.btnhabilitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnhabilitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnhabilitar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnhabilitar.Location = new System.Drawing.Point(885, 258);
-            this.btnhabilitar.Name = "btnhabilitar";
-            this.btnhabilitar.Size = new System.Drawing.Size(75, 25);
-            this.btnhabilitar.TabIndex = 64;
-            this.btnhabilitar.Text = "Habilitar";
-            this.btnhabilitar.UseVisualStyleBackColor = false;
-            this.btnhabilitar.Click += new System.EventHandler(this.habilitar_Click_1);
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnGuardar.Location = new System.Drawing.Point(643, 465);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(89, 33);
+            this.btnGuardar.TabIndex = 64;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Visible = false;
+            this.btnGuardar.Click += new System.EventHandler(this.habilitar_Click_1);
             // 
             // label9
             // 
@@ -413,6 +348,21 @@ namespace Presentacion
             this.txtPais.Size = new System.Drawing.Size(173, 20);
             this.txtPais.TabIndex = 71;
             // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnModificar.Location = new System.Drawing.Point(413, 465);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(89, 33);
+            this.btnModificar.TabIndex = 58;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
             // RegistroClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -427,14 +377,13 @@ namespace Presentacion
             this.Controls.Add(this.txtRegion);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtCiudad);
-            this.Controls.Add(this.btnhabilitar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtTelefono);
@@ -446,13 +395,14 @@ namespace Presentacion
             this.Controls.Add(this.Apellido);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.dgvEmpleados);
+            this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.nombre);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistroClientes";
             this.Text = "RegistroClientes";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
+            this.Load += new System.EventHandler(this.RegistroClientes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -465,8 +415,6 @@ namespace Presentacion
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnMostrar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtTelefono;
@@ -478,15 +426,10 @@ namespace Presentacion
         private System.Windows.Forms.TextBox Apellido;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.DataGridView dgvEmpleados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rtn_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn direccion_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefono_cliente;
+        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnhabilitar;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCiudad;
         private System.Windows.Forms.Label label10;
@@ -495,5 +438,7 @@ namespace Presentacion
         private System.Windows.Forms.TextBox txtCodPost;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtPais;
+        private System.Windows.Forms.Button btnModificar;
+
     }
 }
