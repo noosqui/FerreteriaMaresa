@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Datos;
+using System.Data;
 
 namespace Dominio
 {
@@ -18,7 +20,13 @@ namespace Dominio
         private string direccion;
         //arreglar direccion
 
+        public DOM_proveedor()
+        {
 
+<<<<<<< HEAD:FerreteriaMaresa/Dominio/DOM_Proveedor.cs
+=======
+        }
+>>>>>>> Beta:FerreteriaMaresa/Dominio/DOM_proveedores.cs
         public DOM_proveedor(string empleado,string nombre,string apellido)
         {
             this.id_proveedor = int.Parse(empleado);

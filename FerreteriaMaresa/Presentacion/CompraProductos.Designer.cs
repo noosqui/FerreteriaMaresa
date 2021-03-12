@@ -31,12 +31,7 @@ namespace Presentacion
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dgvProducto = new System.Windows.Forms.DataGridView();
-            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nom_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_actual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costo_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
@@ -60,7 +55,6 @@ namespace Presentacion
             this.dgvListaProductos = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.cmbProveedor = new System.Windows.Forms.ComboBox();
-            this.habilitar = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txtSubtotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
@@ -81,47 +75,12 @@ namespace Presentacion
             // dgvProducto
             // 
             this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_producto,
-            this.nom_producto,
-            this.marca,
-            this.precio_actual,
-            this.Cantidad,
-            this.costo_product});
             this.dgvProducto.Location = new System.Drawing.Point(88, 292);
             this.dgvProducto.Name = "dgvProducto";
             this.dgvProducto.Size = new System.Drawing.Size(643, 134);
             this.dgvProducto.TabIndex = 114;
-            // 
-            // id_producto
-            // 
-            this.id_producto.HeaderText = "Id Producto";
-            this.id_producto.Name = "id_producto";
-            // 
-            // nom_producto
-            // 
-            this.nom_producto.HeaderText = "Nombre";
-            this.nom_producto.Name = "nom_producto";
-            // 
-            // marca
-            // 
-            this.marca.HeaderText = "Marca";
-            this.marca.Name = "marca";
-            // 
-            // precio_actual
-            // 
-            this.precio_actual.HeaderText = "Precio Actual";
-            this.precio_actual.Name = "precio_actual";
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad Comprada";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // costo_product
-            // 
-            this.costo_product.HeaderText = "Costo";
-            this.costo_product.Name = "costo_product";
+            this.dgvProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellClick);
+
             // 
             // btnSiguiente
             // 
@@ -136,7 +95,8 @@ namespace Presentacion
             this.btnSiguiente.TabIndex = 113;
             this.btnSiguiente.Text = "Siguiente";
             this.btnSiguiente.UseVisualStyleBackColor = false;
-            this.btnSiguiente.Click += new System.EventHandler(this.button3_Click);
+
+            this.btnSiguiente.Visible = false;
             // 
             // label9
             // 
@@ -366,21 +326,6 @@ namespace Presentacion
             this.cmbProveedor.Size = new System.Drawing.Size(126, 21);
             this.cmbProveedor.TabIndex = 118;
             // 
-            // habilitar
-            // 
-            this.habilitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.habilitar.FlatAppearance.BorderSize = 0;
-            this.habilitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.habilitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.habilitar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.habilitar.Location = new System.Drawing.Point(88, 255);
-            this.habilitar.Name = "habilitar";
-            this.habilitar.Size = new System.Drawing.Size(82, 28);
-            this.habilitar.TabIndex = 119;
-            this.habilitar.Text = "Habilitar";
-            this.habilitar.UseVisualStyleBackColor = false;
-            this.habilitar.Click += new System.EventHandler(this.habilitar_Click);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -408,7 +353,6 @@ namespace Presentacion
             this.ClientSize = new System.Drawing.Size(1064, 573);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtSubtotal);
-            this.Controls.Add(this.habilitar);
             this.Controls.Add(this.cmbProveedor);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dgvListaProductos);
@@ -448,12 +392,6 @@ namespace Presentacion
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nom_producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio_actual;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costo_product;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtPrecio;
@@ -478,6 +416,7 @@ namespace Presentacion
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbProveedor;
         private System.Windows.Forms.Button habilitar;
+
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtSubtotal;
     }
