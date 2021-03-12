@@ -82,5 +82,33 @@ namespace Presentacion
                 facturacion.insertarDetalleCompra(row.Field<string>("cantidad"), inventario);
             }
         }
+
+        private void txtnombrepor_TextChanged(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgvProducto.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Nombre] LIKE '%{1}%'", txtnombreprod.Text);
+            dgvProducto.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                MessageBox.Show("No se encontró Codigo/Nombre",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtcodigopro_TextChanged(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgvProducto.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtcodigoprod.Text));
+            dgvProducto.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                MessageBox.Show("No se encontró Codigo/Nombre",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
