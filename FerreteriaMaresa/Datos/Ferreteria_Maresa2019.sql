@@ -442,7 +442,7 @@ go
 --Mostrar Empleado
 create PROCEDURE Mostrar_Empleados
 as
-SELECT        dbo.Empleados.id_empleado 'Identidad', dbo.Empleados.nom_empleado +' '+ dbo.Empleados.apellido_empleado as 'Nombre Empleado', dbo.Empleados.correo_empleado as 'Correo', dbo.Empleados.telefono_empleado as 'Teléfono', dbo.Empleados.direccion as 'Dirección', dbo.Empleados.ciudad as 'Ciudad', 
+SELECT        dbo.Empleados.id_empleado 'Identidad', dbo.Empleados.nom_empleado as 'Nombres', dbo.Empleados.apellido_empleado as 'Apellidos', dbo.Empleados.correo_empleado as 'Correo', dbo.Empleados.telefono_empleado as 'Teléfono', dbo.Empleados.direccion as 'Dirección', dbo.Empleados.ciudad as 'Ciudad', 
                          dbo.Empleados.region as 'Región', dbo.Empleados.codigo_postal as 'Codigo Postal', dbo.Empleados.pais as 'País', dbo.Roles.descripcion as 'Rol', dbo.Empleados.fnacimiento_empleado 'Fecha de Nacimiento', dbo.Empleados.Estado
 FROM            dbo.Empleados INNER JOIN
                          dbo.Roles ON dbo.Empleados.id_rol_empleado = dbo.Roles.id_rol
@@ -453,9 +453,9 @@ GO
 create procedure buscar_Empleado
 @idempleado nvarchar(20)
 as
-select dbo.Empleados.id_empleado as 'Identidad', dbo.Empleados.nom_empleado +' '+ dbo.Empleados.apellido_empleado as 'Nombre Empleado', dbo.Empleados.correo_empleado as 'Correo', dbo.Empleados.telefono_empleado as 'Teléfono', dbo.Empleados.direccion as 'Dirección', dbo.Empleados.ciudad as 'Ciudad', 
+SELECT        dbo.Empleados.id_empleado 'Identidad', dbo.Empleados.nom_empleado as 'Nombres', dbo.Empleados.apellido_empleado as 'Apellidos', dbo.Empleados.correo_empleado as 'Correo', dbo.Empleados.telefono_empleado as 'Teléfono', dbo.Empleados.direccion as 'Dirección', dbo.Empleados.ciudad as 'Ciudad', 
                          dbo.Empleados.region as 'Región', dbo.Empleados.codigo_postal as 'Codigo Postal', dbo.Empleados.pais as 'País', dbo.Roles.descripcion as 'Rol', dbo.Empleados.fnacimiento_empleado 'Fecha de Nacimiento', dbo.Empleados.Estado
-	  FROM            dbo.Empleados INNER JOIN
+FROM            dbo.Empleados INNER JOIN
                          dbo.Roles ON dbo.Empleados.id_rol_empleado = dbo.Roles.id_rol
 	where dbo.Empleados.id_empleado like '%' +@idempleado+ '%'
 
@@ -509,7 +509,7 @@ go
 --Mostrar Clientes
 create procedure Mostrar_Clientes
 as
-SELECT        id_cliente AS 'Id Cliente', nom_cliente +''+ apellido_cliente as 'Nombre del Cliente', RTN, direccion AS Dirección, ciudad AS Ciudad, region AS Región, codigo_postal AS 'Codigo Postal', pais AS País, tel_cliente AS Telefono
+SELECT        id_cliente AS 'Id Cliente', nom_cliente as 'Nombres', apellido_cliente as 'Apellidos', RTN, direccion AS Dirección, ciudad AS Ciudad, region AS Región, codigo_postal AS 'Codigo Postal', pais AS País, tel_cliente AS Telefono
 FROM            dbo.Clientes
 order by dbo.Clientes.id_cliente ASC
 go
@@ -518,11 +518,11 @@ go
 create procedure buscar_Clientes
 @idcliente nvarchar(20)
 as
-SELECT        id_cliente AS 'Id Cliente', nom_cliente +''+ apellido_cliente as 'Nombre del Cliente', RTN, direccion AS Dirección, ciudad AS Ciudad, region AS Región, codigo_postal AS 'Codigo Postal', pais AS País, tel_cliente AS Telefono
+SELECT        id_cliente AS 'Id Cliente', nom_cliente as 'Nombres', apellido_cliente as 'Apellidos', RTN, direccion AS Dirección, ciudad AS Ciudad, region AS Región, codigo_postal AS 'Codigo Postal', pais AS País, tel_cliente AS Telefono
 FROM            dbo.Clientes
 where dbo.Clientes.id_cliente like '%' +@idcliente+ '%'
 
-go 
+go  
 
 ------------------------------------------------------Proveedores------------------------------------------------------
 --Insertar Proveedor
@@ -588,7 +588,7 @@ go
 --Mostrar Proveedor
 create PROCEDURE Mostrar_Proveedores
 as
-SELECT        id_proveedor,nom_proveedor + ' ' +apellido_proveedor as 'Nombre Proveedor', telefono as Teléfono, correo as Correo, direccion as Dirección, ciudad as Ciudad, region as Región, codigo_postal as 'Codigo Postal' , pais as País, Estado
+SELECT        id_proveedor,nom_proveedor as 'Nombres', apellido_proveedor as 'Apellidos', telefono as Teléfono, correo as Correo, direccion as Dirección, ciudad as Ciudad, region as Región, codigo_postal as 'Codigo Postal' , pais as País, Estado
 FROM            dbo.Proveedores
 go
 
@@ -596,7 +596,7 @@ go
 create procedure buscar_Proveedores
 @id_proveedor int
 as
-SELECT        id_proveedor,nom_proveedor + ' ' +apellido_proveedor as 'Nombre Proveedor', telefono as Teléfono, correo as Correo, direccion as Dirección, ciudad as Ciudad, region as Región, codigo_postal as 'Codigo Postal' , pais as País, Estado
+SELECT        id_proveedor,nom_proveedor as 'Nombres', apellido_proveedor as 'Apellidos', telefono as Teléfono, correo as Correo, direccion as Dirección, ciudad as Ciudad, region as Región, codigo_postal as 'Codigo Postal' , pais as País, Estado
 FROM            dbo.Proveedores
 	where dbo.Proveedores.id_proveedor=@id_proveedor
 GO

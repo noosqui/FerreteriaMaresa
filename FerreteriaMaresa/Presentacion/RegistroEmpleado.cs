@@ -80,7 +80,6 @@ namespace Presentacion
             txtCodPost.Enabled = false;
             txtPais.Enabled = false;
             txtTelefono.Enabled = false;
-
         }
 
         private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
