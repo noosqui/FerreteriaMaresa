@@ -5,7 +5,7 @@ namespace Presentacion
 {
     public partial class RegistroClientes : Form
     {
-        private Clientes c;
+        private Clientes c = new Clientes();
         public RegistroClientes()
         {
             InitializeComponent();

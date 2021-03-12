@@ -111,10 +111,6 @@ namespace Dominio
 
         public DataTable mostrar_inventario()
         {
-            {
-                Productos.Mostrar_Inventario();
-            }
-
             return inventario.Mostrar_Inventario();
         }
 

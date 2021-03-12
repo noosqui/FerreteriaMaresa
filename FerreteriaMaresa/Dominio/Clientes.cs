@@ -30,6 +30,10 @@ namespace Dominio
             this.nombrecliente = nombre;
             this.apellidocliente = apellido;
         }
+        public Clientes ()
+        {
+
+        }
 
         public int Id_empleado
         {
