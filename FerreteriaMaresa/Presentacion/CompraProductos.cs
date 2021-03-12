@@ -7,7 +7,7 @@ namespace Presentacion
 {
     public partial class CompraProductos : Form
     {
-        private DOM_Inventario productos;
+        private DOM_Inventario productos = new DOM_Inventario();
 
         public CompraProductos()
         {
@@ -16,10 +16,14 @@ namespace Presentacion
 
         private void CompraProductos_Load(object sender, EventArgs e)
         {
-
+  
+         var tab = new BindingSource();
+         tab.DataSource = productos.mostrar_inventario();
+         dgvProducto.DataSource = tab;
+            dgvProducto.Refresh();
         }
 
-       
+
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -73,13 +77,7 @@ namespace Presentacion
             txtPrecio.Enabled = true;
             txtCosto.Enabled = true;
             txtCantidad.Enabled = true;
-            /*
-            productos.mostrar_inventario();
-
-            var tab = new BindingSource();
-            tab.DataSource = productos.mostrar_inventario();
-            dgvProducto.DataSource = tab;*/
-
+      
         }
 
         

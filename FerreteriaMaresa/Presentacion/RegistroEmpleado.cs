@@ -14,8 +14,6 @@ namespace Presentacion
 
         private void RegistroEmpleado_Load(object sender, EventArgs e)
         {
-            emplea.Mostrar_Empleados();
-
             var tab = new BindingSource();
             tab.DataSource = emplea.Mostrar_Empleados();
             dgvEmpleados.DataSource = tab;
