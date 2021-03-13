@@ -76,6 +76,7 @@ namespace Presentacion
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.txtPais);
