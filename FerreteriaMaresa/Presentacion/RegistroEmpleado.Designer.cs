@@ -29,7 +29,7 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtbuscarid = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -58,15 +58,24 @@ namespace Presentacion
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtidentidad = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtcodrol = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.dtfechan = new System.Windows.Forms.DateTimePicker();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtestado = new System.Windows.Forms.TextBox();
+            this.btnrecontratar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox7
+            // txtbuscarid
             // 
-            this.textBox7.Location = new System.Drawing.Point(545, 276);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(41, 20);
-            this.textBox7.TabIndex = 42;
+            this.txtbuscarid.Location = new System.Drawing.Point(545, 276);
+            this.txtbuscarid.Name = "txtbuscarid";
+            this.txtbuscarid.Size = new System.Drawing.Size(41, 20);
+            this.txtbuscarid.TabIndex = 42;
             // 
             // label8
             // 
@@ -204,6 +213,7 @@ namespace Presentacion
             this.btnBuscar.TabIndex = 25;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // dgvEmpleados
             // 
@@ -362,12 +372,112 @@ namespace Presentacion
             this.txtDireccion.Size = new System.Drawing.Size(173, 20);
             this.txtDireccion.TabIndex = 73;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label13.Location = new System.Drawing.Point(9, 86);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(80, 20);
+            this.label13.TabIndex = 86;
+            this.label13.Text = "Identidad:";
+            // 
+            // txtidentidad
+            // 
+            this.txtidentidad.Enabled = false;
+            this.txtidentidad.Location = new System.Drawing.Point(101, 86);
+            this.txtidentidad.Name = "txtidentidad";
+            this.txtidentidad.Size = new System.Drawing.Size(100, 20);
+            this.txtidentidad.TabIndex = 85;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label14.Location = new System.Drawing.Point(9, 140);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(113, 20);
+            this.label14.TabIndex = 88;
+            this.label14.Text = "Codigo de Rol:";
+            // 
+            // txtcodrol
+            // 
+            this.txtcodrol.Enabled = false;
+            this.txtcodrol.Location = new System.Drawing.Point(139, 140);
+            this.txtcodrol.Name = "txtcodrol";
+            this.txtcodrol.Size = new System.Drawing.Size(62, 20);
+            this.txtcodrol.TabIndex = 87;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label15.Location = new System.Drawing.Point(9, 187);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(163, 20);
+            this.label15.TabIndex = 89;
+            this.label15.Text = "Fecha de Nacimiento:";
+            // 
+            // dtfechan
+            // 
+            this.dtfechan.Enabled = false;
+            this.dtfechan.Location = new System.Drawing.Point(12, 224);
+            this.dtfechan.Name = "dtfechan";
+            this.dtfechan.Size = new System.Drawing.Size(189, 20);
+            this.dtfechan.TabIndex = 90;
+            this.dtfechan.Value = new System.DateTime(1992, 1, 1, 0, 0, 0, 0);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label16.Location = new System.Drawing.Point(9, 265);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(64, 20);
+            this.label16.TabIndex = 92;
+            this.label16.Text = "Estado:";
+            // 
+            // txtestado
+            // 
+            this.txtestado.Enabled = false;
+            this.txtestado.Location = new System.Drawing.Point(101, 265);
+            this.txtestado.Name = "txtestado";
+            this.txtestado.Size = new System.Drawing.Size(100, 20);
+            this.txtestado.TabIndex = 91;
+            // 
+            // btnrecontratar
+            // 
+            this.btnrecontratar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnrecontratar.FlatAppearance.BorderSize = 0;
+            this.btnrecontratar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnrecontratar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnrecontratar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnrecontratar.Location = new System.Drawing.Point(788, 478);
+            this.btnrecontratar.Name = "btnrecontratar";
+            this.btnrecontratar.Size = new System.Drawing.Size(89, 33);
+            this.btnrecontratar.TabIndex = 93;
+            this.btnrecontratar.Text = "Contratar";
+            this.btnrecontratar.UseVisualStyleBackColor = false;
+            // 
             // RegistroEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(1064, 573);
+            this.Controls.Add(this.btnrecontratar);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.txtestado);
+            this.Controls.Add(this.dtfechan);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.txtcodrol);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.txtidentidad);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtPais);
             this.Controls.Add(this.label11);
@@ -381,7 +491,7 @@ namespace Presentacion
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.txtbuscarid);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label7);
@@ -409,7 +519,7 @@ namespace Presentacion
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtbuscarid;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label7;
@@ -439,5 +549,14 @@ namespace Presentacion
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtidentidad;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtcodrol;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DateTimePicker dtfechan;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtestado;
+        private System.Windows.Forms.Button btnrecontratar;
     }
 }
