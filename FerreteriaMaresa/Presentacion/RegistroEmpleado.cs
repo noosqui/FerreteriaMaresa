@@ -171,8 +171,8 @@ namespace Presentacion
             txtPais.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
             txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
             txtcodrol.Text = dgvEmpleados.CurrentRow.Cells[10].Value.ToString();
-            dtfechan.Text = dgvEmpleados.CurrentRow.Cells[12].Value.ToString();
-            txtestado.Text = dgvEmpleados.CurrentRow.Cells[13].Value.ToString();
+            dtfechan.Text = dgvEmpleados.CurrentRow.Cells[11].Value.ToString();
+            txtestado.Text = dgvEmpleados.CurrentRow.Cells[12].Value.ToString();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
