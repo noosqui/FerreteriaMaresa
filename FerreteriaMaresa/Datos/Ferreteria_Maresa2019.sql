@@ -443,7 +443,7 @@ go
 create PROCEDURE Mostrar_Empleados
 as
 SELECT        dbo.Empleados.id_empleado 'Identidad', dbo.Empleados.nom_empleado as 'Nombres', dbo.Empleados.apellido_empleado as 'Apellidos', dbo.Empleados.correo_empleado as 'Correo', dbo.Empleados.telefono_empleado as 'Teléfono', dbo.Empleados.direccion as 'Dirección', dbo.Empleados.ciudad as 'Ciudad', 
-                         dbo.Empleados.region as 'Región', dbo.Empleados.codigo_postal as 'Codigo Postal', dbo.Empleados.pais as 'País', dbo.Roles.descripcion as 'Rol', dbo.Empleados.fnacimiento_empleado 'Fecha de Nacimiento', dbo.Empleados.Estado
+                         dbo.Empleados.region as 'Región', dbo.Empleados.codigo_postal as 'Codigo Postal', dbo.Empleados.pais as 'País', dbo.Roles.id_rol as 'Id Rol', dbo.Roles.descripcion as 'Rol', dbo.Empleados.fnacimiento_empleado 'Fecha de Nacimiento', dbo.Empleados.Estado
 FROM            dbo.Empleados INNER JOIN
                          dbo.Roles ON dbo.Empleados.id_rol_empleado = dbo.Roles.id_rol
 order by dbo.Empleados.id_empleado ASC
@@ -454,12 +454,11 @@ create procedure buscar_Empleado
 @idempleado nvarchar(20)
 as
 SELECT        dbo.Empleados.id_empleado 'Identidad', dbo.Empleados.nom_empleado as 'Nombres', dbo.Empleados.apellido_empleado as 'Apellidos', dbo.Empleados.correo_empleado as 'Correo', dbo.Empleados.telefono_empleado as 'Teléfono', dbo.Empleados.direccion as 'Dirección', dbo.Empleados.ciudad as 'Ciudad', 
-                         dbo.Empleados.region as 'Región', dbo.Empleados.codigo_postal as 'Codigo Postal', dbo.Empleados.pais as 'País', dbo.Roles.descripcion as 'Rol', dbo.Empleados.fnacimiento_empleado 'Fecha de Nacimiento', dbo.Empleados.Estado
+                         dbo.Empleados.region as 'Región', dbo.Empleados.codigo_postal as 'Codigo Postal', dbo.Empleados.pais as 'País', dbo.Roles.id_rol as 'Id Rol', dbo.Roles.descripcion as 'Rol', dbo.Empleados.fnacimiento_empleado 'Fecha de Nacimiento', dbo.Empleados.Estado
 FROM            dbo.Empleados INNER JOIN
                          dbo.Roles ON dbo.Empleados.id_rol_empleado = dbo.Roles.id_rol
-	where dbo.Empleados.id_empleado like '%' +@idempleado+ '%'
-
-go
+order by dbo.Empleados.id_empleado ASC
+GO
 
 ------------------------------------------------------Cliente------------------------------------------------------
 --Insertar Cliente
