@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Datos;
+using System.Data;
 
 namespace Dominio
 {
@@ -18,6 +20,11 @@ namespace Dominio
         private string direccion;
         //arreglar direccion
 
+        public DOM_proveedor()
+        {
+
+
+        }
 
         public DOM_proveedor(string empleado,string nombre,string apellido)
         {
@@ -26,10 +33,6 @@ namespace Dominio
             this.apellido_proveedor = apellido;
         }
 
-        public DOM_proveedor()
-        {
-
-        }
         public int Id_proveedor
         {
             get { return id_proveedor; }
