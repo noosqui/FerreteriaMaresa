@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Data;
+using System.Windows.Forms;
 using Dominio;
 
 namespace Presentacion
@@ -10,7 +10,9 @@ namespace Presentacion
 
         DOM_Empleados empleados = new DOM_Empleados();
         DOM_Facturacion facturacion = new DOM_Facturacion();
-        DOM_Inventario inventario = new DOM_Inventario();
+        private DOM_Inventario inventario = new DOM_Inventario();
+        DOM_Validacion LetraNum = new DOM_Validacion();
+
 
         public CompraProductos()
         {
@@ -20,42 +22,52 @@ namespace Presentacion
         private void CompraProductos_Load(object sender, EventArgs e)
         {
 
+         var tab = new BindingSource();
+         tab.DataSource = inventario.mostrar_inventario();
+         dgvProducto.DataSource = tab;
+            dgvProducto.Refresh();
         }
+
+
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
-            habilitar.Enabled = true;
+            btnSiguiente.Visible = true;
 
             txtnombre.Enabled = true;
             txtmarca.Enabled = true;
             txtPrecio.Enabled = true;
             txtCosto.Enabled = true;
             txtCantidad.Enabled = true;
-
             dgvListaProductos.Rows.Add(dgvProducto.SelectedRows, txtCantidad.Text);
-
-
-
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             btnEliminar.Enabled = false;
             btnAgregar.Enabled = false;
-            habilitar.Enabled = true;
+            btnSiguiente.Visible = true;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             btnAgregar.Enabled = false;
             btnModificar.Enabled = false;
-            habilitar.Enabled = true;
+            btnSiguiente.Visible = true;
         }
 
-        private void habilitar_Click(object sender, EventArgs e)
+
+        private void dgvProducto_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            dgvProducto.CurrentRow.Selected = true;
+            txtnombre.Text = dgvProducto.CurrentRow.Cells[1].Value.ToString();
+            txtmarca.Text = dgvProducto.CurrentRow.Cells[2].Value.ToString();
+            txtPrecio.Text = dgvProducto.CurrentRow.Cells[3].Value.ToString();
+            txtCosto.Text = dgvProducto.CurrentRow.Cells[4].Value.ToString();
+            txtCantidad.Text = dgvProducto.CurrentRow.Cells[5].Value.ToString();
+
             btnAgregar.Enabled = true;
             btnModificar.Enabled = true;
             btnEliminar.Enabled = true;
@@ -65,6 +77,7 @@ namespace Presentacion
             txtPrecio.Enabled = true;
             txtCosto.Enabled = true;
             txtCantidad.Enabled = true;
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -87,12 +100,12 @@ namespace Presentacion
         {
             var bd = (BindingSource)dgvProducto.DataSource;
             var dt = (DataTable)bd.DataSource;
-            dt.DefaultView.RowFilter = string.Format("[Nombre] LIKE '%{1}%'", txtnombreprod.Text);
+            dt.DefaultView.RowFilter = string.Format("[Nombre Producto] LIKE '%{0}%'", txtnombreprod.Text);
             dgvProducto.Refresh();
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontró Codigo/Nombre",
+                MessageBox.Show("No se encontró el Nombre del Producto",
                     "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -101,14 +114,31 @@ namespace Presentacion
         {
             var bd = (BindingSource)dgvProducto.DataSource;
             var dt = (DataTable)bd.DataSource;
-            dt.DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtcodigoprod.Text));
+            if (txtcodigoprod.Text != "")
+
+                dt.DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtcodigoprod.Text));
+
+            else
+            {
+                dt.DefaultView.RowFilter = null;
+            }
             dgvProducto.Refresh();
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontró Codigo/Nombre",
+                MessageBox.Show("No se encontró el Codigo del Producto",
                     "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void txtcodigoprod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LetraNum.SoloNumeros(e);
+        }
+
+        private void txtnombreprod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LetraNum.SoloLetras(e);
         }
     }
 }
