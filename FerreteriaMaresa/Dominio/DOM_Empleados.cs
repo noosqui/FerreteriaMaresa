@@ -10,7 +10,7 @@ namespace Dominio
 {
      public class DOM_Empleados
     {
-        private int idEmpleado;
+        private string idEmpleado;
         private string nombreEmpleado;
         private string apellidoEmpleado;
         private string correoEmpleado;
@@ -33,12 +33,12 @@ namespace Dominio
         }
         public DOM_Empleados(string empleado, string nombre, string apellido)
         {
-            this.idEmpleado = int.Parse(empleado);
+            this.idEmpleado = empleado;
             this.nombreEmpleado = nombre;
             this.apellidoEmpleado = apellido;
         }
 
-        public int Id_empleado
+        public String Id_empleado
         {
             get { return idEmpleado; }
             set { idEmpleado = value; }
@@ -68,10 +68,53 @@ namespace Dominio
             get { return direccion; }
             set { direccion = value; }
         }
-        
+
+        public string Ciudad
+        {
+            get { return ciudad; }
+            set { ciudad = value; }
+        }
+        public string Region
+        {
+            get { return region; }
+            set { region = value; }
+        }
+        public string CodPostal
+        {
+            get { return codigopostal; }
+            set { codigopostal = value; }
+        }
+
+        public string Pais
+        {
+            get { return pais; }
+            set { pais = value; }
+        }
+        public string Idrol
+        {
+            get { return idrol; }
+            set { idrol = value; }
+        }
+
+        public string Fnacimiento
+        {
+            get { return fnacimiento; }
+            set { fnacimiento = value; }
+        }
+        public string Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
+
         public DataTable Mostrar_Empleados()
         {
             return emple.Mostrar_Empleados();
+        }
+
+        public void buscar_Empleados()
+        {
+            emple.Buscar_Empleado(idEmpleado);
         }
         public void Editar_Empleado()
         {
@@ -80,6 +123,11 @@ namespace Dominio
         public void eliminar_empleado()
         {
             emple.DespedirEmpleado(idEmpleado);
+        }
+
+        public void Recontratar_empleado()
+        {
+            emple.ReContratarEmpleado(idEmpleado);
         }
         public void crear_empleado()
         {
