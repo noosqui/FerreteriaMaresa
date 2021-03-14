@@ -64,6 +64,7 @@
     <Compile Include="Inventario.Designer.cs">
       <DependentUpon>Inventario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lim.ha.cs" />
     <Compile Include="MenuAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>

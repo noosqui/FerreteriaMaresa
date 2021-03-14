@@ -31,11 +31,11 @@ namespace Presentacion
             btnModificar.Enabled = false;
             btnSiguiente.Visible = true;
 
-            txtnombre.Enabled = true;
-            txtmarca.Enabled = true;
-            txtPrecio.Enabled = true;
-            txtCosto.Enabled = true;
-            txtCantidad.Enabled = true;
+            Lim_ha encender = new Lim_ha();
+            encender.Encender(this);
+
+            Lim_ha Limpiar = new Lim_ha();
+            Limpiar.Limpiar(this);
 
             DataTable table = new DataTable();
             table = productos.mostrar_inventario();
@@ -47,6 +47,12 @@ namespace Presentacion
             btnEliminar.Enabled = false;
             btnAgregar.Enabled = false;
             btnSiguiente.Visible = true;
+
+            Lim_ha encender = new Lim_ha();
+            encender.Encender(this);
+
+            Lim_ha Limpiar = new Lim_ha();
+            Limpiar.Limpiar(this);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -80,6 +86,18 @@ namespace Presentacion
       
         }
 
-        
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            btnAgregar.Enabled = true;
+            btnModificar.Enabled = true;
+            btnEliminar.Enabled = true;
+            dgvListaProductos.DataSource = " ";
+
+            Lim_ha Limpiar = new Lim_ha();
+            Limpiar.Limpiar(this);
+
+            Lim_ha apagar = new Lim_ha();
+            apagar.Apagar(this);
+        }
     }
 }

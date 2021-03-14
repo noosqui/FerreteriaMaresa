@@ -80,6 +80,23 @@ namespace Presentacion
             dgvEmpleados.DataSource = tab;
             dgvEmpleados.Refresh();
             dgvEmpleados.Rows[1].Selected = true;
+
+            dgvEmpleados.CurrentRow.Selected = true;
+            txtidentidad.Text = dgvEmpleados.CurrentRow.Cells[0].Value.ToString();
+            nombre.Text = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
+            Apellido.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
+            correo.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
+            txtDireccion.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
+            txtCiudad.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
+            txtRegion.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
+            txtCodPost.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
+            txtPais.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
+            txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
+            txtcodrol.Text = dgvEmpleados.CurrentRow.Cells[10].Value.ToString();
+            dtfechan.Text = dgvEmpleados.CurrentRow.Cells[11].Value.ToString();
+            txtestado.Text = dgvEmpleados.CurrentRow.Cells[12].Value.ToString();
+
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -88,20 +105,15 @@ namespace Presentacion
             btnModificar.Enabled = false;
             btnGuardar.Visible = true;
             btnGuardar.Enabled = true;
+            dgvEmpleados.Enabled = false;
 
-            nombre.Enabled = true;
-            Apellido.Enabled = true;
-            correo.Enabled = true;
-            txtDireccion.Enabled = true;
-            txtCiudad.Enabled = true;
-            txtRegion.Enabled = true;
-            txtCodPost.Enabled = true;
-            txtPais.Enabled = true;
-            txtTelefono.Enabled = true;
-            txtidentidad.Enabled = true;
-            txtestado.Enabled = true;
-            txtcodrol.Enabled = true;
-            dtfechan.Enabled = true;
+            Lim_ha encender = new Lim_ha();
+            encender.Encender(this);
+
+            Lim_ha Limpiar = new Lim_ha();
+            Limpiar.Limpiar(this);
+
+
 
         }
         private void btnModificar_Click(object sender, EventArgs e)
@@ -110,20 +122,12 @@ namespace Presentacion
             btnEliminar.Enabled = false;
             btnGuardar.Visible = true;
 
-            nombre.Enabled = true;
-            Apellido.Enabled = true;
-            correo.Enabled = true;
-            txtDireccion.Enabled = true;
-            txtCiudad.Enabled = true;
-            txtRegion.Enabled = true;
-            txtCodPost.Enabled = true;
-            txtPais.Enabled = true;
-            txtTelefono.Enabled = true;
-            txtidentidad.Enabled = true;
-            txtestado.Enabled = true;
-            txtcodrol.Enabled = true;
-            dtfechan.Enabled = true;
-          
+            Lim_ha encender = new Lim_ha();
+            encender.Encender(this);
+
+            Lim_ha Limpiar = new Lim_ha();
+            Limpiar.Limpiar(this);
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -135,24 +139,19 @@ namespace Presentacion
 
         private void habilitar_Click(object sender, EventArgs e)
         {
+            
+
             btnGuardar.Visible = false;
             btnEliminar.Enabled = true;
             btnModificar.Enabled = true;
             btnAgregar.Enabled = true;
+            dgvEmpleados.Enabled = true;
 
-            nombre.Enabled = false;
-            Apellido.Enabled = false;
-            correo.Enabled = false;
-            txtDireccion.Enabled = false;
-            txtCiudad.Enabled = false;
-            txtRegion.Enabled = false;
-            txtCodPost.Enabled = false;
-            txtPais.Enabled = false;
-            txtTelefono.Enabled = false;
-            txtidentidad.Enabled = false;
-            txtestado.Enabled = false;
-            txtcodrol.Enabled = false;
-            dtfechan.Enabled = false;
+            Lim_ha Limpiar = new Lim_ha();
+            Limpiar.Limpiar(this);
+
+            Lim_ha apagar = new Lim_ha();
+            apagar.Apagar(this);
 
             Despedir_Empleado();
         }
@@ -178,6 +177,11 @@ namespace Presentacion
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Buscar_Empleado();
+        }
+
+        private void txtidentidad_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
