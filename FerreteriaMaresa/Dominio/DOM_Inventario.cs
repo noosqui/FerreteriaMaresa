@@ -30,7 +30,7 @@ namespace Dominio
         }
 
         public DOM_Inventario(string id_producto, string nom_producto, string marca, string cantidad, string costo,
-            string precio_actual, string stock, string estado, string categoria)
+            string precio_actual, string stock, string estado, string categoria,string cantidad_unidad)
         {
             this.id_producto = int.Parse(id_producto);
             this.nom_producto = nom_producto;
@@ -42,12 +42,8 @@ namespace Dominio
             this.id_categoria = int.Parse(categoria);
             this.cantidad_unidad = cantidad_unidad;
         }
-        public DOM_Inventario()
-        {
+  
 
-        }
-
- 
         public int Id_producto
         {
             get { return id_producto; }
