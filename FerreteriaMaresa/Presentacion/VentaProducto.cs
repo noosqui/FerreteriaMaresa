@@ -19,11 +19,11 @@ namespace Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            txtId.Enabled = true;
-            txtNombre.Enabled = true;
-            txtStock.Enabled = true;
-            txtprecio.Enabled = true;
-            txtCantidad.Enabled = true;
+            Lim_ha encender = new Lim_ha();
+            encender.Encender(this);
+
+            Lim_ha Limpiar = new Lim_ha();
+            Limpiar.Limpiar(this);
         }
 
 
@@ -46,6 +46,11 @@ namespace Presentacion
             txtNombre.Text = dgvProductos.CurrentRow.Cells[1].Value.ToString();
             txtStock.Text = dgvProductos.CurrentRow.Cells[9].Value.ToString();
             txtprecio.Text = dgvProductos.CurrentRow.Cells[8].Value.ToString();
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -256,6 +256,7 @@ namespace Presentacion
             this.btnGuardar.TabIndex = 43;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Visible = false;
             this.btnGuardar.Click += new System.EventHandler(this.habilitar_Click);
             // 
             // label12
@@ -390,6 +391,7 @@ namespace Presentacion
             this.txtidentidad.Name = "txtidentidad";
             this.txtidentidad.Size = new System.Drawing.Size(100, 20);
             this.txtidentidad.TabIndex = 85;
+            this.txtidentidad.TextChanged += new System.EventHandler(this.txtidentidad_TextChanged);
             // 
             // label14
             // 

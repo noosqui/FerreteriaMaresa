@@ -66,6 +66,8 @@ namespace Presentacion
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
             AbrirForm(new RegistroEmpleado());
+
+
         }
 
         private void btnCompras_Click(object sender, EventArgs e)
