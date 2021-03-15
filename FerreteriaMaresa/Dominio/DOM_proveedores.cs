@@ -23,10 +23,8 @@ namespace Dominio
         public DOM_proveedor()
         {
 
-<<<<<<< HEAD:FerreteriaMaresa/Dominio/DOM_Proveedor.cs
-=======
         }
->>>>>>> Beta:FerreteriaMaresa/Dominio/DOM_proveedores.cs
+
         public DOM_proveedor(string empleado,string nombre,string apellido)
         {
             this.id_proveedor = int.Parse(empleado);
@@ -34,10 +32,6 @@ namespace Dominio
             this.apellido_proveedor = apellido;
         }
 
-        public DOM_proveedor()
-        {
-
-        }
         public int Id_proveedor
         {
             get { return id_proveedor; }

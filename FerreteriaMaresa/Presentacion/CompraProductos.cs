@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-<<<<<<< HEAD
-using System.Data;
-=======
->>>>>>> Beta
 using Dominio;
 
 namespace Presentacion
@@ -15,11 +11,14 @@ namespace Presentacion
         DOM_Empleados empleados = new DOM_Empleados();
         DOM_Facturacion facturacion = new DOM_Facturacion();
         private DOM_Inventario productos = new DOM_Inventario();
+        DOM_proveedor proveedor = new DOM_proveedor();
+        double subtotal;
 
 
         public CompraProductos()
         {
             InitializeComponent();
+            subtotal = 0;
         }
 
         private void CompraProductos_Load(object sender, EventArgs e)
@@ -28,6 +27,10 @@ namespace Presentacion
          var tab = new BindingSource();
          tab.DataSource = productos.mostrar_inventario();
          dgvProducto.DataSource = tab;
+            dgvProducto.Columns["Id Marca"].Visible = false;
+            dgvProducto.Columns["Id Categoria"].Visible = false;
+            dgvProducto.Rows[1].Selected = true;
+            dgvProducto.CurrentRow.Selected = true;
             dgvProducto.Refresh();
         }
 
@@ -35,6 +38,7 @@ namespace Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+ 
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
             btnSiguiente.Visible = true;
@@ -44,7 +48,9 @@ namespace Presentacion
             txtPrecio.Enabled = true;
             txtCosto.Enabled = true;
             txtCantidad.Enabled = true;
-            dgvListaProductos.Rows.Add(dgvProducto.SelectedRows, txtCantidad.Text);
+            dgvListaProductos.Rows.Add(dgvProducto.SelectedRows[0].Cells[0].Value, dgvProducto.SelectedRows[0].Cells[1].Value,  dgvProducto.SelectedRows[0].Cells[8].Value,txtCantidad.Text,dgvProducto.SelectedRows[0].Cells[6].Value);
+            subtotal += double.Parse(txtCosto.Text) * int.Parse(txtCantidad.Text);
+            txtSubtotal.Text = "" + subtotal;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -59,6 +65,9 @@ namespace Presentacion
             btnAgregar.Enabled = false;
             btnModificar.Enabled = false;
             btnSiguiente.Visible = true;
+            dgvListaProductos.Rows.RemoveAt(dgvListaProductos.SelectedRows[0].Index);
+            subtotal -= (int)dgvListaProductos.SelectedRows[0].Cells[3].Value * (double)dgvListaProductos.SelectedRows[0].Cells[2].Value;
+            txtSubtotal.Text = "" + subtotal;
         }
 
   
@@ -83,21 +92,21 @@ namespace Presentacion
       
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            facturacion.InsertarFacturaVenta(empleados, txtSubtotal.Text,"0");
 
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            facturacion.proveedor = proveedor;
+            facturacion.InsertarFacturaCompra("0",txtSubtotal.Text,"0") ;
             foreach (DataRow row in dgvListaProductos.Rows)
             {
-                inventario.Id_producto = row.Field<int>("id_producto");
-                inventario.Id_marca = row.Field<int>("id_marca");
-                inventario.Nom_producto = row.Field<string>("nom_producto");
-                inventario.Cantidad_unidad = row.Field<string>("Cantidad_por_Unidad");
-                inventario.Precio_actual = row.Field<double>("precio_actual");
-                inventario.Id_categoria = row.Field<int>("id_categoria");
-                facturacion.insertarDetalleCompra(row.Field<string>("cantidad"), inventario);
+                productos.Id_producto = row.Field<int>("id_producto");
+                productos.Id_marca = row.Field<int>("id_marca");
+                productos.Nom_producto = row.Field<string>("nom_producto");
+                productos.Cantidad_unidad = row.Field<string>("Cantidad_por_Unidad");
+                productos.Precio_actual = row.Field<double>("precio_actual");
+                productos.Id_categoria = row.Field<int>("id_categoria");
+                facturacion.insertarDetalleCompra(row.Field<string>("cantidad"), productos);
             }
         }
-
     }
 }

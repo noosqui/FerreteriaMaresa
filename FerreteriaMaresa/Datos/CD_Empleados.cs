@@ -40,7 +40,7 @@ namespace Datos
             return tabla;
         }
 
-        public DataTable Buscar_Empleado(int id_empleado)
+        public DataTable Buscar_Empleado(string id_empleado)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "buscar_Empleado";
@@ -53,7 +53,7 @@ namespace Datos
             return tabla;
         }
 
-        public void insertar_Empleado(int idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado)
+        public void insertar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "insertar_Empleado";
@@ -76,7 +76,7 @@ namespace Datos
             comando.Connection = conexion.cerrar();
         }
 
-        public void Editar_Empleado(int idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado)
+        public void Editar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "editar_Empleado";
@@ -99,7 +99,7 @@ namespace Datos
             comando.Connection = conexion.cerrar();
         }
 
-        public void DespedirEmpleado(int idempleado)
+        public void DespedirEmpleado(string idempleado)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "Despedir_Empleado";

@@ -10,11 +10,11 @@ namespace Dominio
 {
     public class DOM_Facturacion 
         {
-            DOM_Inventario product = new DOM_Inventario();
-            CD_Facturacion facturacion = new CD_Facturacion();
-            DOM_Empleados empleados = new DOM_Empleados();
-            DataTable tabla = new DataTable();
-            DOM_proveedor proveedor = new DOM_proveedor();
+            public DOM_Inventario product = new DOM_Inventario();
+            public CD_Facturacion facturacion = new CD_Facturacion();
+            public DOM_Empleados empleados = new DOM_Empleados();
+            public  DataTable tabla = new DataTable();
+            public DOM_proveedor proveedor = new DOM_proveedor();
             
 
             //DOM_Cliente cliente = new DOM_Cliente();
@@ -23,17 +23,18 @@ namespace Dominio
 
             }
 
-                public void InsertarFacturaVenta(DOM_Empleados emp,/*cliente*/ string subtotal,string descuento)
+                public void InsertarFacturaVenta(/*DOM_Empleados emp*/string id_emplado,string idCliente, string subtotal,string descuento)
             {
-            empleados = emp;
-            facturacion.insertar_FacturaVenta(DateTime.Now,/*cliente.Id_cliente*/"1", empleados.Id_empleado, 1, 0.0, 1);
+            //empleados = emp;
+
+            facturacion.insertar_FacturaVenta(DateTime.Now, idCliente,/* empleados.Id_empleado*/ id_emplado, 1, 0.0, 1);
             }
 
 
 
-             public void InsertarFacturaCompra(string descuento, string subtotal, string tipoPago)
+             public void InsertarFacturaCompra(string descuento,string subtotal, string tipoPago)
                      {
-            facturacion.insertar_FacturaCompra(DateTime.Now, proveedor.Id_proveedor, empleados.Id_empleado, 1, 2, 3);
+                     facturacion.insertar_FacturaCompra(DateTime.Now, proveedor.Id_proveedor, empleados.Id_empleado, 1, 2, 3);
                     }
 
 
@@ -44,7 +45,7 @@ namespace Dominio
             product = inv;
             DataRow ultimaFila = facturacion.Mostrar_FacturaVenta().Rows[facturacion.Mostrar_FacturaVenta().Rows.Count -1];
 
-            facturacion.insertar_DetalleVenta(product.Id_producto, ultimaFila.Field<int>("id"), product.Precio_actual, int.Parse(cantidad));
+            facturacion.insertar_DetalleVenta(inv.Id_producto, ultimaFila.Field<int>("id_venta"), inv.Precio_actual, int.Parse(cantidad));
         }
         public void insertarDetalleCompra(string cantidad,DOM_Inventario inv)
         {

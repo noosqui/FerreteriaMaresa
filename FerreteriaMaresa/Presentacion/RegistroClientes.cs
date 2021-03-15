@@ -5,7 +5,7 @@ namespace Presentacion
 {
     public partial class RegistroClientes : Form
     {
-        private Clientes c = new Clientes();
+        private DOM_Clientes c = new DOM_Clientes();
         public RegistroClientes()
         {
             InitializeComponent();
@@ -17,7 +17,6 @@ namespace Presentacion
             btnEliminar.Enabled = true;
             btnModificar.Enabled = true;
             btnAgregar.Enabled = true;
-
             nombre.Enabled = false;
             Apellido.Enabled = false;
             rtn.Enabled = false;
