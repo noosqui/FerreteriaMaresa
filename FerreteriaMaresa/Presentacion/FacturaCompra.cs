@@ -10,18 +10,16 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class ReporteCompras : Form
+    public partial class FacturaCompra : Form
     {
-        public ReporteCompras()
+        public FacturaCompra()
         {
             InitializeComponent();
         }
 
-        private void ReporteCompras_Load(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
-            this.rpvCompras.RefreshReport();
-            this.reportViewer1.RefreshReport();
         }
     }
 }

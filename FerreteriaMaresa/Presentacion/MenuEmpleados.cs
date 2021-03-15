@@ -178,5 +178,10 @@ namespace Presentacion
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void btnReportes_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
