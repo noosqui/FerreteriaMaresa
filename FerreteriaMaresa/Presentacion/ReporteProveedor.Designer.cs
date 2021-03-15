@@ -30,7 +30,6 @@ namespace Presentacion
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -38,6 +37,7 @@ namespace Presentacion
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.rpvProveedor = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -45,21 +45,13 @@ namespace Presentacion
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.panel1.Controls.Add(this.rpvProveedor);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1070, 529);
             this.panel1.TabIndex = 1;
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "ReportViewer";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(900, 529);
-            this.reportViewer1.TabIndex = 0;
             // 
             // panel3
             // 
@@ -165,12 +157,20 @@ namespace Presentacion
             this.btnBuscar.Text = "Hoy";
             this.btnBuscar.UseVisualStyleBackColor = false;
             // 
+            // rpvProveedor
+            // 
+            this.rpvProveedor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rpvProveedor.Location = new System.Drawing.Point(0, 0);
+            this.rpvProveedor.Name = "rpvProveedor";
+            this.rpvProveedor.ServerReport.BearerToken = null;
+            this.rpvProveedor.Size = new System.Drawing.Size(903, 529);
+            this.rpvProveedor.TabIndex = 4;
+            // 
             // ReporteProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 529);
-            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReporteProveedor";
@@ -183,7 +183,6 @@ namespace Presentacion
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
@@ -191,5 +190,6 @@ namespace Presentacion
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnBuscar;
+        private Microsoft.Reporting.WinForms.ReportViewer rpvProveedor;
     }
 }
