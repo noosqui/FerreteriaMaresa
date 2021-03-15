@@ -35,6 +35,9 @@
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnActivos = new System.Windows.Forms.Button();
+            this.btnTodos = new System.Windows.Forms.Button();
+            this.btnInactivos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +50,7 @@
             this.dgvInventario.Size = new System.Drawing.Size(746, 354);
             this.dgvInventario.TabIndex = 23;
             this.dgvInventario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellClick);
+            this.dgvInventario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellContentClick);
             // 
             // label1
             // 
@@ -111,12 +115,61 @@
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnBuscar.UseVisualStyleBackColor = false;
             // 
+            // btnActivos
+            // 
+            this.btnActivos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnActivos.FlatAppearance.BorderSize = 0;
+            this.btnActivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActivos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnActivos.Location = new System.Drawing.Point(27, 246);
+            this.btnActivos.Name = "btnActivos";
+            this.btnActivos.Size = new System.Drawing.Size(89, 33);
+            this.btnActivos.TabIndex = 58;
+            this.btnActivos.Text = "Activos";
+            this.btnActivos.UseVisualStyleBackColor = false;
+            this.btnActivos.Click += new System.EventHandler(this.btnActivos_Click);
+            this.btnActivos.StyleChanged += new System.EventHandler(this.btnActivos_StyleChanged);
+            // 
+            // btnTodos
+            // 
+            this.btnTodos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnTodos.FlatAppearance.BorderSize = 0;
+            this.btnTodos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTodos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnTodos.Location = new System.Drawing.Point(27, 409);
+            this.btnTodos.Name = "btnTodos";
+            this.btnTodos.Size = new System.Drawing.Size(89, 33);
+            this.btnTodos.TabIndex = 59;
+            this.btnTodos.Text = "Todos";
+            this.btnTodos.UseVisualStyleBackColor = false;
+            this.btnTodos.Click += new System.EventHandler(this.btnTodos_Click);
+            // 
+            // btnInactivos
+            // 
+            this.btnInactivos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnInactivos.FlatAppearance.BorderSize = 0;
+            this.btnInactivos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInactivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInactivos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnInactivos.Location = new System.Drawing.Point(27, 321);
+            this.btnInactivos.Name = "btnInactivos";
+            this.btnInactivos.Size = new System.Drawing.Size(89, 33);
+            this.btnInactivos.TabIndex = 60;
+            this.btnInactivos.Text = "Inactivos";
+            this.btnInactivos.UseVisualStyleBackColor = false;
+            this.btnInactivos.Click += new System.EventHandler(this.btnInactivos_Click);
+            // 
             // Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(1080, 615);
+            this.Controls.Add(this.btnInactivos);
+            this.Controls.Add(this.btnTodos);
+            this.Controls.Add(this.btnActivos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtcodigo);
             this.Controls.Add(this.label8);
@@ -143,5 +196,8 @@
         private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnActivos;
+        private System.Windows.Forms.Button btnTodos;
+        private System.Windows.Forms.Button btnInactivos;
     }
 }

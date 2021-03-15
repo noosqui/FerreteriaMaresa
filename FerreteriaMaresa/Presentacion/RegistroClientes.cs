@@ -17,12 +17,13 @@ namespace Presentacion
             btnEliminar.Enabled = true;
             btnModificar.Enabled = true;
             btnAgregar.Enabled = true;
+            dgvClientes.Enabled = true;
 
-            nombre.Enabled = false;
-            Apellido.Enabled = false;
-            rtn.Enabled = false;
-            txtDireccion.Enabled = false;
-            txtTelefono.Enabled = false;
+            Lim_ha Limpiar = new Lim_ha();
+            Limpiar.Limpiar(this);
+
+            Lim_ha apagar = new Lim_ha();
+            apagar.Apagar(this);
         }
 
         private void button6_Click(object sender, System.EventArgs e)
@@ -38,12 +39,13 @@ namespace Presentacion
             btnModificar.Enabled = false;
             btnGuardar.Visible = true;
             btnGuardar.Enabled = true;
+            dgvClientes.Enabled = false;
 
-            nombre.Enabled = true;
-            Apellido.Enabled = true;
-            rtn.Enabled = true;
-            txtDireccion.Enabled = true;
-            txtTelefono.Enabled = true;
+            Lim_ha encender = new Lim_ha();
+            encender.Encender(this);
+
+            Lim_ha Limpiar = new Lim_ha();
+            Limpiar.Limpiar(this);
         }
 
         private void btnModificar_Click(object sender, System.EventArgs e)
@@ -52,11 +54,11 @@ namespace Presentacion
             btnEliminar.Enabled = false;
             btnGuardar.Visible = true;
 
-            nombre.Enabled = true;
-            Apellido.Enabled = true;
-            rtn.Enabled = true;
-            txtDireccion.Enabled = true;
-            txtTelefono.Enabled = true;
+            Lim_ha encender = new Lim_ha();
+            encender.Encender(this);
+
+            Lim_ha Limpiar = new Lim_ha();
+            Limpiar.Limpiar(this);
 
         }
 
@@ -67,6 +69,17 @@ namespace Presentacion
             fuente.DataSource = c.Mostrar_Cliente();
             dgvClientes.DataSource = fuente;
             dgvClientes.Rows[1].Selected = true;
+
+            dgvClientes.CurrentRow.Selected = true;
+            nombre.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
+            Apellido.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
+            rtn.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
+            txtDireccion.Text = dgvClientes.CurrentRow.Cells[4].Value.ToString();
+            txtCiudad.Text = dgvClientes.CurrentRow.Cells[5].Value.ToString();
+            txtRegion.Text = dgvClientes.CurrentRow.Cells[6].Value.ToString();
+            txtCodPost.Text = dgvClientes.CurrentRow.Cells[7].Value.ToString();
+            txtPais.Text = dgvClientes.CurrentRow.Cells[8].Value.ToString();
+            txtTelefono.Text = dgvClientes.CurrentRow.Cells[9].Value.ToString();
 
         }
 
