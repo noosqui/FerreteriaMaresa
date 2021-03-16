@@ -76,6 +76,7 @@ namespace Presentacion
             this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProducto.Location = new System.Drawing.Point(88, 292);
             this.dgvProducto.Name = "dgvProducto";
+            this.dgvProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProducto.Size = new System.Drawing.Size(643, 134);
             this.dgvProducto.TabIndex = 114;
             this.dgvProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellClick);
