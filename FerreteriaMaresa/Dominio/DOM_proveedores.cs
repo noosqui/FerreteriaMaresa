@@ -22,7 +22,6 @@ namespace Dominio
 
         public DOM_proveedor()
         {
-
         }
 
         public DOM_proveedor(string empleado,string nombre,string apellido)

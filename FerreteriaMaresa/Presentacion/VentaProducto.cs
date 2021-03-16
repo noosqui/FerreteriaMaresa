@@ -10,8 +10,8 @@ namespace Presentacion
         DOM_Facturacion facturacion = new DOM_Facturacion();
         DOM_Inventario inventario = new DOM_Inventario();
         DOM_Empleados empleados = new DOM_Empleados();
+        DOM_Validacion letrasNum = new DOM_Validacion();
         double suma;
-
         public VentaProducto()
         {
             InitializeComponent();
@@ -39,6 +39,7 @@ namespace Presentacion
         {
             
             facturacion.InsertarFacturaVenta("0318199230254", "0312197866522", txtSubtotal.Text, txtDescuento.Text);
+
 
             foreach (DataGridViewRow row in dgvProductList.Rows)
             {
@@ -74,6 +75,51 @@ namespace Presentacion
             txtprecio.Text = dgvProductos.CurrentRow.Cells[8].Value.ToString();
         }
 
+
+        private void txtIdSrch_TextChanged(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgvProductos.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            if (txtIdSrch.Text != "")
+
+                dt.DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtIdSrch.Text));
+
+            else
+            {
+                dt.DefaultView.RowFilter = null;
+            }
+            dgvProductos.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                MessageBox.Show("No se encontr� el Codigo del Empleado",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtNombreSrch_TextChanged(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgvProductos.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Nombre Producto] LIKE '%{0}%'", txtNombreSrch.Text);
+            dgvProductos.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                MessageBox.Show("No se encontr� el Nombre del Producto",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtIdSrch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            letrasNum.SoloNumeros(e);
+        }
+
+        private void txtNombreSrch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            letrasNum.SoloLetras(e);
+
         private void button5_Click(object sender, EventArgs e)
         {
             suma -= double.Parse(dgvProductList.SelectedRows[0].Cells[2].Value.ToString()) * double.Parse(dgvProductList.SelectedRows[0].Cells[3].Value.ToString());
@@ -85,6 +131,7 @@ namespace Presentacion
         {
             dgvProductList.CurrentRow.Selected = false;
             dgvProductList.CurrentRow.Selected = true;
+
 
         }
     }

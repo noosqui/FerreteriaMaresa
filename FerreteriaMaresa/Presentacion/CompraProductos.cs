@@ -10,11 +10,10 @@ namespace Presentacion
 
         DOM_Empleados empleados = new DOM_Empleados();
         DOM_Facturacion facturacion = new DOM_Facturacion();
+        DOM_Validacion LetraNum = new DOM_Validacion();
         private DOM_Inventario productos = new DOM_Inventario();
         DOM_proveedor proveedor = new DOM_proveedor();
         double subtotal;
-
-
         public CompraProductos()
         {
             InitializeComponent();
@@ -23,9 +22,9 @@ namespace Presentacion
 
         private void CompraProductos_Load(object sender, EventArgs e)
         {
-  
+
          var tab = new BindingSource();
-         tab.DataSource = productos.mostrar_inventario();
+         tab.DataSource = inventario.mostrar_inventario();
          dgvProducto.DataSource = tab;
             dgvProducto.Columns["Id Marca"].Visible = false;
             dgvProducto.Columns["Id Categoria"].Visible = false;
@@ -70,7 +69,7 @@ namespace Presentacion
             txtSubtotal.Text = "" + subtotal;
         }
 
-  
+
         private void dgvProducto_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvProducto.CurrentRow.Selected = true;
@@ -89,7 +88,7 @@ namespace Presentacion
             txtPrecio.Enabled = true;
             txtCosto.Enabled = true;
             txtCantidad.Enabled = true;
-      
+
         }
 
 
@@ -108,5 +107,50 @@ namespace Presentacion
                 facturacion.insertarDetalleCompra(row.Field<string>("cantidad"), productos);
             }
         }
+        private void txtnombrepor_TextChanged(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgvProducto.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Nombre Producto] LIKE '%{0}%'", txtnombreprod.Text);
+            dgvProducto.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                MessageBox.Show("No se encontró el Nombre del Producto",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtcodigopro_TextChanged(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgvProducto.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            if (txtcodigoprod.Text != "")
+
+                dt.DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtcodigoprod.Text));
+
+            else
+            {
+                dt.DefaultView.RowFilter = null;
+            }
+            dgvProducto.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                MessageBox.Show("No se encontró el Codigo del Producto",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtcodigoprod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LetraNum.SoloNumeros(e);
+        }
+
+        private void txtnombreprod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LetraNum.SoloLetras(e);
+        }
+
     }
 }
