@@ -49,6 +49,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvProductList = new System.Windows.Forms.DataGridView();
+            this.IdProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unidades = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.txtSubtotal = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -72,6 +77,8 @@
             this.button5.TabIndex = 64;
             this.button5.Text = "Cancelar Producto";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+
             // 
             // btnAgregar
             // 
@@ -91,6 +98,10 @@
             // 
             // dgvProductos
             // 
+
+            this.dgvProductos.AllowUserToAddRows = false;
+            this.dgvProductos.AllowUserToDeleteRows = false;
+            this.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Location = new System.Drawing.Point(91, 244);
             this.dgvProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -102,13 +113,16 @@
             // 
             // txtIdSrch
             // 
+
             this.txtIdSrch.Location = new System.Drawing.Point(504, 212);
             this.txtIdSrch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
             this.txtIdSrch.Name = "txtIdSrch";
             this.txtIdSrch.Size = new System.Drawing.Size(53, 22);
             this.txtIdSrch.TabIndex = 74;
             this.txtIdSrch.TextChanged += new System.EventHandler(this.txtIdSrch_TextChanged);
             this.txtIdSrch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdSrch_KeyPress);
+
             // 
             // label8
             // 
@@ -124,6 +138,7 @@
             // 
             // txtNombreSrch
             // 
+
             this.txtNombreSrch.Location = new System.Drawing.Point(676, 208);
             this.txtNombreSrch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNombreSrch.Name = "txtNombreSrch";
@@ -131,6 +146,7 @@
             this.txtNombreSrch.TabIndex = 72;
             this.txtNombreSrch.TextChanged += new System.EventHandler(this.txtNombreSrch_TextChanged);
             this.txtNombreSrch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreSrch_KeyPress);
+
             // 
             // label7
             // 
@@ -215,12 +231,14 @@
             // 
             // txtCantidad
             // 
+
             this.txtCantidad.Enabled = false;
             this.txtCantidad.Location = new System.Drawing.Point(817, 94);
             this.txtCantidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(132, 22);
             this.txtCantidad.TabIndex = 79;
+            this.txtCantidad.Text = "0";
             // 
             // label3
             // 
@@ -291,13 +309,51 @@
             // 
             // dgvProductList
             // 
+
+            this.dgvProductList.AllowUserToAddRows = false;
+            this.dgvProductList.AllowUserToDeleteRows = false;
+            this.dgvProductList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductList.Location = new System.Drawing.Point(1039, 164);
-            this.dgvProductList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdProd,
+            this.NomProd,
+            this.precio,
+            this.Cantidad,
+            this.Unidades});
+            this.dgvProductList.Location = new System.Drawing.Point(779, 133);
+            this.dgvProductList.MultiSelect = false;
             this.dgvProductList.Name = "dgvProductList";
             this.dgvProductList.RowHeadersWidth = 51;
             this.dgvProductList.Size = new System.Drawing.Size(348, 267);
             this.dgvProductList.TabIndex = 87;
+
+            this.dgvProductList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductList_CellClick);
+            // 
+            // IdProd
+            // 
+            this.IdProd.HeaderText = "Id Producto";
+            this.IdProd.Name = "IdProd";
+            this.IdProd.Visible = false;
+            // 
+            // NomProd
+            // 
+            this.NomProd.HeaderText = "Nombre";
+            this.NomProd.Name = "NomProd";
+            // 
+            // precio
+            // 
+            this.precio.HeaderText = "Precio";
+            this.precio.Name = "precio";
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Unidades
+            // 
+            this.Unidades.HeaderText = "Unidades";
+            this.Unidades.Name = "Unidades";
             // 
             // label10
             // 
@@ -317,8 +373,9 @@
             this.txtSubtotal.Location = new System.Drawing.Point(1155, 450);
             this.txtSubtotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSubtotal.Name = "txtSubtotal";
-            this.txtSubtotal.Size = new System.Drawing.Size(132, 22);
+            this.txtSubtotal.Size = new System.Drawing.Size(174, 20);
             this.txtSubtotal.TabIndex = 88;
+            this.txtSubtotal.Text = "0";
             // 
             // label11
             // 
@@ -335,11 +392,12 @@
             // txtDescuento
             // 
             this.txtDescuento.Enabled = false;
-            this.txtDescuento.Location = new System.Drawing.Point(1140, 505);
-            this.txtDescuento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
+            this.txtDescuento.Location = new System.Drawing.Point(866, 410);
             this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.Size = new System.Drawing.Size(147, 22);
+            this.txtDescuento.Size = new System.Drawing.Size(174, 20);
             this.txtDescuento.TabIndex = 90;
+            this.txtDescuento.Text = "0";
             // 
             // btnSiguiente
             // 
@@ -359,7 +417,7 @@
             // 
             // VentaProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(1440, 706);
@@ -430,5 +488,10 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtDescuento;
         private System.Windows.Forms.Button btnSiguiente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unidades;
     }
 }

@@ -52,6 +52,11 @@ namespace Presentacion
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvListaProductos = new System.Windows.Forms.DataGridView();
+            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prodNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad_Unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.cmbProveedor = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -97,6 +102,7 @@ namespace Presentacion
             this.btnSiguiente.Text = "Siguiente";
             this.btnSiguiente.UseVisualStyleBackColor = false;
             this.btnSiguiente.Visible = false;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // label9
             // 
@@ -225,7 +231,7 @@ namespace Presentacion
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Enabled = false;
+
             this.txtCantidad.Location = new System.Drawing.Point(807, 201);
             this.txtCantidad.Margin = new System.Windows.Forms.Padding(4);
             this.txtCantidad.Name = "txtCantidad";
@@ -325,12 +331,44 @@ namespace Presentacion
             // dgvListaProductos
             // 
             this.dgvListaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaProductos.Location = new System.Drawing.Point(1033, 144);
-            this.dgvListaProductos.Margin = new System.Windows.Forms.Padding(4);
+
+            this.dgvListaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdProducto,
+            this.prodNom,
+            this.Precio,
+            this.Cantidad,
+            this.Cantidad_Unidad});
+            this.dgvListaProductos.Location = new System.Drawing.Point(760, 119);
             this.dgvListaProductos.Name = "dgvListaProductos";
             this.dgvListaProductos.RowHeadersWidth = 51;
             this.dgvListaProductos.Size = new System.Drawing.Size(320, 277);
             this.dgvListaProductos.TabIndex = 115;
+            // 
+            // IdProducto
+            // 
+            this.IdProducto.HeaderText = "Id Producto";
+            this.IdProducto.Name = "IdProducto";
+            this.IdProducto.Visible = false;
+            // 
+            // prodNom
+            // 
+            this.prodNom.HeaderText = "Producto";
+            this.prodNom.Name = "prodNom";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio Producto";
+            this.Precio.Name = "Precio";
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Cantidad_Unidad
+            // 
+            this.Cantidad_Unidad.HeaderText = "Unidades";
+            this.Cantidad_Unidad.Name = "Cantidad_Unidad";
             // 
             // label10
             // 
@@ -449,5 +487,10 @@ namespace Presentacion
 
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtSubtotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prodNom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad_Unidad;
     }
 }

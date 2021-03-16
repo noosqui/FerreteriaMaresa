@@ -43,8 +43,6 @@ namespace Dominio
             this.id_categoria = int.Parse(categoria);
             this.cantidad_unidad = cantidad_unidad;
         }
-
- 
         public int Id_producto
         {
             get { return id_producto; }
