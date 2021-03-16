@@ -11,7 +11,7 @@ namespace Presentacion
         DOM_Inventario inventario = new DOM_Inventario();
         DOM_Empleados empleados = new DOM_Empleados();
         DOM_Validacion letrasNum = new DOM_Validacion();
-
+        double suma;
         public VentaProducto()
         {
             InitializeComponent();
@@ -29,22 +29,23 @@ namespace Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-          dgvProductList.Rows.Add(dgvProductos.SelectedRows,txtCantidad.Text);
+            suma = double.Parse(dgvProductos.SelectedRows[0].Cells[8].Value.ToString()) * int.Parse(txtCantidad.Text);
+            suma += double.Parse(txtSubtotal.Text);
+            dgvProductList.Rows.Add(dgvProductos.SelectedRows[0].Cells[0].Value, dgvProductos.SelectedRows[0].Cells[1].Value, dgvProductos.SelectedRows[0].Cells[8].Value, txtCantidad.Text, dgvProductos.SelectedRows[0].Cells[6].Value);
+            txtSubtotal.Text = "" + suma;
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            facturacion.InsertarFacturaVenta(empleados, txtSubtotal.Text, txtDescuento.Text);
+            
+            facturacion.InsertarFacturaVenta("0318199230254", "0312197866522", txtSubtotal.Text, txtDescuento.Text);
 
-            foreach (DataRow row in dgvProductList.Rows)
+
+            foreach (DataGridViewRow row in dgvProductList.Rows)
             {
-                inventario.Id_producto = row.Field<int>("id_producto");
-                inventario.Id_marca = row.Field<int>("id_marca");
-                inventario.Nom_producto = row.Field<string>("nom_producto");
-                inventario.Cantidad_unidad = row.Field<string>("Cantidad_por_Unidad");
-                inventario.Precio_actual = row.Field<double>("precio_actual");
-                inventario.Id_categoria = row.Field<int>("id_categoria");
-                facturacion.insertarDetalleVenta(row.Field<string>("cantidad"),inventario);
+                inventario.Id_producto =(int) row.Cells[0].Value;
+                inventario.Precio_actual = double.Parse(row.Cells[2].Value.ToString());
+                facturacion.insertarDetalleVenta(row.Cells[3].Value.ToString(),inventario);
             }
             txtId.Enabled = true;
             txtNombre.Enabled = true;
@@ -74,6 +75,7 @@ namespace Presentacion
             txtprecio.Text = dgvProductos.CurrentRow.Cells[8].Value.ToString();
         }
 
+
         private void txtIdSrch_TextChanged(object sender, EventArgs e)
         {
             var bd = (BindingSource)dgvProductos.DataSource;
@@ -90,7 +92,7 @@ namespace Presentacion
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontró el Codigo del Empleado",
+                MessageBox.Show("No se encontrï¿½ el Codigo del Empleado",
                     "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -104,7 +106,7 @@ namespace Presentacion
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontró el Nombre del Producto",
+                MessageBox.Show("No se encontrï¿½ el Nombre del Producto",
                     "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -117,6 +119,20 @@ namespace Presentacion
         private void txtNombreSrch_KeyPress(object sender, KeyPressEventArgs e)
         {
             letrasNum.SoloLetras(e);
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            suma -= double.Parse(dgvProductList.SelectedRows[0].Cells[2].Value.ToString()) * double.Parse(dgvProductList.SelectedRows[0].Cells[3].Value.ToString());
+            dgvProductList.Rows.RemoveAt(dgvProductList.SelectedRows[0].Index);
+            txtSubtotal.Text = "" + suma;
+        }
+
+        private void dgvProductList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvProductList.CurrentRow.Selected = false;
+            dgvProductList.CurrentRow.Selected = true;
+
+
         }
     }
 }

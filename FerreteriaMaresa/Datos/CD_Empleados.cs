@@ -40,7 +40,7 @@ namespace Datos
             return tabla;
         }
 
-        public DataTable Buscar_Empleado(int id_empleado)
+        public DataTable Buscar_Empleado(string id_empleado)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "buscar_Empleado";

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,11 +24,8 @@ namespace Dominio
         private int idrol;
         private string fnacimiento;
         private string estado;
-
         private int tipo_emp;
         private CD_Empleados emple = new CD_Empleados();
-
-
         public DOM_Empleados()
         {
 
@@ -81,7 +78,9 @@ namespace Dominio
             get { return idrol; }
             set { idrol = value; }
         }
-        public String Estado
+
+        public string Estado
+
         {
             get { return estado; }
             set { estado = value; }
@@ -99,7 +98,8 @@ namespace Dominio
         }
         public void crear_empleado()
         {
-            emple.insertar_Empleado(Id_empleado, nombreEmpleado, apellidoEmpleado, correoEmpleado, long.Parse(telEmpleado), direccion, ciudad, region, codigopostal, pais, idrol, DateTime.Parse(fnacimiento), estado);
+
+            emple.insertar_Empleado(Id_empleado, nombreEmpleado, apellidoEmpleado, correoEmpleado, long.Parse(telEmpleado), direccion, ciudad, region, codigopostal, pais, idrol   , DateTime.Parse(fnacimiento), estado);
         }
         public Boolean autentificacion_empleado(string usuario, string contrasenia)
         {
