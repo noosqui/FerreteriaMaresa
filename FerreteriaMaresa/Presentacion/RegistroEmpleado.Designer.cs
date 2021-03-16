@@ -235,7 +235,8 @@ namespace Presentacion
             this.dgvEmpleados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.RowHeadersWidth = 51;
-            this.dgvEmpleados.Size = new System.Drawing.Size(1037, 185);
+            this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEmpleados.Size = new System.Drawing.Size(778, 150);
             this.dgvEmpleados.TabIndex = 24;
             this.dgvEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellClick);
             // 
@@ -578,7 +579,6 @@ namespace Presentacion
         private System.Windows.Forms.DataGridView dgvEmpleados;
         private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Label label1;
-
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtPais;
