@@ -47,6 +47,7 @@
             this.dgvInventario.Location = new System.Drawing.Point(139, 163);
             this.dgvInventario.Name = "dgvInventario";
             this.dgvInventario.RowHeadersWidth = 51;
+            this.dgvInventario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInventario.Size = new System.Drawing.Size(746, 354);
             this.dgvInventario.TabIndex = 23;
             this.dgvInventario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellClick);
