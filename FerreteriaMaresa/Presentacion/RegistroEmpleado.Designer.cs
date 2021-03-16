@@ -40,9 +40,9 @@ namespace Presentacion
             this.label3 = new System.Windows.Forms.Label();
             this.Apellido = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnBusca = new System.Windows.Forms.Button();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.nombre = new System.Windows.Forms.TextBox();
+            this.txtnombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -63,7 +63,7 @@ namespace Presentacion
             // txtcodigoemp
             // 
             this.txtcodigoemp.Location = new System.Drawing.Point(727, 340);
-            this.txtcodigoemp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtcodigoemp.Margin = new System.Windows.Forms.Padding(4);
             this.txtcodigoemp.Name = "txtcodigoemp";
             this.txtcodigoemp.Size = new System.Drawing.Size(53, 22);
             this.txtcodigoemp.TabIndex = 42;
@@ -85,7 +85,7 @@ namespace Presentacion
             // txtnombreemp
             // 
             this.txtnombreemp.Location = new System.Drawing.Point(877, 336);
-            this.txtnombreemp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtnombreemp.Margin = new System.Windows.Forms.Padding(4);
             this.txtnombreemp.Name = "txtnombreemp";
             this.txtnombreemp.Size = new System.Drawing.Size(132, 22);
             this.txtnombreemp.TabIndex = 40;
@@ -112,7 +112,7 @@ namespace Presentacion
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEliminar.Location = new System.Drawing.Point(727, 588);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(119, 41);
             this.btnEliminar.TabIndex = 38;
@@ -128,7 +128,7 @@ namespace Presentacion
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnModificar.Location = new System.Drawing.Point(580, 588);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(119, 41);
             this.btnModificar.TabIndex = 37;
@@ -144,7 +144,7 @@ namespace Presentacion
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAgregar.Location = new System.Drawing.Point(412, 588);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(119, 41);
             this.btnAgregar.TabIndex = 35;
@@ -168,7 +168,7 @@ namespace Presentacion
             // 
             this.correo.Enabled = false;
             this.correo.Location = new System.Drawing.Point(399, 279);
-            this.correo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.correo.Margin = new System.Windows.Forms.Padding(4);
             this.correo.Name = "correo";
             this.correo.Size = new System.Drawing.Size(132, 22);
             this.correo.TabIndex = 29;
@@ -189,7 +189,7 @@ namespace Presentacion
             // 
             this.Apellido.Enabled = false;
             this.Apellido.Location = new System.Drawing.Point(399, 224);
-            this.Apellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Apellido.Margin = new System.Windows.Forms.Padding(4);
             this.Apellido.Name = "Apellido";
             this.Apellido.Size = new System.Drawing.Size(132, 22);
             this.Apellido.TabIndex = 27;
@@ -206,40 +206,40 @@ namespace Presentacion
             this.label2.TabIndex = 26;
             this.label2.Text = "Nombre:";
             // 
-            // btnBuscar
+            // btnBusca
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnBuscar.Location = new System.Drawing.Point(1020, 326);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(119, 41);
-            this.btnBuscar.TabIndex = 25;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBusca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnBusca.FlatAppearance.BorderSize = 0;
+            this.btnBusca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBusca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBusca.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBusca.Location = new System.Drawing.Point(1020, 326);
+            this.btnBusca.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBusca.Name = "btnBusca";
+            this.btnBusca.Size = new System.Drawing.Size(119, 41);
+            this.btnBusca.TabIndex = 25;
+            this.btnBusca.Text = "Buscar";
+            this.btnBusca.UseVisualStyleBackColor = false;
             // 
             // dgvEmpleados
             // 
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Location = new System.Drawing.Point(281, 385);
-            this.dgvEmpleados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvEmpleados.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.RowHeadersWidth = 51;
             this.dgvEmpleados.Size = new System.Drawing.Size(1037, 185);
             this.dgvEmpleados.TabIndex = 24;
             this.dgvEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellClick);
             // 
-            // nombre
+            // txtnombre
             // 
-            this.nombre.Enabled = false;
-            this.nombre.Location = new System.Drawing.Point(399, 170);
-            this.nombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(132, 22);
-            this.nombre.TabIndex = 23;
+            this.txtnombre.Enabled = false;
+            this.txtnombre.Location = new System.Drawing.Point(399, 170);
+            this.txtnombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtnombre.Name = "txtnombre";
+            this.txtnombre.Size = new System.Drawing.Size(132, 22);
+            this.txtnombre.TabIndex = 23;
             // 
             // label1
             // 
@@ -261,7 +261,7 @@ namespace Presentacion
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnGuardar.Location = new System.Drawing.Point(892, 588);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(119, 41);
             this.btnGuardar.TabIndex = 43;
@@ -285,7 +285,7 @@ namespace Presentacion
             // 
             this.txtPais.Enabled = false;
             this.txtPais.Location = new System.Drawing.Point(1088, 228);
-            this.txtPais.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPais.Margin = new System.Windows.Forms.Padding(4);
             this.txtPais.Name = "txtPais";
             this.txtPais.Size = new System.Drawing.Size(229, 22);
             this.txtPais.TabIndex = 83;
@@ -306,7 +306,7 @@ namespace Presentacion
             // 
             this.txtCodPost.Enabled = false;
             this.txtCodPost.Location = new System.Drawing.Point(1088, 170);
-            this.txtCodPost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodPost.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodPost.Name = "txtCodPost";
             this.txtCodPost.Size = new System.Drawing.Size(229, 22);
             this.txtCodPost.TabIndex = 81;
@@ -327,7 +327,7 @@ namespace Presentacion
             // 
             this.txtRegion.Enabled = false;
             this.txtRegion.Location = new System.Drawing.Point(679, 286);
-            this.txtRegion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRegion.Margin = new System.Windows.Forms.Padding(4);
             this.txtRegion.Name = "txtRegion";
             this.txtRegion.Size = new System.Drawing.Size(229, 22);
             this.txtRegion.TabIndex = 79;
@@ -348,7 +348,7 @@ namespace Presentacion
             // 
             this.txtCiudad.Enabled = false;
             this.txtCiudad.Location = new System.Drawing.Point(679, 230);
-            this.txtCiudad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCiudad.Margin = new System.Windows.Forms.Padding(4);
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(229, 22);
             this.txtCiudad.TabIndex = 77;
@@ -369,7 +369,7 @@ namespace Presentacion
             // 
             this.txtTelefono.Enabled = false;
             this.txtTelefono.Location = new System.Drawing.Point(1088, 283);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(229, 22);
             this.txtTelefono.TabIndex = 75;
@@ -390,7 +390,7 @@ namespace Presentacion
             // 
             this.txtDireccion.Enabled = false;
             this.txtDireccion.Location = new System.Drawing.Point(679, 170);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(229, 22);
             this.txtDireccion.TabIndex = 73;
@@ -426,12 +426,12 @@ namespace Presentacion
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Apellido);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.btnBusca);
             this.Controls.Add(this.dgvEmpleados);
-            this.Controls.Add(this.nombre);
+            this.Controls.Add(this.txtnombre);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegistroEmpleado";
             this.Text = "RegistroEmpleado";
             this.Load += new System.EventHandler(this.RegistroEmpleado_Load);
@@ -455,9 +455,9 @@ namespace Presentacion
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Apellido;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnBusca;
         private System.Windows.Forms.DataGridView dgvEmpleados;
-        private System.Windows.Forms.TextBox nombre;
+        private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.Label label1;
 
         private System.Windows.Forms.Button btnGuardar;
