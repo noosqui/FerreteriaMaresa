@@ -20,7 +20,7 @@ namespace Dominio
         private string direccion;
         private string ciudad;
         private string region;
-        private string codigo_postal;
+        private int codigo_postal;
         private string pais;
         private CD_Clientes cli = new CD_Clientes();
 
@@ -35,7 +35,7 @@ namespace Dominio
 
         }
 
-        public int Id_empleado
+        public int Id
         {
             get { return idCliente; }
             set { idCliente = value; }
@@ -50,7 +50,7 @@ namespace Dominio
             get { return apellidocliente; }
             set { apellidocliente = value; }
         }
-        public string Correo
+        public string Rtn
         {
             get { return RTN; }
             set { RTN = value; }
@@ -65,6 +65,29 @@ namespace Dominio
             get { return direccion; }
             set { direccion = value; }
         }
+
+        public string Ciudad {
+            get { return ciudad; }
+            set { ciudad = value; }
+        }
+
+        public string Region {
+            get { return region; }
+            set { region = value; }
+        }
+
+        public int Codigo_postal
+        {
+            get { return codigo_postal; }
+            set { codigo_postal = value; }
+
+        }
+
+        public string Pais {
+            get { return pais; }
+            set { pais = value; }
+        }
+
 
 
         public void editar_Clientes()
