@@ -30,7 +30,7 @@ namespace Presentacion
             btnGuardar.Visible = true;
             btnGuardar.Enabled = true;
 
-            nombre.Enabled = true;
+            txtnombre.Enabled = true;
             Apellido.Enabled = true;
             correo.Enabled = true;
             txtDireccion.Enabled = true;
@@ -47,7 +47,7 @@ namespace Presentacion
             btnEliminar.Enabled = false;
             btnGuardar.Visible = true;
 
-            nombre.Enabled = true;
+            txtnombre.Enabled = true;
             Apellido.Enabled = true;
             correo.Enabled = true;
             txtDireccion.Enabled = true;
@@ -72,7 +72,7 @@ namespace Presentacion
             btnModificar.Enabled = true;
             btnAgregar.Enabled = true;
 
-            nombre.Enabled = false;
+            txtnombre.Enabled = false;
             Apellido.Enabled = false;
             correo.Enabled = false;
             txtDireccion.Enabled = false;
@@ -87,7 +87,7 @@ namespace Presentacion
         private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvEmpleados.CurrentRow.Selected = true;
-            nombre.Text = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
+            txtnombre.Text = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
             Apellido.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
             correo.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
             txtDireccion.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
