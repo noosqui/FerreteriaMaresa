@@ -21,7 +21,7 @@ namespace Presentacion
         {
 
             this.rpvCompras.RefreshReport();
-            this.reportViewer1.RefreshReport();
+        //    this.reportViewer1.RefreshReport();
         }
     }
 }
