@@ -81,13 +81,11 @@ namespace Presentacion
             var bd = (BindingSource)dgvProductos.DataSource;
             var dt = (DataTable)bd.DataSource;
             if (txtIdSrch.Text != "")
-
                 dt.DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtIdSrch.Text));
-
             else
-            {
+            
                 dt.DefaultView.RowFilter = null;
-            }
+            
             dgvProductos.Refresh();
 
             if (dt.DefaultView.Count < 1)
@@ -119,6 +117,7 @@ namespace Presentacion
         private void txtNombreSrch_KeyPress(object sender, KeyPressEventArgs e)
         {
             letrasNum.SoloLetras(e);
+        }
 
         private void button5_Click(object sender, EventArgs e)
         {
