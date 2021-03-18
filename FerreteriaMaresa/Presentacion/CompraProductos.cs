@@ -24,7 +24,7 @@ namespace Presentacion
         {
 
          var tab = new BindingSource();
-         tab.DataSource = inventario.mostrar_inventario();
+         tab.DataSource = productos.mostrar_inventario();
          dgvProducto.DataSource = tab;
             dgvProducto.Columns["Id Marca"].Visible = false;
             dgvProducto.Columns["Id Categoria"].Visible = false;
