@@ -1,11 +1,15 @@
-﻿using System.Windows.Forms;
+﻿using System.Data;
+using System.Windows.Forms;
 using Dominio;
 
 namespace Presentacion
 {
     public partial class RegistroClientes : Form
     {
-        private Clientes c = new Clientes();
+
+        DOM_Validacion letrasNum = new DOM_Validacion();
+        private DOM_Clientes c = new DOM_Clientes();
+
         public RegistroClientes()
         {
             InitializeComponent();
@@ -24,6 +28,11 @@ namespace Presentacion
 
             Lim_ha apagar = new Lim_ha();
             apagar.Apagar(this);
+            nombre.Enabled = false;
+            Apellido.Enabled = false;
+            rtn.Enabled = false;
+            txtDireccion.Enabled = false;
+            txtTelefono.Enabled = false;
         }
 
         private void button6_Click(object sender, System.EventArgs e)
@@ -62,7 +71,7 @@ namespace Presentacion
 
         }
 
-     
+
         private void RegistroClientes_Load(object sender, System.EventArgs e)
         {
             var fuente = new BindingSource();
@@ -95,6 +104,57 @@ namespace Presentacion
             txtCodPost.Text = dgvClientes.CurrentRow.Cells[7].Value.ToString();
             txtPais.Text = dgvClientes.CurrentRow.Cells[8].Value.ToString();
             txtTelefono.Text = dgvClientes.CurrentRow.Cells[9].Value.ToString();
+        }
+
+
+        private void txtnombrecli_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void txtcodigocli_TextChanged(object sender, System.EventArgs e)
+        {
+            var bd = (BindingSource)dgvClientes.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            if (txtcodigocli.Text != "")
+
+                dt.DefaultView.RowFilter = string.Format("[Id Cliente] = {0}", int.Parse(txtcodigocli.Text));
+
+            else
+            {
+                dt.DefaultView.RowFilter = null;
+            }
+            dgvClientes.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                MessageBox.Show("No se encontró el Codigo del Cliente",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtnombrecli_TextChanged_1(object sender, System.EventArgs e)
+        {
+            var bd = (BindingSource)dgvClientes.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Nombre Cliente] LIKE '%{0}%'", txtnombrecli.Text);
+            dgvClientes.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                MessageBox.Show("No se encontró el Nombre del Cliente",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtcodigocli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            letrasNum.SoloNumeros(e);
+        }
+
+        private void txtnombrecli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            letrasNum.SoloLetras(e);
         }
     }
 }

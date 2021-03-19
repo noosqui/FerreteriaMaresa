@@ -8,7 +8,6 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-
     public class CD_Clientes
     {
         private CD_Conexion conexion = new CD_Conexion();

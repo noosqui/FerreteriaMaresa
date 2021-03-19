@@ -35,9 +35,9 @@ namespace Presentacion
             this.label9 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtcodigoprod = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtnombreprod = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -52,6 +52,11 @@ namespace Presentacion
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvListaProductos = new System.Windows.Forms.DataGridView();
+            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prodNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad_Unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.cmbProveedor = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -74,8 +79,10 @@ namespace Presentacion
             // dgvProducto
             // 
             this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducto.Location = new System.Drawing.Point(88, 292);
+            this.dgvProducto.Location = new System.Drawing.Point(88, 295);
+            this.dgvProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvProducto.Name = "dgvProducto";
+            this.dgvProducto.RowHeadersWidth = 51;
             this.dgvProducto.Size = new System.Drawing.Size(643, 134);
             this.dgvProducto.TabIndex = 114;
             this.dgvProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellClick);
@@ -130,12 +137,14 @@ namespace Presentacion
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // textBox7
+            // txtcodigoprod
             // 
-            this.textBox7.Location = new System.Drawing.Point(422, 255);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(41, 20);
-            this.textBox7.TabIndex = 109;
+            this.txtcodigoprod.Location = new System.Drawing.Point(422, 255);
+            this.txtcodigoprod.Name = "txtcodigoprod";
+            this.txtcodigoprod.Size = new System.Drawing.Size(41, 20);
+            this.txtcodigoprod.TabIndex = 109;
+            this.txtcodigoprod.TextChanged += new System.EventHandler(this.txtcodigopro_TextChanged);
+            this.txtcodigoprod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcodigoprod_KeyPress);
             // 
             // label8
             // 
@@ -148,12 +157,14 @@ namespace Presentacion
             this.label8.TabIndex = 108;
             this.label8.Text = "Id Producto:";
             // 
-            // textBox6
+            // txtnombreprod
             // 
-            this.textBox6.Location = new System.Drawing.Point(535, 252);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 107;
+            this.txtnombreprod.Location = new System.Drawing.Point(535, 252);
+            this.txtnombreprod.Name = "txtnombreprod";
+            this.txtnombreprod.Size = new System.Drawing.Size(100, 20);
+            this.txtnombreprod.TabIndex = 107;
+            this.txtnombreprod.TextChanged += new System.EventHandler(this.txtnombrepor_TextChanged);
+            this.txtnombreprod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombreprod_KeyPress);
             // 
             // label7
             // 
@@ -209,7 +220,6 @@ namespace Presentacion
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Enabled = false;
             this.txtCantidad.Location = new System.Drawing.Point(605, 163);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(126, 20);
@@ -300,10 +310,44 @@ namespace Presentacion
             // dgvListaProductos
             // 
             this.dgvListaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdProducto,
+            this.prodNom,
+            this.Precio,
+            this.Cantidad,
+            this.Cantidad_Unidad});
             this.dgvListaProductos.Location = new System.Drawing.Point(775, 117);
+            this.dgvListaProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvListaProductos.Name = "dgvListaProductos";
+            this.dgvListaProductos.RowHeadersWidth = 51;
             this.dgvListaProductos.Size = new System.Drawing.Size(240, 225);
             this.dgvListaProductos.TabIndex = 115;
+            // 
+            // IdProducto
+            // 
+            this.IdProducto.HeaderText = "Id Producto";
+            this.IdProducto.Name = "IdProducto";
+            this.IdProducto.Visible = false;
+            // 
+            // prodNom
+            // 
+            this.prodNom.HeaderText = "Producto";
+            this.prodNom.Name = "prodNom";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio Producto";
+            this.Precio.Name = "Precio";
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Cantidad_Unidad
+            // 
+            this.Cantidad_Unidad.HeaderText = "Unidades";
+            this.Cantidad_Unidad.Name = "Cantidad_Unidad";
             // 
             // label10
             // 
@@ -359,9 +403,9 @@ namespace Presentacion
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.txtcodigoprod);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtnombreprod);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
@@ -394,9 +438,9 @@ namespace Presentacion
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtcodigoprod;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtnombreprod;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
@@ -417,5 +461,10 @@ namespace Presentacion
 
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtSubtotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prodNom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad_Unidad;
     }
 }

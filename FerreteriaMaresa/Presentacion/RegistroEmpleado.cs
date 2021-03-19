@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using Dominio;
 
@@ -7,7 +8,7 @@ namespace Presentacion
     public partial class RegistroEmpleado : Form
     {
         private DOM_Empleados emplea = new DOM_Empleados();
-     
+        DOM_Validacion letrasNum = new DOM_Validacion();
         public RegistroEmpleado()
         {
             InitializeComponent();
@@ -114,7 +115,6 @@ namespace Presentacion
             Limpiar.Limpiar(this);
 
 
-
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -139,7 +139,7 @@ namespace Presentacion
 
         private void habilitar_Click(object sender, EventArgs e)
         {
-            
+
 
             btnGuardar.Visible = false;
             btnEliminar.Enabled = true;
@@ -160,7 +160,7 @@ namespace Presentacion
         {
             dgvEmpleados.CurrentRow.Selected = true;
             txtidentidad.Text = dgvEmpleados.CurrentRow.Cells[0].Value.ToString();
-            nombre.Text = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
+            txtnombre.Text = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
             Apellido.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
             correo.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
             txtDireccion.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
@@ -181,7 +181,52 @@ namespace Presentacion
 
         private void txtidentidad_TextChanged(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void txtcodigoemp_TextChanged(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgvEmpleados.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            if (txtcodigoemp.Text != "")
+
+                dt.DefaultView.RowFilter = string.Format("[Identidad] LIKE '%{0}'", int.Parse(txtcodigoemp.Text));
+
+            else
+            {
+                dt.DefaultView.RowFilter = null;
+            }
+            dgvEmpleados.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                MessageBox.Show("No se encontró el Codigo del Empleado",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtnombreemp_TextChanged(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgvEmpleados.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Nombres] LIKE '%{0}%'", txtnombreemp.Text);
+            dgvEmpleados.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                MessageBox.Show("No se encontró el Nombre del Empleado",
+                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtcodigoemp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            letrasNum.SoloNumeros(e);
+        }
+
+        private void txtnombreemp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            letrasNum.SoloLetras(e);
         }
     }
 }

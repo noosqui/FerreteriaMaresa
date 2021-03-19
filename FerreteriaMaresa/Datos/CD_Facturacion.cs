@@ -17,6 +17,7 @@ namespace Datos
 
         public void insertar_FacturaVenta(DateTime Fecha, string IdCliente, string IdEmpleado, int Tipopago, double Descuento, double Subtotal)
         {
+            comando = new SqlCommand();
             comando.Connection = conexion.abrir();
             comando.CommandText = "insertar_FacturaVenta";
             comando.CommandType = CommandType.StoredProcedure;
@@ -32,6 +33,7 @@ namespace Datos
 
         public DataTable Mostrar_FacturaVenta()
         {
+            comando = new SqlCommand();
             comando.Connection = conexion.abrir();
             comando.CommandText = "SP_Venta";
             comando.CommandType = CommandType.StoredProcedure;
@@ -41,7 +43,7 @@ namespace Datos
             return tabla;
         }
 
-        public void insertar_FacturaCompra(DateTime Fecha, string IdProveedor, string IdEmpleado, int Tipopago, double Descuento, double Subtotal)
+        public void insertar_FacturaCompra(DateTime Fecha, int IdProveedor, string IdEmpleado, int Tipopago, double Descuento, double Subtotal)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "insertar_FacturaCompra";

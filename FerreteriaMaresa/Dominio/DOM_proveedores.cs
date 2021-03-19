@@ -18,11 +18,12 @@ namespace Dominio
         private string correo;
         private string telefono;
         private string direccion;
+        //arreglar direccion
 
         public DOM_proveedor()
         {
-
         }
+
         public DOM_proveedor(string empleado,string nombre,string apellido)
         {
             this.id_proveedor = int.Parse(empleado);
@@ -30,7 +31,7 @@ namespace Dominio
             this.apellido_proveedor = apellido;
         }
 
-        public int Id_empleado
+        public int Id_proveedor
         {
             get { return id_proveedor; }
             set { id_proveedor = value; }
