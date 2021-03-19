@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +8,7 @@ using System.Data;
 
 namespace Dominio
 {
+
      public class DOM_Empleados
     {
         private string idEmpleado;
@@ -20,13 +21,11 @@ namespace Dominio
         private string region;
         private string codigopostal;
         private string pais;
-        private string idrol;
+        private int idrol;
         private string fnacimiento;
         private string estado;
         private int tipo_emp;
         private CD_Empleados emple = new CD_Empleados();
-
-
         public DOM_Empleados()
         {
 
@@ -107,18 +106,36 @@ namespace Dominio
             set { estado = value; }
         }
 
+        public int Tipoemp
+        {
+            get { return idrol; }
+            set { idrol = value; }
+        }
+
+        public string Estado
+
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
+
+
         public DataTable Mostrar_Empleados()
         {
             return emple.Mostrar_Empleados();
         }
 
+
         public void buscar_Empleados()
         {
             emple.Buscar_Empleado(idEmpleado);
         }
+
+
         public void Editar_Empleado()
+
         {
-            emple.Editar_Empleado(Id_empleado, nombreEmpleado, apellidoEmpleado, correoEmpleado, long.Parse(telEmpleado), direccion, ciudad, region, codigopostal, pais, int.Parse(idrol), DateTime.Parse(fnacimiento), estado);
+            emple.Editar_Empleado(Id_empleado, nombreEmpleado, apellidoEmpleado, correoEmpleado, long.Parse(telEmpleado), direccion, ciudad, region, codigopostal, pais, idrol, DateTime.Parse(fnacimiento), estado);
         }
         public void eliminar_empleado()
         {
@@ -131,7 +148,8 @@ namespace Dominio
         }
         public void crear_empleado()
         {
-            emple.insertar_Empleado(Id_empleado, nombreEmpleado, apellidoEmpleado, correoEmpleado, long.Parse(telEmpleado), direccion, ciudad, region, codigopostal, pais, int.Parse(idrol), DateTime.Parse(fnacimiento), estado);
+
+            emple.insertar_Empleado(Id_empleado, nombreEmpleado, apellidoEmpleado, correoEmpleado, long.Parse(telEmpleado), direccion, ciudad, region, codigopostal, pais, idrol   , DateTime.Parse(fnacimiento), estado);
         }
         public Boolean autentificacion_empleado(string usuario, string contrasenia)
         {
@@ -139,7 +157,7 @@ namespace Dominio
              Datatable table = new Datatable()
 
 
-             
+
              */
             //tabla = objeto.autentificar(usuario,contrasenia)
             /*
@@ -148,7 +166,7 @@ namespace Dominio
                 obtenerEmpleado();
                 return true;
                 }
-            else 
+            else
             return false();
             */
             return false;
@@ -158,7 +176,7 @@ namespace Dominio
          * tabla = objeto.tipEmp(id_usuario);
          * this.tipo_emp = int.parse(tabla.column("tipo_empleado).row(1).toString());
          * }
-         * 
+         *
         */
         /*
          * public obtenerEmpleado()

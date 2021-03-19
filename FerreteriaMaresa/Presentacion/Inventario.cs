@@ -1,19 +1,23 @@
-﻿using System.Windows.Forms;
-using Dominio;
-using System.Media;
+﻿using System;
 using System.Data;
+using System.Text;
+using Dominio;
+using System.Windows.Forms;
+
+
 namespace Presentacion
 
 {
     public partial class Inventario : Form
     {
+
+        DOM_Inventario inventario = new DOM_Inventario();
+        DOM_Validacion letrasNum = new DOM_Validacion();
+
         public Inventario()
         {
             InitializeComponent();
         }
-
-        public DOM_Inventario inventario = new DOM_Inventario();
-
 
         private void Inventario_Load(object sender, System.EventArgs e)
         {
@@ -38,18 +42,23 @@ namespace Presentacion
             var bd = (BindingSource)dgvInventario.DataSource;
             var dt = (DataTable)bd.DataSource;
             dt.DefaultView.RowFilter = string.Format("[Estado] LIKE '%{0}%'", "Activo");
+        private void txtnombre_TextChanged_1(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgvInventario.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Nombre Producto] LIKE '%{0}%'", txtnombre.Text);
             dgvInventario.Refresh();
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontró el Producto",
+                MessageBox.Show("No se encontró el Nombre del Producto",
                     "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void btnActivos_StyleChanged(object sender, System.EventArgs e)
         {
-            
+
         }
 
         private void dgvInventario_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -62,11 +71,25 @@ namespace Presentacion
             var bd = (BindingSource)dgvInventario.DataSource;
             var dt = (DataTable)bd.DataSource;
             dt.DefaultView.RowFilter = string.Format("[Estado] LIKE '%{0}%'", "Inactivo");
+        }
+
+        private void txtcodigo_TextChanged_1(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgvInventario.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            if(txtcodigo.Text != "")
+
+            dt.DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtcodigo.Text));
+
+            else
+            {
+                dt.DefaultView.RowFilter = null;
+            }
             dgvInventario.Refresh();
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontró el Producto",
+                MessageBox.Show("No se encontró el Codigo del Producto",
                     "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -83,6 +106,15 @@ namespace Presentacion
                 MessageBox.Show("No se encontró el Producto",
                     "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+        private void txtcodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            letrasNum.SoloNumeros(e);
+        }
+
+        private void txtnombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            letrasNum.SoloLetras(e);
         }
     }
 }
