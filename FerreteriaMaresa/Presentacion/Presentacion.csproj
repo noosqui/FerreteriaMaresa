@@ -58,8 +58,13 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    <Reference Include="Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -104,6 +109,12 @@
     <Compile Include="Inventario.Designer.cs">
       <DependentUpon>Inventario.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginFerreteriaMaresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginFerreteriaMaresa.Designer.cs">
+      <DependentUpon>LoginFerreteriaMaresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,36 +141,6 @@
     <Compile Include="RegistroEmpleado.Designer.cs">
       <DependentUpon>RegistroEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReporteCompras.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteCompras.Designer.cs">
-      <DependentUpon>ReporteCompras.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReporteEmpleados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteEmpleados.Designer.cs">
-      <DependentUpon>ReporteEmpleados.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReporteInventario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteInventario.Designer.cs">
-      <DependentUpon>ReporteInventario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReporteProveedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteProveedor.Designer.cs">
-      <DependentUpon>ReporteProveedor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReporteVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteVenta.Designer.cs">
-      <DependentUpon>ReporteVenta.cs</DependentUpon>
-    </Compile>
     <Compile Include="VentaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginFerreteriaMaresa.resx">
+      <DependentUpon>LoginFerreteriaMaresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAdmin.resx">
       <DependentUpon>MenuAdmin.cs</DependentUpon>
@@ -200,21 +184,6 @@
     <EmbeddedResource Include="RegistroEmpleado.resx">
       <DependentUpon>RegistroEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteCompras.resx">
-      <DependentUpon>ReporteCompras.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReporteEmpleados.resx">
-      <DependentUpon>ReporteEmpleados.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReporteInventario.resx">
-      <DependentUpon>ReporteInventario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReporteProveedor.resx">
-      <DependentUpon>ReporteProveedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReporteVenta.resx">
-      <DependentUpon>ReporteVenta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="VentaProducto.resx">
       <DependentUpon>VentaProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +200,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
+      <Project>{b0300682-bdbf-4c42-87df-fbd81408e6fe}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
