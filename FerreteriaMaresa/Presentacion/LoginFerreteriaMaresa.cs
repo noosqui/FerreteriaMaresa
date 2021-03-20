@@ -82,29 +82,32 @@ namespace Presentacion
         private void btnAcceder_Click(object sender, EventArgs e)
         {
             DOM_Empleados emp = new DOM_Empleados();
-            DataTable tabla = new DataTable();
-            tabla = emp.autentificacion_empleado(txtUsuario.Text, txtContra.Text);
+            DataTable tabla = emp.autentificacion_empleado(txtUsuario.Text, txtContra.Text);
+          
+            if (tabla.Rows.Count > 0)
+            {
+                switch ((int)tabla.Rows[0][10])
+                {
+                    case 1:
+                        {
 
-            if (txtUsuario.Text == "0318199877441" && txtContra.Text == "12345")
-            {
-                MenuAdmin admin = new MenuAdmin();
-                this.Hide();
-                admin.Show();
+                            MenuAdmin adm = new MenuAdmin();
+                            adm.Show();
+                            Hide();
+                            break;
+                        }
+                    case 2:
+                        {
+                            MenuEmpleados empl = new MenuEmpleados();
+                            empl.Show();
+                            Hide();
+                            break;
+                        }
+                    default:
+                        MessageBox.Show("a");
+                        break;
+                }
             }
-            else if (txtUsuario.Text == "0318199802010" && txtContra.Text == "12345")
-            {
-                MenuEmpleados empleados = new MenuEmpleados();
-                this.Hide();
-                empleados.Show();
-            }
-            else
-            {
-                MessageBox.Show("Usuario Incorrecto");
-                txtUsuario.Text = "USUARIO";
-                txtContra.Text = "CONTRASEÑA";
-                txtContra.UseSystemPasswordChar = false;
-            }
-            
                 
         }
 

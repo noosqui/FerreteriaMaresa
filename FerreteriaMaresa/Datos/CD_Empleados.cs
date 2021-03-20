@@ -25,8 +25,9 @@ namespace Datos
             comando.Parameters.AddWithValue("@contrasenia", contrasenia);
             comando.CommandType = CommandType.StoredProcedure;
             lee = comando.ExecuteReader();
-            comando.Connection = conexion.cerrar();
+          
             tabla.Load(lee);
+            comando.Connection = conexion.cerrar();
             return tabla;
         }
 
