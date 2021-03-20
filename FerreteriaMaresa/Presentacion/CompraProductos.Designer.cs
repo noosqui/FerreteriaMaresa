@@ -114,7 +114,7 @@ namespace Presentacion
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1070, 529);
-            this.panel1.TabIndex = 93;
+            this.panel1.TabIndex = 95;
             // 
             // label5
             // 
@@ -470,7 +470,7 @@ namespace Presentacion
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CompraProductos";
-            this.Text = "CompraProductos";
+            this.Text = "Compra de Productos";
             this.Load += new System.EventHandler(this.CompraProductos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

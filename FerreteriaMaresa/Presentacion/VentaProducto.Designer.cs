@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.VentaProductos = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -60,44 +60,44 @@
             this.telefono_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button5 = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.VentaProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // VentaProductos
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.precio);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.Strock);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.Cantidad);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.Nombre);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.Id);
-            this.panel1.Controls.Add(this.textBox7);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.textBox6);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.dgvEmpleados);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.btnAgregar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1080, 574);
-            this.panel1.TabIndex = 0;
+            this.VentaProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
+            this.VentaProductos.Controls.Add(this.label1);
+            this.VentaProductos.Controls.Add(this.label11);
+            this.VentaProductos.Controls.Add(this.textBox2);
+            this.VentaProductos.Controls.Add(this.label10);
+            this.VentaProductos.Controls.Add(this.textBox1);
+            this.VentaProductos.Controls.Add(this.dataGridView1);
+            this.VentaProductos.Controls.Add(this.label9);
+            this.VentaProductos.Controls.Add(this.label6);
+            this.VentaProductos.Controls.Add(this.precio);
+            this.VentaProductos.Controls.Add(this.label5);
+            this.VentaProductos.Controls.Add(this.Strock);
+            this.VentaProductos.Controls.Add(this.label4);
+            this.VentaProductos.Controls.Add(this.Cantidad);
+            this.VentaProductos.Controls.Add(this.label3);
+            this.VentaProductos.Controls.Add(this.Nombre);
+            this.VentaProductos.Controls.Add(this.label2);
+            this.VentaProductos.Controls.Add(this.Id);
+            this.VentaProductos.Controls.Add(this.textBox7);
+            this.VentaProductos.Controls.Add(this.label8);
+            this.VentaProductos.Controls.Add(this.textBox6);
+            this.VentaProductos.Controls.Add(this.label7);
+            this.VentaProductos.Controls.Add(this.button1);
+            this.VentaProductos.Controls.Add(this.dgvEmpleados);
+            this.VentaProductos.Controls.Add(this.button5);
+            this.VentaProductos.Controls.Add(this.btnAgregar);
+            this.VentaProductos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VentaProductos.Location = new System.Drawing.Point(0, 0);
+            this.VentaProductos.Name = "VentaProductos";
+            this.VentaProductos.Size = new System.Drawing.Size(1080, 574);
+            this.VentaProductos.TabIndex = 1;
             // 
             // label1
             // 
@@ -416,12 +416,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(1080, 574);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.VentaProductos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VentaProducto";
-            this.Text = "Form1";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Text = "Venta de Productos";
+            this.VentaProductos.ResumeLayout(false);
+            this.VentaProductos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.ResumeLayout(false);
@@ -430,7 +430,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel VentaProductos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox2;
