@@ -516,7 +516,7 @@ namespace Presentacion
             this.Controls.Add(this.nombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistroEmpleado";
-            this.Text = "RegistroEmpleado";
+            this.Text = "Registro de Empleados";
             this.Load += new System.EventHandler(this.RegistroEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.ResumeLayout(false);
