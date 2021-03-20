@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using Dominio;
+using System.Media;
 
 namespace Presentacion
 {
@@ -133,8 +134,9 @@ namespace Presentacion
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontró el Nombre del Producto",
-                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.txtnombreprod, 0, 25, 3000);
             }
         }
 
@@ -154,8 +156,9 @@ namespace Presentacion
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontró el Codigo del Producto",
-                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.txtcodigoprod, 0, 25, 3000);
             }
         }
 
@@ -169,18 +172,6 @@ namespace Presentacion
             LetraNum.SoloLetras(e);
         }
 
-        private void btnSiguiente_Click(object sender, EventArgs e)
-        {
-            btnAgregar.Enabled = true;
-            btnModificar.Enabled = true;
-            btnEliminar.Enabled = true;
-            dgvListaProductos.DataSource = " ";
-
-            Lim_ha Limpiar = new Lim_ha();
-            Limpiar.Limpiar(this);
-
-            Lim_ha apagar = new Lim_ha();
-            apagar.Apagar(this);
-        }
+ 
     }
 }

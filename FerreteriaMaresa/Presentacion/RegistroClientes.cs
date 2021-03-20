@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Windows.Forms;
 using Dominio;
+using System.Media;
 
 namespace Presentacion
 {
@@ -128,8 +129,9 @@ namespace Presentacion
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontró el Codigo del Cliente",
-                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.txtcodigocli, 0, 25, 3000);
             }
         }
 
@@ -142,8 +144,9 @@ namespace Presentacion
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontró el Nombre del Cliente",
-                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.txtnombrecli, 0, 25, 3000);
             }
         }
 

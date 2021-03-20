@@ -21,7 +21,7 @@ namespace Dominio
         private string region;
         private string codigopostal;
         private string pais;
-        private int idrol;
+        private string idrol;
         private string fnacimiento;
         private string estado;
         private int tipo_emp;
@@ -106,18 +106,8 @@ namespace Dominio
             set { estado = value; }
         }
 
-        public int Tipoemp
-        {
-            get { return idrol; }
-            set { idrol = value; }
-        }
 
-        public string Estado
 
-        {
-            get { return estado; }
-            set { estado = value; }
-        }
 
 
         public DataTable Mostrar_Empleados()
@@ -135,7 +125,7 @@ namespace Dominio
         public void Editar_Empleado()
 
         {
-            emple.Editar_Empleado(Id_empleado, nombreEmpleado, apellidoEmpleado, correoEmpleado, long.Parse(telEmpleado), direccion, ciudad, region, codigopostal, pais, idrol, DateTime.Parse(fnacimiento), estado);
+            emple.Editar_Empleado(Id_empleado, nombreEmpleado, apellidoEmpleado, correoEmpleado, long.Parse(telEmpleado), direccion, ciudad, region, codigopostal, pais, int.Parse(idrol), DateTime.Parse(fnacimiento), estado);
         }
         public void eliminar_empleado()
         {
@@ -149,7 +139,7 @@ namespace Dominio
         public void crear_empleado()
         {
 
-            emple.insertar_Empleado(Id_empleado, nombreEmpleado, apellidoEmpleado, correoEmpleado, long.Parse(telEmpleado), direccion, ciudad, region, codigopostal, pais, idrol   , DateTime.Parse(fnacimiento), estado);
+            emple.insertar_Empleado(Id_empleado, nombreEmpleado, apellidoEmpleado, correoEmpleado, long.Parse(telEmpleado), direccion, ciudad, region, codigopostal, pais, int.Parse(idrol)   , DateTime.Parse(fnacimiento), estado);
         }
         public Boolean autentificacion_empleado(string usuario, string contrasenia)
         {
