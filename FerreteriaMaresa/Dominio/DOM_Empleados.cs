@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using Datos;
 
 namespace Dominio
 {
-    class DOM_Empleados
+     public class DOM_Empleados 
     {
+        CD_Empleados emp= new CD_Empleados();
+
         private int id_empleado;
         private string nombre;
         private string apellido;
@@ -77,25 +81,11 @@ namespace Dominio
         {
             /*objeto.crearempleado(id_empleado,_nombre,apellido,correo,telefono,direccion,contrasenia)*/
         }
-        public Boolean autentificacion_empleado(string usuario, string contrasenia)
+        public DataTable  autentificacion_empleado(string usuario, string contrasenia)
         {
-            /*
-             Datatable table = new Datatable()
+            
+           return emp.VerificarUsuario(usuario,contrasenia);
 
-
-             
-             */
-            //tabla = objeto.autentificar(usuario,contrasenia)
-            /*
-             * if (tabla.hasrows())
-               {
-                obtenerEmpleado();
-                return true;
-                }
-            else 
-            return false();
-            */
-            return false;
         }
         /*Public int tipoemp()
          * {

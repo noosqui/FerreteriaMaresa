@@ -17,7 +17,7 @@ namespace Datos
         SqlCommand comando = new SqlCommand();
 
 
-        public SqlDataReader VerificarUsuario(string usuario, string contrasenia)
+        public DataTable VerificarUsuario(string usuario, string contrasenia)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "VerificarUsuario";
@@ -26,7 +26,8 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             lee = comando.ExecuteReader();
             comando.Connection = conexion.cerrar();
-            return lee;
+            tabla.Load(lee);
+            return tabla;
         }
 
         public DataTable Mostrar_Empleados()
