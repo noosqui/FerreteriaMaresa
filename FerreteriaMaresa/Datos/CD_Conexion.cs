@@ -11,7 +11,7 @@ namespace Datos
 {
   public class CD_Conexion
     {
-        private SqlConnection Conectarbd = new SqlConnection("server=(local);DataBase= Ferreteria_Maresa;Integrated Security=True");
+        private SqlConnection Conectarbd = new SqlConnection("server=DESKTOP-LHRSL72\\SQLEXPRESS;DataBase= Ferreteria_Maresa;Integrated Security=True");
 
         public SqlConnection abrir()
         {
