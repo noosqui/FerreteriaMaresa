@@ -2,7 +2,7 @@ using System;
 using System.Windows.Forms;
 using Dominio;
 using System.Data;
-
+using System.Media;
 namespace Presentacion
 {
     public partial class VentaProducto : Form
@@ -29,11 +29,6 @@ namespace Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Lim_ha encender = new Lim_ha();
-            encender.Encender(this);
-
-            Lim_ha Limpiar = new Lim_ha();
-            Limpiar.Limpiar(this);
             suma = double.Parse(dgvProductos.SelectedRows[0].Cells[8].Value.ToString()) * int.Parse(txtCantidad.Text);
             suma += double.Parse(txtSubtotal.Text);
             dgvProductList.Rows.Add(dgvProductos.SelectedRows[0].Cells[0].Value, dgvProductos.SelectedRows[0].Cells[1].Value, dgvProductos.SelectedRows[0].Cells[8].Value, txtCantidad.Text, dgvProductos.SelectedRows[0].Cells[6].Value);
@@ -62,7 +57,9 @@ namespace Presentacion
 
         private void VentaProducto_Load(object sender, EventArgs e)
         {
-            dgvProductos.DataSource = inventario.mostrar_inventario();
+            var fuente = new BindingSource();
+            fuente.DataSource = inventario.mostrar_inventario();
+            dgvProductos.DataSource = fuente;
             dgvProductos.Columns["Id Marca"].Visible = false;
             dgvProductos.Columns["Id Categoria"].Visible = false;
             dgvProductos.Refresh();
@@ -95,8 +92,9 @@ namespace Presentacion
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontr� el Codigo del Empleado",
-                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.txtIdSrch, 0, 25, 3000);
             }
         }
 
@@ -109,8 +107,9 @@ namespace Presentacion
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontr� el Nombre del Producto",
-                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.txtNombreSrch, 0, 25, 3000);
             }
         }
 
@@ -139,9 +138,5 @@ namespace Presentacion
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

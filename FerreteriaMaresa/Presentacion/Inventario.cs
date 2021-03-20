@@ -3,7 +3,7 @@ using System.Data;
 using System.Text;
 using Dominio;
 using System.Windows.Forms;
-
+using System.Media;
 
 namespace Presentacion
 
@@ -42,6 +42,8 @@ namespace Presentacion
             var bd = (BindingSource)dgvInventario.DataSource;
             var dt = (DataTable)bd.DataSource;
             dt.DefaultView.RowFilter = string.Format("[Estado] LIKE '%{0}%'", "Activo");
+
+        }
         private void txtnombre_TextChanged_1(object sender, EventArgs e)
         {
             var bd = (BindingSource)dgvInventario.DataSource;
@@ -51,8 +53,9 @@ namespace Presentacion
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontró el Nombre del Producto",
-                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.txtnombre, 0, 25, 3000);
             }
         }
 
@@ -89,8 +92,9 @@ namespace Presentacion
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontró el Codigo del Producto",
-                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.txtcodigo, 0, 25, 3000);
             }
         }
 
@@ -103,8 +107,9 @@ namespace Presentacion
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontró el Producto",
-                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", btnTodos, 0, btnTodos.Height, 3000);
             }
         }
         private void txtcodigo_KeyPress(object sender, KeyPressEventArgs e)

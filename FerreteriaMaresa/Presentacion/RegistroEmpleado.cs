@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using Dominio;
+using System.Media;
 
 namespace Presentacion
 {
@@ -17,7 +18,7 @@ namespace Presentacion
         public void Registro_Empleado()
         {
             emplea.Id_empleado = txtidentidad.Text;
-            emplea.Nombre = nombre.Text;
+            emplea.Nombre = txtnombre.Text;
             emplea.Apellido = Apellido.Text;
             emplea.Correo = correo.Text;
             emplea.Telefono = txtTelefono.Text;
@@ -37,7 +38,7 @@ namespace Presentacion
         public void Editar_Empleado()
         {
             emplea.Id_empleado = txtidentidad.Text;
-            emplea.Nombre = nombre.Text;
+            emplea.Nombre = txtnombre.Text;
             emplea.Apellido = Apellido.Text;
             emplea.Correo = correo.Text;
             emplea.Telefono = txtTelefono.Text;
@@ -84,7 +85,7 @@ namespace Presentacion
 
             dgvEmpleados.CurrentRow.Selected = true;
             txtidentidad.Text = dgvEmpleados.CurrentRow.Cells[0].Value.ToString();
-            nombre.Text = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
+            txtnombre.Text = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
             Apellido.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
             correo.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
             txtDireccion.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
@@ -188,9 +189,9 @@ namespace Presentacion
         {
             var bd = (BindingSource)dgvEmpleados.DataSource;
             var dt = (DataTable)bd.DataSource;
-            if (txtcodigoemp.Text != "")
+            if (txtbuscarid.Text != "")
 
-                dt.DefaultView.RowFilter = string.Format("[Identidad] LIKE '%{0}'", int.Parse(txtcodigoemp.Text));
+                dt.DefaultView.RowFilter = string.Format("[Identidad] LIKE '%{0}'", int.Parse(txtbuscarid.Text));
 
             else
             {
@@ -200,8 +201,9 @@ namespace Presentacion
 
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontró el Codigo del Empleado",
-                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.txtnombreemp, 0, 25, 3000);
             }
         }
 
@@ -211,11 +213,12 @@ namespace Presentacion
             var dt = (DataTable)bd.DataSource;
             dt.DefaultView.RowFilter = string.Format("[Nombres] LIKE '%{0}%'", txtnombreemp.Text);
             dgvEmpleados.Refresh();
-
+            
             if (dt.DefaultView.Count < 1)
             {
-                MessageBox.Show("No se encontró el Nombre del Empleado",
-                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.txtnombreemp, 0, 25, 3000);
             }
         }
 
