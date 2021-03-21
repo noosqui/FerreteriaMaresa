@@ -248,6 +248,7 @@ namespace Presentacion
         {
             
             ActivateButton(sender, RGBColors.color6);
+            pnlSub1.Visible = true;
             panelSubMenu.Visible = true;
             TituloFormularioHijo.Text = "Reportes";
         }
@@ -257,13 +258,6 @@ namespace Presentacion
             ActivateButton(sender, RGBColors.color6);
             panelSubMenu.Visible = false;
             TituloFormularioHijo.Text = "Reporte de Empleados";
-        }
-
-        private void btnReporteCompras_Click_1(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = false;
-            TituloFormularioHijo.Text = "Reporte de Compras";
         }
 
         private void ReporteInventario_Click_1(object sender, EventArgs e)
@@ -290,6 +284,20 @@ namespace Presentacion
         private void panelSubMenu_Paint_1(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void iconButton4_Click_2(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color6);
+            panelSubMenu.Visible = false;
+            TituloFormularioHijo.Text = "Reporte de Empleados";
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color5);
+            panelSubMenu.Visible = false;
+            AbrirForm(new RegistroClientes());
         }
     }
 }
