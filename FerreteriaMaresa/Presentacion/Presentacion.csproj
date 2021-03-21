@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Presentacion</RootNamespace>
     <AssemblyName>Presentacion</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,6 +37,38 @@
     <StartupObject>Presentacion.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net45\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1440.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1440.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,6 +88,18 @@
     <Compile Include="CompraProductos.Designer.cs">
       <DependentUpon>CompraProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FacturaCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacturaCompra.Designer.cs">
+      <DependentUpon>FacturaCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FacturaVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacturaVenta.Designer.cs">
+      <DependentUpon>FacturaVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,17 +113,23 @@
       <DependentUpon>Inventario.cs</DependentUpon>
     </Compile>
     <Compile Include="Lim.ha.cs" />
-    <Compile Include="MenuAdministrador.cs">
+    <Compile Include="LoginFerreteriaMaresa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuAdministrador.Designer.cs">
-      <DependentUpon>MenuAdministrador.cs</DependentUpon>
+    <Compile Include="LoginFerreteriaMaresa.Designer.cs">
+      <DependentUpon>LoginFerreteriaMaresa.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuEmpleado.cs">
+    <Compile Include="MenuAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuEmpleado.Designer.cs">
-      <DependentUpon>MenuEmpleado.cs</DependentUpon>
+    <Compile Include="MenuAdmin.Designer.cs">
+      <DependentUpon>MenuAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuEmpleados.Designer.cs">
+      <DependentUpon>MenuEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,24 +145,6 @@
     <Compile Include="RegistroEmpleado.Designer.cs">
       <DependentUpon>RegistroEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReporteEmpleados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteEmpleados.Designer.cs">
-      <DependentUpon>ReporteEmpleados.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReporteInventario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteInventario.Designer.cs">
-      <DependentUpon>ReporteInventario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReporteVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteVenta.Designer.cs">
-      <DependentUpon>ReporteVenta.cs</DependentUpon>
-    </Compile>
     <Compile Include="VentaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,14 +154,23 @@
     <EmbeddedResource Include="CompraProductos.resx">
       <DependentUpon>CompraProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FacturaCompra.resx">
+      <DependentUpon>FacturaCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacturaVenta.resx">
+      <DependentUpon>FacturaVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuAdministrador.resx">
-      <DependentUpon>MenuAdministrador.cs</DependentUpon>
+    <EmbeddedResource Include="LoginFerreteriaMaresa.resx">
+      <DependentUpon>LoginFerreteriaMaresa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuEmpleado.resx">
-      <DependentUpon>MenuEmpleado.cs</DependentUpon>
+    <EmbeddedResource Include="MenuAdmin.resx">
+      <DependentUpon>MenuAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuEmpleados.resx">
+      <DependentUpon>MenuEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -138,6 +180,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RegistroClientes.resx">
       <DependentUpon>RegistroClientes.cs</DependentUpon>
@@ -145,15 +188,10 @@
     <EmbeddedResource Include="RegistroEmpleado.resx">
       <DependentUpon>RegistroEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteInventario.resx">
-      <DependentUpon>ReporteInventario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReporteVenta.resx">
-      <DependentUpon>ReporteVenta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="VentaProducto.resx">
       <DependentUpon>VentaProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -168,10 +206,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Datos\Datos.csproj">
-      <Project>{0DFCC74E-43B6-4887-A8FF-0888BB625553}</Project>
-      <Name>Datos</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Dominio\Dominio.csproj">
       <Project>{b0300682-bdbf-4c42-87df-fbd81408e6fe}</Project>
       <Name>Dominio</Name>

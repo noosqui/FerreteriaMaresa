@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class ReporteEmpleados : Form
+    public partial class FacturaCompra : Form
     {
-        public ReporteEmpleados()
+        public FacturaCompra()
         {
             InitializeComponent();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
