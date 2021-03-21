@@ -144,7 +144,7 @@ namespace Dominio
         public DataTable  autentificacion_empleado(string usuario, string contrasenia)
         {
 
-           return emp.VerificarUsuario(usuario,contrasenia);
+           return emple.VerificarUsuario(usuario,contrasenia);
 
         }
         /*Public int tipoemp()
