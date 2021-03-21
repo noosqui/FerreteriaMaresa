@@ -231,5 +231,10 @@ namespace Presentacion
         {
             letrasNum.SoloLetras(e);
         }
+
+        private void btnrecontratar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

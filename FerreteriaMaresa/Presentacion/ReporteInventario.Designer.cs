@@ -52,6 +52,7 @@
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Location = new System.Drawing.Point(205, 73);
             this.dgvEmpleados.Name = "dgvEmpleados";
+            this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleados.Size = new System.Drawing.Size(742, 425);
             this.dgvEmpleados.TabIndex = 36;
             //
