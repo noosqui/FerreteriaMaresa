@@ -141,25 +141,11 @@ namespace Dominio
 
             emple.insertar_Empleado(Id_empleado, nombreEmpleado, apellidoEmpleado, correoEmpleado, long.Parse(telEmpleado), direccion, ciudad, region, codigopostal, pais, int.Parse(idrol)   , DateTime.Parse(fnacimiento), estado);
         }
-        public Boolean autentificacion_empleado(string usuario, string contrasenia)
+        public DataTable  autentificacion_empleado(string usuario, string contrasenia)
         {
-            /*
-             Datatable table = new Datatable()
 
+           return emp.VerificarUsuario(usuario,contrasenia);
 
-
-             */
-            //tabla = objeto.autentificar(usuario,contrasenia)
-            /*
-             * if (tabla.hasrows())
-               {
-                obtenerEmpleado();
-                return true;
-                }
-            else
-            return false();
-            */
-            return false;
         }
         /*Public int tipoemp()
          * {

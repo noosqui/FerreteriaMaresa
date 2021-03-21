@@ -38,6 +38,7 @@
             this.btnActivos = new System.Windows.Forms.Button();
             this.btnTodos = new System.Windows.Forms.Button();
             this.btnInactivos = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,6 +107,7 @@
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -128,7 +130,7 @@
             this.btnActivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActivos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnActivos.Location = new System.Drawing.Point(20, 200);
-            this.btnActivos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnActivos.Margin = new System.Windows.Forms.Padding(2);
             this.btnActivos.Name = "btnActivos";
             this.btnActivos.Size = new System.Drawing.Size(67, 27);
             this.btnActivos.TabIndex = 58;
@@ -145,7 +147,7 @@
             this.btnTodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTodos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnTodos.Location = new System.Drawing.Point(20, 332);
-            this.btnTodos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTodos.Margin = new System.Windows.Forms.Padding(2);
             this.btnTodos.Name = "btnTodos";
             this.btnTodos.Size = new System.Drawing.Size(67, 27);
             this.btnTodos.TabIndex = 59;
@@ -161,13 +163,22 @@
             this.btnInactivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInactivos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnInactivos.Location = new System.Drawing.Point(20, 261);
-            this.btnInactivos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInactivos.Margin = new System.Windows.Forms.Padding(2);
             this.btnInactivos.Name = "btnInactivos";
             this.btnInactivos.Size = new System.Drawing.Size(67, 27);
             this.btnInactivos.TabIndex = 60;
             this.btnInactivos.Text = "Inactivos";
             this.btnInactivos.UseVisualStyleBackColor = false;
             this.btnInactivos.Click += new System.EventHandler(this.btnInactivos_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1036, 602);
+            this.panel1.TabIndex = 0;
             // 
             // Inventario
             // 
@@ -185,10 +196,10 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dgvInventario);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inventario";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Inventario_Load);
+            this.Text = "Inventario";
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -207,5 +218,6 @@
         private System.Windows.Forms.Button btnActivos;
         private System.Windows.Forms.Button btnTodos;
         private System.Windows.Forms.Button btnInactivos;
+        private System.Windows.Forms.Panel panel1;
     }
 }
