@@ -70,12 +70,9 @@ namespace Presentacion
             this.SuspendLayout();
             //
             // txtbuscarid
-
-            // 
-            this.txtbuscarid.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtbuscarid.Location = new System.Drawing.Point(703, 347);
-            this.txtbuscarid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-
+            //
+            this.txtbuscarid.Location = new System.Drawing.Point(409, 224);
+            this.txtbuscarid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtbuscarid.Name = "txtbuscarid";
             this.txtbuscarid.Size = new System.Drawing.Size(41, 20);
             this.txtbuscarid.TabIndex = 42;
@@ -93,12 +90,9 @@ namespace Presentacion
             this.label8.Text = "Id Empleado:";
             //
             // txtnombreemp
-
-            // 
-            this.txtnombreemp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtnombreemp.Location = new System.Drawing.Point(888, 347);
-            this.txtnombreemp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-
+            //
+            this.txtnombreemp.Location = new System.Drawing.Point(494, 222);
+            this.txtnombreemp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtnombreemp.Name = "txtnombreemp";
             this.txtnombreemp.Size = new System.Drawing.Size(76, 20);
             this.txtnombreemp.TabIndex = 40;
