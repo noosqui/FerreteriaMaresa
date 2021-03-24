@@ -19,14 +19,14 @@ namespace Presentacion
         {
             emplea.Id_empleado = txtidentidad.Text;
             emplea.Nombre = txtnombre.Text;
-            emplea.Apellido = txtapellido.Text;
-            emplea.Correo = txtcorreo.Text;
-            emplea.Telefono = txttelefono.Text;
-            emplea.Direccion = txtdireccion.Text;
-            emplea.Ciudad = txtciudad.Text;
-            emplea.Region = txtregion.Text;
-            emplea.CodPostal = txtcodpost.Text;
-            emplea.Pais = txtpais.Text;
+            emplea.Apellido = Apellido.Text;
+            emplea.Correo = correo.Text;
+            emplea.Telefono = txtTelefono.Text;
+            emplea.Direccion = txtDireccion.Text;
+            emplea.Ciudad = txtCiudad.Text;
+            emplea.Region = txtRegion.Text;
+            emplea.CodPostal = txtCodPost.Text;
+            emplea.Pais = txtPais.Text;
             emplea.Idrol = txtcodrol.Text;
             emplea.Fnacimiento = dtfechan.Text;
             emplea.Estado = txtestado.Text;
@@ -39,14 +39,14 @@ namespace Presentacion
         {
             emplea.Id_empleado = txtidentidad.Text;
             emplea.Nombre = txtnombre.Text;
-            emplea.Apellido = txtapellido.Text;
-            emplea.Correo = txtcorreo.Text;
-            emplea.Telefono = txttelefono.Text;
-            emplea.Direccion = txtdireccion.Text;
-            emplea.Ciudad = txtciudad.Text;
-            emplea.Region = txtregion.Text;
-            emplea.CodPostal = txtcodpost.Text;
-            emplea.Pais = txtpais.Text;
+            emplea.Apellido = Apellido.Text;
+            emplea.Correo = correo.Text;
+            emplea.Telefono = txtTelefono.Text;
+            emplea.Direccion = txtDireccion.Text;
+            emplea.Ciudad = txtCiudad.Text;
+            emplea.Region = txtRegion.Text;
+            emplea.CodPostal = txtCodPost.Text;
+            emplea.Pais = txtPais.Text;
             emplea.Idrol = txtcodrol.Text;
             emplea.Fnacimiento = dtfechan.Text;
             emplea.Estado = txtestado.Text;
@@ -86,17 +86,17 @@ namespace Presentacion
             dgvEmpleados.CurrentRow.Selected = true;
             txtidentidad.Text = dgvEmpleados.CurrentRow.Cells[0].Value.ToString();
             txtnombre.Text = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
-            txtapellido.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
-            txtcorreo.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
-            txttelefono.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
-            txtdireccion.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
-            txtciudad.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
-            txtregion.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
-            txtcodpost.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
-            txtpais.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
+            Apellido.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
+            correo.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
+            txtDireccion.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
+            txtCiudad.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
+            txtRegion.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
+            txtCodPost.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
+            txtPais.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
+            txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
             txtcodrol.Text = dgvEmpleados.CurrentRow.Cells[10].Value.ToString();
-            dtfechan.Value = ((DateTime)dgvEmpleados.CurrentRow.Cells[12].Value);
-            txtestado.Text = dgvEmpleados.CurrentRow.Cells[13].Value.ToString();
+            dtfechan.Text = dgvEmpleados.CurrentRow.Cells[11].Value.ToString();
+            txtestado.Text = dgvEmpleados.CurrentRow.Cells[12].Value.ToString();
 
 
         }
@@ -108,7 +108,6 @@ namespace Presentacion
             btnGuardar.Visible = true;
             btnGuardar.Enabled = true;
             dgvEmpleados.Enabled = false;
-            dtfechan.Enabled = true;
 
             Lim_ha encender = new Lim_ha();
             encender.Encender(this);
@@ -123,7 +122,6 @@ namespace Presentacion
             btnAgregar.Enabled = false;
             btnEliminar.Enabled = false;
             btnGuardar.Visible = true;
-            dtfechan.Enabled = true;
 
             Lim_ha encender = new Lim_ha();
             encender.Encender(this);
@@ -164,14 +162,14 @@ namespace Presentacion
             dgvEmpleados.CurrentRow.Selected = true;
             txtidentidad.Text = dgvEmpleados.CurrentRow.Cells[0].Value.ToString();
             txtnombre.Text = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
-            txtapellido.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
-            txtcorreo.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
-            txtdireccion.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
-            txtciudad.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
-            txtregion.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
-            txtcodpost.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
-            txtpais.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
-            txttelefono.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
+            Apellido.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
+            correo.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
+            txtDireccion.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
+            txtCiudad.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
+            txtRegion.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
+            txtCodPost.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
+            txtPais.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
+            txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
             txtcodrol.Text = dgvEmpleados.CurrentRow.Cells[10].Value.ToString();
             dtfechan.Text = dgvEmpleados.CurrentRow.Cells[11].Value.ToString();
             txtestado.Text = dgvEmpleados.CurrentRow.Cells[12].Value.ToString();
@@ -179,16 +177,7 @@ namespace Presentacion
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if(txtbuscarid.Text == " " || txtnombreemp.Text == " ")
-            {
-                MessageBox.Show("Error al Agregar, no se pueden insertar Id de Productos iguales/duplicadas", 
-                    "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                Buscar_Empleado();
-            }
-            
+            Buscar_Empleado();
         }
 
         private void txtidentidad_TextChanged(object sender, EventArgs e)
@@ -198,7 +187,24 @@ namespace Presentacion
 
         private void txtcodigoemp_TextChanged(object sender, EventArgs e)
         {
-            
+            var bd = (BindingSource)dgvEmpleados.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            if (txtbuscarid.Text != "")
+
+                dt.DefaultView.RowFilter = string.Format("[Identidad] LIKE '%{0}'", int.Parse(txtbuscarid.Text));
+
+            else
+            {
+                dt.DefaultView.RowFilter = null;
+            }
+            dgvEmpleados.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.txtnombreemp, 0, 25, 3000);
+            }
         }
 
         private void txtnombreemp_TextChanged(object sender, EventArgs e)
@@ -229,33 +235,6 @@ namespace Presentacion
         private void btnrecontratar_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void txtbuscarid_TextChanged(object sender, EventArgs e)
-        {
-            var bd = (BindingSource)dgvEmpleados.DataSource;
-            var dt = (DataTable)bd.DataSource;
-            if (txtbuscarid.Text != "")
-
-                dt.DefaultView.RowFilter = string.Format("[Identidad] LIKE '%{0}'", int.Parse(txtbuscarid.Text));
-
-            else
-            {
-                dt.DefaultView.RowFilter = null;
-            }
-            dgvEmpleados.Refresh();
-
-            if (dt.DefaultView.Count < 1)
-            {
-                SystemSounds.Exclamation.Play();
-                ToolTip tt = new ToolTip();
-                tt.Show("No se encontro parametros", this.txtnombreemp, 0, 25, 3000);
-            }
-        }
-
-        private void txtbuscarid_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            letrasNum.SoloNumeros(e);
         }
     }
 }
