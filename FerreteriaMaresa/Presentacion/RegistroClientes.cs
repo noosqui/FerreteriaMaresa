@@ -74,7 +74,7 @@ namespace Presentacion
             Apellido.Enabled = false;
             rtn.Enabled = false;
             txtDireccion.Enabled = false;
-            txtTelefono.Enabled = false;
+            txttelefono.Enabled = false;
         }
 
         private void button6_Click(object sender, System.EventArgs e)
@@ -133,7 +133,7 @@ namespace Presentacion
             txtRegion.Text = dgvClientes.CurrentRow.Cells[6].Value.ToString();
             txtCodPost.Text = dgvClientes.CurrentRow.Cells[7].Value.ToString();
             txtPais.Text = dgvClientes.CurrentRow.Cells[8].Value.ToString();
-            txtTelefono.Text = dgvClientes.CurrentRow.Cells[9].Value.ToString();
+            txttelefono.Text = dgvClientes.CurrentRow.Cells[9].Value.ToString();
 
         }
 
@@ -148,7 +148,7 @@ namespace Presentacion
             txtRegion.Text = dgvClientes.CurrentRow.Cells[6].Value.ToString();
             txtCodPost.Text = dgvClientes.CurrentRow.Cells[7].Value.ToString();
             txtPais.Text = dgvClientes.CurrentRow.Cells[8].Value.ToString();
-            txtTelefono.Text = dgvClientes.CurrentRow.Cells[9].Value.ToString();
+            txttelefono.Text = dgvClientes.CurrentRow.Cells[9].Value.ToString();
         }
 
 
