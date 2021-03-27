@@ -41,7 +41,7 @@ namespace Datos
             return tabla;
         }
 
-        public void insertar_Proveedor(string idProveedor, string nombreProveedor, string apellidoProveedor, long telProveedor, string correo, string direccion, string ciudad, string region, string codigopostal, string pais, string estado)
+        public void insertar_Proveedor(string idProveedor, string nombreProveedor, long telProveedor, string correo, string direccion, string ciudad, string region, string codigopostal, string pais, string estado)
         {
 
             comando.Connection = conexion.abrir();
@@ -49,7 +49,6 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@id_proveedor", idProveedor);
             comando.Parameters.AddWithValue("@nom_proveedor", nombreProveedor);
-            comando.Parameters.AddWithValue("@apellido_proveedor", apellidoProveedor);
             comando.Parameters.AddWithValue("@telefono", telProveedor);
             comando.Parameters.AddWithValue("@correo", correo);
             comando.Parameters.AddWithValue("@direccion", direccion);
@@ -71,7 +70,6 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@id_proveedor", idProveedor);
             comando.Parameters.AddWithValue("@nom_proveedor", nombreProveedor);
-            comando.Parameters.AddWithValue("@apellido_proveedor", apellidoProveedor);
             comando.Parameters.AddWithValue("@telefono", telProveedor);
             comando.Parameters.AddWithValue("@correo", correo);
             comando.Parameters.AddWithValue("@direccion", direccion);
