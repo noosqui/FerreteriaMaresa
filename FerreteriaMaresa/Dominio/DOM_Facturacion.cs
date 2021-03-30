@@ -34,7 +34,7 @@ namespace Dominio
 
              public void InsertarFacturaCompra(string descuento,string subtotal, string tipoPago)
                      {
-                     facturacion.insertar_FacturaCompra(DateTime.Now, proveedor.Id_proveedor, empleados.Id_empleado, 1, 2, 3);
+                      facturacion.insertar_FacturaCompra(DateTime.Now, proveedor.Id_proveedor, empleados.Id_empleado, 1, 2, 3);
                     }
 
 
@@ -53,6 +53,7 @@ namespace Dominio
             DataRow ultimaFila = facturacion.Mostrar_FacturaCompras().Rows[facturacion.Mostrar_FacturaVenta().Rows.Count - 1];
             facturacion.insertar_DetalleCompra(product.Id_producto, ultimaFila.Field<int>("id"), product.Precio_actual, int.Parse(cantidad));
         }
+
         public DataTable MostrarFacturaVenta()
             {
              tabla= facturacion.Mostrar_FacturaVenta();
