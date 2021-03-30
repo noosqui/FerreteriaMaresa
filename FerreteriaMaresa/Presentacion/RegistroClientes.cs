@@ -203,5 +203,10 @@ namespace Presentacion
         {
             letrasNum.SoloLetras(e);
         }
+
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
