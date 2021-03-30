@@ -18,6 +18,17 @@ namespace Presentacion
                 {
                     ((TextBox)txt).Clear();
                 }
+                
+                if (txt is ComboBox)
+                {
+                    ((ComboBox)txt).SelectedIndex = 0;
+                }
+
+                if (txt is RadioButton)
+                {
+                    ((RadioButton)txt).Checked = false;
+                }
+
             }
 
         }
@@ -32,6 +43,22 @@ namespace Presentacion
                 {
                     ((TextBox)txt).Enabled = true;
                 }
+
+                if (txt is ComboBox)
+                {
+                    ((ComboBox)txt).Enabled = true;
+                }
+
+                if (txt is RadioButton)
+                {
+                    ((RadioButton)txt).Enabled = true;
+                }
+
+                if(txt is DateTimePicker)
+                {
+                    ((DateTimePicker)txt).Enabled = true;
+                }
+
             }
 
         }
@@ -45,6 +72,22 @@ namespace Presentacion
                 {
                     ((TextBox)txt).Enabled = false;
                 }
+
+                if (txt is ComboBox)
+                {
+                    ((ComboBox)txt).Enabled = false;
+                }
+
+                if (txt is RadioButton)
+                {
+                    ((RadioButton)txt).Enabled = false;
+                }
+
+                if (txt is DateTimePicker)
+                {
+                    ((DateTimePicker)txt).Enabled = false;
+                }
+
             }
 
         }
