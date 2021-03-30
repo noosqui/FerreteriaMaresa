@@ -12,7 +12,7 @@ namespace Dominio
     public class DOM_Clientes
 
     {
-        private string idCliente;
+        private int idCliente;
         private string nombrecliente;
         private string apellidocliente;
         private string RTN;
@@ -24,16 +24,21 @@ namespace Dominio
         private string pais;
         private CD_Clientes cli = new CD_Clientes();
 
+<<<<<<< HEAD
         public DOM_Clientes() { 
         
         }
 
         public DOM_Clientes(string id_Cliente, string nombre, string apellido, string rtn, string direccion,
             string ciudad, string region, string codigo_postal, string pais, string telefono)
+=======
+        public DOM_Clientes(string Cliente, string nombre, string apellido)
+>>>>>>> upstream/Beta
         {
-            this.idCliente = id_Cliente;
+            this.idCliente = int.Parse(Cliente);
             this.nombrecliente = nombre;
             this.apellidocliente = apellido;
+<<<<<<< HEAD
             this.RTN = rtn;
             this.direccion = direccion;
             this.ciudad = ciudad;
@@ -42,10 +47,15 @@ namespace Dominio
             this.pais = pais;
             this.telefono = telefono;
 
+=======
+        }
+        public DOM_Clientes ()
+        {
+>>>>>>> upstream/Beta
 
         }
 
-        public string Id_cliente
+        public int Id_empleado
         {
             get { return idCliente; }
             set { idCliente = value; }
@@ -60,7 +70,7 @@ namespace Dominio
             get { return apellidocliente; }
             set { apellidocliente = value; }
         }
-        public string Rtn
+        public string Correo
         {
             get { return RTN; }
             set { RTN = value; }
@@ -74,34 +84,19 @@ namespace Dominio
         {
             get { return direccion; }
             set { direccion = value; }
-        }     
-        public string Ciudad 
-        {
-            get { return ciudad;  }
-            set { ciudad = value; }
-        }
-        public string Region 
-        {
-            get { return region; }
-            set { region = value; }
-        }
-        public string Codigo_Postal 
-        {
-            get { return codigo_postal; }
-            set { codigo_postal = value; }
-        }
-        public string Pais
-        {
-            get { return pais; }
-            set { pais = value; }
         }
 
 
+<<<<<<< HEAD
         public void editar_Clientes(string idCliente, string nombrecliente, string apellidocliente, string RTN,
             string direccion, string ciudad, string region, string codigo_postal, string pais, string telefono)
+=======
+        public void editar_Clientes()
+>>>>>>> upstream/Beta
         {
             cli.Editar_Cliente(idCliente, nombrecliente, apellidocliente, RTN, direccion, ciudad, region, codigo_postal, pais, telefono);
         }
+<<<<<<< HEAD
 
         public void eliminar_empleado(string idCliente)
         {
@@ -111,6 +106,13 @@ namespace Dominio
         public void crear_Cliente(string idCliente, string nombrecliente, string apellidocliente,
             string RTN, string direccion, string ciudad, string region, 
             string codigo_postal, string pais, string telefono)
+=======
+        public void eliminar_empleado()
+        {
+            cli.Eliminar_Cliente(idCliente);
+        }
+        public void crear_Cliente()
+>>>>>>> upstream/Beta
         {
             cli.insertar_Cliente(idCliente, nombrecliente, apellidocliente, 
                 RTN, direccion, ciudad, region, codigo_postal, pais, telefono);
@@ -120,9 +122,9 @@ namespace Dominio
         {
             return cli.Mostrar_Cliente();
         }
-        public DataTable Buscar_Cliente()
+        public void Buscar_Cliente()
         {
-            return cli.buscar_Clientes(idCliente);
+            cli.buscar_Clientes(idCliente);
         }
     }
 }
