@@ -9,6 +9,7 @@ namespace Presentacion
     {
 
         DOM_Validacion letrasNum = new DOM_Validacion();
+<<<<<<< HEAD
         DOM_Clientes c = new DOM_Clientes();
         private string idCliente = null;
         private bool editar = false;
@@ -17,12 +18,16 @@ namespace Presentacion
         bool btnb = false;
         bool btnc = false;
         
+=======
+        private DOM_Clientes c = new DOM_Clientes();
+>>>>>>> upstream/Beta
 
         public RegistroClientes()
         {
             InitializeComponent();
         }
 
+<<<<<<< HEAD
         private void limpiar() {
             txtCodigoCliente.Clear();
             nombre.Clear();
@@ -43,6 +48,11 @@ namespace Presentacion
         public void Regristro_Cliente()
         {
             c.Id_cliente = txtCodigoCliente.Text;
+=======
+        public void Regristro_Cliente()
+        {
+           /* c.Id = int.Parse(txtID.Text);
+>>>>>>> upstream/Beta
             c.Nombre = nombre.Text;
             c.Apellido = Apellido.Text;
             c.Rtn = rtn.Text;
@@ -50,8 +60,9 @@ namespace Presentacion
             c.Direccion = txtDireccion.Text;
             c.Ciudad = txtCiudad.Text;
             c.Region = txtRegion.Text;
-            c.Codigo_Postal = txtCodPost.Text;
+            c.Codigo_postal = int.Parse(txtCodPost.Text);
             c.Pais = txtPais.Text;
+<<<<<<< HEAD
             c.crear_Cliente(txtCodigoCliente.Text ,nombre.Text, Apellido.Text, rtn.Text, txtRegion.Text, txtCiudad.Text,
                 txtDireccion.Text, txtPais.Text, txtCodPost.Text, txtTelefono.Text);
             dgvClientes.Refresh();
@@ -60,6 +71,16 @@ namespace Presentacion
         public void Editar_Cliente() {
 
             c.Id_cliente = txtCodigoCliente.Text;
+=======
+            c.crear_Cliente();
+            MessageBox.Show("Cliente registrado con exito");
+            dgvClientes.Refresh();*/
+        }
+
+        public void Editar_Cliente() {
+/*
+            c.Id = int.Parse(txtID.Text);
+>>>>>>> upstream/Beta
             c.Nombre = nombre.Text;
             c.Apellido = Apellido.Text;
             c.Rtn = rtn.Text;
@@ -67,22 +88,26 @@ namespace Presentacion
             c.Direccion = txtDireccion.Text;
             c.Ciudad = txtCiudad.Text;
             c.Region = txtRegion.Text;
-            c.Codigo_Postal = txtCodPost.Text;
+            c.Codigo_postal = int.Parse(txtCodPost.Text);
             c.Pais = txtPais.Text;
+<<<<<<< HEAD
             c.editar_Clientes(txtCodigoCliente.Text, nombre.Text,
                 Apellido.Text, rtn.Text, 
                 txtDireccion.Text, txtCiudad.Text, txtRegion.Text,
                 txtCodPost.Text, txtPais.Text, txtTelefono.Text);
+=======
+            c.editar_Clientes();
+>>>>>>> upstream/Beta
             MessageBox.Show("Cliente editado con exito");
             dgvClientes.Refresh();
-
+*/
         }
 
-        public void buscar_empleado() {
-            c.Id_cliente = txtcodigocli.Text;
+    /*    public void buscar_empleado() {
+            c.Id = int.Parse(txtID.Text);
             c.Buscar_Cliente();
             dgvClientes.Refresh();
-        }
+        }*/
 
         private void habilitar_Click_1(object sender, System.EventArgs e)
         {
@@ -108,6 +133,7 @@ namespace Presentacion
             txtTelefono.Enabled = false;
 
 
+<<<<<<< HEAD
             if (btna == true)
             {
                 try
@@ -154,6 +180,8 @@ namespace Presentacion
                     MessageBox.Show("Cliente borrado correctamente");
                 }
             }
+=======
+>>>>>>> upstream/Beta
 
         }
 
@@ -172,18 +200,22 @@ namespace Presentacion
 
         private void btnAgregar_Click(object sender, System.EventArgs e)
         {
+<<<<<<< HEAD
             limpiar();
 
             btna = true;
             btnb = false;
             btnc = false;
 
+=======
+>>>>>>> upstream/Beta
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
             btnGuardar.Visible = true;
             btnGuardar.Enabled = true;
             dgvClientes.Enabled = false;
 
+<<<<<<< HEAD
             txtCodigoCliente.Enabled = true;
             nombre.Enabled = true;
             Apellido.Enabled = true;
@@ -197,21 +229,31 @@ namespace Presentacion
             txtcodigocli.Enabled = true;
         
 
-        }
+=======
+            Lim_ha encender = new Lim_ha();
+            encender.Encender(this);
 
+            Lim_ha Limpiar = new Lim_ha();
+            Limpiar.Limpiar(this);
+>>>>>>> upstream/Beta
+        }
 
         private void btnModificar_Click(object sender, System.EventArgs e)
         {
+<<<<<<< HEAD
             limpiar();
 
             btna = false;
             btnb = true;
             btnc = false;
 
+=======
+>>>>>>> upstream/Beta
             btnAgregar.Enabled = false;
             btnEliminar.Enabled = false;
             btnGuardar.Visible = true;
 
+<<<<<<< HEAD
             txtCodigoCliente.Enabled = true;
             nombre.Enabled = true;
             Apellido.Enabled = true;
@@ -223,6 +265,13 @@ namespace Presentacion
             txtCiudad.Enabled = true;
             txtCodPost.Enabled = true;
             txtcodigocli.Enabled = true;
+=======
+            Lim_ha encender = new Lim_ha();
+            encender.Encender(this);
+
+            Lim_ha Limpiar = new Lim_ha();
+            Limpiar.Limpiar(this);
+>>>>>>> upstream/Beta
 
         }
 
@@ -338,5 +387,23 @@ namespace Presentacion
                 tt.Show("No se encontro parametros", this.txtnombrecli, 0, 25, 3000);
             }
         }
+<<<<<<< HEAD
+=======
+
+        private void txtcodigocli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            letrasNum.SoloNumeros(e);
+        }
+
+        private void txtnombrecli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            letrasNum.SoloLetras(e);
+        }
+
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+>>>>>>> upstream/Beta
     }
 }

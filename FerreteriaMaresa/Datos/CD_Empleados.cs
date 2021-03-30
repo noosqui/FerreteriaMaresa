@@ -32,12 +32,12 @@ namespace Datos
 
         public DataTable Mostrar_Empleados()
         {
+            tabla.Rows.Clear();
             comando.Connection = conexion.abrir();
-            comando.CommandText = "Mostrar_Empleados";
-            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "execute Mostrar_Empleados";
             lee = comando.ExecuteReader();
             tabla.Load(lee);
-            comando.Connection = conexion.cerrar();
+            conexion.cerrar();
             return tabla;
         }
 
@@ -54,61 +54,64 @@ namespace Datos
             return tabla;
         }
 
-        public void insertar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado)
+        public void insertar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, string telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, string fnacimiento, string estado)
         {
-            comando.Connection = conexion.abrir();
-            comando.CommandText = "insertar_Empleado";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@idEmpleado", idEmpleado);
-            comando.Parameters.AddWithValue("@nombreEmpleado", nombreEmpleado);
-            comando.Parameters.AddWithValue("@apellidoEmpleado", apellidoEmpleado);
-            comando.Parameters.AddWithValue("@correoEmpleado", correoEmpleado);
-            comando.Parameters.AddWithValue("@telEmpleado", telEmpleado);
-            comando.Parameters.AddWithValue("@direccion", direccion);
-            comando.Parameters.AddWithValue("@ciudad", ciudad);
-            comando.Parameters.AddWithValue("@region", region);
-            comando.Parameters.AddWithValue("@codigo_postal", codigopostal);
-            comando.Parameters.AddWithValue("@pais", pais);
-            comando.Parameters.AddWithValue("@id_rol_empleado", idrol);
-            comando.Parameters.AddWithValue("@fnacimiento_empleado", fnacimiento);
-            comando.Parameters.AddWithValue("@estado", estado);
+            string query = "execute [insertar_Empleado] @idEmpleado, @nombreEmpleado,@apellidoEmpleado,@correoEmpleado," +
+                "@telEmpleado,@direccion,@ciudad,@region,@codigo_postal,@pais,@id_rol_empleado," +
+                "@fnacimiento_empleado,@estado";
+            conexion.abrir();
+            SqlCommand c = new SqlCommand(query, conexion.abrir());
+            c.Parameters.AddWithValue("@idEmpleado", idEmpleado);
+            c.Parameters.AddWithValue("@nombreEmpleado", nombreEmpleado);
+            c.Parameters.AddWithValue("@apellidoEmpleado", apellidoEmpleado);
+            c.Parameters.AddWithValue("@correoEmpleado", correoEmpleado);
+            c.Parameters.AddWithValue("@telEmpleado", telEmpleado);
+            c.Parameters.AddWithValue("@direccion", direccion);
+            c.Parameters.AddWithValue("@ciudad", ciudad);
+            c.Parameters.AddWithValue("@region", region);
+            c.Parameters.AddWithValue("@codigo_postal", codigopostal);
+            c.Parameters.AddWithValue("@pais", pais);
+            c.Parameters.AddWithValue("@id_rol_empleado", idrol);
+            c.Parameters.AddWithValue("@fnacimiento_empleado", fnacimiento);
+            c.Parameters.AddWithValue("@estado", estado);
 
-            comando.ExecuteNonQuery();
-            comando.Connection = conexion.cerrar();
-
+            c.ExecuteNonQuery();
+            c.Connection = conexion.cerrar();
         }
 
-        public void Editar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, long telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, DateTime fnacimiento, string estado)
+        public void Editar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, string telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, string fnacimiento, string estado)
         {
-            comando.Connection = conexion.abrir();
-            comando.CommandText = "editar_Empleado";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@idEmpleado", idEmpleado);
-            comando.Parameters.AddWithValue("@nombreEmpleado", nombreEmpleado);
-            comando.Parameters.AddWithValue("@apellidoEmpleado", apellidoEmpleado);
-            comando.Parameters.AddWithValue("@correoEmpleado", correoEmpleado);
-            comando.Parameters.AddWithValue("@telEmpleado", telEmpleado);
-            comando.Parameters.AddWithValue("@direccion", direccion);
-            comando.Parameters.AddWithValue("@ciudad", ciudad);
-            comando.Parameters.AddWithValue("@region", region);
-            comando.Parameters.AddWithValue("@codigo_postal", codigopostal);
-            comando.Parameters.AddWithValue("@pais", pais);
-            comando.Parameters.AddWithValue("@id_rol_empleado", idrol);
-            comando.Parameters.AddWithValue("@fnacimiento_empleado", fnacimiento);
-            comando.Parameters.AddWithValue("@estado", estado);
+            string query = "execute [editar_Empleado] @idEmpleado, @nombreEmpleado,@apellidoEmpleado,@correoEmpleado," +
+                "@telEmpleado,@direccion,@ciudad,@region,@codigo_postal,@pais,@id_rol_empleado," +
+                "@fnacimiento_empleado,@estado";
+            conexion.abrir();
+            SqlCommand c = new SqlCommand(query,conexion.abrir());
+            c.Parameters.AddWithValue("@idEmpleado", idEmpleado);
+            c.Parameters.AddWithValue("@nombreEmpleado", nombreEmpleado);
+            c.Parameters.AddWithValue("@apellidoEmpleado", apellidoEmpleado);
+            c.Parameters.AddWithValue("@correoEmpleado", correoEmpleado);
+            c.Parameters.AddWithValue("@telEmpleado", telEmpleado);
+            c.Parameters.AddWithValue("@direccion", direccion);
+            c.Parameters.AddWithValue("@ciudad", ciudad);
+            c.Parameters.AddWithValue("@region", region);
+            c.Parameters.AddWithValue("@codigo_postal", codigopostal);
+            c.Parameters.AddWithValue("@pais", pais);
+            c.Parameters.AddWithValue("@id_rol_empleado", idrol);
+            c.Parameters.AddWithValue("@fnacimiento_empleado", fnacimiento);
+            c.Parameters.AddWithValue("@estado", estado);
 
-            comando.ExecuteNonQuery();
-            comando.Connection = conexion.cerrar();
+            c.ExecuteNonQuery();
+            c.Connection = conexion.cerrar();
         }
 
         public void DespedirEmpleado(string idempleado)
         {
-            comando.Connection = conexion.abrir();
-            comando.CommandText = "Despedir_Empleado";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@idempleado", idempleado);
-            comando.ExecuteNonQuery();
-            comando.Connection = conexion.cerrar();
+            string query = "execute [Despedir_Empleado] @idEmpleado";
+            conexion.abrir();
+            SqlCommand c = new SqlCommand(query, conexion.abrir());
+            c.Parameters.AddWithValue("@idempleado", idempleado);
+            c.ExecuteNonQuery();
+            c.Connection = conexion.cerrar();
         }
 
         public void ReContratarEmpleado(string idempleado)
@@ -119,6 +122,17 @@ namespace Datos
             comando.Parameters.AddWithValue("@idempleado", idempleado);
             comando.ExecuteNonQuery();
             comando.Connection = conexion.cerrar();
+        }
+
+        public DataTable cargar_roles()
+        {
+            DataTable t = new DataTable();
+            string query = "select * from [roles]";
+            SqlCommand co = new SqlCommand(query, conexion.abrir());
+            lee = co.ExecuteReader();
+            t.Load(lee);
+            conexion.cerrar();
+            return t;
         }
     }
 }
