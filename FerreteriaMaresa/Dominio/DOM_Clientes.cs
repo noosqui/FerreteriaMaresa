@@ -28,19 +28,19 @@ namespace Dominio
         
         }
 
-        public DOM_Clientes(string id_Cliente, string nombre, string apellido, string rtn, string telefono, string direccion,
-            string ciudad, string region, string codigo_postal, string pais)
+        public DOM_Clientes(string id_Cliente, string nombre, string apellido, string rtn, string direccion,
+            string ciudad, string region, string codigo_postal, string pais, string telefono)
         {
             this.idCliente = id_Cliente;
             this.nombrecliente = nombre;
             this.apellidocliente = apellido;
             this.RTN = rtn;
-            this.telefono = telefono;
             this.direccion = direccion;
             this.ciudad = ciudad;
             this.region = region;
             this.codigo_postal = codigo_postal;
             this.pais = pais;
+            this.telefono = telefono;
 
 
         }
@@ -97,20 +97,23 @@ namespace Dominio
         }
 
 
-        public void editar_Clientes(string idCliente, string nombrecliente, string apellidocliente, string RTN, string telefono,
-            string direccion, string ciudad, string region, string codigo_postal, string pais)
+        public void editar_Clientes(string idCliente, string nombrecliente, string apellidocliente, string RTN,
+            string direccion, string ciudad, string region, string codigo_postal, string pais, string telefono)
         {
-            cli.Editar_Cliente(idCliente, nombrecliente, apellidocliente, RTN, telefono, direccion, ciudad, region, codigo_postal, long.Parse(pais));
+            cli.Editar_Cliente(idCliente, nombrecliente, apellidocliente, RTN, direccion, ciudad, region, codigo_postal, pais, telefono);
         }
+
         public void eliminar_empleado(string idCliente)
         {
             cli.Eliminar_Cliente(idCliente);
         }
 
-        public void crear_Cliente(string idCliente, string nombrecliente, string apellidocliente,string RTN, string telefono, 
-            string direccion, string ciudad, string region, string codigo_postal, string pais)
+        public void crear_Cliente(string idCliente, string nombrecliente, string apellidocliente,
+            string RTN, string direccion, string ciudad, string region, 
+            string codigo_postal, string pais, string telefono)
         {
-            cli.insertar_Cliente(idCliente, nombrecliente, apellidocliente, RTN, telefono, direccion, ciudad, region, codigo_postal, long.Parse(pais));
+            cli.insertar_Cliente(idCliente, nombrecliente, apellidocliente, 
+                RTN, direccion, ciudad, region, codigo_postal, pais, telefono);
         }
 
         public DataTable Mostrar_Cliente()

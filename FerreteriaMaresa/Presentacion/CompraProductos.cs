@@ -172,6 +172,9 @@ namespace Presentacion
             LetraNum.SoloLetras(e);
         }
 
- 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -12,6 +12,10 @@ namespace Presentacion
         DOM_Clientes c = new DOM_Clientes();
         private string idCliente = null;
         private bool editar = false;
+
+        bool btna = false;
+        bool btnb = false;
+        bool btnc = false;
         
 
         public RegistroClientes()
@@ -20,6 +24,7 @@ namespace Presentacion
         }
 
         private void limpiar() {
+            txtCodigoCliente.Clear();
             nombre.Clear();
             Apellido.Clear();
             rtn.Clear();
@@ -37,7 +42,7 @@ namespace Presentacion
 
         public void Regristro_Cliente()
         {
-            c.Id_cliente = txtcodigocli.Text;
+            c.Id_cliente = txtCodigoCliente.Text;
             c.Nombre = nombre.Text;
             c.Apellido = Apellido.Text;
             c.Rtn = rtn.Text;
@@ -47,15 +52,14 @@ namespace Presentacion
             c.Region = txtRegion.Text;
             c.Codigo_Postal = txtCodPost.Text;
             c.Pais = txtPais.Text;
-            c.crear_Cliente(nombre.Text, Apellido.Text, rtn.Text, txtTelefono.Text, txtRegion.Text, txtCiudad.Text,
-                txtDireccion.Text, txtPais.Text, txtcodigocli.Text, txtCodPost.Text);
-            MessageBox.Show("Cliente registrado con exito");
+            c.crear_Cliente(txtCodigoCliente.Text ,nombre.Text, Apellido.Text, rtn.Text, txtRegion.Text, txtCiudad.Text,
+                txtDireccion.Text, txtPais.Text, txtCodPost.Text, txtTelefono.Text);
             dgvClientes.Refresh();
         }
 
         public void Editar_Cliente() {
 
-            c.Id_cliente = txtcodigocli.Text;
+            c.Id_cliente = txtCodigoCliente.Text;
             c.Nombre = nombre.Text;
             c.Apellido = Apellido.Text;
             c.Rtn = rtn.Text;
@@ -65,8 +69,10 @@ namespace Presentacion
             c.Region = txtRegion.Text;
             c.Codigo_Postal = txtCodPost.Text;
             c.Pais = txtPais.Text;
-            c.editar_Clientes(nombre.Text, Apellido.Text, rtn.Text, txtTelefono.Text, txtRegion.Text, txtCiudad.Text,
-                txtDireccion.Text, txtPais.Text, txtcodigocli.Text, txtCodPost.Text);
+            c.editar_Clientes(txtCodigoCliente.Text, nombre.Text,
+                Apellido.Text, rtn.Text, 
+                txtDireccion.Text, txtCiudad.Text, txtRegion.Text,
+                txtCodPost.Text, txtPais.Text, txtTelefono.Text);
             MessageBox.Show("Cliente editado con exito");
             dgvClientes.Refresh();
 
@@ -80,6 +86,10 @@ namespace Presentacion
 
         private void habilitar_Click_1(object sender, System.EventArgs e)
         {
+
+            
+
+
             btnGuardar.Visible = false;
             btnEliminar.Enabled = true;
             btnModificar.Enabled = true;
@@ -96,30 +106,77 @@ namespace Presentacion
             rtn.Enabled = false;
             txtDireccion.Enabled = false;
             txtTelefono.Enabled = false;
+
+
+            if (btna == true)
+            {
+                try
+                {
+                    c.crear_Cliente(txtCodigoCliente.Text, nombre.Text, Apellido.Text, rtn.Text, txtDireccion.Text, txtCiudad.Text, txtRegion.Text,
+                     txtCodPost.Text, txtPais.Text, txtTelefono.Text);
+
+                    var fuente = new BindingSource();
+                    fuente.DataSource = c.Mostrar_Cliente();
+                    dgvClientes.DataSource = fuente;
+                    dgvClientes.Refresh();
+
+
+                }
+                catch {
+                    MessageBox.Show("Cliente agregado correctamente");
+                }
+
+            }
+
+            if (btnb == true) {
+                try
+                {
+
+                    c.editar_Clientes(txtCodigoCliente.Text, nombre.Text, Apellido.Text, rtn.Text, txtDireccion.Text, txtCiudad.Text, txtRegion.Text,
+                     txtCodPost.Text, txtPais.Text, txtTelefono.Text);
+                    dgvClientes.Refresh();
+                }
+                catch {
+                    MessageBox.Show("Cliente editado correctamente");
+                }
+            }
+
+            if (btnc == true)
+            {
+                try
+                {
+
+                    c.eliminar_empleado(txtCodigoCliente.Text);
+                    dgvClientes.Refresh();
+                }
+                catch
+                {
+                    MessageBox.Show("Cliente borrado correctamente");
+                }
+            }
+
         }
 
         private void button6_Click(object sender, System.EventArgs e)
         {
+
+            btna = false;
+            btnb = false;
+            btnc = true;
+
             btnAgregar.Enabled = false;
             btnModificar.Enabled = false;
             btnGuardar.Visible = true;
 
-            if (dgvClientes.SelectedRows.Count > 0) 
-            {
-                idCliente = dgvClientes.CurrentRow.Cells["id_cliente"].Value.ToString();
-                c.eliminar_empleado(idCliente);
-
-                MessageBox.Show("Eliminado correctamente");
-            }
-            else 
-                MessageBox.Show("Seleccione una fila por favor");
-
-
-        }
+        }   
 
         private void btnAgregar_Click(object sender, System.EventArgs e)
         {
             limpiar();
+
+            btna = true;
+            btnb = false;
+            btnc = false;
 
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
@@ -127,14 +184,7 @@ namespace Presentacion
             btnGuardar.Enabled = true;
             dgvClientes.Enabled = false;
 
-            Lim_ha Limpiar = new Lim_ha();
-            Limpiar.Limpiar(this);
-            Limpiar.Encender(this);
-
-            DataTable table = new DataTable();
-            table = c.Mostrar_Cliente();
-            dgvClientes.DataSource = table;
-
+            txtCodigoCliente.Enabled = true;
             nombre.Enabled = true;
             Apellido.Enabled = true;
             rtn.Enabled = true;
@@ -145,13 +195,8 @@ namespace Presentacion
             txtCiudad.Enabled = true;
             txtCodPost.Enabled = true;
             txtcodigocli.Enabled = true;
+        
 
-            
-
-            c.crear_Cliente(nombre.Text, Apellido.Text, rtn.Text, txtTelefono.Text, txtRegion.Text, txtCiudad.Text, 
-                txtDireccion.Text, txtPais.Text, txtcodigocli.Text, txtCodPost.Text);
-            
-            
         }
 
 
@@ -159,29 +204,25 @@ namespace Presentacion
         {
             limpiar();
 
+            btna = false;
+            btnb = true;
+            btnc = false;
+
             btnAgregar.Enabled = false;
             btnEliminar.Enabled = false;
             btnGuardar.Visible = true;
 
-            if (dgvClientes.SelectedRows.Count > 0)
-            {
-                editar = true;
-
-                txtcodigocli.Text = dgvClientes.CurrentRow.Cells["id_cliente"].Value.ToString();
-                nombre.Text = dgvClientes.CurrentRow.Cells["nom_cliente"].Value.ToString();
-                Apellido.Text = dgvClientes.CurrentRow.Cells["apellido_cliente"].Value.ToString();
-                rtn.Text = dgvClientes.CurrentRow.Cells["RTN"].Value.ToString();
-                txtDireccion.Text = dgvClientes.CurrentRow.Cells["direccion"].Value.ToString();
-                txtCiudad.Text = dgvClientes.CurrentRow.Cells["ciudad"].Value.ToString();
-                txtRegion.Text = dgvClientes.CurrentRow.Cells["region"].Value.ToString();
-                txtCodPost.Text = dgvClientes.CurrentRow.Cells["codigo_postal"].Value.ToString();
-                txtPais.Text = dgvClientes.CurrentRow.Cells["pais"].Value.ToString();
-                txtTelefono.Text = dgvClientes.CurrentRow.Cells["tel_cliente"].Value.ToString();
-            }
-
-            else
-                MessageBox.Show("Seleccione una fila por favor");
-
+            txtCodigoCliente.Enabled = true;
+            nombre.Enabled = true;
+            Apellido.Enabled = true;
+            rtn.Enabled = true;
+            txtTelefono.Enabled = true;
+            txtRegion.Enabled = true;
+            txtPais.Enabled = true;
+            txtDireccion.Enabled = true;
+            txtCiudad.Enabled = true;
+            txtCodPost.Enabled = true;
+            txtcodigocli.Enabled = true;
 
         }
 
@@ -195,6 +236,7 @@ namespace Presentacion
             dgvClientes.Rows[1].Selected = true;
 
             dgvClientes.CurrentRow.Selected = true;
+            txtCodigoCliente.Text = dgvClientes.CurrentRow.Cells[0].Value.ToString();
             nombre.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
             Apellido.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
             rtn.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
@@ -210,6 +252,7 @@ namespace Presentacion
         private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvClientes.CurrentRow.Selected = true;
+            txtCodigoCliente.Text = dgvClientes.CurrentRow.Cells[0].Value.ToString();
             nombre.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
             Apellido.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
             rtn.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
@@ -227,42 +270,6 @@ namespace Presentacion
 
         }
 
-        private void txtcodigocli_TextChanged(object sender, System.EventArgs e)
-        {
-            var bd = (BindingSource)dgvClientes.DataSource;
-            var dt = (DataTable)bd.DataSource;
-            if (txtcodigocli.Text != "")
-
-                dt.DefaultView.RowFilter = string.Format("[Id Cliente] = {0}", int.Parse(txtcodigocli.Text));
-
-            else
-            {
-                dt.DefaultView.RowFilter = null;
-            }
-            dgvClientes.Refresh();
-
-            if (dt.DefaultView.Count < 1)
-            {
-                SystemSounds.Exclamation.Play();
-                ToolTip tt = new ToolTip();
-                tt.Show("No se encontro parametros", this.txtcodigocli, 0, 25, 3000);
-            }
-        }
-
-        private void txtnombrecli_TextChanged_1(object sender, System.EventArgs e)
-        {
-            var bd = (BindingSource)dgvClientes.DataSource;
-            var dt = (DataTable)bd.DataSource;
-            dt.DefaultView.RowFilter = string.Format("[Nombre Cliente] LIKE '%{0}%'", txtnombrecli.Text);
-            dgvClientes.Refresh();
-
-            if (dt.DefaultView.Count < 1)
-            {
-                SystemSounds.Exclamation.Play();
-                ToolTip tt = new ToolTip();
-                tt.Show("No se encontro parametros", this.txtnombrecli, 0, 25, 3000);
-            }
-        }
 
         private void txtcodigocli_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -292,6 +299,44 @@ namespace Presentacion
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txtcodigocli_TextChanged(object sender, System.EventArgs e)
+        {
+            var bd = (BindingSource)dgvClientes.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            if (txtcodigocli.Text != "")
+
+                dt.DefaultView.RowFilter = string.Format("[Id Cliente] LIKE '%{0}'", int.Parse(txtcodigocli.Text));
+
+            else
+            {
+                dt.DefaultView.RowFilter = null;
+            }
+            dgvClientes.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.txtcodigocli, 0, 25, 3000);
+            }
+
+        }
+
+        private void txtnombrecli_TextChanged_1(object sender, System.EventArgs e)
+        {
+            var bd = (BindingSource)dgvClientes.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Nombres] LIKE '%{0}%'", txtnombrecli.Text);
+            dgvClientes.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.txtnombrecli, 0, 25, 3000);
+            }
         }
     }
 }
