@@ -42,7 +42,7 @@ namespace Datos
             return tabla;
         }
 
-        public void insertar_Cliente(string idcliente, string nombrecliente, string apellidocliente, string RTN, string direccion, string ciudad, string region, string codigopostal, string pais, long telefono)
+        public void insertar_Cliente(string idcliente, string nombrecliente, string apellidocliente, string RTN, string direccion, string ciudad, string region, string codigopostal, string pais, string telefono)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "insertar_Cliente";
@@ -62,7 +62,8 @@ namespace Datos
             comando.Connection = conexion.cerrar();
         }
 
-        public void Editar_Cliente(string idcliente, string nombrecliente, string apellidocliente, string RTN, string direccion, string ciudad, string region, string codigopostal, string pais, long telefono)
+        public void Editar_Cliente(string idcliente, string nombrecliente, string apellidocliente, 
+            string RTN, string direccion, string ciudad, string region, string codigopostal, string pais, string telefono)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "editar_Cliente";
