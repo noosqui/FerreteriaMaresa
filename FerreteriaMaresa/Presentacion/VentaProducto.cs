@@ -95,7 +95,7 @@ namespace Presentacion
             producto.DefaultView.RowFilter = "Estado = 'ACTIVO' ";
             dgvProductos.DataSource = producto;
             dgvProductos.Columns["Id Marca"].Visible = false;
-            dgvProductos.Columns["Id Categoría"].Visible = false;
+            dgvProductos.Columns["Id CategorÃ­a"].Visible = false;
             dgvProductos.Columns["Id Proveedor"].Visible = false;
             dgvProductos.Refresh();
             dgvProductos.Rows[1].Selected = true;
@@ -205,9 +205,11 @@ namespace Presentacion
             tt.Show("Ingrese un numero que sea menor o igual que la cantidad en inventaro", txtCantidad, 5000);
         }
 
+
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             letrasNum.SoloNumeros(e);
+
         }
     }
 }
