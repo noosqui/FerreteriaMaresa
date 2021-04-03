@@ -203,6 +203,7 @@ namespace Presentacion
             LetraNum.SoloLetras(e);
         }
 
+
         private void txtCantidad_Enter(object sender, EventArgs e)
         {
             tt.Show("Ingrese numeros mayores a 0", txtCantidad);
@@ -211,6 +212,7 @@ namespace Presentacion
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             LetraNum.SoloNumeros(e);
+
         }
 
         private void cmbProveedor_SelectedIndexChanged(object sender, EventArgs e)

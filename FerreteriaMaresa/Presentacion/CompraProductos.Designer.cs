@@ -31,6 +31,7 @@ namespace Presentacion
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+
             this.txtId = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cmbProveedor = new System.Windows.Forms.ComboBox();
@@ -42,6 +43,7 @@ namespace Presentacion
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+
             this.dgvListaProductos = new System.Windows.Forms.DataGridView();
             this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +64,7 @@ namespace Presentacion
             this.label8 = new System.Windows.Forms.Label();
             this.txtnombreprod = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
@@ -111,6 +114,7 @@ namespace Presentacion
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1204, 558);
             this.panel1.TabIndex = 95;
+
             // 
             // txtId
             // 
@@ -160,6 +164,7 @@ namespace Presentacion
             this.label11.TabIndex = 121;
             this.label11.Text = "Subtotal";
             // 
+
             // label10
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -264,6 +269,7 @@ namespace Presentacion
             // 
             this.IdProducto.HeaderText = "Id Producto";
             this.IdProducto.Name = "IdProducto";
+
             // 
             // prodNom
             // 
@@ -285,6 +291,7 @@ namespace Presentacion
             this.Cantidad_Unidad.HeaderText = "Unidades";
             this.Cantidad_Unidad.Name = "Cantidad_Unidad";
             // 
+
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -315,6 +322,7 @@ namespace Presentacion
             this.btnSiguiente.Visible = false;
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
+
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -368,6 +376,7 @@ namespace Presentacion
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -450,8 +459,10 @@ namespace Presentacion
             // 
             // txtnombreprod
             // 
+
             this.txtnombreprod.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtnombreprod.Location = new System.Drawing.Point(701, 250);
+
             this.txtnombreprod.Name = "txtnombreprod";
             this.txtnombreprod.Size = new System.Drawing.Size(100, 20);
             this.txtnombreprod.TabIndex = 8;
@@ -471,6 +482,7 @@ namespace Presentacion
             this.label7.TabIndex = 106;
             this.label7.Text = "Nombre:";
             // 
+
             // CompraProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

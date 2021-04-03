@@ -161,6 +161,7 @@
             this.label7.TabIndex = 71;
             this.label7.Text = "Nombre:";
             // 
+
             // VentaProductos
             // 
             this.VentaProductos.AutoScroll = true;
@@ -197,6 +198,7 @@
             this.VentaProductos.Location = new System.Drawing.Point(0, 0);
             this.VentaProductos.Name = "VentaProductos";
             this.VentaProductos.Size = new System.Drawing.Size(1278, 651);
+
             this.VentaProductos.TabIndex = 1;
             // 
             // chkRTN
