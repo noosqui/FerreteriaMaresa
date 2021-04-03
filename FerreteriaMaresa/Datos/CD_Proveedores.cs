@@ -20,7 +20,7 @@ namespace Datos
         {
 
             comando.Connection = conexion.abrir();
-            comando.CommandText = "Mostrar_Proveedor";
+            comando.CommandText = "Mostrar_Proveedores";
             comando.CommandType = CommandType.StoredProcedure;
             leer = comando.ExecuteReader();
             tabla.Load(leer);

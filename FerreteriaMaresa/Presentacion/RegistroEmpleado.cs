@@ -173,8 +173,8 @@ namespace Presentacion
             txtpais.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
             txttelefono.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
             txtcodrol.Text = dgvEmpleados.CurrentRow.Cells[10].Value.ToString();
-            dtfechan.Text = dgvEmpleados.CurrentRow.Cells[11].Value.ToString();
-            txtestado.Text = dgvEmpleados.CurrentRow.Cells[12].Value.ToString();
+            dtfechan.Value = ((DateTime)dgvEmpleados.CurrentRow.Cells[12].Value);
+            txtestado.Text = dgvEmpleados.CurrentRow.Cells[13].Value.ToString();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -191,15 +191,6 @@ namespace Presentacion
             
         }
 
-        private void txtidentidad_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtcodigoemp_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         private void txtnombreemp_TextChanged(object sender, EventArgs e)
         {
@@ -216,10 +207,6 @@ namespace Presentacion
             }
         }
 
-        private void txtcodigoemp_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            letrasNum.SoloNumeros(e);
-        }
 
         private void txtnombreemp_KeyPress(object sender, KeyPressEventArgs e)
         {
