@@ -4,6 +4,8 @@ using System.Text;
 using Dominio;
 using System.Windows.Forms;
 using System.Media;
+using System.Data.SqlClient;
+
 
 namespace Presentacion
 
@@ -19,22 +21,21 @@ namespace Presentacion
             InitializeComponent();
         }
 
+        
+
         private void Inventario_Load(object sender, System.EventArgs e)
         {
             var fuente = new BindingSource();
             fuente.DataSource = inventario.mostrar_inventario();
+
             dgvInventario.DataSource = fuente;
             dgvInventario.Rows[1].Selected = true;
+            
         }
 
         private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvInventario.CurrentRow.Selected = true;
-        }
-
-        private void btnAgregar_Click(object sender, System.EventArgs e)
-        {
-
         }
 
         private void btnActivos_Click(object sender, System.EventArgs e)
@@ -122,6 +123,34 @@ namespace Presentacion
             letrasNum.SoloLetras(e);
         }
 
-  
+        private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgvInventario.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Marca] LIKE '%{0}%'", cmbMarca.Text);
+            dgvInventario.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.cmbMarca, 0, 25, 3000);
+            }
+        }
+
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var bd = (BindingSource)dgvInventario.DataSource;
+            var dt = (DataTable)bd.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Categoría] LIKE '%{0}%'", cmbCategoria.Text);
+            dgvInventario.Refresh();
+
+            if (dt.DefaultView.Count < 1)
+            {
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.cmbCategoria, 0, 25, 3000);
+            }
+        }
     }
 }

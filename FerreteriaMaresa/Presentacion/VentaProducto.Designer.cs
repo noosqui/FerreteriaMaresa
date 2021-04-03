@@ -169,6 +169,7 @@
             this.button1.TabIndex = 70;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // VentaProductos
             // 
@@ -177,7 +178,7 @@
             this.VentaProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.VentaProductos.Location = new System.Drawing.Point(0, 0);
             this.VentaProductos.Name = "VentaProductos";
-            this.VentaProductos.Size = new System.Drawing.Size(1440, 706);
+            this.VentaProductos.Size = new System.Drawing.Size(1386, 706);
             this.VentaProductos.TabIndex = 1;
             // 
             // label1
@@ -427,7 +428,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.ClientSize = new System.Drawing.Size(1440, 706);
+            this.ClientSize = new System.Drawing.Size(1386, 706);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtDescuento);
