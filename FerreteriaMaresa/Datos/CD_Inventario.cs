@@ -23,6 +23,7 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            lee.Close();
             return tabla;
         }
 
@@ -36,6 +37,8 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            lee.Close();
+
             return tabla;
         }
 
@@ -65,7 +68,10 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             lee = comando.ExecuteReader();
             tabla.Load(lee);
+
             comando.Connection = conexion.cerrar();
+            lee.Close();
+
             return tabla;
         }
 
@@ -78,7 +84,10 @@ namespace Datos
             comando.ExecuteNonQuery();
             lee = comando.ExecuteReader();
             tabla.Load(lee);
+
             comando.Connection = conexion.cerrar();
+            lee.Close();
+
             return tabla;
         }
 
@@ -89,7 +98,11 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             lee = comando.ExecuteReader();
             tabla.Load(lee);
+         
+
             comando.Connection = conexion.cerrar();
+            lee.Close();
+
             return tabla;
         }
 
@@ -102,7 +115,11 @@ namespace Datos
             comando.ExecuteNonQuery();
             lee = comando.ExecuteReader();
             tabla.Load(lee);
+     
+
             comando.Connection = conexion.cerrar();
+            lee.Close();
+
             return tabla;
         }
     }

@@ -28,6 +28,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@Descuento", Descuento);
             comando.Parameters.AddWithValue("@SubTotal", Subtotal);
             comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
             comando.Connection = conexion.cerrar();
         }
 
@@ -40,6 +41,7 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
             return tabla;
         }
 
@@ -55,6 +57,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@Descuento", Descuento);
             comando.Parameters.AddWithValue("@SubTotal", Subtotal);
             comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
             comando.Connection = conexion.cerrar();
         }
 
@@ -63,9 +66,11 @@ namespace Datos
             comando.Connection = conexion.abrir();
             comando.CommandText = "SP_Compras";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            lee.Close();
             return tabla;
         }
 
@@ -78,7 +83,9 @@ namespace Datos
             comando.Parameters.AddWithValue("@IdCompra", IdCompra);
             comando.Parameters.AddWithValue("@Precio", Precio);
             comando.Parameters.AddWithValue("@Cantidad", Cantidad);
+
             comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
             comando.Connection = conexion.cerrar();
         }
 
@@ -90,6 +97,8 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+            lee.Close();
             return tabla;
         }
 
@@ -103,6 +112,8 @@ namespace Datos
             comando.Parameters.AddWithValue("@Precio", Precio);
             comando.Parameters.AddWithValue("@Cantidad", Cantidad);
             comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+
             comando.Connection = conexion.cerrar();
         }
 
@@ -114,6 +125,8 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+            lee.Close();
             return tabla;
         }
 
@@ -125,6 +138,8 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+            lee.Close();
             return tabla;
         }
 
@@ -136,6 +151,8 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+            lee.Close();
             return tabla;
         }
 
@@ -149,6 +166,8 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+            lee.Close();
             return tabla;
         }
 
@@ -162,6 +181,8 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+            lee.Close();
             return tabla;
         }
     }
