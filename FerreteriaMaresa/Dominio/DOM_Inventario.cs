@@ -16,7 +16,10 @@ namespace Dominio
         //Atributos 
 
         private int id_producto;
+        private int id_proveedor;
         private string nom_producto;
+        private string nom_proveedor;
+        private string marca;
         private int id_marca;
         private string cantidad_unidad;
         private double costo_producto;
@@ -24,6 +27,7 @@ namespace Dominio
         private int stock;
         private string estado;
         private int id_categoria;
+        private string categoria;
         private CD_Inventario inventario = new CD_Inventario();
         
 
@@ -49,6 +53,19 @@ namespace Dominio
 
         }
 
+        public int Id_Proveedor
+        {
+            get { return id_proveedor; }
+            set { id_proveedor = value; }
+
+        }
+
+        public string Nom_Proveedor
+        {
+            get { return nom_proveedor; }
+            set { nom_proveedor = value; }
+        }
+
         public string Nom_producto
         {
             get { return nom_producto; }
@@ -59,6 +76,12 @@ namespace Dominio
         {
             get { return id_marca; }
             set { id_marca = value; }
+        }
+
+        public string Marca
+        {
+            get { return marca; }
+            set { marca = value; }
         }
 
         public string Cantidad_unidad
@@ -97,6 +120,12 @@ namespace Dominio
             set { id_categoria = value; }
         }
 
+        public string Categoria
+        {
+            get { return categoria; }
+            set { categoria = value; }
+        }
+
 
 
 
@@ -118,6 +147,11 @@ namespace Dominio
         public DataTable ListarMarcas() 
         {
             return inventario.Mostrar_Marcas();
+        }
+        public void crear_inventario()
+        {
+            inventario.insertar_Inventario(nom_producto, nom_proveedor, marca, costo_producto,
+            precio_actual, stock, estado, categoria);
         }
 
 

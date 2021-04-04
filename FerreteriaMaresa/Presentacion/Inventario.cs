@@ -14,14 +14,29 @@ namespace Presentacion
     {
 
         DOM_Inventario inventario = new DOM_Inventario();
-        DOM_Validacion letrasNum = new DOM_Validacion();
+        DOM_Validacion LetraNum = new DOM_Validacion();
 
         public Inventario()
         {
             InitializeComponent();
         }
 
-        
+        public void Regristro_inventario()
+        {
+  
+            inventario.Nom_Proveedor = cbbProveedor.Text;
+            inventario.Nom_producto = txtNomInventario.Text;
+            inventario.Marca = cbbMarca.Text;
+            inventario.Costo_producto = double.Parse(txtCompra.Text);
+            inventario.Precio_actual = double.Parse(txtVenta.Text);
+            inventario.Stock = int.Parse(cbbStock.Text);
+            inventario.Estado = cbbEstado.Text;
+            inventario.Categoria = cbbCategorias.Text;
+            MessageBox.Show("Producto registrado con exito");
+
+        }
+
+
 
         private void Inventario_Load(object sender, System.EventArgs e)
         {
@@ -151,6 +166,90 @@ namespace Presentacion
                 ToolTip tt = new ToolTip();
                 tt.Show("No se encontro parametros", this.cmbCategoria, 0, 25, 3000);
             }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Regristro_inventario();
+            Lim_ha Limpiar = new Lim_ha();
+            Limpiar.Limpiar(this);
+
+            Lim_ha apagar = new Lim_ha();
+            apagar.Apagar(this);
+
+            btnEliminar.Enabled = true;
+            btnAgregar.Enabled = true;
+            btnGuardar.Visible = false;
+            btnmodificar.Enabled = true;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Lim_ha encender = new Lim_ha();
+            encender.Encender(this);
+
+            btnAgregar.Enabled = false;
+            btnmodificar.Enabled = false;
+            btnGuardar.Visible = true;
+
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Lim_ha encender = new Lim_ha();
+            encender.Encender(this);
+
+            Lim_ha Limpiar = new Lim_ha();
+            Limpiar.Limpiar(this);
+
+            btnEliminar.Enabled = false;
+            btnmodificar.Enabled = false;
+            btnGuardar.Visible = true;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgvAgregar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtnombre.Text = dgvAgregar.CurrentRow.Cells[0].Value.ToString();
+            cbbProveedor.Text = dgvAgregar.CurrentRow.Cells[1].Value.ToString();
+            cbbMarca.Text = dgvAgregar.CurrentRow.Cells[2].Value.ToString();
+            txtCompra.Text = dgvAgregar.CurrentRow.Cells[3].Value.ToString();
+            txtVenta.Text = dgvAgregar.CurrentRow.Cells[4].Value.ToString();
+            cbbStock.Text = dgvAgregar.CurrentRow.Cells[5].Value.ToString();
+            cbbEstado.Text = dgvAgregar.CurrentRow.Cells[6].Value.ToString();
+            cbbCategorias.Text = dgvAgregar.CurrentRow.Cells[7].Value.ToString();
+        }
+
+        private void btnmodificar_Click(object sender, EventArgs e)
+        {
+            Lim_ha encender = new Lim_ha();
+            encender.Encender(this);
+
+            Lim_ha Limpiar = new Lim_ha();
+            Limpiar.Limpiar(this);
+
+            btnAgregar.Enabled = false;
+            btnEliminar.Enabled = false;
+            btnGuardar.Visible = true;
+        }
+
+        private void txtNomInventario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LetraNum.SoloLetras(e);
+        }
+
+        private void txtCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LetraNum.SoloNumeros(e);
+        }
+
+        private void txtVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LetraNum.SoloNumeros(e);
         }
     }
 }

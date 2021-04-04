@@ -128,6 +128,28 @@ namespace Datos
             return tabla;
         }
 
+
+        public void insertar_Inventario(string nom_producto, string nom_proveedor, string Marca, double costo_producto,
+            double precio_actual, int stock, string estado, string Categoria)
+        {
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "insertar_Inventario";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@nom_producto", nom_producto);
+            comando.Parameters.AddWithValue("@nom_proveedor", nom_proveedor);
+            comando.Parameters.AddWithValue("@Marca", Marca);
+            //comando.Parameters.AddWithValue("@Cantidad_por_Unidad", cantidad_unidad);
+            comando.Parameters.AddWithValue("@Costo_producto", costo_producto);
+            comando.Parameters.AddWithValue("@precio_actual", precio_actual);
+            comando.Parameters.AddWithValue("@stock", stock);
+            comando.Parameters.AddWithValue("@Estado", estado);
+            comando.Parameters.AddWithValue("@descripcion", Categoria);
+
+            comando.ExecuteNonQuery();
+            comando.Connection = conexion.cerrar();
+        }
+
+
         /*public void LlenarMarca(ComboBox cb)
         {
             try
