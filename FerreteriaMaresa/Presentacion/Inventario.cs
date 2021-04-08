@@ -15,6 +15,9 @@ namespace Presentacion
 
         DOM_Inventario inventario = new DOM_Inventario();
         DOM_Validacion LetraNum = new DOM_Validacion();
+        bool Estado1 = false;
+        bool Estado2 = false;
+        bool Estado3 = false;
 
         public Inventario()
         {
@@ -130,12 +133,12 @@ namespace Presentacion
         }
         private void txtcodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            letrasNum.SoloNumeros(e);
+            LetraNum.SoloNumeros(e);
         }
 
         private void txtnombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            letrasNum.SoloLetras(e);
+            LetraNum.SoloLetras(e);
         }
 
         private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
@@ -167,13 +170,51 @@ namespace Presentacion
                 tt.Show("No se encontro parametros", this.cmbCategoria, 0, 25, 3000);
             }
         }
-
+   
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (Estado1 == true)
+            {
+                try
+                {
+                    inventario.crear_inventario(txtid.Text, txtNomInventario.Text, cbbProveedor.Text, cbbMarca.Text, txtCompra.Text, txtVenta.Text, cbbStock.Text, cbbEstado.Text, cbbCategorias.Text);
+                }
+                catch
+                {
+
+                }
+            }
+
+            if (Estado2 == true)
+            {
+                try
+                {
+                    inventario.modificar_inventario(txtid.Text, txtNomInventario.Text, cbbProveedor.Text, cbbMarca.Text, txtCompra.Text, txtVenta.Text, cbbStock.Text, cbbEstado.Text, cbbCategorias.Text);
+                }
+                catch
+                {
+
+                }
+            }
+
+            if (Estado3 == true)
+            {
+                try
+                {
+                    inventario.eliminar_Producto(txtid.Text);
+                }
+                catch
+                {
+
+                }
+            }
+
             Regristro_inventario();
             Lim_ha Limpiar = new Lim_ha();
             Limpiar.Limpiar(this);
-
+            la.Visible = false;
+            txtid.Enabled = false;
+            txtid.Visible = false;
             Lim_ha apagar = new Lim_ha();
             apagar.Apagar(this);
 
@@ -181,13 +222,20 @@ namespace Presentacion
             btnAgregar.Enabled = true;
             btnGuardar.Visible = false;
             btnmodificar.Enabled = true;
+
+            Estado1 = false;
+            Estado2 = false;
+            Estado3 = false;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             Lim_ha encender = new Lim_ha();
             encender.Encender(this);
-
+            Estado3 = true;
+            la.Visible = true;
+            txtid.Enabled = true;
+            txtid.Visible = true;
             btnAgregar.Enabled = false;
             btnmodificar.Enabled = false;
             btnGuardar.Visible = true;
@@ -201,7 +249,7 @@ namespace Presentacion
 
             Lim_ha Limpiar = new Lim_ha();
             Limpiar.Limpiar(this);
-
+            Estado1 = true; 
             btnEliminar.Enabled = false;
             btnmodificar.Enabled = false;
             btnGuardar.Visible = true;
@@ -222,6 +270,7 @@ namespace Presentacion
             cbbStock.Text = dgvAgregar.CurrentRow.Cells[5].Value.ToString();
             cbbEstado.Text = dgvAgregar.CurrentRow.Cells[6].Value.ToString();
             cbbCategorias.Text = dgvAgregar.CurrentRow.Cells[7].Value.ToString();
+            dgvInventario.CurrentRow.Selected = true;
         }
 
         private void btnmodificar_Click(object sender, EventArgs e)
@@ -231,7 +280,10 @@ namespace Presentacion
 
             Lim_ha Limpiar = new Lim_ha();
             Limpiar.Limpiar(this);
-
+            Estado2 = true;
+            la.Visible = true;
+            txtid.Enabled = true;
+            txtid.Visible = true;
             btnAgregar.Enabled = false;
             btnEliminar.Enabled = false;
             btnGuardar.Visible = true;

@@ -66,6 +66,8 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.la = new System.Windows.Forms.Label();
+            this.txtid = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -307,6 +309,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
+            this.panel3.Controls.Add(this.txtid);
+            this.panel3.Controls.Add(this.la);
             this.panel3.Controls.Add(this.dgvAgregar);
             this.panel3.Controls.Add(this.btnmodificar);
             this.panel3.Controls.Add(this.cbbCategorias);
@@ -405,7 +409,7 @@
             this.cbbEstado.Items.AddRange(new object[] {
             "ACTIVO",
             "INACTIVO"});
-            this.cbbEstado.Location = new System.Drawing.Point(1112, 76);
+            this.cbbEstado.Location = new System.Drawing.Point(1076, 91);
             this.cbbEstado.Margin = new System.Windows.Forms.Padding(4);
             this.cbbEstado.Name = "cbbEstado";
             this.cbbEstado.Size = new System.Drawing.Size(167, 24);
@@ -504,7 +508,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(960, 76);
+            this.label10.Location = new System.Drawing.Point(952, 91);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(66, 20);
@@ -631,6 +635,29 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // la
+            // 
+            this.la.AutoSize = true;
+            this.la.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.la.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.la.Location = new System.Drawing.Point(961, 26);
+            this.la.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.la.Name = "la";
+            this.la.Size = new System.Drawing.Size(104, 20);
+            this.la.TabIndex = 91;
+            this.la.Text = "Id Inventario:";
+            this.la.Visible = false;
+            // 
+            // txtid
+            // 
+            this.txtid.Enabled = false;
+            this.txtid.Location = new System.Drawing.Point(1076, 30);
+            this.txtid.Margin = new System.Windows.Forms.Padding(4);
+            this.txtid.Name = "txtid";
+            this.txtid.Size = new System.Drawing.Size(136, 22);
+            this.txtid.TabIndex = 92;
+            this.txtid.Visible = false;
+            // 
             // Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -698,5 +725,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dgvAgregar;
         private System.Windows.Forms.Button btnmodificar;
+        private System.Windows.Forms.TextBox txtid;
+        private System.Windows.Forms.Label la;
     }
 }

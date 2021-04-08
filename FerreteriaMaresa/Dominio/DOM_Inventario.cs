@@ -22,7 +22,7 @@ namespace Dominio
         private string marca;
         private int id_marca;
         private string cantidad_unidad;
-        private double costo_producto;
+        private double costo;
         private double precio_actual;
         private int stock;
         private string estado;
@@ -33,17 +33,20 @@ namespace Dominio
 
         public DOM_Inventario() { }
 
-        public DOM_Inventario(string id_producto, string nom_producto, string marca, string cantidad, string costo,
-            string precio_actual, string stock, string estado, string categoria, string cantidad_unidad)
+        public DOM_Inventario(string id_producto, string id_proveedor, string nom_producto, string nom_proveedor, string marca, string id_marca, string costo, 
+            string precio_actual, string stock, string estado, string id_categoria, string cantidad_unidad)
         {
             this.id_producto = int.Parse(id_producto);
+            this.id_proveedor = int.Parse(id_proveedor);
             this.nom_producto = nom_producto;
-            this.id_marca = int.Parse(marca);
-            this.costo_producto = double.Parse(costo);
+            this.nom_proveedor = nom_proveedor;
+            this.id_marca = int.Parse(id_marca);
+            this.marca = marca;
+            this.costo = double.Parse(costo);
             this.precio_actual = double.Parse(precio_actual);
             this.stock = int.Parse(stock);
             this.estado = estado;
-            this.id_categoria = int.Parse(categoria);
+            this.id_categoria = int.Parse(id_categoria);
             this.cantidad_unidad = cantidad_unidad;
         }
         public int Id_producto
@@ -92,8 +95,8 @@ namespace Dominio
 
         public double Costo_producto
         {
-            get { return costo_producto; }
-            set { costo_producto = value; }
+            get { return costo; }
+            set { costo = value; }
         }
 
         public double Precio_actual
@@ -148,13 +151,26 @@ namespace Dominio
         {
             return inventario.Mostrar_Marcas();
         }
-        public void crear_inventario()
+
+
+        public void crear_inventario(string IdProducto, string nom_producto, string nom_proveedor, string Marca, string costo_producto,
+            string precio_actual, string stock, string estado, string Categoria)
         {
-            inventario.insertar_Inventario(nom_producto, nom_proveedor, marca, costo_producto,
-            precio_actual, stock, estado, categoria);
+            inventario.insertar_Inventario(int.Parse(IdProducto), nom_producto, nom_proveedor, marca, double.Parse(costo_producto),
+            double.Parse(precio_actual), int.Parse(stock), estado, categoria);
         }
 
+        public void modificar_inventario(string IdProducto, string nom_producto, string nom_proveedor, string Marca, string costo_producto,
+            string precio_actual, string stock, string estado, string Categoria)
+        {
+            inventario.modificar_Inventario(int.Parse(IdProducto), nom_producto, nom_proveedor, marca, double.Parse(costo_producto),
+            double.Parse(precio_actual), int.Parse(stock), estado, categoria);
+        }
 
+        public void eliminar_Producto(string IdProducto)
+        {
+            inventario.EliminarInventario(IdProducto);
+        }
 
     }
 }
