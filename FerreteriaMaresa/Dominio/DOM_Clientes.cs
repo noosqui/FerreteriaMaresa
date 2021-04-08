@@ -10,9 +10,8 @@ namespace Dominio
 
 {
     public class DOM_Clientes
-
     {
-        private int idCliente;
+        private string idCliente;
         private string nombrecliente;
         private string apellidocliente;
         private string RTN;
@@ -24,21 +23,15 @@ namespace Dominio
         private string pais;
         private CD_Clientes cli = new CD_Clientes();
 
-<<<<<<< HEAD
         public DOM_Clientes() { 
-        
         }
 
         public DOM_Clientes(string id_Cliente, string nombre, string apellido, string rtn, string direccion,
-            string ciudad, string region, string codigo_postal, string pais, string telefono)
-=======
-        public DOM_Clientes(string Cliente, string nombre, string apellido)
->>>>>>> upstream/Beta
-        {
-            this.idCliente = int.Parse(Cliente);
+            string ciudad, string region, string codigo_postal, string pais, string telefono) {
+
+            this.idCliente = id_Cliente;
             this.nombrecliente = nombre;
             this.apellidocliente = apellido;
-<<<<<<< HEAD
             this.RTN = rtn;
             this.direccion = direccion;
             this.ciudad = ciudad;
@@ -46,16 +39,9 @@ namespace Dominio
             this.codigo_postal = codigo_postal;
             this.pais = pais;
             this.telefono = telefono;
-
-=======
-        }
-        public DOM_Clientes ()
-        {
->>>>>>> upstream/Beta
-
         }
 
-        public int Id_empleado
+        public string Id_cliente
         {
             get { return idCliente; }
             set { idCliente = value; }
@@ -70,53 +56,70 @@ namespace Dominio
             get { return apellidocliente; }
             set { apellidocliente = value; }
         }
-        public string Correo
+
+        public string Rtn 
         {
             get { return RTN; }
             set { RTN = value; }
         }
-        public string Telefono
-        {
-            get { return telefono; }
-            set { telefono = value; }
-        }
+
         public string Direccion
         {
             get { return direccion; }
             set { direccion = value; }
         }
 
+        public string Ciudad
+        {
+            get { return ciudad; }
+            set { ciudad = value; }
+        }
 
-<<<<<<< HEAD
+        public string Region
+        {
+            get { return region; }
+            set { region = value; }
+        }
+
+        public string Codigo_Postal
+        {
+            get { return codigo_postal; }
+            set { codigo_postal = value; }
+        }
+
+        public string Pais
+        {
+            get { return pais; }
+            set { pais = value; }
+        }
+
+        public string Telefono
+        {
+            get { return telefono; }
+            set { telefono = value; }
+        }
+        
+
+
+
         public void editar_Clientes(string idCliente, string nombrecliente, string apellidocliente, string RTN,
             string direccion, string ciudad, string region, string codigo_postal, string pais, string telefono)
-=======
-        public void editar_Clientes()
->>>>>>> upstream/Beta
         {
             cli.Editar_Cliente(idCliente, nombrecliente, apellidocliente, RTN, direccion, ciudad, region, codigo_postal, pais, telefono);
         }
-<<<<<<< HEAD
 
-        public void eliminar_empleado(string idCliente)
+        public void eliminar_empleado(string id_Cliente)
         {
-            cli.Eliminar_Cliente(idCliente);
+            cli.Eliminar_Cliente(id_Cliente);
         }
 
         public void crear_Cliente(string idCliente, string nombrecliente, string apellidocliente,
-            string RTN, string direccion, string ciudad, string region, 
+            string RTN, string direccion, string ciudad, string region,
             string codigo_postal, string pais, string telefono)
-=======
-        public void eliminar_empleado()
         {
-            cli.Eliminar_Cliente(idCliente);
+            cli.insertar_Cliente(idCliente, nombrecliente, apellidocliente, RTN, direccion, ciudad, region, codigo_postal, pais, telefono);
         }
-        public void crear_Cliente()
->>>>>>> upstream/Beta
-        {
-            cli.insertar_Cliente(idCliente, nombrecliente, apellidocliente, 
-                RTN, direccion, ciudad, region, codigo_postal, pais, telefono);
-        }
+
 
         public DataTable Mostrar_Cliente()
         {
