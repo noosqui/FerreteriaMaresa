@@ -18,8 +18,13 @@ namespace Dominio
         private string correo;
         private string telefono;
         private string direccion;
-        //arreglar direccion
+        private string region;
+        private string ciudad;
+        private string codPostal;
+        private string pais;
+        private string estado;
 
+        private CD_Proveedores prov = new CD_Proveedores();
         public DOM_proveedor()
         {
         }
@@ -75,7 +80,10 @@ namespace Dominio
         {
             // objeto.crearproveedor(id_proveedor, nom_proveedor, apellido_proveedor, correo, telefono, direccion) /
         }
-
+        public DataTable mostrarProveedor()
+        {
+            return prov.Mostrar_Proveedor();
+        }
 
 
     }

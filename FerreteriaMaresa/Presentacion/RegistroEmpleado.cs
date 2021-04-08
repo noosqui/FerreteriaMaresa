@@ -265,7 +265,7 @@ namespace Presentacion
         }
 
         private void btnrecontratar_Click(object sender, EventArgs e)
-        {
+        { 
             cbcodrol.Text = "Seleccione";
             limpiar();
             btnAgregar.Visible = true;
@@ -322,6 +322,7 @@ namespace Presentacion
             }
         }
 
+
         private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -362,10 +363,12 @@ namespace Presentacion
             }
         }
 
+
         private void cbcodrol_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtcodrol = cbcodrol.SelectedValue.ToString();
         }
+
 
         private void txtidentidad_KeyPress(object sender, KeyPressEventArgs e)
         {

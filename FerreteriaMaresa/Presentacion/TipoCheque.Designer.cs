@@ -30,11 +30,8 @@ namespace Presentacion
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-<<<<<<< HEAD
-=======
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
->>>>>>> 32b0b3b5d9d59e4cd1522c8025adec167e25a8df
+            //this.button2 = new System.Windows.Forms.Button();
+            //this.btnBuscar = new System.Windows.Forms.Button();
             this.dtfechan = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.rtn = new System.Windows.Forms.TextBox();
@@ -50,22 +47,15 @@ namespace Presentacion
             this.txtCiudad = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
-            this.reegresar = new System.Windows.Forms.Button();
-=======
->>>>>>> 32b0b3b5d9d59e4cd1522c8025adec167e25a8df
+           // this.reegresar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
-<<<<<<< HEAD
-            this.panel1.Controls.Add(this.reegresar);
-=======
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.btnBuscar);
->>>>>>> 32b0b3b5d9d59e4cd1522c8025adec167e25a8df
+//            this.panel1.Controls.Add(this.button2);
+ //           this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.dtfechan);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.rtn);
@@ -89,39 +79,36 @@ namespace Presentacion
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-<<<<<<< HEAD
-=======
             // button2
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(774, 386);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 33);
-            this.button2.TabIndex = 73;
-            this.button2.Text = "Siguiente";
-            this.button2.UseVisualStyleBackColor = false;
+            //this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            //this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            //this.button2.FlatAppearance.BorderSize = 0;
+            //this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            //this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            //this.button2.Location = new System.Drawing.Point(774, 386);
+            //this.button2.Name = "button2";
+            //this.button2.Size = new System.Drawing.Size(89, 33);
+            //this.button2.TabIndex = 73;
+            //this.button2.Text = "Siguiente";
+            //this.button2.UseVisualStyleBackColor = false;
+            //// 
+            //// btnBuscar
+            //// 
+            //this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            //this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            //this.btnBuscar.FlatAppearance.BorderSize = 0;
+            //this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            //this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            //this.btnBuscar.Location = new System.Drawing.Point(56, 386);
+            //this.btnBuscar.Name = "btnBuscar";
+            //this.btnBuscar.Size = new System.Drawing.Size(89, 33);
+            //this.btnBuscar.TabIndex = 72;
+            //this.btnBuscar.Text = "Regresar";
+            //this.btnBuscar.UseVisualStyleBackColor = false;
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnBuscar.Location = new System.Drawing.Point(56, 386);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(89, 33);
-            this.btnBuscar.TabIndex = 72;
-            this.btnBuscar.Text = "Regresar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            // 
->>>>>>> 32b0b3b5d9d59e4cd1522c8025adec167e25a8df
             // dtfechan
             // 
             this.dtfechan.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -207,19 +194,11 @@ namespace Presentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-<<<<<<< HEAD
-            this.btnEliminar.Location = new System.Drawing.Point(662, 348);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(201, 71);
-            this.btnEliminar.TabIndex = 59;
-            this.btnEliminar.Text = "Siguiente";
-=======
             this.btnEliminar.Location = new System.Drawing.Point(357, 348);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(201, 71);
             this.btnEliminar.TabIndex = 59;
             this.btnEliminar.Text = "Imprimir";
->>>>>>> 32b0b3b5d9d59e4cd1522c8025adec167e25a8df
             this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // label10
@@ -305,24 +284,21 @@ namespace Presentacion
             this.label4.TabIndex = 51;
             this.label4.Text = "Ruta Bancaria:";
             // 
-<<<<<<< HEAD
             // reegresar
             // 
-            this.reegresar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.reegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.reegresar.FlatAppearance.BorderSize = 0;
-            this.reegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reegresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.reegresar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.reegresar.Location = new System.Drawing.Point(47, 348);
-            this.reegresar.Name = "reegresar";
-            this.reegresar.Size = new System.Drawing.Size(201, 71);
-            this.reegresar.TabIndex = 72;
-            this.reegresar.Text = "Regresar";
-            this.reegresar.UseVisualStyleBackColor = false;
+            //this.reegresar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            //this.reegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            //this.reegresar.FlatAppearance.BorderSize = 0;
+            //this.reegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            //this.reegresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            //this.reegresar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            //this.reegresar.Location = new System.Drawing.Point(47, 348);
+            //this.reegresar.Name = "reegresar";
+            //this.reegresar.Size = new System.Drawing.Size(201, 71);
+            //this.reegresar.TabIndex = 72;
+            //this.reegresar.Text = "Regresar";
+            //this.reegresar.UseVisualStyleBackColor = false;
             // 
-=======
->>>>>>> 32b0b3b5d9d59e4cd1522c8025adec167e25a8df
             // TipoCheque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,11 +332,7 @@ namespace Presentacion
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtfechan;
-<<<<<<< HEAD
-        private System.Windows.Forms.Button reegresar;
-=======
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnBuscar;
->>>>>>> 32b0b3b5d9d59e4cd1522c8025adec167e25a8df
     }
 }

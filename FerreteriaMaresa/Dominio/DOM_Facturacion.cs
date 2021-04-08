@@ -18,48 +18,47 @@ namespace Dominio
             
 
             //DOM_Cliente cliente = new DOM_Cliente();
-             public DOM_Facturacion()
+            public DOM_Facturacion()
             {
 
             }
 
-                public void InsertarFacturaVenta(/*DOM_Empleados emp*/string id_emplado,string idCliente, string subtotal,string descuento)
+            public void InsertarFacturaVenta(/*DOM_Empleados emp*/string id_emplado,string idCliente, string subtotal,string descuento,string tipopago)
             {
-            //empleados = emp;
+                  //empleados = emp;
+                facturacion.insertar_FacturaVenta(DateTime.Now,idCliente,id_emplado/* empleados.Id_empleado*/,int.Parse(tipopago),double.Parse(descuento),double.Parse(subtotal));
 
-            facturacion.insertar_FacturaVenta(DateTime.Now, idCliente,/* empleados.Id_empleado*/ id_emplado, 1, 0.0, 1);
             }
 
 
 
-             public void InsertarFacturaCompra(string descuento,string subtotal, string tipoPago)
-                     {
-                      facturacion.insertar_FacturaCompra(DateTime.Now, proveedor.Id_proveedor, empleados.Id_empleado, 1, 2, 3);
-                    }
 
-
+             public void InsertarFacturaCompra(string descuento,string subtotal, string tipoPago,string idEmpleado,string idProveedor)
+             {
+                 facturacion.insertar_FacturaCompra(DateTime.Now, int.Parse(idProveedor) , "1804200703610", int.Parse(tipoPago),double.Parse(descuento) , double.Parse(subtotal));
+             }
 
 
             public void insertarDetalleVenta (string cantidad,DOM_Inventario inv)
-        {
-            product = inv;
-            DataRow ultimaFila = facturacion.Mostrar_FacturaVenta().Rows[facturacion.Mostrar_FacturaVenta().Rows.Count -1];
+            {
+             product = inv;
+             DataRow ultimaFila = facturacion.Mostrar_FacturaVenta().Rows[facturacion.Mostrar_FacturaVenta().Rows.Count -1];
 
-            facturacion.insertar_DetalleVenta(inv.Id_producto, ultimaFila.Field<int>("id_venta"), inv.Precio_actual, int.Parse(cantidad));
-        }
+             facturacion.insertar_DetalleVenta(inv.Id_producto, ultimaFila.Field<int>("id_venta"), inv.Precio_actual, int.Parse(cantidad));
+            }
         public void insertarDetalleCompra(string cantidad,DOM_Inventario inv)
         {
-            product = inv;
-            DataRow ultimaFila = facturacion.Mostrar_FacturaCompras().Rows[facturacion.Mostrar_FacturaVenta().Rows.Count - 1];
-            facturacion.insertar_DetalleCompra(product.Id_producto, ultimaFila.Field<int>("id"), product.Precio_actual, int.Parse(cantidad));
+         product = inv;
+         DataRow ultimaFila = facturacion.Mostrar_FacturaCompras().Rows[facturacion.Mostrar_FacturaCompras().Rows.Count - 1];
+         facturacion.insertar_DetalleCompra(inv.Id_producto, ultimaFila.Field<int>("Id Compra"), inv.Precio_actual, int.Parse(cantidad));
         }
 
         public DataTable MostrarFacturaVenta()
-            {
-             tabla= facturacion.Mostrar_FacturaVenta();
-            return tabla;
+        {
+         tabla= facturacion.Mostrar_FacturaVenta();
+         return tabla;
 
-            }
+        }
             public DataTable MostrarFacturaCompra()
              {
                 tabla = facturacion.Mostrar_FacturaCompras();
