@@ -37,6 +37,11 @@
     <StartupObject>Presentacion.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net45\FontAwesome.Sharp.dll</HintPath>
     </Reference>
@@ -71,6 +76,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -105,6 +112,30 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmpleado.Designer.cs">
+      <DependentUpon>FrmEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReporteCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteCompras.Designer.cs">
+      <DependentUpon>FrmReporteCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReporteInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteInventario.Designer.cs">
+      <DependentUpon>FrmReporteInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReporteVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteVentas.Designer.cs">
+      <DependentUpon>FrmReporteVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario.cs">
       <SubType>Form</SubType>
@@ -157,11 +188,29 @@
     <Compile Include="ReporteCompra.Designer.cs">
       <DependentUpon>ReporteCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReporteEmpleados.cs">
-      <SubType>Form</SubType>
+    <Compile Include="ReporteCompras.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCompras.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ReporteEmpleados.cs" />
     <Compile Include="ReporteEmpleados.Designer.cs">
       <DependentUpon>ReporteEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteEmpleados1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteEmpleados.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteInventario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteInventario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteInventario.Designer.cs">
+      <DependentUpon>ReporteInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="ReporteInvetario.cs">
       <SubType>Form</SubType>
@@ -180,6 +229,12 @@
     </Compile>
     <Compile Include="ReporteVentas.Designer.cs">
       <DependentUpon>ReporteVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteVentas1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteVentas1.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="TipoCheque.cs">
       <SubType>Form</SubType>
@@ -210,6 +265,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmpleado.resx">
+      <DependentUpon>FrmEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteCompras.resx">
+      <DependentUpon>FrmReporteCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteInventario.resx">
+      <DependentUpon>FrmReporteInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteVentas.resx">
+      <DependentUpon>FrmReporteVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
@@ -245,8 +312,20 @@
     <EmbeddedResource Include="ReporteCompra.resx">
       <DependentUpon>ReporteCompra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCompras.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCompras.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReporteEmpleados.resx">
       <DependentUpon>ReporteEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteEmpleados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteEmpleados1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteInventario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteInventario.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteInvetario.resx">
       <DependentUpon>ReporteInvetario.cs</DependentUpon>
@@ -256,6 +335,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteVentas.resx">
       <DependentUpon>ReporteVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteVentas1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteVentas1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="TipoCheque.resx">
       <DependentUpon>TipoCheque.cs</DependentUpon>
@@ -285,6 +368,9 @@
       <Project>{b0300682-bdbf-4c42-87df-fbd81408e6fe}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

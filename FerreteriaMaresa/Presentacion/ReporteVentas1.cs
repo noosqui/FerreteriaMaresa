@@ -16,14 +16,14 @@ namespace Presentacion {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ReporteInventario : ReportClass {
+    public class ReporteVentas1 : ReportClass {
         
-        public ReporteInventario() {
+        public ReporteVentas1() {
         }
         
         public override string ResourceName {
             get {
-                return "ReporteInventario.rpt";
+                return "ReporteVentas1.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Presentacion {
         
         public override string FullResourceName {
             get {
-                return "Presentacion.ReporteInventario.rpt";
+                return "Presentacion.ReporteVentas1.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace Presentacion {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedReporteInventario : Component, ICachedReport {
+    public class CachedReporteVentas1 : Component, ICachedReport {
         
-        public CachedReporteInventario() {
+        public CachedReporteVentas1() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace Presentacion {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ReporteInventario rpt = new ReporteInventario();
+            ReporteVentas1 rpt = new ReporteVentas1();
             rpt.Site = this.Site;
             return rpt;
         }
