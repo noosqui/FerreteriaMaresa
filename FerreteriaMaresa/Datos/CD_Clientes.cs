@@ -23,13 +23,14 @@ namespace Datos
             comando.Connection = conexion.abrir();
             comando.CommandText = "Mostrar_Clientes";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             conexion.cerrar();
             return tabla;
         }
 
-        public DataTable buscar_Clientes(int id_cliente)
+        public DataTable buscar_Clientes(string id_cliente)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "buscar_Clientes";
@@ -42,7 +43,7 @@ namespace Datos
             return tabla;
         }
 
-        public void insertar_Cliente(int idcliente, string nombrecliente, string apellidocliente, string RTN, string direccion, string ciudad, string region, string codigopostal, string pais, long telefono)
+        public void insertar_Cliente(string idcliente, string nombrecliente, string apellidocliente, string RTN, string direccion, string ciudad, string region, string codigopostal, string pais, string telefono)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "insertar_Cliente";
@@ -59,10 +60,14 @@ namespace Datos
             comando.Parameters.AddWithValue("@telefono", telefono);
 
             comando.ExecuteNonQuery();
+            comando.Cancel();
+            comando.Parameters.Clear();
             comando.Connection = conexion.cerrar();
         }
 
-        public void Editar_Cliente(int idcliente, string nombrecliente, string apellidocliente, string RTN, string direccion, string ciudad, string region, string codigopostal, string pais, long telefono)
+
+        public void Editar_Cliente(string idcliente, string nombrecliente, string apellidocliente, 
+            string RTN, string direccion, string ciudad, string region, string codigopostal, string pais, string telefono)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "editar_Cliente";
@@ -79,16 +84,20 @@ namespace Datos
             comando.Parameters.AddWithValue("@telefono", telefono);
 
             comando.ExecuteNonQuery();
+            comando.Cancel();
+            comando.Parameters.Clear();
             comando.Connection = conexion.cerrar();
         }
 
-        public void Eliminar_Cliente(int idcliente)
+        public void Eliminar_Cliente(string idcliente)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "Eliminar_Cliente";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@idcliente", idcliente);
             comando.ExecuteNonQuery();
+            comando.Cancel();
+            comando.Parameters.Clear();
             comando.Connection = conexion.cerrar();
         }
     }

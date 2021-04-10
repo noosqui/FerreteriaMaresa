@@ -30,9 +30,11 @@ namespace Presentacion
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+
             this.label1 = new System.Windows.Forms.Label();
             this.cmbBancos = new System.Windows.Forms.ComboBox();
             this.reegresar = new System.Windows.Forms.Button();
+
             this.dtfechan = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.txtRuta = new System.Windows.Forms.TextBox();
@@ -48,15 +50,18 @@ namespace Presentacion
             this.txtNumeroCheque = new System.Windows.Forms.TextBox();
             this.txtNumeroCuenta = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
+
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cmbBancos);
             this.panel1.Controls.Add(this.reegresar);
+
             this.panel1.Controls.Add(this.dtfechan);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.txtRuta);
@@ -78,6 +83,7 @@ namespace Presentacion
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(924, 453);
             this.panel1.TabIndex = 1;
+
             // 
             // label1
             // 
@@ -116,6 +122,7 @@ namespace Presentacion
             this.reegresar.TabIndex = 72;
             this.reegresar.Text = "Regresar";
             this.reegresar.UseVisualStyleBackColor = false;
+
             // 
             // dtfechan
             // 
@@ -194,6 +201,7 @@ namespace Presentacion
             this.label2.TabIndex = 47;
             this.label2.Text = "Paguese a la orden de:";
             // 
+
             // btnSiguiente
             // 
             this.btnSiguiente.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -210,6 +218,7 @@ namespace Presentacion
             this.btnSiguiente.Text = "Siguiente";
             this.btnSiguiente.UseVisualStyleBackColor = false;
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+
             // 
             // label10
             // 
@@ -295,6 +304,8 @@ namespace Presentacion
             this.label4.TabIndex = 51;
             this.label4.Text = "Ruta Bancaria:";
             // 
+ 
+
             // TipoCheque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,8 +340,10 @@ namespace Presentacion
         private System.Windows.Forms.TextBox txtNumeroCuenta;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtfechan;
+
         private System.Windows.Forms.Button reegresar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbBancos;
+
     }
 }
