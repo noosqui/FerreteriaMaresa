@@ -88,7 +88,7 @@ namespace Presentacion
             {
                 switch ((int)tabla.Rows[0][10])
                 {
-                    case 1:
+                    case 2:
                         {
 
                             MenuAdmin adm = new MenuAdmin();
@@ -96,7 +96,7 @@ namespace Presentacion
                             Hide();
                             break;
                         }
-                    case 2:
+                    case 1:
                         {
                             MenuEmpleados empl = new MenuEmpleados();
                             empl.Show();
