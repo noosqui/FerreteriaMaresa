@@ -189,6 +189,10 @@ namespace Presentacion
                     {
                         MessageBox.Show("La identidad debe tener al menos 13 numeros");
                     }
+                    else if (txtcodpost.TextLength < 5)
+                    {
+                        MessageBox.Show("Codigo Postal incompleto, debe Ingresar 5 numeros");
+                    }
                     else
                     {
                         try
@@ -237,9 +241,9 @@ namespace Presentacion
                         {
                             MessageBox.Show("Debe llenar todos los Campos");
                         }
-                        else if (txtidentidad.TextLength < 13)
+                        else if (txtcodpost.TextLength < 5)
                         {
-                            MessageBox.Show("La identidad debe tener al menos 13 numeros");
+                            MessageBox.Show("Codigo Postal incompleto, debe Ingresar 5 numeros");
                         }
                         else
                         {
@@ -327,6 +331,8 @@ namespace Presentacion
 
             Lim_ha apagar = new Lim_ha();
             apagar.Apagar(this);
+            txtbuscarid.Enabled = true;
+            txtnombreemp.Enabled = true;
 
         }
 
@@ -334,11 +340,10 @@ namespace Presentacion
         {
             try
             {
-                var bd = (BindingSource)dgvEmpleados.DataSource;
-                var dt = (DataTable)bd.DataSource;
+                var dt = (DataTable)dgvEmpleados.DataSource;
                 if (txtbuscarid.Text != "")
 
-                    dt.DefaultView.RowFilter = string.Format("[Identidad] = {0}", int.Parse(txtbuscarid.Text));
+                    dt.DefaultView.RowFilter = string.Format("[Identidad] LIKE '%{0}%'", txtbuscarid.Text);
 
                 else
                 {
@@ -509,9 +514,8 @@ namespace Presentacion
         {
             try
             {
-                var bd = (BindingSource)dgvEmpleados.DataSource;
-                var dt = (DataTable)bd.DataSource;
-                dt.DefaultView.RowFilter = string.Format("[Nombres] LIKE '%{0}%'", txtnombreemp.Text);
+                var dt = (DataTable)dgvEmpleados.DataSource;
+                dt.DefaultView.RowFilter = string.Format("[Nombres] LIKE '%{0}'", txtnombreemp.Text);
                 dgvEmpleados.Refresh();
 
                 if (dt.DefaultView.Count < 1)
@@ -524,6 +528,42 @@ namespace Presentacion
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrio un Error" + ex);
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            var dt = (DataTable)dgvEmpleados.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Estado] LIKE '%{0}%'", "Activo");
+
+            if (dt.DefaultView.Count < 1)
+            {
+                SystemSounds.Exclamation.Play();
+                tt.Show("No se encontro parametros", this.chkactivo, 0, 25, 2000);
+            }
+        }
+
+        private void chkdespedido_CheckedChanged(object sender, EventArgs e)
+        {
+            var dt = (DataTable)dgvEmpleados.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Estado] LIKE '%{0}%'", "Despedido");
+
+            if (dt.DefaultView.Count < 1)
+            {
+                SystemSounds.Exclamation.Play();
+                tt.Show("No se encontro parametros", this.chkdespedido, 0, 25, 2000);
+            }
+        }
+
+        private void chktodos_CheckedChanged(object sender, EventArgs e)
+        {
+            var dt = (DataTable)dgvEmpleados.DataSource;
+            dt.DefaultView.RowFilter = string.Format("[Estado] LIKE '%{0}%'", "Activo", "Despedido");
+
+            if (dt.DefaultView.Count < 1)
+            {
+                SystemSounds.Exclamation.Play();
+                tt.Show("No se encontro parametros", this.chktodos, 0, 25, 2000);
             }
         }
     }

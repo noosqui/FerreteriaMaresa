@@ -68,16 +68,19 @@ namespace Presentacion
             this.dtfecha = new System.Windows.Forms.DateTimePicker();
             this.lblconfirmar = new System.Windows.Forms.Label();
             this.txtconfirmarident = new System.Windows.Forms.TextBox();
+            this.chkactivo = new System.Windows.Forms.CheckBox();
+            this.chkdespedido = new System.Windows.Forms.CheckBox();
+            this.chktodos = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
             // txtbuscarid
             // 
             this.txtbuscarid.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtbuscarid.Location = new System.Drawing.Point(622, 359);
+            this.txtbuscarid.Location = new System.Drawing.Point(413, 364);
             this.txtbuscarid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtbuscarid.Name = "txtbuscarid";
-            this.txtbuscarid.Size = new System.Drawing.Size(53, 22);
+            this.txtbuscarid.Size = new System.Drawing.Size(154, 22);
             this.txtbuscarid.TabIndex = 66;
             this.txtbuscarid.TextChanged += new System.EventHandler(this.txtbuscarid_TextChanged);
             // 
@@ -87,7 +90,7 @@ namespace Presentacion
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(481, 359);
+            this.label8.Location = new System.Drawing.Point(276, 362);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(106, 20);
@@ -97,10 +100,10 @@ namespace Presentacion
             // txtnombreemp
             // 
             this.txtnombreemp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtnombreemp.Location = new System.Drawing.Point(807, 359);
+            this.txtnombreemp.Location = new System.Drawing.Point(682, 365);
             this.txtnombreemp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtnombreemp.Name = "txtnombreemp";
-            this.txtnombreemp.Size = new System.Drawing.Size(110, 22);
+            this.txtnombreemp.Size = new System.Drawing.Size(140, 22);
             this.txtnombreemp.TabIndex = 67;
             this.txtnombreemp.TextChanged += new System.EventHandler(this.txtnombreemp_TextChanged);
             // 
@@ -110,7 +113,7 @@ namespace Presentacion
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(707, 359);
+            this.label7.Location = new System.Drawing.Point(574, 366);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 20);
@@ -125,10 +128,10 @@ namespace Presentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminar.Location = new System.Drawing.Point(943, 687);
+            this.btnEliminar.Location = new System.Drawing.Point(955, 695);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(119, 41);
+            this.btnEliminar.Size = new System.Drawing.Size(133, 41);
             this.btnEliminar.TabIndex = 24;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -142,10 +145,10 @@ namespace Presentacion
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnModificar.Location = new System.Drawing.Point(653, 687);
+            this.btnModificar.Location = new System.Drawing.Point(639, 695);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(139, 41);
+            this.btnModificar.Size = new System.Drawing.Size(153, 41);
             this.btnModificar.TabIndex = 22;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -159,10 +162,10 @@ namespace Presentacion
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAgregar.Location = new System.Drawing.Point(399, 687);
+            this.btnAgregar.Location = new System.Drawing.Point(357, 695);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(119, 41);
+            this.btnAgregar.Size = new System.Drawing.Size(133, 41);
             this.btnAgregar.TabIndex = 20;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -227,10 +230,10 @@ namespace Presentacion
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnGuardar.Location = new System.Drawing.Point(526, 687);
+            this.btnGuardar.Location = new System.Drawing.Point(498, 695);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(119, 41);
+            this.btnGuardar.Size = new System.Drawing.Size(133, 41);
             this.btnGuardar.TabIndex = 21;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -361,10 +364,10 @@ namespace Presentacion
             this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btncancelar.Location = new System.Drawing.Point(800, 687);
+            this.btncancelar.Location = new System.Drawing.Point(800, 695);
             this.btncancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btncancelar.Name = "btncancelar";
-            this.btncancelar.Size = new System.Drawing.Size(135, 41);
+            this.btncancelar.Size = new System.Drawing.Size(149, 41);
             this.btncancelar.TabIndex = 23;
             this.btncancelar.Text = "Cancelar";
             this.btncancelar.UseVisualStyleBackColor = false;
@@ -480,7 +483,7 @@ namespace Presentacion
             this.txtcodpost.Enabled = false;
             this.txtcodpost.Location = new System.Drawing.Point(939, 113);
             this.txtcodpost.Margin = new System.Windows.Forms.Padding(4);
-            this.txtcodpost.MaxLength = 20;
+            this.txtcodpost.MaxLength = 5;
             this.txtcodpost.Name = "txtcodpost";
             this.txtcodpost.Size = new System.Drawing.Size(149, 22);
             this.txtcodpost.TabIndex = 9;
@@ -536,7 +539,7 @@ namespace Presentacion
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvEmpleados.EnableHeadersVisualStyles = false;
-            this.dgvEmpleados.Location = new System.Drawing.Point(18, 403);
+            this.dgvEmpleados.Location = new System.Drawing.Point(18, 405);
             this.dgvEmpleados.MultiSelect = false;
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.ReadOnly = true;
@@ -565,7 +568,7 @@ namespace Presentacion
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(603, 294);
+            this.label1.Location = new System.Drawing.Point(572, 307);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(239, 32);
             this.label1.TabIndex = 99;
@@ -575,7 +578,7 @@ namespace Presentacion
             // 
             this.dtfecha.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtfecha.Enabled = false;
-            this.dtfecha.Location = new System.Drawing.Point(666, 64);
+            this.dtfecha.Location = new System.Drawing.Point(672, 71);
             this.dtfecha.MaxDate = new System.DateTime(2003, 12, 31, 0, 0, 0, 0);
             this.dtfecha.Name = "dtfecha";
             this.dtfecha.Size = new System.Drawing.Size(295, 22);
@@ -588,7 +591,7 @@ namespace Presentacion
             this.lblconfirmar.AutoSize = true;
             this.lblconfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblconfirmar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblconfirmar.Location = new System.Drawing.Point(13, 301);
+            this.lblconfirmar.Location = new System.Drawing.Point(13, 294);
             this.lblconfirmar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblconfirmar.Name = "lblconfirmar";
             this.lblconfirmar.Size = new System.Drawing.Size(188, 25);
@@ -598,7 +601,8 @@ namespace Presentacion
             // 
             // txtconfirmarident
             // 
-            this.txtconfirmarident.Location = new System.Drawing.Point(240, 305);
+            this.txtconfirmarident.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtconfirmarident.Location = new System.Drawing.Point(222, 294);
             this.txtconfirmarident.MaxLength = 13;
             this.txtconfirmarident.Name = "txtconfirmarident";
             this.txtconfirmarident.Size = new System.Drawing.Size(181, 22);
@@ -606,12 +610,54 @@ namespace Presentacion
             this.txtconfirmarident.Visible = false;
             this.txtconfirmarident.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtconfirmarident_KeyPress);
             // 
+            // chkactivo
+            // 
+            this.chkactivo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chkactivo.AutoSize = true;
+            this.chkactivo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.chkactivo.Location = new System.Drawing.Point(870, 364);
+            this.chkactivo.Name = "chkactivo";
+            this.chkactivo.Size = new System.Drawing.Size(68, 21);
+            this.chkactivo.TabIndex = 101;
+            this.chkactivo.Text = "Activo";
+            this.chkactivo.UseVisualStyleBackColor = true;
+            this.chkactivo.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // chkdespedido
+            // 
+            this.chkdespedido.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chkdespedido.AutoSize = true;
+            this.chkdespedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.chkdespedido.Location = new System.Drawing.Point(976, 364);
+            this.chkdespedido.Name = "chkdespedido";
+            this.chkdespedido.Size = new System.Drawing.Size(98, 21);
+            this.chkdespedido.TabIndex = 102;
+            this.chkdespedido.Text = "Despedido";
+            this.chkdespedido.UseVisualStyleBackColor = true;
+            this.chkdespedido.CheckedChanged += new System.EventHandler(this.chkdespedido_CheckedChanged);
+            // 
+            // chktodos
+            // 
+            this.chktodos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chktodos.AutoSize = true;
+            this.chktodos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.chktodos.Location = new System.Drawing.Point(1113, 365);
+            this.chktodos.Name = "chktodos";
+            this.chktodos.Size = new System.Drawing.Size(70, 21);
+            this.chktodos.TabIndex = 103;
+            this.chktodos.Text = "Todos";
+            this.chktodos.UseVisualStyleBackColor = true;
+            this.chktodos.CheckedChanged += new System.EventHandler(this.chktodos_CheckedChanged);
+            // 
             // RegistroEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1377, 778);
+            this.Controls.Add(this.chktodos);
+            this.Controls.Add(this.chkdespedido);
+            this.Controls.Add(this.chkactivo);
             this.Controls.Add(this.txtconfirmarident);
             this.Controls.Add(this.lblconfirmar);
             this.Controls.Add(this.dtfecha);
@@ -705,5 +751,8 @@ namespace Presentacion
         private System.Windows.Forms.DateTimePicker dtfecha;
         private System.Windows.Forms.Label lblconfirmar;
         private System.Windows.Forms.TextBox txtconfirmarident;
+        private System.Windows.Forms.CheckBox chkactivo;
+        private System.Windows.Forms.CheckBox chkdespedido;
+        private System.Windows.Forms.CheckBox chktodos;
     }
 }
