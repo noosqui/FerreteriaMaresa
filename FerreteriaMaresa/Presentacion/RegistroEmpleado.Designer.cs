@@ -66,6 +66,8 @@ namespace Presentacion
             this.cbcodrol = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtfecha = new System.Windows.Forms.DateTimePicker();
+            this.lblconfirmar = new System.Windows.Forms.Label();
+            this.txtconfirmarident = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,6 +102,7 @@ namespace Presentacion
             this.txtnombreemp.Name = "txtnombreemp";
             this.txtnombreemp.Size = new System.Drawing.Size(110, 22);
             this.txtnombreemp.TabIndex = 67;
+            this.txtnombreemp.TextChanged += new System.EventHandler(this.txtnombreemp_TextChanged);
             // 
             // label7
             // 
@@ -126,7 +129,7 @@ namespace Presentacion
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(119, 41);
-            this.btnEliminar.TabIndex = 38;
+            this.btnEliminar.TabIndex = 24;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -143,7 +146,7 @@ namespace Presentacion
             this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(139, 41);
-            this.btnModificar.TabIndex = 37;
+            this.btnModificar.TabIndex = 22;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -160,7 +163,7 @@ namespace Presentacion
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(119, 41);
-            this.btnAgregar.TabIndex = 35;
+            this.btnAgregar.TabIndex = 20;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -184,9 +187,11 @@ namespace Presentacion
             this.txtcorreo.Enabled = false;
             this.txtcorreo.Location = new System.Drawing.Point(1152, 172);
             this.txtcorreo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtcorreo.MaxLength = 60;
             this.txtcorreo.Name = "txtcorreo";
             this.txtcorreo.Size = new System.Drawing.Size(200, 22);
             this.txtcorreo.TabIndex = 13;
+            this.txtcorreo.Enter += new System.EventHandler(this.txtcorreo_Enter);
             // 
             // label3
             // 
@@ -226,7 +231,7 @@ namespace Presentacion
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(119, 41);
-            this.btnGuardar.TabIndex = 43;
+            this.btnGuardar.TabIndex = 21;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.habilitar_Click);
@@ -360,7 +365,7 @@ namespace Presentacion
             this.btncancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btncancelar.Name = "btncancelar";
             this.btncancelar.Size = new System.Drawing.Size(135, 41);
-            this.btncancelar.TabIndex = 93;
+            this.btncancelar.TabIndex = 23;
             this.btncancelar.Text = "Cancelar";
             this.btncancelar.UseVisualStyleBackColor = false;
             this.btncancelar.Click += new System.EventHandler(this.btnrecontratar_Click);
@@ -384,9 +389,11 @@ namespace Presentacion
             this.txtnombre.Enabled = false;
             this.txtnombre.Location = new System.Drawing.Point(146, 181);
             this.txtnombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtnombre.MaxLength = 20;
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(176, 22);
             this.txtnombre.TabIndex = 2;
+            this.txtnombre.Enter += new System.EventHandler(this.txtnombre_Enter);
             this.txtnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombre_KeyPress);
             // 
             // txtapellido
@@ -395,9 +402,11 @@ namespace Presentacion
             this.txtapellido.Enabled = false;
             this.txtapellido.Location = new System.Drawing.Point(146, 236);
             this.txtapellido.Margin = new System.Windows.Forms.Padding(4);
+            this.txtapellido.MaxLength = 20;
             this.txtapellido.Name = "txtapellido";
             this.txtapellido.Size = new System.Drawing.Size(176, 22);
             this.txtapellido.TabIndex = 3;
+            this.txtapellido.Enter += new System.EventHandler(this.txtapellido_Enter);
             this.txtapellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtapellido_KeyPress);
             // 
             // txtregion
@@ -406,9 +415,12 @@ namespace Presentacion
             this.txtregion.Enabled = false;
             this.txtregion.Location = new System.Drawing.Point(591, 232);
             this.txtregion.Margin = new System.Windows.Forms.Padding(4);
+            this.txtregion.MaxLength = 40;
             this.txtregion.Name = "txtregion";
             this.txtregion.Size = new System.Drawing.Size(175, 22);
-            this.txtregion.TabIndex = 7;
+            this.txtregion.TabIndex = 8;
+            this.txtregion.Enter += new System.EventHandler(this.txtregion_Enter);
+            this.txtregion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtregion_KeyPress);
             // 
             // txtciudad
             // 
@@ -416,9 +428,12 @@ namespace Presentacion
             this.txtciudad.Enabled = false;
             this.txtciudad.Location = new System.Drawing.Point(591, 176);
             this.txtciudad.Margin = new System.Windows.Forms.Padding(4);
+            this.txtciudad.MaxLength = 50;
             this.txtciudad.Name = "txtciudad";
             this.txtciudad.Size = new System.Drawing.Size(175, 22);
-            this.txtciudad.TabIndex = 6;
+            this.txtciudad.TabIndex = 7;
+            this.txtciudad.Enter += new System.EventHandler(this.txtciudad_Enter);
+            this.txtciudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtciudad_KeyPress);
             // 
             // txtdireccion
             // 
@@ -426,9 +441,12 @@ namespace Presentacion
             this.txtdireccion.Enabled = false;
             this.txtdireccion.Location = new System.Drawing.Point(591, 118);
             this.txtdireccion.Margin = new System.Windows.Forms.Padding(4);
+            this.txtdireccion.MaxLength = 250;
             this.txtdireccion.Name = "txtdireccion";
             this.txtdireccion.Size = new System.Drawing.Size(175, 22);
-            this.txtdireccion.TabIndex = 5;
+            this.txtdireccion.TabIndex = 6;
+            this.txtdireccion.Enter += new System.EventHandler(this.txtdireccion_Enter);
+            this.txtdireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdireccion_KeyPress);
             // 
             // txttelefono
             // 
@@ -436,9 +454,11 @@ namespace Presentacion
             this.txttelefono.Enabled = false;
             this.txttelefono.Location = new System.Drawing.Point(939, 225);
             this.txttelefono.Margin = new System.Windows.Forms.Padding(4);
+            this.txttelefono.MaxLength = 20;
             this.txttelefono.Name = "txttelefono";
             this.txttelefono.Size = new System.Drawing.Size(149, 22);
-            this.txttelefono.TabIndex = 10;
+            this.txttelefono.TabIndex = 11;
+            this.txttelefono.Enter += new System.EventHandler(this.txttelefono_Enter);
             this.txttelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttelefono_KeyPress);
             // 
             // txtpais
@@ -447,9 +467,12 @@ namespace Presentacion
             this.txtpais.Enabled = false;
             this.txtpais.Location = new System.Drawing.Point(939, 172);
             this.txtpais.Margin = new System.Windows.Forms.Padding(4);
+            this.txtpais.MaxLength = 20;
             this.txtpais.Name = "txtpais";
             this.txtpais.Size = new System.Drawing.Size(149, 22);
-            this.txtpais.TabIndex = 9;
+            this.txtpais.TabIndex = 10;
+            this.txtpais.Enter += new System.EventHandler(this.txtpais_Enter);
+            this.txtpais.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpais_KeyPress);
             // 
             // txtcodpost
             // 
@@ -457,9 +480,11 @@ namespace Presentacion
             this.txtcodpost.Enabled = false;
             this.txtcodpost.Location = new System.Drawing.Point(939, 113);
             this.txtcodpost.Margin = new System.Windows.Forms.Padding(4);
+            this.txtcodpost.MaxLength = 20;
             this.txtcodpost.Name = "txtcodpost";
             this.txtcodpost.Size = new System.Drawing.Size(149, 22);
-            this.txtcodpost.TabIndex = 8;
+            this.txtcodpost.TabIndex = 9;
+            this.txtcodpost.Enter += new System.EventHandler(this.txtcodpost_Enter);
             this.txtcodpost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcodpost_KeyPress);
             // 
             // txtidentidad
@@ -468,9 +493,11 @@ namespace Presentacion
             this.txtidentidad.Enabled = false;
             this.txtidentidad.Location = new System.Drawing.Point(149, 66);
             this.txtidentidad.Margin = new System.Windows.Forms.Padding(4);
+            this.txtidentidad.MaxLength = 13;
             this.txtidentidad.Name = "txtidentidad";
             this.txtidentidad.Size = new System.Drawing.Size(173, 22);
             this.txtidentidad.TabIndex = 0;
+            this.txtidentidad.Enter += new System.EventHandler(this.txtidentidad_Enter);
             this.txtidentidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtidentidad_KeyPress);
             // 
             // rbactivo
@@ -478,11 +505,11 @@ namespace Presentacion
             this.rbactivo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbactivo.AutoSize = true;
             this.rbactivo.Enabled = false;
-            this.rbactivo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbactivo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.rbactivo.Location = new System.Drawing.Point(1134, 73);
             this.rbactivo.Name = "rbactivo";
             this.rbactivo.Size = new System.Drawing.Size(67, 21);
-            this.rbactivo.TabIndex = 11;
+            this.rbactivo.TabIndex = 12;
             this.rbactivo.TabStop = true;
             this.rbactivo.Text = "Activo";
             this.rbactivo.UseVisualStyleBackColor = true;
@@ -492,7 +519,7 @@ namespace Presentacion
             this.rbdespedido.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbdespedido.AutoSize = true;
             this.rbdespedido.Enabled = false;
-            this.rbdespedido.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbdespedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.rbdespedido.Location = new System.Drawing.Point(1244, 73);
             this.rbdespedido.Name = "rbdespedido";
             this.rbdespedido.Size = new System.Drawing.Size(97, 21);
@@ -549,9 +576,35 @@ namespace Presentacion
             this.dtfecha.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtfecha.Enabled = false;
             this.dtfecha.Location = new System.Drawing.Point(666, 64);
+            this.dtfecha.MaxDate = new System.DateTime(2003, 12, 31, 0, 0, 0, 0);
             this.dtfecha.Name = "dtfecha";
-            this.dtfecha.Size = new System.Drawing.Size(284, 22);
-            this.dtfecha.TabIndex = 4;
+            this.dtfecha.Size = new System.Drawing.Size(295, 22);
+            this.dtfecha.TabIndex = 5;
+            this.dtfecha.Value = new System.DateTime(2003, 12, 31, 0, 0, 0, 0);
+            // 
+            // lblconfirmar
+            // 
+            this.lblconfirmar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblconfirmar.AutoSize = true;
+            this.lblconfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblconfirmar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblconfirmar.Location = new System.Drawing.Point(13, 301);
+            this.lblconfirmar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblconfirmar.Name = "lblconfirmar";
+            this.lblconfirmar.Size = new System.Drawing.Size(188, 25);
+            this.lblconfirmar.TabIndex = 100;
+            this.lblconfirmar.Text = "Confirmar Identidad:";
+            this.lblconfirmar.Visible = false;
+            // 
+            // txtconfirmarident
+            // 
+            this.txtconfirmarident.Location = new System.Drawing.Point(240, 305);
+            this.txtconfirmarident.MaxLength = 13;
+            this.txtconfirmarident.Name = "txtconfirmarident";
+            this.txtconfirmarident.Size = new System.Drawing.Size(181, 22);
+            this.txtconfirmarident.TabIndex = 4;
+            this.txtconfirmarident.Visible = false;
+            this.txtconfirmarident.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtconfirmarident_KeyPress);
             // 
             // RegistroEmpleado
             // 
@@ -559,6 +612,8 @@ namespace Presentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1377, 778);
+            this.Controls.Add(this.txtconfirmarident);
+            this.Controls.Add(this.lblconfirmar);
             this.Controls.Add(this.dtfecha);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbcodrol);
@@ -648,5 +703,7 @@ namespace Presentacion
         private System.Windows.Forms.ComboBox cbcodrol;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtfecha;
+        private System.Windows.Forms.Label lblconfirmar;
+        private System.Windows.Forms.TextBox txtconfirmarident;
     }
 }
