@@ -15,7 +15,7 @@ namespace Datos
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
 
-        public void insertar_FacturaVenta(DateTime Fecha, string IdCliente, string IdEmpleado, int Tipopago, double Descuento, double Subtotal)
+        public void insertar_FacturaVenta(DateTime Fecha, string IdCliente, string IdEmpleado, int Tipopago, string rtn, double isv, double Descuento, double Subtotal)
         {
             comando = new SqlCommand();
             comando.Connection = conexion.abrir();
@@ -25,6 +25,8 @@ namespace Datos
             comando.Parameters.AddWithValue("@IdCliente", IdCliente);
             comando.Parameters.AddWithValue("@IdEmpleado", IdEmpleado);
             comando.Parameters.AddWithValue("@IdTipoPago", Tipopago);
+            comando.Parameters.AddWithValue("@rtn", rtn);
+            comando.Parameters.AddWithValue("@isv", isv);
             comando.Parameters.AddWithValue("@Descuento", Descuento);
             comando.Parameters.AddWithValue("@SubTotal", Subtotal);
             comando.ExecuteNonQuery();
@@ -45,7 +47,7 @@ namespace Datos
             return tabla;
         }
 
-        public void insertar_FacturaCompra(DateTime Fecha, int IdProveedor, string IdEmpleado, int Tipopago, double Descuento, double Subtotal)
+        public void insertar_FacturaCompra(DateTime Fecha, int IdProveedor, string IdEmpleado, int Tipopago, double isv, double Descuento, double Subtotal)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "insertar_FacturaCompra";
@@ -54,6 +56,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@IdProveedor", IdProveedor);
             comando.Parameters.AddWithValue("@IdEmpleado", IdEmpleado);
             comando.Parameters.AddWithValue("@IdTipoPago", Tipopago);
+            comando.Parameters.AddWithValue("@isv", isv);
             comando.Parameters.AddWithValue("@Descuento", Descuento);
             comando.Parameters.AddWithValue("@SubTotal", Subtotal);
             comando.ExecuteNonQuery();

@@ -149,12 +149,12 @@ namespace Presentacion
                             cheque.monto = "" + (suma * 0.15 + suma);
                             dr = cheque.ShowDialog();
                             if (dr == DialogResult.Yes)
-                                facturacion.InsertarFacturaCompra("0", txtSubtotal.Text, "1", "1804200703610", ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex][0].ToString());
+                                facturacion.InsertarFacturaCompra("0", txtSubtotal.Text, "1", "1804200703610", ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex][0].ToString(),"0.15");
 
                         }
                     }
                     if (dr == DialogResult.No)
-                        facturacion.InsertarFacturaCompra("0", txtSubtotal.Text, "2", "1804200703610", ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex][0].ToString());
+                        facturacion.InsertarFacturaCompra("0", txtSubtotal.Text, "2", "1804200703610", ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex][0].ToString(),"0.15");
 
                     if (dr != DialogResult.None && dr != DialogResult.Abort)
                     {
