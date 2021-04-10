@@ -185,5 +185,19 @@ namespace Datos
             lee.Close();
             return tabla;
         }
+        public void Insertar_Cheque(string numcuenta,DateTime date,string RutaBancaria,string numeroCheque,int idBanco,float monto)
+        {
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "insertarCheques";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@numCuenta",numcuenta);
+            comando.Parameters.AddWithValue("@fecha",date);
+            comando.Parameters.AddWithValue("@rutaBancaria",RutaBancaria);
+            comando.Parameters.AddWithValue("@numeroCheque",numeroCheque);
+            comando.Parameters.AddWithValue("@idBanco",idBanco);
+            comando.Parameters.AddWithValue("@monto",monto);
+            comando.ExecuteNonQuery();
+            comando.Connection = conexion.cerrar();
+        }
     }
 }

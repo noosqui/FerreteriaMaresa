@@ -107,6 +107,7 @@
     <Compile Include="FacturaVenta.Designer.cs">
       <DependentUpon>FacturaVenta.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +138,8 @@
     <Compile Include="FrmReporteVentas.Designer.cs">
       <DependentUpon>FrmReporteVentas.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> upstream/Beta
     <Compile Include="Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +266,7 @@
     <EmbeddedResource Include="FacturaVenta.resx">
       <DependentUpon>FacturaVenta.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,6 +282,8 @@
     <EmbeddedResource Include="FrmReporteVentas.resx">
       <DependentUpon>FrmReporteVentas.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> upstream/Beta
     <EmbeddedResource Include="Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
     </EmbeddedResource>

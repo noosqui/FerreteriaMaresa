@@ -133,21 +133,43 @@ namespace Presentacion
         {
             try
             {
-
-
-                facturacion.proveedor = proveedor;
-                dgvListaProductos.Enabled = false;
-                facturacion.InsertarFacturaCompra("0", txtSubtotal.Text, "1", "1804200703610", ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex][0].ToString());
-
-                foreach (DataGridViewRow row in dgvListaProductos.Rows)
+                if (dgvListaProductos.Rows.Count > 0)
                 {
+                    TipoDePago tipoDePago = new TipoDePago();
+                    DialogResult dr = DialogResult.Cancel;
+                    facturacion.proveedor = proveedor;
+                    dgvListaProductos.Enabled = false;
+                    while (dr == DialogResult.Cancel)
+                    {
+                        dr = tipoDePago.ShowDialog();
+                        if (dr == DialogResult.Yes)
+                        {
+                            TipoCheque cheque = new TipoCheque();
+                            MessageBox.Show(suma + "");
+                            cheque.monto = "" + (suma * 0.15 + suma);
+                            dr = cheque.ShowDialog();
+                            if (dr == DialogResult.Yes)
+                                facturacion.InsertarFacturaCompra("0", txtSubtotal.Text, "1", "1804200703610", ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex][0].ToString());
 
-                    productos.Id_producto = int.Parse(row.Cells[0].Value.ToString());
-                    productos.Precio_actual = double.Parse(row.Cells[2].Value.ToString());
-                    facturacion.insertarDetalleCompra(row.Cells[3].Value.ToString(), productos);
+                        }
+                    }
+                    if (dr == DialogResult.No)
+                        facturacion.InsertarFacturaCompra("0", txtSubtotal.Text, "2", "1804200703610", ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex][0].ToString());
 
+                    if (dr != DialogResult.None && dr != DialogResult.Abort)
+                    {
+                        foreach (DataGridViewRow row in dgvListaProductos.Rows)
+                        {
+
+                            productos.Id_producto = int.Parse(row.Cells[0].Value.ToString());
+                            productos.Precio_actual = double.Parse(row.Cells[2].Value.ToString());
+                            facturacion.insertarDetalleCompra(row.Cells[3].Value.ToString(), productos);
+                        }
+                        
+                    }
+                    dgvListaProductos.Enabled = true;
                 }
-                dgvListaProductos.Enabled = true;
+                else throw new Exception("Producto no ingresado a la lista");
             }
             catch (Exception ex)
             {

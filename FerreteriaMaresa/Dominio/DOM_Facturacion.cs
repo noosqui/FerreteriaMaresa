@@ -74,6 +74,11 @@ namespace Dominio
             tabla = facturacion.SP_Detalle_Compra();
             return tabla;
         }
+
+        public void Insertar_Cheque(string numcuenta, DateTime date, string RutaBancaria, string numeroCheque, string idBanco, string monto)
+        {
+            facturacion.Insertar_Cheque(numcuenta, date, RutaBancaria, numeroCheque, int.Parse(idBanco), float.Parse(monto));
+        }
    
         }
 }
