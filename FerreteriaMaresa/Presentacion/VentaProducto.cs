@@ -79,15 +79,30 @@ namespace Presentacion
                             MessageBox.Show(suma + "");
                             cheque.monto = "" + (suma * 0.15 +suma);
                             dr = cheque.ShowDialog();
+                            MessageBox.Show(((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString());
                             if (dr == DialogResult.Yes)
+                                if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length > 0)
+                                    facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                                    , txtSubtotal.Text, "1", "0.15", txtDescuento.Text, "1");
+                                else
+                                    throw new Exception("Error el empleado no contiene rtn");
+
+                                if (!chkRTN.Checked)
                                 facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
-                                , txtSubtotal.Text, txtDescuento.Text, "1");
+                                   , txtSubtotal.Text,"0", "0.15", txtDescuento.Text, "1");
+
 
                         }
                     }
                     if (dr == DialogResult.No)
+                        if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length > 0)
+                            facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                                       , txtSubtotal.Text, "1", "0.15", txtDescuento.Text, "2");
+                        else
+                            throw new Exception("Error el empleado no contiene rtn");
+                    if (!chkRTN.Checked)
                         facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
-                        , txtSubtotal.Text, txtDescuento.Text, "2");
+                           , txtSubtotal.Text, "0", "0.15", txtDescuento.Text, "2");
 
 
                     if (dr != DialogResult.None && dr != DialogResult.Abort)
