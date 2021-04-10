@@ -228,7 +228,6 @@ namespace Presentacion
                         txtconfirmarident.Visible = false;
                         dgvEmpleados.DataSource = emplea.CargarDGVEmpleados();
                         dgvEmpleados.Refresh();
-                        limpiar();
                         Lim_ha apagar = new Lim_ha();
                         apagar.Apagar(this);
                     }  
