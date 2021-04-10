@@ -30,19 +30,23 @@ namespace Presentacion
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+
             this.reegresar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
+
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.reegresar);
+
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnAgregar);
             this.panel1.Controls.Add(this.label1);
@@ -51,6 +55,7 @@ namespace Presentacion
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(494, 429);
             this.panel1.TabIndex = 0;
+
             // 
             // reegresar
             // 
@@ -69,6 +74,7 @@ namespace Presentacion
             this.reegresar.UseVisualStyleBackColor = false;
             this.reegresar.Click += new System.EventHandler(this.reegresar_Click);
             // 
+
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -95,7 +101,8 @@ namespace Presentacion
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAgregar.Location = new System.Drawing.Point(148, 146);
+
+            this.btnAgregar.Location = new System.Drawing.Point(148, 146); 
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(201, 71);
             this.btnAgregar.TabIndex = 57;
@@ -115,6 +122,7 @@ namespace Presentacion
             this.label1.Size = new System.Drawing.Size(208, 37);
             this.label1.TabIndex = 44;
             this.label1.Text = "Tipo de Pago";
+
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel2
@@ -126,6 +134,7 @@ namespace Presentacion
             this.panel2.Size = new System.Drawing.Size(494, 48);
             this.panel2.TabIndex = 74;
             // 
+
             // TipoDePago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,7 +156,9 @@ namespace Presentacion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAgregar;
+
         private System.Windows.Forms.Button reegresar;
         private System.Windows.Forms.Panel panel2;
+
     }
 }

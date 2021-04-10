@@ -46,6 +46,7 @@ namespace Presentacion
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+
             this.dgvListaProductos = new System.Windows.Forms.DataGridView();
             this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,9 +73,10 @@ namespace Presentacion
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(249, -36);
+            this.label1.Location = new System.Drawing.Point(332, -44);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(277, 31);
+            this.label1.Size = new System.Drawing.Size(347, 39);
             this.label1.TabIndex = 92;
             this.label1.Text = "Compra de Productos";
             // 
@@ -108,6 +110,7 @@ namespace Presentacion
             this.panel1.Controls.Add(this.txtnombre);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1204, 558);
             this.panel1.TabIndex = 95;
@@ -202,7 +205,7 @@ namespace Presentacion
             this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label11.Location = new System.Drawing.Point(920, 443);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(69, 20);
+            this.label11.Size = new System.Drawing.Size(84, 25);
             this.label11.TabIndex = 121;
             this.label11.Text = "Subtotal";
             // 
@@ -309,30 +312,35 @@ namespace Presentacion
             // IdProducto
             // 
             this.IdProducto.HeaderText = "Id Producto";
+            this.IdProducto.MinimumWidth = 6;
             this.IdProducto.Name = "IdProducto";
             this.IdProducto.ReadOnly = true;
             // 
             // prodNom
             // 
             this.prodNom.HeaderText = "Producto";
+            this.prodNom.MinimumWidth = 6;
             this.prodNom.Name = "prodNom";
             this.prodNom.ReadOnly = true;
             // 
             // Precio
             // 
             this.Precio.HeaderText = "Precio Producto";
+            this.Precio.MinimumWidth = 6;
             this.Precio.Name = "Precio";
             this.Precio.ReadOnly = true;
             // 
             // Cantidad
             // 
             this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.MinimumWidth = 6;
             this.Cantidad.Name = "Cantidad";
             this.Cantidad.ReadOnly = true;
             // 
             // Cantidad_Unidad
             // 
             this.Cantidad_Unidad.HeaderText = "Unidades";
+            this.Cantidad_Unidad.MinimumWidth = 6;
             this.Cantidad_Unidad.Name = "Cantidad_Unidad";
             this.Cantidad_Unidad.ReadOnly = true;
             // 
@@ -359,7 +367,7 @@ namespace Presentacion
             this.btnSiguiente.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnSiguiente.Location = new System.Drawing.Point(1075, 492);
             this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(89, 33);
+            this.btnSiguiente.Size = new System.Drawing.Size(119, 41);
             this.btnSiguiente.TabIndex = 113;
             this.btnSiguiente.Text = "Siguiente";
             this.btnSiguiente.UseVisualStyleBackColor = false;
@@ -476,6 +484,7 @@ namespace Presentacion
             this.dgvProducto.TabIndex = 10;
             this.dgvProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellClick);
             // 
+
             // CompraProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -486,6 +495,7 @@ namespace Presentacion
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CompraProductos";
             this.Text = " ";
             this.Load += new System.EventHandler(this.CompraProductos_Load);

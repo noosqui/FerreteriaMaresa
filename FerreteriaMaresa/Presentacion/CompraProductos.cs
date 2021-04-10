@@ -225,7 +225,6 @@ namespace Presentacion
             LetraNum.SoloLetras(e);
         }
 
-
         private void txtCantidad_Enter(object sender, EventArgs e)
         {
             tt.Show("Ingrese numeros mayores a 0", txtCantidad);
