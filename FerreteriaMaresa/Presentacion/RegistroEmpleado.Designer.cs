@@ -67,10 +67,10 @@ namespace Presentacion
             this.label1 = new System.Windows.Forms.Label();
             this.dtfecha = new System.Windows.Forms.DateTimePicker();
             this.lblconfirmar = new System.Windows.Forms.Label();
-            this.txtconfirmarident = new System.Windows.Forms.TextBox();
             this.chkactivo = new System.Windows.Forms.CheckBox();
             this.chkdespedido = new System.Windows.Forms.CheckBox();
             this.chktodos = new System.Windows.Forms.CheckBox();
+            this.txtconfirmarident = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,7 +128,7 @@ namespace Presentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminar.Location = new System.Drawing.Point(955, 695);
+            this.btnEliminar.Location = new System.Drawing.Point(955, 682);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(133, 41);
@@ -145,7 +145,7 @@ namespace Presentacion
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnModificar.Location = new System.Drawing.Point(639, 695);
+            this.btnModificar.Location = new System.Drawing.Point(639, 682);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(153, 41);
@@ -162,7 +162,7 @@ namespace Presentacion
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAgregar.Location = new System.Drawing.Point(357, 695);
+            this.btnAgregar.Location = new System.Drawing.Point(357, 682);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(133, 41);
@@ -230,7 +230,7 @@ namespace Presentacion
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnGuardar.Location = new System.Drawing.Point(498, 695);
+            this.btnGuardar.Location = new System.Drawing.Point(498, 682);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(133, 41);
@@ -364,7 +364,7 @@ namespace Presentacion
             this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btncancelar.Location = new System.Drawing.Point(800, 695);
+            this.btncancelar.Location = new System.Drawing.Point(800, 682);
             this.btncancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btncancelar.Name = "btncancelar";
             this.btncancelar.Size = new System.Drawing.Size(149, 41);
@@ -599,17 +599,6 @@ namespace Presentacion
             this.lblconfirmar.Text = "Confirmar Identidad:";
             this.lblconfirmar.Visible = false;
             // 
-            // txtconfirmarident
-            // 
-            this.txtconfirmarident.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtconfirmarident.Location = new System.Drawing.Point(222, 294);
-            this.txtconfirmarident.MaxLength = 13;
-            this.txtconfirmarident.Name = "txtconfirmarident";
-            this.txtconfirmarident.Size = new System.Drawing.Size(181, 22);
-            this.txtconfirmarident.TabIndex = 4;
-            this.txtconfirmarident.Visible = false;
-            this.txtconfirmarident.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtconfirmarident_KeyPress);
-            // 
             // chkactivo
             // 
             this.chkactivo.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -649,16 +638,24 @@ namespace Presentacion
             this.chktodos.UseVisualStyleBackColor = true;
             this.chktodos.CheckedChanged += new System.EventHandler(this.chktodos_CheckedChanged);
             // 
+            // txtconfirmarident
+            // 
+            this.txtconfirmarident.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtconfirmarident.Location = new System.Drawing.Point(218, 298);
+            this.txtconfirmarident.Name = "txtconfirmarident";
+            this.txtconfirmarident.Size = new System.Drawing.Size(205, 22);
+            this.txtconfirmarident.TabIndex = 104;
+            // 
             // RegistroEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1377, 778);
+            this.Controls.Add(this.txtconfirmarident);
             this.Controls.Add(this.chktodos);
             this.Controls.Add(this.chkdespedido);
             this.Controls.Add(this.chkactivo);
-            this.Controls.Add(this.txtconfirmarident);
             this.Controls.Add(this.lblconfirmar);
             this.Controls.Add(this.dtfecha);
             this.Controls.Add(this.label1);
@@ -750,9 +747,9 @@ namespace Presentacion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtfecha;
         private System.Windows.Forms.Label lblconfirmar;
-        private System.Windows.Forms.TextBox txtconfirmarident;
         private System.Windows.Forms.CheckBox chkactivo;
         private System.Windows.Forms.CheckBox chkdespedido;
         private System.Windows.Forms.CheckBox chktodos;
+        private System.Windows.Forms.TextBox txtconfirmarident;
     }
 }

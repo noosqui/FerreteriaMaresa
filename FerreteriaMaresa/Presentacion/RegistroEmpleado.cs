@@ -120,6 +120,7 @@ namespace Presentacion
             txtconfirmarident.Visible = true;
             txtbuscarid.Enabled = false;
             txtnombreemp.Enabled = false;
+            txtconfirmarident.Enabled = true;
 
             Lim_ha encender = new Lim_ha();
             encender.Encender(this);
