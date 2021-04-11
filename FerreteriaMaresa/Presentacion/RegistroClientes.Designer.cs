@@ -30,6 +30,7 @@ namespace Presentacion
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEliminar1 = new System.Windows.Forms.Button();
             this.bnAgregar = new System.Windows.Forms.Button();
             this.btnModificar1 = new System.Windows.Forms.Button();
@@ -65,7 +66,6 @@ namespace Presentacion
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
@@ -111,6 +111,17 @@ namespace Presentacion
             this.panel1.Size = new System.Drawing.Size(1397, 657);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancelar.Location = new System.Drawing.Point(819, 605);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(132, 40);
+            this.btnCancelar.TabIndex = 80;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEliminar1
             // 
@@ -165,6 +176,8 @@ namespace Presentacion
             this.txtTelefono1.TabIndex = 75;
             this.txtTelefono1.Enter += new System.EventHandler(this.txtTelefono1_Enter);
             this.txtTelefono1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono1_KeyPress);
+            this.txtTelefono1.Validating += new System.ComponentModel.CancelEventHandler(this.txtTelefono1_Validating);
+            this.txtTelefono1.Validated += new System.EventHandler(this.txtTelefono1_Validated);
             // 
             // label10
             // 
@@ -174,9 +187,9 @@ namespace Presentacion
             this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label10.Location = new System.Drawing.Point(706, 76);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(73, 25);
+            this.label10.Size = new System.Drawing.Size(70, 25);
             this.label10.TabIndex = 68;
-            this.label10.Text = "Region";
+            this.label10.Text = "Depto:";
             // 
             // label11
             // 
@@ -258,6 +271,8 @@ namespace Presentacion
             this.txtCodPost.TabIndex = 69;
             this.txtCodPost.Enter += new System.EventHandler(this.txtCodPost_Enter);
             this.txtCodPost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodPost_KeyPress);
+            this.txtCodPost.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodPost_Validating);
+            this.txtCodPost.Validated += new System.EventHandler(this.txtCodPost_Validated);
             // 
             // dgvClientes
             // 
@@ -296,6 +311,8 @@ namespace Presentacion
             this.txtCodigoCliente.TabIndex = 73;
             this.txtCodigoCliente.Enter += new System.EventHandler(this.txtCodigoCliente_Enter);
             this.txtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoCliente_KeyPress);
+            this.txtCodigoCliente.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodigoCliente_Validating);
+            this.txtCodigoCliente.Validated += new System.EventHandler(this.txtCodigoCliente_Validated);
             // 
             // txtPais
             // 
@@ -424,6 +441,8 @@ namespace Presentacion
             this.rtn.TabIndex = 50;
             this.rtn.Enter += new System.EventHandler(this.rtn_Enter);
             this.rtn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rtn_KeyPress);
+            this.rtn.Validating += new System.ComponentModel.CancelEventHandler(this.rtn_Validating);
+            this.rtn.Validated += new System.EventHandler(this.rtn_Validated);
             // 
             // label4
             // 
@@ -539,17 +558,6 @@ namespace Presentacion
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(229, 22);
             this.txtTelefono.TabIndex = 54;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCancelar.Location = new System.Drawing.Point(819, 605);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(132, 40);
-            this.btnCancelar.TabIndex = 80;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // RegistroClientes
             // 
