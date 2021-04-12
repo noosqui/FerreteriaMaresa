@@ -15,7 +15,7 @@ namespace Datos
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
 
-        public void insertar_FacturaVenta(DateTime Fecha, string IdCliente, string IdEmpleado, int Tipopago, double Descuento, double Subtotal)
+        public void insertar_FacturaVenta(DateTime Fecha, string IdCliente, string IdEmpleado, int Tipopago, string rtn, double isv, double Descuento, double Subtotal)
         {
             comando = new SqlCommand();
             comando.Connection = conexion.abrir();
@@ -25,9 +25,12 @@ namespace Datos
             comando.Parameters.AddWithValue("@IdCliente", IdCliente);
             comando.Parameters.AddWithValue("@IdEmpleado", IdEmpleado);
             comando.Parameters.AddWithValue("@IdTipoPago", Tipopago);
+            comando.Parameters.AddWithValue("@rtn", rtn);
+            comando.Parameters.AddWithValue("@isv", isv);
             comando.Parameters.AddWithValue("@Descuento", Descuento);
             comando.Parameters.AddWithValue("@SubTotal", Subtotal);
             comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
             comando.Connection = conexion.cerrar();
         }
 
@@ -40,10 +43,11 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
             return tabla;
         }
 
-        public void insertar_FacturaCompra(DateTime Fecha, int IdProveedor, string IdEmpleado, int Tipopago, double Descuento, double Subtotal)
+        public void insertar_FacturaCompra(DateTime Fecha, int IdProveedor, string IdEmpleado, int Tipopago, double isv, double Descuento, double Subtotal)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "insertar_FacturaCompra";
@@ -52,9 +56,11 @@ namespace Datos
             comando.Parameters.AddWithValue("@IdProveedor", IdProveedor);
             comando.Parameters.AddWithValue("@IdEmpleado", IdEmpleado);
             comando.Parameters.AddWithValue("@IdTipoPago", Tipopago);
+            comando.Parameters.AddWithValue("@isv", isv);
             comando.Parameters.AddWithValue("@Descuento", Descuento);
             comando.Parameters.AddWithValue("@SubTotal", Subtotal);
             comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
             comando.Connection = conexion.cerrar();
         }
 
@@ -63,9 +69,11 @@ namespace Datos
             comando.Connection = conexion.abrir();
             comando.CommandText = "SP_Compras";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            lee.Close();
             return tabla;
         }
 
@@ -78,7 +86,9 @@ namespace Datos
             comando.Parameters.AddWithValue("@IdCompra", IdCompra);
             comando.Parameters.AddWithValue("@Precio", Precio);
             comando.Parameters.AddWithValue("@Cantidad", Cantidad);
+
             comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
             comando.Connection = conexion.cerrar();
         }
 
@@ -90,6 +100,8 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+            lee.Close();
             return tabla;
         }
 
@@ -103,6 +115,8 @@ namespace Datos
             comando.Parameters.AddWithValue("@Precio", Precio);
             comando.Parameters.AddWithValue("@Cantidad", Cantidad);
             comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+
             comando.Connection = conexion.cerrar();
         }
 
@@ -114,6 +128,8 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+            lee.Close();
             return tabla;
         }
 
@@ -125,6 +141,8 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+            lee.Close();
             return tabla;
         }
 
@@ -136,6 +154,8 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+            lee.Close();
             return tabla;
         }
 
@@ -149,6 +169,8 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+            lee.Close();
             return tabla;
         }
 
@@ -162,7 +184,23 @@ namespace Datos
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+            lee.Close();
             return tabla;
+        }
+        public void Insertar_Cheque(string numcuenta,DateTime date,string RutaBancaria,string numeroCheque,int idBanco,float monto)
+        {
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "insertarCheques";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@numCuenta",numcuenta);
+            comando.Parameters.AddWithValue("@fecha",date);
+            comando.Parameters.AddWithValue("@rutaBancaria",RutaBancaria);
+            comando.Parameters.AddWithValue("@numeroCheque",numeroCheque);
+            comando.Parameters.AddWithValue("@idBanco",idBanco);
+            comando.Parameters.AddWithValue("@monto",monto);
+            comando.ExecuteNonQuery();
+            comando.Connection = conexion.cerrar();
         }
     }
 }

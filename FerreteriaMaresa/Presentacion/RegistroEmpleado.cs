@@ -79,8 +79,6 @@ namespace Presentacion
             txtbuscarid.Enabled = true;
             txtnombreemp.Enabled = true;
             dtfecha.MaxDate = DateTime.Today.AddYears(-18);
-            cbcodrol.Text = "Seleccione";
-
 
             txtidentidad.Text = dgvEmpleados.CurrentRow.Cells[0].Value.ToString();
             txtnombre.Text = dgvEmpleados.CurrentRow.Cells[1].Value.ToString();
@@ -110,7 +108,8 @@ namespace Presentacion
             {
                 rbdespedido.Checked = true;
             }
-
+            DataGridViewColumn Column = dgvEmpleados.Columns[10];
+            Column.Visible = false;
             dgvEmpleados.Refresh();
         }
 
@@ -121,6 +120,8 @@ namespace Presentacion
             txtbuscarid.Enabled = false;
             txtnombreemp.Enabled = false;
             txtconfirmarident.Enabled = true;
+            rbactivo.Enabled = true;
+            rbdespedido.Enabled = true;
 
             Lim_ha encender = new Lim_ha();
             encender.Encender(this);
@@ -138,6 +139,16 @@ namespace Presentacion
             estadobtna = true;
             estadobtnb = false;
             estadobtnc = false;
+
+            txtciudad.Text = "Tegucigalpa";
+            txtpais.Text = "Honduras";
+            txtcodpost.Text = "11101";
+            txtregion.Text = "Francisco Morazan";
+
+            txtciudad.Enabled = false;
+            txtpais.Enabled = false;
+            txtcodpost.Enabled = false;
+            txtregion.Enabled = false;
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -151,9 +162,22 @@ namespace Presentacion
             btncancelar.Visible = true;
             btnEliminar.Visible = false;
             btnModificar.Visible = false;
+            rbactivo.Enabled = true;
+            rbdespedido.Enabled = true;
             Lim_ha encender = new Lim_ha();
             encender.Encender(this);
+
             txtidentidad.Enabled = false;
+            txtciudad.Text = "Tegucigalpa";
+            txtpais.Text = "Honduras";
+            txtcodpost.Text = "11101";
+            txtregion.Text = "Francisco Morazan";
+
+            txtciudad.Enabled = false;
+            txtpais.Enabled = false;
+            txtcodpost.Enabled = false;
+            txtregion.Enabled = false;
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -164,6 +188,8 @@ namespace Presentacion
             btnGuardar.Visible = true;
             btncancelar.Visible = true;
             btnEliminar.Visible = false;
+            rbactivo.Enabled = true;
+            rbdespedido.Enabled = true;
 
             estadobtna = false;
             estadobtnb = false;
@@ -176,24 +202,23 @@ namespace Presentacion
 
         private void habilitar_Click(object sender, EventArgs e)
         {
-            
-                if (estadobtna == true)
+            if (estadobtna == true)
                 {
                     if (txtidentidad.Text == "" || txtnombre.Text == "" || txtapellido.Text == "" || txtdireccion.Text == "" ||
-                        txtciudad.Text == "" || txtregion.Text == "" || txtcodpost.Text == "" || txtpais.Text == "" ||
                         txttelefono.Text == "" || txtcorreo.Text == "" || cbcodrol.SelectedIndex.Equals(-1)
                         || txtidentidad.Text != txtconfirmarident.Text || txtconfirmarident.Text == "")
                     {
-                        MessageBox.Show("Debe llenar todos los Campos y/o Verifique contraseñas");
+                        MessageBox.Show("Debe llenar todos los Campos y/o Verifique los Numeros de Identidad");
                     }
                     else if (txtidentidad.TextLength<13)
                     {
                         MessageBox.Show("La identidad debe tener al menos 13 numeros");
                     }
-                    else if (txtcodpost.TextLength < 5)
+                    else if (txttelefono.TextLength < 8)
                     {
-                        MessageBox.Show("Codigo Postal incompleto, debe Ingresar 5 numeros");
+                        MessageBox.Show("Numero de Telefono incompleto, debe Ingresar 8 numeros");
                     }
+                    
                     else
                     {
                         try
@@ -206,31 +231,33 @@ namespace Presentacion
                             {
                                 estado = "Despedido";
                             }
-
-                            emplea.agregar_empleado(txtidentidad.Text, txtnombre.Text, txtapellido.Text, txtcorreo.Text,
+                            
+                            emplea.agregar_empleado(txtidentidad.Text.ToString(), txtnombre.Text, txtapellido.Text, txtcorreo.Text,
                             txttelefono.Text, txtdireccion.Text, txtciudad.Text, txtregion.Text, txtcodpost.Text,
                             txtpais.Text, txtcodrol, dtfecha.Value.ToString("yyyy/MM/dd"), estado);
 
-                        }
+                            btnAgregar.Visible = true;
+                            btnModificar.Visible = true;
+                            btnEliminar.Visible = true;
+                            btnGuardar.Visible = false;
+                            btncancelar.Visible = false;
+                            dgvEmpleados.Enabled = true;
+                            lblconfirmar.Visible = false;
+                            txtconfirmarident.Visible = false;
+                            rbactivo.Enabled = false;
+                            rbdespedido.Enabled = false;
+                            limpiar();
+                            dgvEmpleados.DataSource = emplea.CargarDGVEmpleados();
+                            dgvEmpleados.Refresh();
+                            Lim_ha apagar = new Lim_ha();
+                            apagar.Apagar(this);
+                    }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Error al Agregar Empleado/No se puede insertar numeros de " +
-                                "Identidad que ya existen");
+                            MessageBox.Show("Error al Agregar Empleado/El numero de Identidad ya existe en la base de Datos");
                         }
 
-                        btnAgregar.Visible = true;
-                        btnModificar.Visible = true;
-                        btnEliminar.Visible = true;
-                        btnGuardar.Visible = false;
-                        btncancelar.Visible = false;
-                        dgvEmpleados.Enabled = true;
-                        lblconfirmar.Visible = false;
-                        txtconfirmarident.Visible = false;
-                        dgvEmpleados.DataSource = emplea.CargarDGVEmpleados();
-                        dgvEmpleados.Refresh();
-                        Lim_ha apagar = new Lim_ha();
-                        apagar.Apagar(this);
-                    }  
+                    }
                 }
 
                 if (estadobtnb == true)
@@ -241,9 +268,9 @@ namespace Presentacion
                         {
                             MessageBox.Show("Debe llenar todos los Campos");
                         }
-                        else if (txtcodpost.TextLength < 5)
+                        else if (txttelefono.TextLength < 8)
                         {
-                            MessageBox.Show("Codigo Postal incompleto, debe Ingresar 5 numeros");
+                            MessageBox.Show("Numero de Telefono incompleto, debe Ingresar 8 numeros");
                         }
                         else
                         {
@@ -258,16 +285,9 @@ namespace Presentacion
                                     estado = "Despedido";
                                 }
 
-                                emplea.modificar_empleado(txtidentidad.Text, txtnombre.Text, txtapellido.Text, txtcorreo.Text,
-                                txttelefono.Text,
-                                txtdireccion.Text, txtciudad.Text, txtregion.Text, txtcodpost.Text, txtpais.Text, txtcodrol,
-                                dtfecha.Value.ToString("dd/MM/yyyy"), estado);
-
-                            }
-                            catch (Exception ex)
-                                {
-                                    MessageBox.Show("Error de Modificacion");
-                                }
+                                emplea.modificar_empleado(txtidentidad.Text, txtnombre.Text, txtapellido.Text, txtcorreo.Text, txttelefono.Text, 
+                                    txtdireccion.Text, txtciudad.Text, txtregion.Text, txtcodpost.Text, txtpais.Text, txtcodrol,
+                                    dtfecha.Value.ToString("dd/MM/yyyy"), estado);
 
                                 btnAgregar.Visible = true;
                                 btnModificar.Visible = true;
@@ -277,11 +297,18 @@ namespace Presentacion
                                 dgvEmpleados.Enabled = true;
                                 lblconfirmar.Visible = false;
                                 txtconfirmarident.Visible = false;
+                                rbactivo.Enabled = false;
+                                rbdespedido.Enabled = false;
                                 dgvEmpleados.DataSource = emplea.CargarDGVEmpleados();
                                 dgvEmpleados.Refresh();
                                 limpiar();
                                 Lim_ha apagar = new Lim_ha();
                                 apagar.Apagar(this);
+                            }
+                            catch (Exception ex)
+                            {
+                                    MessageBox.Show("Error de Modificacion"+ex);
+                            }
                         }
                 }
 
@@ -307,6 +334,8 @@ namespace Presentacion
                         dgvEmpleados.Enabled = true;
                         lblconfirmar.Visible = false;
                         txtconfirmarident.Visible = false;
+                        rbactivo.Enabled = false;
+                        rbdespedido.Enabled = false;
                         dgvEmpleados.DataSource = emplea.CargarDGVEmpleados();
                         dgvEmpleados.Refresh();
                         limpiar();
@@ -317,7 +346,6 @@ namespace Presentacion
 
         private void btnrecontratar_Click(object sender, EventArgs e)
         {
-            cbcodrol.Text = "Seleccione";
             limpiar();
             btnAgregar.Visible = true;
             btnModificar.Visible = true;
@@ -328,6 +356,8 @@ namespace Presentacion
             dgvEmpleados.Enabled = true;
             lblconfirmar.Visible = false;
             txtconfirmarident.Visible = false;
+            rbactivo.Enabled = false;
+            rbdespedido.Enabled = false;
 
             Lim_ha apagar = new Lim_ha();
             apagar.Apagar(this);
@@ -342,7 +372,6 @@ namespace Presentacion
             {
                 var dt = (DataTable)dgvEmpleados.DataSource;
                 if (txtbuscarid.Text != "")
-
                     dt.DefaultView.RowFilter = string.Format("[Identidad] LIKE '%{0}%'", txtbuscarid.Text);
 
                 else
@@ -361,53 +390,19 @@ namespace Presentacion
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrio un Error" + ex);
-
             }
         }
 
-         private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
-         {
-            try
-            {
-                txtidentidad.Text = dgvEmpleados.Rows[e.RowIndex].Cells[0].Value.ToString();
-                txtnombre.Text = dgvEmpleados.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtapellido.Text = dgvEmpleados.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtcorreo.Text = dgvEmpleados.Rows[e.RowIndex].Cells[3].Value.ToString();
-                txttelefono.Text = dgvEmpleados.Rows[e.RowIndex].Cells[4].Value.ToString();
-                txtdireccion.Text = dgvEmpleados.Rows[e.RowIndex].Cells[5].Value.ToString();
-                txtciudad.Text = dgvEmpleados.Rows[e.RowIndex].Cells[6].Value.ToString();
-                txtregion.Text = dgvEmpleados.Rows[e.RowIndex].Cells[7].Value.ToString();
-                txtcodpost.Text = dgvEmpleados.Rows[e.RowIndex].Cells[8].Value.ToString();
-                txtpais.Text = dgvEmpleados.Rows[e.RowIndex].Cells[9].Value.ToString();
-                if (dgvEmpleados.CurrentRow.Cells[11].Value.ToString() == "Empleado")
-                {
-                    cbcodrol.SelectedIndex = 0;
-                }
-                else
-                {
-                    cbcodrol.SelectedIndex = 1;
-                }
-                dtfecha.Text = dgvEmpleados.Rows[e.RowIndex].Cells[12].Value.ToString();
-                estado = dgvEmpleados.Rows[e.RowIndex].Cells[13].Value.ToString();
-                if (estado == "Activo")
-                {
-                    rbactivo.Checked = true;
-                }
-                if (estado == "Despedido")
-                {
-                    rbdespedido.Checked = true;
-                }
-
-            }
-            catch (Exception ex)
-            {
-               // MessageBox.Show("Error de Seleccion");
-            }
-         }
-
         private void cbcodrol_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtcodrol = cbcodrol.SelectedValue.ToString();
+            if (cbcodrol.SelectedIndex == 0)
+            {
+                txtcodrol = "1";
+            }
+            else
+            {
+                txtcodrol = "2";
+            }
         }
 
         private void txtidentidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -533,17 +528,79 @@ namespace Presentacion
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void chkdespedido_CheckedChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void chktodos_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                txtidentidad.Text = dgvEmpleados.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtnombre.Text = dgvEmpleados.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtapellido.Text = dgvEmpleados.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtcorreo.Text = dgvEmpleados.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txttelefono.Text = dgvEmpleados.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtdireccion.Text = dgvEmpleados.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtciudad.Text = dgvEmpleados.Rows[e.RowIndex].Cells[6].Value.ToString();
+                txtregion.Text = dgvEmpleados.Rows[e.RowIndex].Cells[7].Value.ToString();
+                txtcodpost.Text = dgvEmpleados.Rows[e.RowIndex].Cells[8].Value.ToString();
+                txtpais.Text = dgvEmpleados.Rows[e.RowIndex].Cells[9].Value.ToString();
+                if (dgvEmpleados.CurrentRow.Cells[11].Value.ToString() == "Empleado")
+                {
+                    cbcodrol.SelectedIndex = 0;
+                }
+                else
+                {
+                    cbcodrol.SelectedIndex = 1;
+                }
+                dtfecha.Text = dgvEmpleados.Rows[e.RowIndex].Cells[12].Value.ToString();
+                estado = dgvEmpleados.Rows[e.RowIndex].Cells[13].Value.ToString();
+                if (estado == "Activo")
+                {
+                    rbactivo.Checked = true;
+                }
+                if (estado == "Despedido")
+                {
+                    rbdespedido.Checked = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // MessageBox.Show("Error de Seleccion");
+            }
+        }
+
+        private void txtcorreo_Leave(object sender, EventArgs e)
+        {
+            if(letrasNum.email(txtcorreo.Text) == false)
+            {
+                txtcorreo.Focus();
+            }
+        }
+
+        private void rbfiltroactivos_CheckedChanged(object sender, EventArgs e)
+        {
             var dt = (DataTable)dgvEmpleados.DataSource;
             dt.DefaultView.RowFilter = string.Format("[Estado] LIKE '%{0}%'", "Activo");
 
             if (dt.DefaultView.Count < 1)
             {
                 SystemSounds.Exclamation.Play();
-                tt.Show("No se encontro parametros", this.chkactivo, 0, 25, 2000);
+                tt.Show("No se encontro parametros", this.rbfiltroactivos, 0, 25, 2000);
             }
         }
 
-        private void chkdespedido_CheckedChanged(object sender, EventArgs e)
+        private void rbfiltrodespedidos_CheckedChanged(object sender, EventArgs e)
         {
             var dt = (DataTable)dgvEmpleados.DataSource;
             dt.DefaultView.RowFilter = string.Format("[Estado] LIKE '%{0}%'", "Despedido");
@@ -551,20 +608,30 @@ namespace Presentacion
             if (dt.DefaultView.Count < 1)
             {
                 SystemSounds.Exclamation.Play();
-                tt.Show("No se encontro parametros", this.chkdespedido, 0, 25, 2000);
+                tt.Show("No se encontro parametros", this.rbfiltrodespedidos, 0, 25, 2000);
             }
         }
 
-        private void chktodos_CheckedChanged(object sender, EventArgs e)
+        private void rbfiltrotodos_CheckedChanged(object sender, EventArgs e)
         {
             var dt = (DataTable)dgvEmpleados.DataSource;
-            dt.DefaultView.RowFilter = string.Format("[Estado] LIKE '%{0}%'", "Activo", "Despedido");
+            dt.DefaultView.RowFilter = null;
 
             if (dt.DefaultView.Count < 1)
             {
                 SystemSounds.Exclamation.Play();
-                tt.Show("No se encontro parametros", this.chktodos, 0, 25, 2000);
+                tt.Show("No se encontro parametros", this.rbfiltrotodos, 0, 25, 2000);
             }
+        }
+
+        private void txtbuscarid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            letrasNum.SoloNumeros(e);
+        }
+
+        private void txtnombreemp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            letrasNum.SoloLetras(e);
         }
     }
 }

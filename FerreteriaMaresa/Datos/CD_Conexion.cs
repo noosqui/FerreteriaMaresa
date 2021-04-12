@@ -7,12 +7,13 @@ using System.Data.SqlClient;
 using System.Data;
 
 
+
 namespace Datos
 {
-  public class CD_Conexion
+    public class CD_Conexion
     {
         private SqlConnection Conectarbd = new SqlConnection("server=(local);DataBase= Ferreteria_Maresa;Integrated Security=True");
-
+        
         public SqlConnection abrir()
         {
 
@@ -27,6 +28,8 @@ namespace Datos
             if (Conectarbd.State == ConnectionState.Open)
                 Conectarbd.Close();
             return Conectarbd;
+
+
         }
     }
 }
