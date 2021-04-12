@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using Datos;
 using System.Data;
 
+
+
 namespace Dominio
 {
-     public class DOM_Inventario
+    public class DOM_Inventario
     {
 
         //Atributos 
@@ -23,12 +25,9 @@ namespace Dominio
         private string estado;
         private int id_categoria;
         private CD_Inventario inventario = new CD_Inventario();
+        
 
-
-        public DOM_Inventario()
-        {
-
-        }
+        public DOM_Inventario() { }
 
         public DOM_Inventario(string id_producto, string nom_producto, string marca, string cantidad, string costo,
             string precio_actual, string stock, string estado, string categoria, string cantidad_unidad)
@@ -85,13 +84,13 @@ namespace Dominio
             get { return stock; }
             set { stock = value; }
         }
-        
+
         public string Estado
         {
             get { return estado; }
             set { estado = value; }
         }
-        
+
         public int Id_categoria
         {
             get { return id_categoria; }
@@ -107,6 +106,17 @@ namespace Dominio
         {
             return inventario.Mostrar_Inventario();
         }
+
+        public DataTable ListarCategoria() 
+        {
+            return inventario.Mostrar_Categorias();
+        }
+
+        public DataTable ListarMarcas() 
+        {
+            return inventario.Mostrar_Marcas();
+        }
+
 
 
     }

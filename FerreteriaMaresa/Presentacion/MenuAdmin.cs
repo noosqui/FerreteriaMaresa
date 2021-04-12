@@ -34,10 +34,12 @@ namespace Presentacion
         {
             public static Color color1 = Color.FromArgb(172, 126, 241);
             public static Color color2 = Color.FromArgb(249, 118, 176);
-            public static Color color3 = Color.FromArgb(2, 53, 138, 114);
+            public static Color color3 = Color.FromArgb(53, 138, 114);
             public static Color color4 = Color.FromArgb(95, 77, 221);
             public static Color color5 = Color.FromArgb(249, 68, 255);
             public static Color color6 = Color.FromArgb(24, 141, 253);
+            public static Color color7 = Color.FromArgb(249, 118, 12);
+            public static Color color8 = Color.FromArgb(95, 77, 45);
         }
         //metodos
         private void ActivateButton(object senderBtn, Color color)
@@ -244,14 +246,6 @@ namespace Presentacion
             panelSubMenu.Visible = false;
         }
 
-        private void btnReportes_Click_1(object sender, EventArgs e)
-        {
-            
-            ActivateButton(sender, RGBColors.color6);
-            pnlSub1.Visible = true;
-            panelSubMenu.Visible = true;
-            TituloFormularioHijo.Text = "Reportes";
-        }
 
         private void iconButton4_Click_1(object sender, EventArgs e)
         {
@@ -295,9 +289,59 @@ namespace Presentacion
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color5);
+            ActivateButton(sender, RGBColors.color7);
             panelSubMenu.Visible = false;
             AbrirForm(new RegistroClientes());
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color6);
+            panelSubMenu.Visible = true;
+            panelSubMenu.Visible = true;
+            TituloFormularioHijo.Text = "Reportes";
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color8);
+            panelSubMenu.Visible = false;
+            AbrirForm(new RegistroProveedores());
+        }
+
+        private void iconButton4_Click_3(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            AbrirForm(new ReporteEmpleados());
+            panelSubMenu.Visible = false;
+        }
+
+        private void btnReporteCompras_Click_1(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            AbrirForm(new ReporteCompra());
+            panelSubMenu.Visible = false;
+        }
+
+        private void ReporteInventario_Click_2(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color3);
+            AbrirForm(new ReporteInvetario());
+            panelSubMenu.Visible = false;
+        }
+
+        private void ReporteVentas_Click_2(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color4);
+            AbrirForm(new ReporteVentas());
+            panelSubMenu.Visible = false;
+        }
+
+        private void ReporteProveedor_Click_2(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color5);
+            AbrirForm(new ReporteProveedores());
+            panelSubMenu.Visible = false;
         }
     }
 }
