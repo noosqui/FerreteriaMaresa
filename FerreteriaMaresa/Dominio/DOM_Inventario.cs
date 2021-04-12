@@ -97,9 +97,6 @@ namespace Dominio
             set { id_categoria = value; }
         }
 
-
-
-
         public DataTable buscar_inventario()
         {
             return inventario.Buscar_Inventario(Nom_producto);
