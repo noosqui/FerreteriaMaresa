@@ -173,7 +173,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, "Agregue toda la informacion necesaria antes de continuar");
+                MessageBox.Show(this, "Agregue toda la informacion necesaria antes de continuar "+ ex);
 
             }
            

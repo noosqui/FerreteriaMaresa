@@ -46,7 +46,6 @@ namespace Presentacion
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-
             this.dgvListaProductos = new System.Windows.Forms.DataGridView();
             this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,12 +75,13 @@ namespace Presentacion
             this.label1.Location = new System.Drawing.Point(332, -44);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(347, 39);
+            this.label1.Size = new System.Drawing.Size(277, 31);
             this.label1.TabIndex = 92;
             this.label1.Text = "Compra de Productos";
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
             this.panel1.Controls.Add(this.txtId);
             this.panel1.Controls.Add(this.txtcodigoprod);
@@ -110,7 +110,7 @@ namespace Presentacion
             this.panel1.Controls.Add(this.txtnombre);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1204, 558);
             this.panel1.TabIndex = 95;
@@ -205,7 +205,7 @@ namespace Presentacion
             this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label11.Location = new System.Drawing.Point(920, 443);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 25);
+            this.label11.Size = new System.Drawing.Size(69, 20);
             this.label11.TabIndex = 121;
             this.label11.Text = "Subtotal";
             // 
@@ -484,7 +484,6 @@ namespace Presentacion
             this.dgvProducto.TabIndex = 10;
             this.dgvProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellClick);
             // 
-
             // CompraProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -495,7 +494,7 @@ namespace Presentacion
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CompraProductos";
             this.Text = " ";
             this.Load += new System.EventHandler(this.CompraProductos_Load);
