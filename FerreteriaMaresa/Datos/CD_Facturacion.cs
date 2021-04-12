@@ -199,6 +199,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@numeroCheque",numeroCheque);
             comando.Parameters.AddWithValue("@idBanco",idBanco);
             comando.Parameters.AddWithValue("@monto",monto);
+      
             comando.ExecuteNonQuery();
             comando.Connection = conexion.cerrar();
         }

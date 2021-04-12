@@ -17,10 +17,12 @@ namespace Presentacion
         DOM_Bancos Bancos = new DOM_Bancos();
         DOM_Validacion validacion = new DOM_Validacion();
         DOM_Facturacion facturacion = new DOM_Facturacion();
+    
         public string monto = "0";
-        public TipoCheque()
+        public TipoCheque( )
         {
             InitializeComponent();
+  
         }
 
         private void TipoCheque_Load(object sender, EventArgs e)

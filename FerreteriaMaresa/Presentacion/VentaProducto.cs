@@ -80,17 +80,19 @@ namespace Presentacion
                             cheque.monto = "" + (suma * 0.15 +suma);
                             dr = cheque.ShowDialog();
                             MessageBox.Show(((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString());
+
                             if (dr == DialogResult.Yes)
+                            {
                                 if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length > 0)
                                     facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
                                     , txtSubtotal.Text, "1", "0.15", txtDescuento.Text, "1");
-                                else
-                                    throw new Exception("Error el empleado no contiene rtn");
-
                                 if (!chkRTN.Checked)
-                                facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
-                                   , txtSubtotal.Text,"0", "0.15", txtDescuento.Text, "1");
-
+                                    facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                                       , txtSubtotal.Text, "0", "0.15", txtDescuento.Text, "1");
+                                if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length <= 0)
+                                    throw new Exception("Error el empleado no contiene rtn");
+                            }
+           
 
                         }
                     }
@@ -98,11 +100,12 @@ namespace Presentacion
                         if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length > 0)
                             facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
                                        , txtSubtotal.Text, "1", "0.15", txtDescuento.Text, "2");
-                        else
-                            throw new Exception("Error el empleado no contiene rtn");
-                    if (!chkRTN.Checked)
-                        facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
-                           , txtSubtotal.Text, "0", "0.15", txtDescuento.Text, "2");
+                        else if (!chkRTN.Checked)
+                            facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                               , txtSubtotal.Text, "0", "0.15", txtDescuento.Text, "2");
+                    else
+                    throw new Exception("Error el empleado no contiene rtn");
+                   
 
 
                     if (dr != DialogResult.None && dr != DialogResult.Abort)
@@ -139,9 +142,9 @@ namespace Presentacion
         {
             var producto = inventario.mostrar_inventario();
             var Cliente = client.Mostrar_Cliente();
-
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
             producto.DefaultView.RowFilter = "Estado = 'ACTIVO' ";
+           
             dgvProductos.DataSource = producto;
             dgvProductos.Columns["Id Marca"].Visible = false;
             dgvProductos.Columns["Id Categoría"].Visible = false;
@@ -150,13 +153,14 @@ namespace Presentacion
             dgvProductos.Rows[1].Selected = true;
             dgvProductos.CurrentRow.Selected = true;
             dgvProductos_CellClick(null, null);
+
             Cliente.Columns.Add("Concat");
             foreach (DataRow row in Cliente.Rows)
             {
                         row["Concat"] = (row["Nombres"]+" "+ row["Apellidos"]);
                 coleccion.Add(row["Concat"]+"");
             }
-
+          
             cmbClientes.DataSource = Cliente;
             cmbClientes.DisplayMember = "Concat";
             cmbClientes.ValueMember = "Concat";
