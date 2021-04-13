@@ -27,34 +27,34 @@ namespace Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 int cantidad = int.Parse(txtCantidad.Text);
                 int stock = int.Parse(txtStock.Text);
-               try
+                try
                 {
-                    if (cantidad > 0 && cantidad<=stock)
+                    if (cantidad > 0 && cantidad <= stock)
                     {
-                        suma = double.Parse(txtprecio.Text)*int.Parse(txtCantidad.Text);
+                        suma = double.Parse(txtprecio.Text) * int.Parse(txtCantidad.Text);
                         suma += double.Parse(txtSubtotal.Text);
                         dgvProductList.Rows.Add(txtId.Text, txtNombre.Text, txtprecio.Text, txtCantidad.Text, dgvProductos.SelectedRows[0].Cells[2].Value);
                         txtSubtotal.Text = "" + suma;
                         btnCancelar.Enabled = true;
-                        txtCantidad.Text = ""+0;
+                        txtCantidad.Text = "" + 0;
                     }
                     else
                         throw new Exception();
                 }
-                 catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(this, "Ingrese la cantidad correcta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtCantidad.Focus();
                 }
-                
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(null,"Seleccione un producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(null, "Seleccione un producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -62,29 +62,78 @@ namespace Presentacion
         {
             try
             {
-                facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
-                    , txtSubtotal.Text, txtDescuento.Text, "1");
-
-
-                foreach (DataGridViewRow row in dgvProductList.Rows)
+                if (dgvProductList.Rows.Count > 0)
                 {
-                    inventario.Id_producto = int.Parse(row.Cells[0].Value.ToString());
-                    inventario.Precio_actual = double.Parse(row.Cells[2].Value.ToString());
-                    facturacion.insertarDetalleVenta(row.Cells[3].Value.ToString(), inventario);
-                }
-                txtId.Enabled = true;
-                txtNombre.Enabled = true;
-                txtStock.Enabled = true;
-                txtprecio.Enabled = true;
-                txtCantidad.Enabled = true;
+                    TipoDePago tipoDePago = new TipoDePago();
+                    DialogResult dr = DialogResult.Cancel;
 
+                    while (dr == DialogResult.Cancel)
+                    {
+
+
+                        dr = tipoDePago.ShowDialog();
+
+                        if (dr == DialogResult.Yes)
+                        {
+                            TipoCheque cheque = new TipoCheque();
+                            MessageBox.Show(suma + "");
+                            cheque.monto = "" + (suma * 0.15 +suma);
+                            dr = cheque.ShowDialog();
+                            MessageBox.Show(((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString());
+                            if (dr == DialogResult.Yes)
+                                if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length > 0)
+                                    facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                                    , txtSubtotal.Text, "1", "0.15", txtDescuento.Text, "1");
+                                else
+                                    throw new Exception("Error el empleado no contiene rtn");
+
+                                if (!chkRTN.Checked)
+                                facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                                   , txtSubtotal.Text,"0", "0.15", txtDescuento.Text, "1");
+
+
+                        }
+                    }
+                    if (dr == DialogResult.No)
+                        if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length > 0)
+                            facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                                       , txtSubtotal.Text, "1", "0.15", txtDescuento.Text, "2");
+                        else
+                            throw new Exception("Error el empleado no contiene rtn");
+                    if (!chkRTN.Checked)
+                        facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                           , txtSubtotal.Text, "0", "0.15", txtDescuento.Text, "2");
+
+
+                    if (dr != DialogResult.None && dr != DialogResult.Abort)
+                    {
+                        foreach (DataGridViewRow row in dgvProductList.Rows)
+                        {
+                            inventario.Id_producto = int.Parse(row.Cells[0].Value.ToString());
+                            inventario.Precio_actual = double.Parse(row.Cells[2].Value.ToString());
+                            facturacion.insertarDetalleVenta(row.Cells[3].Value.ToString(), inventario);
+                        }
+                        txtId.Enabled = true;
+                        txtNombre.Enabled = true;
+                        txtStock.Enabled = true;
+                        txtprecio.Enabled = true;
+                        txtCantidad.Enabled = true;
+
+                        //aqui se debe abrir el reporte
+                    }
+
+
+                }
+                else throw new Exception("Producto no ingresado a la lista");
             }
+           
             catch (Exception ex)
             {
-
+                MessageBox.Show(this, "Ocurrio un error al insertar (Error) " + ex);
             }
-            }
 
+        }
+        
 
         private void VentaProducto_Load(object sender, EventArgs e)
         {
