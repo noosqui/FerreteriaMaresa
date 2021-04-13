@@ -17,10 +17,11 @@ namespace Presentacion
         double suma;
         ToolTip tt = new ToolTip();
         double subtotal;
-        public CompraProductos()
+        public CompraProductos(string idEmpleado)
         {
             InitializeComponent();
             subtotal = 0;
+            empleados.Id_empleado = idEmpleado;
         }
 
         private void CompraProductos_Load(object sender, EventArgs e)
@@ -149,12 +150,12 @@ namespace Presentacion
                             cheque.monto = "" + (suma * 0.15 + suma);
                             dr = cheque.ShowDialog();
                             if (dr == DialogResult.Yes)
-                                facturacion.InsertarFacturaCompra("0", txtSubtotal.Text, "1", "1804200703610", ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex][0].ToString(),"0.15");
+                                facturacion.InsertarFacturaCompra("0", txtSubtotal.Text, "1", empleados.Id_empleado, ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex][0].ToString(),"0.15");
 
                         }
                     }
                     if (dr == DialogResult.No)
-                        facturacion.InsertarFacturaCompra("0", txtSubtotal.Text, "2", "1804200703610", ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex][0].ToString(),"0.15");
+                        facturacion.InsertarFacturaCompra("0", txtSubtotal.Text, "2", empleados.Id_empleado, ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex][0].ToString(),"0.15");
 
                     if (dr != DialogResult.None && dr != DialogResult.Abort)
                     {

@@ -12,16 +12,19 @@ namespace Presentacion
         DOM_Empleados empleados = new DOM_Empleados();
         DOM_Validacion letrasNum = new DOM_Validacion();
         DOM_Clientes client = new DOM_Clientes();
-        double suma;
+        private double suma;
+        private double descuento;
         ToolTip tt = new ToolTip();
         public VentaProducto()
         {
             InitializeComponent();
+            descuento = 0;
         }
-        public VentaProducto(DOM_Empleados emp)
+        public VentaProducto(string idEmpleado)
         {
-            this.empleados = emp;
+            this.empleados.Id_empleado = idEmpleado;
             InitializeComponent();
+            descuento = 0;
         }
 
 
@@ -35,12 +38,16 @@ namespace Presentacion
                 {
                     if (cantidad > 0 && cantidad <= stock)
                     {
+
                         suma = double.Parse(txtprecio.Text) * int.Parse(txtCantidad.Text);
                         suma += double.Parse(txtSubtotal.Text);
                         dgvProductList.Rows.Add(txtId.Text, txtNombre.Text, txtprecio.Text, txtCantidad.Text, dgvProductos.SelectedRows[0].Cells[2].Value);
                         txtSubtotal.Text = "" + suma;
                         btnCancelar.Enabled = true;
                         txtCantidad.Text = "" + 0;
+                        txtDescuento.Text = suma * descuento+ "";
+                        txtTotal.Text = suma + ((suma - (suma * descuento)) * 0.15)
+                            -(suma * descuento)+ "";
                     }
                     else
                         throw new Exception();
@@ -84,11 +91,11 @@ namespace Presentacion
                             if (dr == DialogResult.Yes)
                             {
                                 if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length > 0)
-                                    facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
-                                    , txtSubtotal.Text, "1", "0.15", txtDescuento.Text, "1");
+                                    facturacion.InsertarFacturaVenta(empleados.Id_empleado, ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                                    , txtSubtotal.Text, "1", "0.15",descuento+"", "1");
                                 if (!chkRTN.Checked)
-                                    facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
-                                       , txtSubtotal.Text, "0", "0.15", txtDescuento.Text, "1");
+                                    facturacion.InsertarFacturaVenta(empleados.Id_empleado, ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                                       , txtSubtotal.Text, "0", "0.15", descuento + "", "1");
                                 if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length <= 0)
                                     throw new Exception("Error el empleado no contiene rtn");
                             }
@@ -98,11 +105,11 @@ namespace Presentacion
                     }
                     if (dr == DialogResult.No)
                         if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length > 0)
-                            facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
-                                       , txtSubtotal.Text, "1", "0.15", txtDescuento.Text, "2");
+                            facturacion.InsertarFacturaVenta(empleados.Id_empleado, ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                                       , txtSubtotal.Text, "1", "0.15", descuento + "", "2");
                         else if (!chkRTN.Checked)
-                            facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
-                               , txtSubtotal.Text, "0", "0.15", txtDescuento.Text, "2");
+                            facturacion.InsertarFacturaVenta(empleados.Id_empleado, ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                               , txtSubtotal.Text, "0", "0.15", descuento + "", "2");
                     else
                     throw new Exception("Error el empleado no contiene rtn");
                    
@@ -263,6 +270,23 @@ namespace Presentacion
         {
             letrasNum.SoloNumeros(e);
 
+        }
+
+        private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void chkEdad_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (chkEdad.Checked)
+                descuento = 0.4;
+
+                
+            else
+                descuento = 0;
+            txtDescuento.Text = suma * descuento + "";
+            txtTotal.Text = suma + ((suma - (suma * descuento)) * 0.15)
+                - (suma * descuento) + "";
         }
     }
 }

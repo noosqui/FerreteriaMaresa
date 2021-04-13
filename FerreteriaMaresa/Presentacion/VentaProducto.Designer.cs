@@ -63,6 +63,9 @@
             this.txtprecio = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.chkEdad = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.VentaProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
@@ -161,11 +164,13 @@
             this.label7.TabIndex = 71;
             this.label7.Text = "Nombre:";
             // 
-
             // VentaProductos
             // 
             this.VentaProductos.AutoScroll = true;
             this.VentaProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
+            this.VentaProductos.Controls.Add(this.chkEdad);
+            this.VentaProductos.Controls.Add(this.label13);
+            this.VentaProductos.Controls.Add(this.txtTotal);
             this.VentaProductos.Controls.Add(this.chkRTN);
             this.VentaProductos.Controls.Add(this.label12);
             this.VentaProductos.Controls.Add(this.cmbClientes);
@@ -198,7 +203,6 @@
             this.VentaProductos.Location = new System.Drawing.Point(0, 0);
             this.VentaProductos.Name = "VentaProductos";
             this.VentaProductos.Size = new System.Drawing.Size(1278, 651);
-
             this.VentaProductos.TabIndex = 1;
             // 
             // chkRTN
@@ -236,13 +240,14 @@
             this.cmbClientes.Size = new System.Drawing.Size(470, 21);
             this.cmbClientes.TabIndex = 93;
             this.cmbClientes.Text = "--Seleccionar--";
+            this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(1003, 218);
+            this.label9.Location = new System.Drawing.Point(998, 184);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(133, 17);
@@ -270,7 +275,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(934, 282);
+            this.label11.Location = new System.Drawing.Point(934, 241);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(91, 20);
@@ -292,7 +297,7 @@
             // txtDescuento
             // 
             this.txtDescuento.Enabled = false;
-            this.txtDescuento.Location = new System.Drawing.Point(1056, 284);
+            this.txtDescuento.Location = new System.Drawing.Point(1056, 243);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(174, 20);
             this.txtDescuento.TabIndex = 90;
@@ -303,7 +308,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(934, 257);
+            this.label10.Location = new System.Drawing.Point(934, 216);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(73, 20);
@@ -325,7 +330,7 @@
             // txtSubtotal
             // 
             this.txtSubtotal.Enabled = false;
-            this.txtSubtotal.Location = new System.Drawing.Point(1056, 257);
+            this.txtSubtotal.Location = new System.Drawing.Point(1056, 216);
             this.txtSubtotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(174, 20);
@@ -479,6 +484,41 @@
             this.label5.TabIndex = 82;
             this.label5.Text = "Stock:";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label13.Location = new System.Drawing.Point(934, 270);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(52, 20);
+            this.label13.TabIndex = 97;
+            this.label13.Text = "Total: ";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(1056, 270);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(174, 20);
+            this.txtTotal.TabIndex = 96;
+            this.txtTotal.Text = "0";
+            // 
+            // chkEdad
+            // 
+            this.chkEdad.AutoSize = true;
+            this.chkEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.chkEdad.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.chkEdad.Location = new System.Drawing.Point(718, 218);
+            this.chkEdad.Name = "chkEdad";
+            this.chkEdad.Size = new System.Drawing.Size(140, 24);
+            this.chkEdad.TabIndex = 98;
+            this.chkEdad.Text = "¿Tercera edad?";
+            this.chkEdad.UseVisualStyleBackColor = true;
+            this.chkEdad.CheckStateChanged += new System.EventHandler(this.chkEdad_CheckStateChanged);
+            // 
             // VentaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -537,5 +577,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unidades;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.CheckBox chkEdad;
     }
 }

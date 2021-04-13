@@ -39,6 +39,7 @@ namespace Presentacion
             this.lblinkContra = new System.Windows.Forms.LinkLabel();
             this.btnMinimizar = new FontAwesome.Sharp.IconPictureBox();
             this.btCnCerrar = new FontAwesome.Sharp.IconPictureBox();
+            this.chkMostrar = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -94,6 +95,7 @@ namespace Presentacion
             this.txtContra.TabIndex = 2;
             this.txtContra.Text = "CONTRASEÑA";
             this.txtContra.Enter += new System.EventHandler(this.txtContra_Enter);
+            this.txtContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContra_KeyPress);
             this.txtContra.Leave += new System.EventHandler(this.txtContra_Leave);
             // 
             // label1
@@ -168,12 +170,27 @@ namespace Presentacion
             this.btCnCerrar.TabStop = false;
             this.btCnCerrar.Click += new System.EventHandler(this.btCnCerrar_Click);
             // 
+            // chkMostrar
+            // 
+            this.chkMostrar.AutoSize = true;
+            this.chkMostrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.chkMostrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.chkMostrar.Location = new System.Drawing.Point(785, 313);
+            this.chkMostrar.Name = "chkMostrar";
+            this.chkMostrar.Size = new System.Drawing.Size(169, 24);
+            this.chkMostrar.TabIndex = 83;
+            this.chkMostrar.Text = "Mostrar Contraseña";
+            this.chkMostrar.UseVisualStyleBackColor = true;
+            this.chkMostrar.CheckedChanged += new System.EventHandler(this.chkMostrar_CheckedChanged);
+            this.chkMostrar.ChangeUICues += new System.Windows.Forms.UICuesEventHandler(this.chkMostrar_ChangeUICues);
+            // 
             // LoginFerreteriaMaresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(995, 368);
+            this.Controls.Add(this.chkMostrar);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btCnCerrar);
             this.Controls.Add(this.lblinkContra);
@@ -210,5 +227,6 @@ namespace Presentacion
         private System.Windows.Forms.LinkLabel lblinkContra;
         private FontAwesome.Sharp.IconPictureBox btnMinimizar;
         private FontAwesome.Sharp.IconPictureBox btCnCerrar;
+        private System.Windows.Forms.CheckBox chkMostrar;
     }
 }

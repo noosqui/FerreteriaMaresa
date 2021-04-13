@@ -17,7 +17,9 @@ namespace Presentacion
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentForm;
-        public MenuEmpleados()
+        private string idEmpleado;
+
+        public MenuEmpleados(string idEmpleado)
         {
             InitializeComponent();
             leftBorderBtn = new Panel();
@@ -28,6 +30,7 @@ namespace Presentacion
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.idEmpleado = idEmpleado;
         }
         private struct RGBColors
         {
