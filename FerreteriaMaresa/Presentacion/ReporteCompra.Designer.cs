@@ -30,7 +30,10 @@ namespace Presentacion
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+
+            this.submenubotones = new System.Windows.Forms.Panel();
+
+
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -38,13 +41,21 @@ namespace Presentacion
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
+
+
+            this.submenubotones.SuspendLayout();
+
+
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
-            this.panel2.Controls.Add(this.panel1);
+
+
+            this.panel2.Controls.Add(this.submenubotones);
+
+
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
@@ -52,21 +63,24 @@ namespace Presentacion
             this.panel2.Size = new System.Drawing.Size(993, 429);
             this.panel2.TabIndex = 4;
             // 
-            // panel1
+
+
+            // submenubotones
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.btnGuardar);
-            this.panel1.Controls.Add(this.btnEliminar);
-            this.panel1.Controls.Add(this.btnAgregar);
-            this.panel1.Controls.Add(this.btnModificar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(750, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(243, 429);
-            this.panel1.TabIndex = 3;
+            this.submenubotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
+            this.submenubotones.Controls.Add(this.button1);
+            this.submenubotones.Controls.Add(this.button2);
+            this.submenubotones.Controls.Add(this.btnGuardar);
+            this.submenubotones.Controls.Add(this.btnEliminar);
+            this.submenubotones.Controls.Add(this.btnAgregar);
+            this.submenubotones.Controls.Add(this.btnModificar);
+            this.submenubotones.Dock = System.Windows.Forms.DockStyle.Right;
+            this.submenubotones.Location = new System.Drawing.Point(763, 0);
+            this.submenubotones.Margin = new System.Windows.Forms.Padding(2);
+            this.submenubotones.Name = "submenubotones";
+            this.submenubotones.Size = new System.Drawing.Size(230, 429);
+            this.submenubotones.TabIndex = 3;
+
             // 
             // button1
             // 
@@ -78,7 +92,9 @@ namespace Presentacion
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Location = new System.Drawing.Point(0, 355);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(243, 71);
+
+            this.button1.Size = new System.Drawing.Size(230, 71);
+
             this.button1.TabIndex = 66;
             this.button1.Text = "Personalizado";
             this.button1.UseVisualStyleBackColor = false;
@@ -94,7 +110,9 @@ namespace Presentacion
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button2.Location = new System.Drawing.Point(0, 284);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(243, 71);
+
+            this.button2.Size = new System.Drawing.Size(230, 71);
+
             this.button2.TabIndex = 65;
             this.button2.Text = "Por Año";
             this.button2.UseVisualStyleBackColor = false;
@@ -109,7 +127,10 @@ namespace Presentacion
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnGuardar.Location = new System.Drawing.Point(0, 213);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(243, 71);
+
+            this.btnGuardar.Size = new System.Drawing.Size(230, 71);
+
+
             this.btnGuardar.TabIndex = 64;
             this.btnGuardar.Text = "Ultimos 30 dias";
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -125,7 +146,9 @@ namespace Presentacion
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEliminar.Location = new System.Drawing.Point(0, 142);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(243, 71);
+
+            this.btnEliminar.Size = new System.Drawing.Size(230, 71);
+
             this.btnEliminar.TabIndex = 59;
             this.btnEliminar.Text = "Por Mes";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -140,7 +163,9 @@ namespace Presentacion
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAgregar.Location = new System.Drawing.Point(0, 71);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(243, 71);
+
+            this.btnAgregar.Size = new System.Drawing.Size(230, 71);
+
             this.btnAgregar.TabIndex = 56;
             this.btnAgregar.Text = "Ultimos 7 dias";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -156,7 +181,9 @@ namespace Presentacion
             this.btnModificar.Location = new System.Drawing.Point(0, 0);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(243, 71);
+
+            this.btnModificar.Size = new System.Drawing.Size(230, 71);
+
             this.btnModificar.TabIndex = 58;
             this.btnModificar.Text = "Por Dia";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -171,7 +198,9 @@ namespace Presentacion
             this.Name = "ReporteCompra";
             this.Text = "Reporte Compra";
             this.panel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+
+            this.submenubotones.ResumeLayout(false);
+
             this.ResumeLayout(false);
 
         }
@@ -179,7 +208,7 @@ namespace Presentacion
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel submenubotones;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnGuardar;

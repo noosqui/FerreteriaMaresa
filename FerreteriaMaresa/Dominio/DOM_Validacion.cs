@@ -49,7 +49,7 @@ namespace Dominio
         {
             try
             {
-                if (char.IsSeparator(e.KeyChar))
+                if (char.IsSeparator(e.KeyChar) || e.KeyChar =='.')
                 {
                     e.Handled = true;
                 }
