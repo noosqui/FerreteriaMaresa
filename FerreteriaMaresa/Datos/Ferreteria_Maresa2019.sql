@@ -1,6 +1,12 @@
-create database [Ferreteria_Maresa]
+Create database [Ferreteria_Maresa]
 GO
 USE [Ferreteria_Maresa]
+GO
+
+CREATE TABLE [dbo].[Paises](
+	[id_cliente] [int] IDENTITY(1,1),
+	[pais] [nvarchar](80) NOT NULL,
+)
 GO
 
 CREATE TABLE [dbo].[Bancos](
@@ -47,7 +53,7 @@ CREATE TABLE [dbo].[Clientes](
 	[id_cliente] [nvarchar](20) NOT NULL,
 	[nom_cliente] [nvarchar](80) NOT NULL,
 	[apellido_cliente] [nvarchar](80) NOT NULL,
-	[RTN] [nvarchar](80) NOT NULL,
+	[RTN] [nvarchar](80),
 	[direccion] [nvarchar](80) NOT NULL,
 	[ciudad] [nvarchar](80) NOT NULL,
 	[region] [nvarchar](80) NOT NULL,
@@ -114,6 +120,7 @@ CREATE TABLE [dbo].[FacturaCompra](
 	[id_proveedor] [int] NOT NULL,
 	[id_empleado] [nvarchar](20) NOT NULL,
 	[id_tipo_pago] [int] NOT NULL,
+	[isv] [float] NOT NULL,
 	[descuento] [float] NOT NULL,
 	[subtotal] [float] NOT NULL,
  CONSTRAINT [PK__FacturaC__C4BAA60441121C89] PRIMARY KEY CLUSTERED 
@@ -126,9 +133,11 @@ GO
 CREATE TABLE [dbo].[FacturaVenta](
 	[id_venta] [int] IDENTITY(1,1) NOT NULL,
 	[fecha] [date] NOT NULL,
-	[id_cliente] [nvarchar](20) NOT NULL,
+	[id_cliente] [nvarchar](20),
 	[id_empleado] [nvarchar](20) NOT NULL,
 	[id_tipo_pago] [int] NOT NULL,
+	[rtn] [bit],
+	[isv] [float] NOT NULL,
 	[descuento] [float] NOT NULL,
 	[subtotal] [float] NOT NULL,
  CONSTRAINT [PK__FacturaV__459533BF7D9FE543] PRIMARY KEY CLUSTERED 
@@ -140,6 +149,7 @@ GO
 
 CREATE TABLE [dbo].[Inventario](
 	[id_producto] [int] IDENTITY(1,1) NOT NULL,
+	[id_proveedor] [int] NOT NULL,
 	[nom_producto] [nvarchar](80) NOT NULL,
 	[id_marca] [int] NOT NULL,
 	[Cantidad_por_Unidad] [nvarchar](50) NOT NULL,
@@ -158,6 +168,7 @@ GO
 CREATE TABLE [dbo].[Marcas](
 	[id_marca] [int] IDENTITY(1,1) NOT NULL,
 	[descripcion] [nvarchar](50) NOT NULL,
+	--[Estado] [bit] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id_marca] ASC
@@ -404,7 +415,7 @@ insert into Bancos values ('Banco de Occidente', 'Barrio el centro', 'Siguatepeq
 ('BANPAIS', 'Barrio el centro', 'Siguatepeque', 'Comayagua', '12111');
 go
 
-insert into Marcas (descripcion)
+insert into Marcas
 values ('SANTUL'),
 ('TRUPER'),
 ('CHEVRON'),
@@ -451,152 +462,190 @@ values('ABRAZADERA'),
 ('EQUIPO DE FONTANERÍA');
 go
 
-insert into Inventario (nom_producto, id_marca, Cantidad_por_Unidad, Costo_producto, precio_actual, stock, Estado, id_categoria)
-values ('Abrazadera aceero inoxidable','1','Caja de 6 abrazaderas','52.00','56.00','500','ACTIVO','1'),
+insert into Inventario values ('1','Abrazadera aceero inoxidable','1','Caja de 6 abrazaderas','52.00','56.00','500','ACTIVO','1'),
 
-('Aceite Aflojatodo','2','1 bote','50.54','55.54','48','ACTIVO','2'),
+('1','Aceite Aflojatodo','2','1 dote','50.54','55.54','48','ACTIVO','2'),
 
-('Aceite bote','3','1 bote','100.50','107.50','50','ACTIVO','2'),
+('2','Aceite bote','3','1 dote','100.50','107.50','50','ACTIVO','2'),
 
-('Aceite cubeta','3','1 cubeta','3,000.00','3,136.59','50','ACTIVO','2'),
+('2','Aceite cubeta','3','1cubeta','3,000.00','3,136.59','50','ACTIVO','2'),
 
-('Limpiador para carburador bote','4','1 bote','48.00','55.00','30','ACTIVO','2'),
+('3','Limpiador para carburador bote','4','1 dote','48.00','55.00','30','ACTIVO','2'),
 
-('Lavadora a precion de agua','5','1 Maquina','9,002.10','10,002.10','0','INACTIVO','3'),
+('3','Lavadora a precion de agua','5','1 Maquina','9,002.10','10,002.10','0','INACTIVO','3'),
 
-('Lona-Toldo','4','1 Unidad','100.00','124.00','20','ACTIVO','4'),
+('4','Lona-Toldo','4','1 Unidad','100.00','124.00','20','ACTIVO','4'),
 
-('PL-BICI MTB 26 27SP','5','1 Unidad','9,000.00','9,517.20','20','ACTIVO','5'),
+('4','PL-BICI MTB 26 27SP','5','1 Unidad','9,000.00','9,517.20','20','ACTIVO','5'),
 
-('PL-BICI 700C 27SP SST-PLUS','5','1 Unidad','12,00.00','12,557.41','10','ACTIVO','5'),
+('20','PL-BICI 700C 27SP SST-PLUS','5','1 Unidad','12,00.00','12,557.41','10','ACTIVO','5'),
 
-('Acoplador de arrastre','2','1 Unidad','200.00','251.44','40','ACTIVO','6'),
+('20','Acoplador de arrastre','2','1 Unidad','200.00','251.44','40','ACTIVO','6'),
 
-('Bola de arrastre','2','1 Unidad','130.00','137.68','0','INACTIVO','6'),
+('12','Bola de arrastre','2','1 Unidad','130.00','137.68','0','INACTIVO','6'),
 
-('CABLE P/BAT/CARRO #MSB-100A','5','1 Unidad','42.92','52.92','0','INACTIVO','6'),
+('13','CABLE P/BAT/CARRO #MSB-100A','5','1 Unidad','42.92','52.92','0','INACTIVO','6'),
 
-('CABLE P/BAT/CARRO #MSB-150A','5','1 Unidad','42.92','52.92','20','ACTIVO','6'),
+('14','CABLE P/BAT/CARRO #MSB-150A','5','1 Unidad','42.92','52.92','20','ACTIVO','6'),
 
-('Cable pasa corriente ','1','1 Unidad','130.00','145.00','15','ACTIVO','6'),
+('15','Cable pasa corriente ','1','1 Unidad','130.00','145.00','15','ACTIVO','6'),
 
-('Cargador de bateria','2','1 Unidad','4,100.00','4,243.38','0','INACTIVO','6'),
+('16','Cargador de bateria','2','1 Unidad','4,100.00','4,243.38','0','INACTIVO','6'),
 
-('Cinta Automotriz','7','1 Unidad','52.23','62.23','0','INACTIVO','6'),
+('17','Cinta Automotriz','7','1 Unidad','52.23','62.23','0','INACTIVO','6'),
 
-('EXT. STANLEY 3 PULG.','8','1 Unidad','43.42','53.42','0','INACTIVO','6'),
+('18','EXT. STANLEY 3 PULG.','8','1 Unidad','43.42','53.42','0','INACTIVO','6'),
 
-('Inversor de corriente','2','1 Unidad','767.21','867.21','10','ACTIVO','6'),
+('19','Inversor de corriente','2','1 Unidad','767.21','867.21','10','ACTIVO','6'),
 
-('JACK HIDRAULICO','2','1 Unidad','823.85','923.85','15','ACTIVO','6'),
+('21','JACK HIDRAULICO','2','1 Unidad','823.85','923.85','15','ACTIVO','6'),
 
-('Burlete para puerta','1','1 Unidad','78.87','88.87','30','ACTIVO','7'),
+('3','Burlete para puerta','1','1 Unidad','78.87','88.87','30','ACTIVO','7'),
 
-('Fija puerta','2','1 Unidad','60.42','80.42','20','ACTIVO','7'),
+('5','Fija puerta','2','1 Unidad','60.42','80.42','20','ACTIVO','7'),
 
-('Gancho','2','1 Unidad','88.59','98.59','35','ACTIVO','7'),
+('6','Gancho','2','1 Unidad','88.59','98.59','35','ACTIVO','7'),
 
-('Mirilla de seguridad','1','1 Unidad','375.00','400.00','40','ACTIVO','7'),
+('7','Mirilla de seguridad','1','1 Unidad','375.00','400.00','40','ACTIVO','7'),
 
-('Braso Cierrapuesta','2','1 Unidad','600.68','684.68','20','ACTIVO','7'),
+('8','Braso Cierrapuesta','2','1 Unidad','600.68','684.68','20','ACTIVO','7'),
 
-('Cerradura','9','1 Unidad','100.88','126.88','10','ACTIVO','7'),
+('9','Cerradura','9','1 Unidad','100.88','126.88','10','ACTIVO','7'),
 
-('Corredera','9','1 Unidad','30.66','35.66','30','ACTIVO','7'),
+('10','Corredera','9','1 Unidad','30.66','35.66','30','ACTIVO','7'),
 
-('Corredera galvanizada','10','1 Unidad','80.42','84.42','0','INACTIVO','7'),
+('11','Corredera galvanizada','10','1 Unidad','80.42','84.42','0','INACTIVO','7'),
 
-('Adecivo para pegar ceramica','11','1 Unidad','175.25','185.25','0','INACTIVO','8'),
+('12','Adecivo para pegar ceramica','11','1 Unidad','175.25','185.25','0','INACTIVO','8'),
 
-('Adecivo para pegar porcelanato','11','1 Unidad','380.47','400.47','20','ACTIVO','8'),
+('13','Adecivo para pegar porcelanato','11','1 Unidad','380.47','400.47','20','ACTIVO','8'),
 
-('EPOXY BOND','12','1 Unidad','500.59','521.59','10','ACTIVO','8'),
+('15','EPOXY BOND','12','1 Unidad','500.59','521.59','10','ACTIVO','8'),
 
-('F-5 GALON','12','1 Unidad','300.59','306.59','20','ACTIVO','8'),
+('16','F-5 GALON','12','1 Unidad','300.59','306.59','20','ACTIVO','8'),
 
-('PAINTER CARTUCHO','12','1 Unidad','40.53','48.53','40','ACTIVO','8'),
+('1','PAINTER CARTUCHO','12','1 Unidad','40.53','48.53','40','ACTIVO','8'),
 
-('POLY CLEANER BOTE','12','1 Unidad','340.99','350.99','20','ACTIVO','8'),
+('2','POLY CLEANER BOTE','12','1 Unidad','340.99','350.99','20','ACTIVO','8'),
 
-('POLY FLEX NS BLANCO','12','1 Unidad','108.88','118.88','40','ACTIVO','8'),
+('4','POLY FLEX NS BLANCO','12','1 Unidad','108.88','118.88','40','ACTIVO','8'),
 
-('Tensor ajustable','1','1 Unidad','42.07','52.07','50','ACTIVO','9'),
+('5','Tensor ajustable','1','1 Unidad','42.07','52.07','50','ACTIVO','9'),
 
-('Anticorrosivo Blaco','13','1 Unidad','252.68','262.68','40','ACTIVO','10'),
+('21','Anticorrosivo Blaco','13','1 Unidad','252.68','262.68','40','ACTIVO','10'),
 
-('Anticorrosivo negro','14','1 Unidad','83.71','93.71','40','ACTIVO','10'),
+('7','Anticorrosivo negro','14','1 Unidad','83.71','93.71','40','ACTIVO','10'),
 
-('BASE PROTECTO','15','1 Unidad','604.73','664.73','0','INACTIVO','10'),
+('8','BASE PROTECTO','15','1 Unidad','604.73','664.73','0','INACTIVO','10'),
 
-('LAMINA DESPLEGADA PERFORADA WEAVE PIEZA 4X8','16','1 Unidad','1,951.45','1,971.45','200','ACTIVO','11'),
+('9','LAMINA DESPLEGADA PERFORADA WEAVE PIEZA 4X8','16','1 Unidad','1,951.45','1,971.45','200','ACTIVO','11'),
 
-('LAMINA DESPLEGADA','16','1 Unidad','241.60','261.60','100','ACTIVO','11'),
+('3','LAMINA DESPLEGADA','16','1 Unidad','241.60','261.60','100','ACTIVO','11'),
 
-('Cemento gris','17','1 Unidad','159.49','169.49','2000','ACTIVO','12'),
+('1','Cemento gris','17','1 Unidad','159.49','169.49','2000','ACTIVO','12'),
 
-('CANALETA GALVANIZADA','18','1 Unidad','306.00','346.00','5000','ACTIVO','13'),
+('5','CANALETA GALVANIZADA','18','1 Unidad','306.00','346.00','5000','ACTIVO','13'),
 
-('CANALETA HIERRO','18','1 Unidad','310.00','310.00','5000','ACTIVO','13'),
+('7','CANALETA HIERRO','18','1 Unidad','310.00','310.00','5000','ACTIVO','13'),
 
-('Aislante termico','19','1 Unidad','1,100.20','1,142.20','100','ACTIVO','14'),
+('2','Aislante termico','19','1 Unidad','1,100.20','1,142.20','100','ACTIVO','14'),
 
-('Bañera','20','1 Unidad','18,606.14','18,646.14','20','ACTIVO','15'),
+('6','Bañera','20','1 Unidad','18,606.14','18,646.14','20','ACTIVO','15'),
 
-('Tina','21','1 Unidad','35,000.00','35,523.98','5','ACTIVO','15'),
+('12','Tina','21','1 Unidad','35,000.00','35,523.98','5','ACTIVO','15'),
 
-('Secador de mano','5','1 Unidad','2,622.33','2,822.33','10','ACTIVO','16'),
+('16','Secador de mano','5','1 Unidad','2,622.33','2,822.33','10','ACTIVO','16'),
 
-('Bajante','22','1 Unidad','153.66','173.66','70','ACTIVO','16'),
+('10','Bajante','22','1 Unidad','153.66','173.66','70','ACTIVO','16'),
 
-('Bomba','23','1 Unidad','10,000.00','10,257.38','10','ACTIVO','16'),
+('18','Bomba','23','1 Unidad','10,000.00','10,257.38','10','ACTIVO','16'),
 
-('BOCA DE SUCCION','23','1 Unidad','605.56','705.56','10','ACTIVO','16');
+('2','BOCA DE SUCCION','23','1 Unidad','605.56','705.56','10','ACTIVO','16');
 go
 
-insert into FacturaVenta values('2021-05-25', '0318199111442', '0819200100077', '1', '0', '0'),
-('2021-01-02', '0318198702145', '0318200200462', '2', '0', '0'),
-('2021-01-06', '0315199648552', '1804200703610', '2', '0', '0'),
-('2021-01-09', '0312197866522', '1401200000574', '2', '0', '0'),
-('2021-01-15', '0318198845121', '0318199802010', '2', '0', '0'),
-('2021-01-19', '0318198422114', '0801200103369', '2', '0', '0'),
-('2021-01-19', '0819198311447', '1325199800036', '2', '0', '0'),
-('2021-01-25', '1414199015242', '1523199500601', '2', '0', '0'),
-('2021-02-01', '0801197866522', '1414199900126', '2', '0', '0'),
-('2021-02-06', '0819200145121', '1401200200144', '2', '0', '0'),
-('2021-02-08', '0318198233665', '1201199900111', '2', '0', '0'),
-('2021-02-08', '0101198422233', '0819200100077', '2', '0', '0'),
-('2021-02-09', '0315199522113', '0318200200462', '2', '0', '0'),
-('2021-02-16', '0312197800021', '1804200703610', '2', '0', '0'),
-('2021-02-19', '0318198802021', '1401200000574', '2', '0', '0'),
-('2021-02-25', '0318198211245', '0318199802010', '2', '0', '0'),
-('2021-02-26', '0819198347856', '0801200103369', '2', '0', '0'),
-('2021-03-03', '1414199025142', '1325199800036', '2', '0', '0'),
-('2021-03-17', '0801199506326', '1523199500601', '2', '0', '0'),
-('2021-03-17', '0819200199552', '1414199900126', '2', '0', '0'),
-('2021-03-20', '0318199191521', '1401200200144', '2', '0', '0'),
-('2021-04-01', '0318198700002', '1201199900111', '2', '0', '0'),
-('2021-04-05', '0318199111442', '0819200100077', '1', '0', '0'),
-('2021-04-10', '0318198702145', '0318200200462', '1', '0', '0'),
-('2021-04-15', '0315199648552', '1804200703610', '1', '0', '0'),
-('2021-05-03', '0312197866522', '1401200000574', '1', '0', '0'),
-('2021-05-15', '0318198845121', '0318199802010', '1', '0', '0'),
-('2021-05-19', '0318198422114', '0801200103369', '1', '0', '0'),
-('2021-05-19', '0819198311447', '1325199800036', '1', '0', '0'),
-('2021-06-01', '1414199015242', '1523199500601', '1', '0', '0'),
-('2021-06-01', '0801197866522', '1414199900126', '1', '0', '0'),
-('2021-06-02', '0819200145121', '1401200200144', '1', '0', '0'),
-('2021-06-29', '0318198233665', '1201199900111', '1', '0', '0'),
-('2021-07-05', '0101198422233', '0819200100077', '1', '0', '0'),
-('2021-07-06', '0315199522113', '0318200200462', '1', '0', '0'),
-('2021-07-07', '0312197800021', '1804200703610', '1', '0', '0'),
-('2021-07-15', '0318198802021', '1401200000574', '1', '0', '0'),
-('2021-08-15', '0318198211245', '0318199802010', '1', '0', '0'),
-('2021-08-19', '0819198347856', '0801200103369', '1', '0', '0'),
-('2021-08-20', '1414199025142', '1325199800036', '1', '0', '0'),
-('2021-08-25', '0801199506326', '1523199500601', '1', '0', '0'),
-('2021-08-30', '0819200199552', '1414199900126', '1', '0', '0'),
-('2021-09-01', '0318199191521', '1401200200144', '1', '0', '0'),
-('2021-09-01', '0318198700002', '1201199900111', '1', '0', '0');
+insert into FacturaVenta values('2021-05-25', '0318199111442', '0819200100077', '1', '', '0', '0', '0'),
+('2021-01-02', '0318198702145', '0318200200462', '2', '', '0', '0', '0'),
+('2021-01-06', '0315199648552', '1804200703610', '2', '', '0', '0', '0'),
+('2021-01-09', '0312197866522', '1401200000574', '2', '', '0', '0', '0'),
+('2021-01-15', '0318198845121', '0318199802010', '2', '', '0', '0', '0'),
+('2021-01-19', '0318198422114', '0801200103369', '2', '', '0', '0', '0'),
+('2021-01-19', '0819198311447', '1325199800036', '2', '', '0', '0', '0'),
+('2021-01-25', '1414199015242', '1523199500601', '2', '', '0', '0', '0'),
+('2021-02-01', '0801197866522', '1414199900126', '2', '', '0', '0', '0'),
+('2021-02-06', '0819200145121', '1401200200144', '2', '', '0', '0', '0'),
+('2021-02-08', '0318198233665', '1201199900111', '2', '', '0', '0', '0'),
+('2021-02-08', '0101198422233', '0819200100077', '2', '', '0', '0', '0'),
+('2021-02-09', '0315199522113', '0318200200462', '2', '', '0', '0', '0'),
+('2021-02-16', '0312197800021', '1804200703610', '2', '', '0', '0', '0'),
+('2021-02-19', '0318198802021', '1401200000574', '2', '', '0', '0', '0'),
+('2021-02-25', '0318198211245', '0318199802010', '2', '', '0', '0', '0'),
+('2021-02-26', '0819198347856', '0801200103369', '2', '', '0', '0', '0'),
+('2021-03-03', '1414199025142', '1325199800036', '2', '', '0', '0', '0'),
+('2021-03-17', '0801199506326', '1523199500601', '2', '', '0', '0', '0'),
+('2021-03-17', '0819200199552', '1414199900126', '2', '', '0', '0', '0'),
+('2021-03-20', '0318199191521', '1401200200144', '2', '', '0', '0', '0'),
+('2021-04-01', '0318198700002', '1201199900111', '2', '', '0', '0', '0'),
+('2021-04-05', '0318199111442', '0819200100077', '1', '', '0', '0', '0'),
+('2021-04-10', '0318198702145', '0318200200462', '1', '', '0', '0', '0'),
+('2021-04-15', '0315199648552', '1804200703610', '1', '', '0', '0', '0'),
+('2021-05-03', '0312197866522', '1401200000574', '1', '', '0', '0', '0'),
+('2021-05-15', '0318198845121', '0318199802010', '1', '', '0', '0', '0'),
+('2021-05-19', '0318198422114', '0801200103369', '1', '', '0', '0', '0'),
+('2021-05-19', '0819198311447', '1325199800036', '1', '', '0', '0', '0'),
+('2021-06-01', '1414199015242', '1523199500601', '1', '', '0', '0', '0'),
+('2021-06-01', '0801197866522', '1414199900126', '1', '', '0', '0', '0'),
+('2021-06-02', '0819200145121', '1401200200144', '1', '', '0', '0', '0'),
+('2021-06-29', '0318198233665', '1201199900111', '1', '', '0', '0', '0'),
+('2021-07-05', '0101198422233', '0819200100077', '1', '', '0', '0', '0'),
+('2021-07-06', '0315199522113', '0318200200462', '1', '', '0', '0', '0'),
+('2021-07-07', '0312197800021', '1804200703610', '1', '', '0', '0', '0'),
+('2021-07-15', '0318198802021', '1401200000574', '1', '', '0', '0', '0'),
+('2021-08-15', '0318198211245', '0318199802010', '1', '', '0', '0', '0'),
+('2021-08-19', '0819198347856', '0801200103369', '1', '', '0', '0', '0'),
+('2021-08-20', '1414199025142', '1325199800036', '1', '', '0', '0', '0'),
+('2021-08-25', '0801199506326', '1523199500601', '1', '', '0', '0', '0'),
+('2021-08-30', '0819200199552', '1414199900126', '1', '', '0', '0', '0'),
+('2021-09-01', '0318199191521', '1401200200144', '1', '', '0', '0', '0'),
+('2021-09-01', '0318198700002', '1201199900111', '1', '', '0', '0', '0');
+
+insert into FacturaCompra values ('03/01/2021', '3', '0318200200462', '1', '0', '1500','50000'),
+('03/01/2021', '2', '0318200200462', '1', '0', '1000','65000'),
+('03/02/2021', '3', '0318199802010', '2', '0', '1500','85000'),
+('03/03/2021', '4', '0318199802010', '2', '0', '1500','40000'),
+('03/04/2021', '5', '0318200200462', '1', '0', '1500','2000'),
+('03/05/2021', '6', '0318200200462', '2', '0', '1400','20000'),
+('03/06/2021', '7', '0801200103369', '1', '0', '1500','3000'),
+('03/07/2021', '8', '0801200103369', '1', '0', '550','8000'),
+('03/08/2021', '9', '0819200100077', '2', '0', '1500','50000'),
+('03/09/2021', '10', '0801200103369', '2', '0', '1500','25000'),
+('03/10/2021', '2', '0819200100077', '1', '0', '2500','50000'),
+('03/11/2021', '7', '0819200100077', '2', '0', '1500','50000'),
+('03/12/2021', '1', '1201199900111', '1', '0', '4400','90000'),
+('03/13/2021', '2', '1201199900111', '2', '0', '1500','50000'),
+('03/14/2021', '9', '1201199900111', '2', '0', '1500','90000'),
+('03/15/2021', '11', '1325199800036', '1', '0', '2500','50000'),
+('03/16/2021', '13', '1325199800036', '2', '0', '2500','80000'),
+('03/17/2021', '11', '1325199800036', '1', '0', '1575','50050'),
+('03/18/2021', '9', '1325199800036', '1', '0', '1500','50000'),
+('03/19/2021', '10', '1401200000574', '2', '0', '1500','25000'),
+('03/20/2021', '11', '1401200000574', '2', '0', '2500','50000'),
+('03/22/2021', '12', '1401200000574', '1', '0', '1500','50000'),
+('03/24/2021', '13', '1401200200144' , '2', '0', '4400','90000'),
+('03/25/2021', '11', '1401200200144' , '1', '0', '1500','25000'),
+('03/27/2021', '12', '1401200200144', '2', '0', '1500','89000'),
+('03/28/2021', '11', '1414199900126' , '1', '0', '2500','120000'),
+('04/15/2021', '13', '1414199900126', '2', '0', '2500','80000'),
+('04/16/2021', '11', '1414199900126', '1', '0', '1575','50050'),
+('04/17/2021', '9', '1414199900126', '1', '0', '1500','50000'),
+('04/18/2021', '10', '1414199900126', '1', '0', '1500','25000'),
+('04/19/2021', '11', '1523199500601', '2', '0', '2500','50000'),
+('04/22/2021', '12', '1523199500601', '1', '0', '1500','50000'),
+('04/24/2021', '13', '1523199500601', '2', '0', '4400','90000'),
+('04/25/2021', '11', '1523199500601', '1', '0', '1500','86000'),
+('04/26/2021', '12', '1804200703610', '2', '0', '1500','89000'),
+('04/28/2021', '11', '1804200703610', '1', '0', '2500','200000'),
+('04/30/2021', '12', '1804200703610', '1', '0', '2500','130000');
+go
 
 insert into Cheques values ('1593284675', '2021-04-05', '0318199111442', '263253659', '0215', '0', '1', '1'),
 ('1524759885', '2021-04-10', '0318198702145', '953155646', '0326', '0', '2', '1'),
@@ -724,6 +773,17 @@ SELECT        dbo.Empleados.id_empleado 'Identidad', dbo.Empleados.nom_empleado 
 FROM            dbo.Empleados INNER JOIN
                          dbo.Roles ON dbo.Empleados.id_rol_empleado = dbo.Roles.id_rol
 order by dbo.Empleados.id_empleado ASC
+GO
+
+--Recuperar Contraseña
+
+create PROCEDURE Recoverpass
+@correo nvarchar(80)
+as
+SELECT        dbo.Usuarios.contrasenia, dbo.Empleados.nom_empleado + ' ' + dbo.Empleados.apellido_empleado as 'Nombre Empleado', dbo.Empleados.correo_empleado
+FROM            dbo.Empleados INNER JOIN
+                         dbo.Usuarios ON dbo.Empleados.id_empleado = dbo.Usuarios.id_empleado
+						 where dbo.Empleados.correo_empleado like @correo
 GO
 
 ------------------------------------------------------Cliente------------------------------------------------------
@@ -865,27 +925,78 @@ FROM            dbo.Proveedores
 GO
 
 ------------------------------------------------------Inventario------------------------------------------------------
+--insertar Inventario
+create proc insertar_Inventario
+	
+	@id_proveedor int,
+	@nom_producto nvarchar(80),
+	@id_marca int,
+	@Cantidad_por_Unidad nvarchar(50),
+	@Costo_producto money,
+	@precio_actual money,
+	@stock int,
+	@Estado varchar(20),
+	@id_categoria int
+	as
+ begin
+ insert into Inventario values
+ (@id_proveedor, @nom_producto , @id_marca, @Cantidad_por_Unidad,@Costo_producto,@precio_actual, @stock,@Estado,@id_categoria)
+ end
+ go
+
+ --EDITAR INVENTARIO	
+ create proc editar_Inventario
+	@id_producto int,
+	@id_proveedor int,
+	@nom_producto nvarchar(80),
+	@id_marca int,
+	@Cantidad_por_Unidad nvarchar(50),
+	@Costo_producto money,
+	@precio_actual money,
+	@stock int,
+	@Estado varchar(20),
+	@id_categoria int
+	as
+ begin
+ update Inventario set id_proveedor=@id_proveedor, nom_producto = @nom_producto , id_marca=@id_marca, Cantidad_por_Unidad=@Cantidad_por_Unidad,Costo_producto=@Costo_producto,precio_actual=@precio_actual, stock=@stock,Estado=@Estado,id_categoria=@id_categoria
+where id_producto=@id_producto
+ end
+ go
+
+ --eliminar inventario 
+ create proc eliminar_inventario
+@id_producto int
+as
+begin
+update Inventario set Estado = 'INACTIVO' 
+where id_producto=@id_producto
+end
+go
+
+
 --Mostrar Inventario
 Create procedure [dbo].[SP_Inventario]
 As
-SELECT        dbo.Inventario.id_producto AS [Id Producto], dbo.Inventario.nom_producto AS [Nombre Producto], dbo.Inventario.id_marca AS [Id Marca], dbo.Marcas.descripcion AS Marca, dbo.Inventario.id_categoria AS [Id Categoria], 
-                         dbo.Categorias.descripcion AS Categoría, dbo.Inventario.Cantidad_por_Unidad AS [Cantidad por Unidad], dbo.Inventario.Costo_producto AS [Costo Producto], dbo.Inventario.precio_actual AS [Precio Actual], 
-                         dbo.Inventario.stock AS Stock, dbo.Inventario.Estado
+SELECT        dbo.Inventario.id_producto AS [Id Producto], dbo.Inventario.nom_producto AS Nombre, dbo.Inventario.Cantidad_por_Unidad AS [Cantidad por Unidad], dbo.Inventario.Costo_producto AS [Costo Producto], 
+                         dbo.Inventario.precio_actual AS [Precio Actual], dbo.Inventario.stock AS Stock, dbo.Inventario.id_marca AS [Id Marca], dbo.Marcas.descripcion AS Marca, dbo.Categorias.id_categoria AS [Id Categoría], 
+                         dbo.Categorias.descripcion AS Categoría, dbo.Proveedores.id_proveedor AS [Id Proveedor], dbo.Proveedores.nom_proveedor AS [Nombre Proveedor], dbo.Inventario.Estado
 FROM            dbo.Inventario INNER JOIN
                          dbo.Marcas ON dbo.Inventario.id_marca = dbo.Marcas.id_marca INNER JOIN
-                         dbo.Categorias ON dbo.Inventario.id_categoria = dbo.Categorias.id_categoria
+                         dbo.Categorias ON dbo.Inventario.id_categoria = dbo.Categorias.id_categoria INNER JOIN
+                         dbo.Proveedores ON dbo.Inventario.id_proveedor = dbo.Proveedores.id_proveedor
 GO
 
 --Buscar Inventario
 Create procedure Buscar_Inventario
 @nom_producto nvarchar(80)
 As
-SELECT        dbo.Inventario.id_producto AS [Id Producto], dbo.Inventario.nom_producto AS [Nombre Producto], dbo.Inventario.id_marca AS [Id Marca], dbo.Marcas.descripcion AS Marca, dbo.Inventario.id_categoria AS [Id Categoria], 
-                         dbo.Categorias.descripcion AS Categoría, dbo.Inventario.Cantidad_por_Unidad AS [Cantidad por Unidad], dbo.Inventario.Costo_producto AS [Costo Producto], dbo.Inventario.precio_actual AS [Precio Actual], 
-                         dbo.Inventario.stock AS Stock, dbo.Inventario.Estado
+SELECT        dbo.Inventario.id_producto AS [Id Producto], dbo.Inventario.nom_producto AS Nombre, dbo.Inventario.Cantidad_por_Unidad AS [Cantidad por Unidad], dbo.Inventario.Costo_producto AS [Costo Producto], 
+                         dbo.Inventario.precio_actual AS [Precio Actual], dbo.Inventario.stock AS Stock, dbo.Inventario.id_marca AS [Id Marca], dbo.Marcas.descripcion AS Marca, dbo.Categorias.id_categoria AS [Id Categoría], 
+                         dbo.Categorias.descripcion AS Categoría, dbo.Proveedores.id_proveedor AS [Id Proveedor], dbo.Proveedores.nom_proveedor AS [Nombre Proveedor], dbo.Inventario.Estado
 FROM            dbo.Inventario INNER JOIN
                          dbo.Marcas ON dbo.Inventario.id_marca = dbo.Marcas.id_marca INNER JOIN
-                         dbo.Categorias ON dbo.Inventario.id_categoria = dbo.Categorias.id_categoria
+                         dbo.Categorias ON dbo.Inventario.id_categoria = dbo.Categorias.id_categoria INNER JOIN
+                         dbo.Proveedores ON dbo.Inventario.id_proveedor = dbo.Proveedores.id_proveedor
 						 where dbo.Inventario.nom_producto like '%' +@nom_producto+ '%'
 GO
 
@@ -910,9 +1021,81 @@ go
 --Mostrar Marcas
 Create Procedure Mostrar_Marcas
 As
-SELECT        id_marca as 'Id Marca', descripcion AS Marca
+SELECT        id_marca as 'Id Marca', descripcion AS Marca--, Estado AS estado
 FROM            dbo.Marcas
 GO
+
+
+--inertar categoria
+
+ create proc insertar_categoria
+	
+	@descripcion nvarchar(50)
+as
+ begin
+ insert into Categorias values
+ (@descripcion)
+ end
+ go
+
+ --modificar categorias
+  create proc editar_categoria
+	@id_categoria int,
+	@descripcion nvarchar(50)
+as
+ begin
+ update Categorias set descripcion=@descripcion
+where id_categoria=@id_categoria
+ end
+ go
+
+
+ --eliminar categoria
+  create proc eliminar_categoria
+@id_categoria int
+as
+begin
+delete from Categorias
+where id_categoria=@id_categoria
+end
+go
+
+
+--insertar marca
+create proc insertar_marca
+	
+	@descripcion nvarchar(50)
+	--@Estado bit
+as
+ begin
+ insert into Marcas values
+ (@descripcion)--,@Estado)
+ end
+ go
+
+ --modificar marca
+  create proc editar_marca
+	@id_marca int,
+	@descripcion nvarchar(50)
+	--@Estado bit
+as
+ begin
+ update Marcas set descripcion=@descripcion--, Estado=@Estado
+where id_marca=@id_marca
+ end
+ go
+
+
+ --eliminar marca
+  create proc eliminar_marca
+@id_marca int
+as
+begin
+update Marcas set Estado = '0' 
+where id_marca=@id_marca
+end
+go
+
 
 --Buscar Marcas
 Create Procedure Buscar_Marcas
@@ -986,11 +1169,13 @@ create procedure insertar_FacturaVenta
 	@IdCliente as nvarchar(20),
 	@IdEmpleado as nvarchar(20),
 	@IdTipoPago as int,
+	@rtn as bit,
+	@isv as float,
 	@Descuento as float,
 	@SubTotal as float
 
 	as begin
-		insert into FacturaVenta values(@Fecha, @IdCliente, @IdEmpleado, @IdTipoPago, @Descuento, @SubTotal) 
+		insert into FacturaVenta values(@Fecha, @IdCliente, @IdEmpleado, @IdTipoPago, @rtn, @isv, @Descuento, @SubTotal) 
 end
 go
 
@@ -1000,25 +1185,26 @@ create procedure insertar_FacturaCompra
 	@IdProveedor as int,
 	@IdEmpleado as nvarchar(20),
 	@IdTipoPago as int,
+	@isv as float,
 	@Descuento as float,
 	@SubTotal as float
 
 	as begin
-		insert into FacturaCompra values(@Fecha, @IdProveedor, @IdEmpleado, @IdTipoPago, @Descuento, @SubTotal) 
+		insert into FacturaCompra values(@Fecha, @IdProveedor, @IdEmpleado, @IdTipoPago, @isv, @Descuento, @SubTotal) 
 end
 go
 
 --Mostrar Factura Ventas
 Create procedure SP_Venta
 As
-SELECT        id_venta, fecha, id_cliente, id_empleado, id_tipo_pago, descuento, subtotal
+SELECT        id_venta, fecha, id_cliente, id_empleado, id_tipo_pago, rtn, isv, descuento, subtotal
 FROM            dbo.FacturaVenta
 go
 
 --Mostrar Factura Compras
 Create procedure SP_Compras
 As
-SELECT        id_compra AS [Id Compra], fecha AS Fecha, id_proveedor AS [Id Proveedor], id_empleado AS [Id Empleado], id_tipo_pago AS [Id Tipo Pago], descuento AS Descuento, subtotal AS [Sub Total]
+SELECT        id_compra AS [Id Compra], fecha AS Fecha, id_proveedor AS [Id Proveedor], id_empleado AS [Id Empleado], id_tipo_pago AS [Id Tipo Pago], descuento AS Descuento, isv as ISV, subtotal AS [Sub Total]
 FROM            dbo.FacturaCompra
 go
 
@@ -1068,7 +1254,7 @@ go
 Create Procedure Reporte_Compras
 As
 SELECT        dbo.DetalleCompra.id_detalle_compra AS [Id Detalle Compra], dbo.FacturaCompra.id_compra AS [Id Compra], dbo.Inventario.nom_producto AS [Nombre de Producto], 
-                         dbo.Inventario.Cantidad_por_Unidad AS [Cantidad Por Unidad], dbo.DetalleCompra.precio AS Precio, dbo.FacturaCompra.descuento AS Descuento, dbo.FacturaCompra.subtotal AS [Sub Total], 
+                         dbo.Inventario.Cantidad_por_Unidad AS [Cantidad Por Unidad], dbo.DetalleCompra.precio AS Precio, dbo.FacturaCompra.isv AS ISV, dbo.FacturaCompra.descuento AS Descuento, dbo.FacturaCompra.subtotal AS [Sub Total], 
                          dbo.DetalleCompra.cantidad AS Cantidad, dbo.Marcas.descripcion AS Marca, dbo.Categorias.descripcion AS Categoria, dbo.Empleados.nom_empleado as 'Nombre Proveedor', dbo.TipoPago.descripcion AS [Tipo Pago], dbo.FacturaCompra.fecha AS Fecha
 FROM            dbo.FacturaCompra INNER JOIN
                          dbo.DetalleCompra ON dbo.FacturaCompra.id_compra = dbo.DetalleCompra.id_compra INNER JOIN
@@ -1085,9 +1271,9 @@ GO
 Create procedure Reporte_Ventas
 As
 SELECT        dbo.DetalleVenta.id_detalle_venta AS [Id Detalle Venta], dbo.FacturaVenta.id_venta AS [Id Venta], dbo.Inventario.nom_producto AS [Nombre de Producto], dbo.Inventario.Cantidad_por_Unidad AS [Cantidad Por Unidad], 
-                         dbo.DetalleVenta.precio AS Precio, dbo.FacturaVenta.descuento AS Descuento, dbo.FacturaVenta.subtotal AS [Sub Total], dbo.DetalleVenta.cantidad AS Cantidad, dbo.Marcas.descripcion AS Marca, 
-                         dbo.Categorias.descripcion AS Categoria, dbo.Empleados.nom_empleado + ' ' + dbo.Empleados.apellido_empleado AS 'Nombre Empleado', dbo.Clientes.nom_cliente + ' ' + dbo.Clientes.apellido_cliente AS 'Nombre Cliente', 
-                         dbo.TipoPago.descripcion AS [Tipo Pago], dbo.FacturaVenta.fecha AS Fecha
+              dbo.DetalleVenta.precio AS Precio, dbo.FacturaVenta.rtn AS RTN, dbo.FacturaVenta.isv AS ISV, dbo.FacturaVenta.descuento AS Descuento, dbo.FacturaVenta.subtotal AS [Sub Total], dbo.DetalleVenta.cantidad AS Cantidad, dbo.Marcas.descripcion AS Marca, 
+              dbo.Categorias.descripcion AS Categoria, dbo.Empleados.nom_empleado + ' ' + dbo.Empleados.apellido_empleado AS 'Nombre Empleado', dbo.Clientes.nom_cliente + ' ' + dbo.Clientes.apellido_cliente AS 'Nombre Cliente', 
+              dbo.TipoPago.descripcion AS [Tipo Pago], dbo.FacturaVenta.fecha AS Fecha
 FROM            dbo.FacturaVenta INNER JOIN
                          dbo.DetalleVenta ON dbo.FacturaVenta.id_venta = dbo.DetalleVenta.id_venta INNER JOIN
                          dbo.Empleados ON dbo.FacturaVenta.id_empleado = dbo.Empleados.id_empleado INNER JOIN
@@ -1099,18 +1285,18 @@ FROM            dbo.FacturaVenta INNER JOIN
 GO
 
 ------------------------------------------------------TRIGGERS------------------------------------------------------
-CREATE TRIGGER SP_Dis_stock
-on DetalleVenta for insert
+Create TRIGGER [dbo].[SP_Dis_stock]
+on [dbo].[DetalleVenta] for insert
 as
 set nocount on
-update Inventario set stock = I.stock - DV.cantidad
-from Inventario as I inner join DetalleVenta as DV on I.id_producto = DV.id_producto
+update Inventario set stock = I.stock - INS.cantidad
+from Inventario as I inner join inserted INS on INS.id_producto =I.id_producto
 go
 
-CREATE TRIGGER SP_Aumen_stock
-on DetalleCompra for insert
+Create TRIGGER [dbo].[SP_Aumen_stock]
+on [dbo].[DetalleCompra] for insert
 as
 set nocount on
-update Inventario set stock = I.stock + DC.cantidad
-from Inventario as I inner join DetalleCompra as DC on I.id_producto = DC.id_producto
+update Inventario set stock = I.stock + INS.cantidad
+from Inventario as I inner join inserted INS on INS.id_producto =I.id_producto 
 go

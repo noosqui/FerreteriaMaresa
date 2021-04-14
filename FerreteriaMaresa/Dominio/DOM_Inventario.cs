@@ -130,7 +130,7 @@ namespace Dominio
         }
 
 
-
+     
 
         public DataTable buscar_inventario()
         {
@@ -141,6 +141,26 @@ namespace Dominio
         {
             return inventario.Mostrar_Inventario();
         }
+
+
+        public DataTable mostrar_marca()
+        {
+            return inventario.Mostrar_Marcas();
+        }
+        
+
+             public DataTable mostrar_categoria()
+        {
+            return inventario.Mostrar_Categorias();
+        }
+
+
+        public DataTable mostrar_proveedor()
+        {
+            return inventario.Mostrar_Proveedor();
+        }
+
+
 
         public DataTable ListarCategoria() 
         {
@@ -153,24 +173,59 @@ namespace Dominio
         }
 
 
-        public void crear_inventario(string IdProducto, string nom_producto, string nom_proveedor, string Marca, string costo_producto,
-            string precio_actual, string stock, string estado, string Categoria)
+        public void crear_inventario(string id_proveedor, string nom_producto, string id_marca, string cantidad_unidad, string costo_producto,
+            string precio_actual, string stock, string estado,string id_categoria)
         {
-            inventario.insertar_Inventario(int.Parse(IdProducto), nom_producto, nom_proveedor, marca, double.Parse(costo_producto),
-            double.Parse(precio_actual), int.Parse(stock), estado, categoria);
+            inventario.insertar_Inventario(int.Parse(id_proveedor), nom_producto, int.Parse(id_marca), cantidad_unidad, double.Parse(costo_producto),
+           double.Parse(precio_actual), int.Parse(stock), estado, int.Parse(id_categoria));
         }
 
-        public void modificar_inventario(string IdProducto, string nom_producto, string nom_proveedor, string Marca, string costo_producto,
-            string precio_actual, string stock, string estado, string Categoria)
+        public void modificar_inventario(string IdProducto, string id_proveedor, string nom_producto, string id_marca, string cantidad_unidad, string costo_producto,
+            string precio_actual, string stock, string estado, string id_categoria)
         {
-            inventario.modificar_Inventario(int.Parse(IdProducto), nom_producto, nom_proveedor, marca, double.Parse(costo_producto),
-            double.Parse(precio_actual), int.Parse(stock), estado, categoria);
+            inventario.modificar_Inventario(int.Parse(IdProducto), int.Parse(id_proveedor), nom_producto, int.Parse(id_marca), cantidad_unidad, double.Parse(costo_producto),
+           double.Parse(precio_actual), int.Parse(stock), estado, int.Parse(id_categoria));
         }
 
         public void eliminar_Producto(string IdProducto)
         {
-            inventario.EliminarInventario(IdProducto);
+            inventario.Eliminar_Inventario(int.Parse(IdProducto));
         }
+
+
+
+        public void crear_Categoria(string categoria)
+        {
+            inventario.insertar_categoria(categoria);
+        }
+
+        public void modificarCategoria(string id_categoria, string categoria)
+        {
+            inventario.modificar_categoria(int.Parse(id_categoria),categoria);
+        }
+
+        public void eliminar_categoria(string id_categoria)
+        {
+            inventario.Eliminar_categoria(int.Parse(id_categoria));
+        }
+
+
+        public void crear_Marca(string categoria)
+        {
+            inventario.insertar_Marca(categoria);
+        }
+
+        public void modificarMarca(string id_marca, string categoria)
+        {
+            inventario.modificar_Marca(int.Parse(id_marca), categoria);
+        }
+
+        public void eliminar_Marca(string id_marca)
+        {
+            inventario.Eliminar_marca(int.Parse(id_marca));
+        }
+
+
 
     }
 }
