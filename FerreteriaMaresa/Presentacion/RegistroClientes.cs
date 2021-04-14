@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using Dominio;
 using System.Media;
-
+using System;
 
 namespace Presentacion
 {
@@ -33,7 +33,7 @@ namespace Presentacion
             txtCodigoCliente.Clear();
             nombre.Clear();
             Apellido.Clear();
-            rtn.Clear();
+            txtrtn.Clear();
             txtTelefono1.Clear();
             txtcodigocli.Clear();
             txtRegion.Clear();
@@ -50,14 +50,14 @@ namespace Presentacion
             c.Id_cliente = txtCodigoCliente.Text;
             c.Nombre = nombre.Text;
             c.Apellido = Apellido.Text;
-            c.Rtn = rtn.Text;
+            c.Rtn = txtrtn.Text;
             c.Telefono = txtTelefono1.Text;
             c.Direccion = txtDireccion.Text;
             c.Ciudad = txtCiudad.Text;
             c.Region = txtRegion.Text;
             c.Codigo_Postal = txtCodPost.Text;
             c.Pais = txtPais.Text;
-            c.crear_Cliente(txtCodigoCliente.Text, nombre.Text, Apellido.Text, rtn.Text, txtRegion.Text, txtCiudad.Text,
+            c.crear_Cliente(txtCodigoCliente.Text, nombre.Text, Apellido.Text, txtrtn.Text, txtRegion.Text, txtCiudad.Text,
                 txtDireccion.Text, txtPais.Text, txtCodPost.Text, txtTelefono1.Text);
             dgvClientes.Refresh();
         }
@@ -67,7 +67,7 @@ namespace Presentacion
             dgvClientes.Refresh();
             c.Nombre = nombre.Text;
             c.Apellido = Apellido.Text;
-            c.Rtn = rtn.Text;
+            c.Rtn = txtrtn.Text;
             c.Telefono = txtTelefono1.Text;
             c.Direccion = txtDireccion.Text;
             c.Ciudad = txtCiudad.Text;
@@ -75,7 +75,7 @@ namespace Presentacion
             c.Codigo_Postal = txtCodPost.Text;
             c.Pais = txtPais.Text;
             c.editar_Clientes(txtCodigoCliente.Text, nombre.Text,
-                Apellido.Text, rtn.Text, 
+                Apellido.Text, txtrtn.Text, 
                 txtDireccion.Text, txtCiudad.Text, txtRegion.Text,
                 txtCodPost.Text, txtPais.Text, txtTelefono1.Text);
             MessageBox.Show("Cliente editado con exito");
@@ -102,23 +102,18 @@ namespace Presentacion
 
         private void RegistroClientes_Load(object sender, System.EventArgs e)
         {
-            var fuente = new BindingSource();
-            fuente.DataSource = c.Mostrar_Cliente();
-            dgvClientes.DataSource = fuente;
-            dgvClientes.Refresh();
-            dgvClientes.Rows[1].Selected = true;
 
-            dgvClientes.CurrentRow.Selected = true;
-            txtCodigoCliente.Text = dgvClientes.CurrentRow.Cells[0].Value.ToString();
-            nombre.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
-            Apellido.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
-            rtn.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
-            txtDireccion.Text = dgvClientes.CurrentRow.Cells[4].Value.ToString();
-            txtCiudad.Text = dgvClientes.CurrentRow.Cells[5].Value.ToString();
-            txtRegion.Text = dgvClientes.CurrentRow.Cells[6].Value.ToString();
-            txtCodPost.Text = dgvClientes.CurrentRow.Cells[7].Value.ToString();
-            txtPais.Text = dgvClientes.CurrentRow.Cells[8].Value.ToString();
-            txtTelefono1.Text = dgvClientes.CurrentRow.Cells[9].Value.ToString();
+            
+            
+            dgvClientes.DataSource = c.Mostrar_Cliente(); 
+           
+            dgvClientes.Rows[1].Selected = true;
+            var dt = (DataTable)dgvClientes.DataSource;
+            dt.DefaultView.RowFilter = "[Estado] LIKE 'Activo'";
+
+            dgvClientes.Rows[0].Selected = true;
+            dgvEmpleados_CellClick(null, null);
+            dgvClientes.Columns[10].Visible = false;
 
         }
 
@@ -128,7 +123,7 @@ namespace Presentacion
             txtCodigoCliente.Text = dgvClientes.CurrentRow.Cells[0].Value.ToString();
             nombre.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
             Apellido.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
-            rtn.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
+            txtrtn.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
             txtDireccion.Text = dgvClientes.CurrentRow.Cells[4].Value.ToString();
             txtCiudad.Text = dgvClientes.CurrentRow.Cells[5].Value.ToString();
             txtRegion.Text = dgvClientes.CurrentRow.Cells[6].Value.ToString();
@@ -205,12 +200,13 @@ namespace Presentacion
 
         private void btnGuardar1_Click(object sender, System.EventArgs e)
         {
-            btnGuardar1.Visible = false;
-            bnAgregar.Visible = true;
-            btnEliminar1.Visible = true;
-            btnEliminar1.Enabled = true;
-            btnModificar1.Enabled = true;
-            bnAgregar.Enabled = true;
+            btnGuardar.Visible = false;
+            btnAgregar.Visible = true;
+            btnEliminar.Visible = true;
+            btnEliminar.Enabled = true;
+            btnModificar.Enabled = true;
+            btnModificar.Visible = true;
+            btnAgregar.Enabled = true;
             btnCancelar.Enabled = false;
             btnCancelar.Visible = false;
             dgvClientes.Enabled = true;
@@ -222,7 +218,7 @@ namespace Presentacion
             apagar.Apagar(this);
             nombre.Enabled = false;
             Apellido.Enabled = false;
-            rtn.Enabled = false;
+            txtrtn.Enabled = false;
             txtDireccion.Enabled = false;
             txtTelefono1.Enabled = false;
 
@@ -231,20 +227,34 @@ namespace Presentacion
             {
                 try
                 {
-                    c.crear_Cliente(txtCodigoCliente.Text, nombre.Text, Apellido.Text, rtn.Text, txtDireccion.Text, txtCiudad.Text, txtRegion.Text,
-                     txtCodPost.Text, txtPais.Text, txtTelefono1.Text);
+                    if (txtrtn.Text.Contains(txtCodigoCliente.Text))
+                    {
+                        c.crear_Cliente(txtCodigoCliente.Text, nombre.Text, Apellido.Text, txtrtn.Text, txtDireccion.Text, txtCiudad.Text, txtRegion.Text,
+                         txtCodPost.Text, txtPais.Text, txtTelefono1.Text);
 
-                    var fuente = new BindingSource();
-                    fuente.DataSource = c.Mostrar_Cliente();
-                    dgvClientes.DataSource = fuente;
-                    dgvClientes.Refresh();
-
-
+                        var fuente = new BindingSource();
+                        fuente.DataSource = c.Mostrar_Cliente();
+                        dgvClientes.DataSource = fuente;
+                        dgvClientes.Refresh();
+                        MessageBox.Show("Cliente agregado correctamente");
+                    }
+                    else if (txtrtn.Text.Length <= 0)
+                    {
+                        c.crear_Cliente(txtCodigoCliente.Text, nombre.Text, Apellido.Text, null, txtDireccion.Text, txtCiudad.Text, txtRegion.Text,
+                         txtCodPost.Text, txtPais.Text, txtTelefono1.Text);
+                        MessageBox.Show("Cliente agregado correctamente");
+                    }
+                    else
+                        throw new Exception("El rtn no es el mismo que el numero de identidad");
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Cliente agregado correctamente");
+                    MessageBox.Show("Error al agregar Cliente: " + ex);
                 }
+               /* catch (int )
+                {
+
+                }*/
 
             }
 
@@ -252,14 +262,24 @@ namespace Presentacion
             {
                 try
                 {
-
-                    c.editar_Clientes(txtCodigoCliente.Text, nombre.Text, Apellido.Text, rtn.Text, txtDireccion.Text, txtCiudad.Text, txtRegion.Text,
+                    if (txtrtn.Text.Contains(txtCodigoCliente.Text))
+                    {
+                        c.editar_Clientes(txtCodigoCliente.Text, nombre.Text, Apellido.Text, txtrtn.Text, txtDireccion.Text, txtCiudad.Text, txtRegion.Text,
                      txtCodPost.Text, txtPais.Text, txtTelefono1.Text);
-                    dgvClientes.Refresh();
+                        dgvClientes.Refresh();
+                        MessageBox.Show("Cliente editado correctamente");
+                    }
+                    else if (txtrtn.Text.Length <= 0)
+                    {
+                        c.editar_Clientes(txtCodigoCliente.Text, nombre.Text, Apellido.Text, null, txtDireccion.Text, txtCiudad.Text, txtRegion.Text,
+                    txtCodPost.Text, txtPais.Text, txtTelefono1.Text);
+                    }
+                    else
+                        throw new Exception("El rtn no es igual al numero de identidad");
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Cliente editado correctamente");
+                    MessageBox.Show("Error al editar Cliente: " + ex);
                 }
             }
 
@@ -267,13 +287,13 @@ namespace Presentacion
             {
                 try
                 {
-
-                    c.eliminar_empleado(txtCodigoCliente.Text);
+                    c.eliminar_cliente(txtCodigoCliente.Text);
                     dgvClientes.Refresh();
-                }
-                catch
-                {
                     MessageBox.Show("Cliente borrado correctamente");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al eliminar Cliente: " + ex);
                 }
             }
 
@@ -283,32 +303,38 @@ namespace Presentacion
 
         private void btnModificar1_Click(object sender, System.EventArgs e)
         {
-            
 
-            btna = false;
-            btnb = true;
-            btnc = false;
+            if (dgvClientes.SelectedRows.Count == 1)
+            {
+                btna = false;
+                btnb = true;
+                btnc = false;
+                btnModificar.Enabled = false;
+                btnModificar.Visible = false;
+                btnAgregar.Enabled = false;
+                btnAgregar.Visible = false;
+                btnEliminar.Enabled = false;
+                btnEliminar.Visible = false;
+                btnGuardar.Visible = true;
+                btnGuardar.Enabled = true;
+                btnCancelar.Enabled = true;
+                btnCancelar.Visible = true;
 
-            bnAgregar.Enabled = false;
-            bnAgregar.Visible = false;
-            btnEliminar1.Enabled = false;
-            btnEliminar1.Visible = false;
-            btnGuardar1.Visible = true;
-            btnGuardar1.Enabled = true;
-            btnCancelar.Enabled = true;
-            btnCancelar.Visible = true;
-
-            txtCodigoCliente.Enabled = true;
-            nombre.Enabled = true;
-            Apellido.Enabled = true;
-            rtn.Enabled = true;
-            txtTelefono1.Enabled = true;
-            txtRegion.Enabled = true;
-            txtPais.Enabled = true;
-            txtDireccion.Enabled = true;
-            txtCiudad.Enabled = true;
-            txtCodPost.Enabled = true;
-            txtcodigocli.Enabled = true;
+                
+                nombre.Enabled = true;
+                Apellido.Enabled = true;
+                txtrtn.Enabled = true;
+                txtTelefono1.Enabled = true;
+                txtRegion.Enabled = true;
+                txtPais.Enabled = true;
+                txtDireccion.Enabled = true;
+                txtCiudad.Enabled = true;
+                txtCodPost.Enabled = true;
+                txtcodigocli.Enabled = true;
+                dgvClientes.Enabled = false;
+            }
+            else
+                MessageBox.Show("Porfavor seleccione una fila antes de modificar");
         }
 
         private void bnAgregar_Click(object sender, System.EventArgs e)
@@ -318,13 +344,13 @@ namespace Presentacion
             btna = true;
             btnb = false;
             btnc = false;
-
-            btnEliminar1.Enabled = false;
-            btnEliminar1.Visible = false;
-            btnModificar1.Enabled = true;
-            btnModificar1.Visible = true;
-            btnGuardar1.Visible = true;
-            btnGuardar1.Enabled = true;
+            btnAgregar.Visible = false;
+            btnEliminar.Enabled = false;
+            btnEliminar.Visible = false;
+            btnModificar.Enabled = false;
+            btnModificar.Visible = false;
+            btnGuardar.Visible = true;
+            btnGuardar.Enabled = true;
             btnCancelar.Visible = true;
             btnCancelar.Enabled = true;
 
@@ -332,7 +358,7 @@ namespace Presentacion
             txtCodigoCliente.Enabled = true;
             nombre.Enabled = true;
             Apellido.Enabled = true;
-            rtn.Enabled = true;
+            txtrtn.Enabled = true;
             txtTelefono1.Enabled = true;
             txtRegion.Enabled = true;
             txtPais.Enabled = true;
@@ -344,18 +370,26 @@ namespace Presentacion
 
         private void btnEliminar1_Click(object sender, System.EventArgs e)
         {
-            btna = false;
-            btnb = false;
-            btnc = true;
 
-            btnAgregar.Enabled = true;
-            btnAgregar.Visible = true;
-            btnModificar1.Enabled = true;
-            btnModificar1.Visible = true;
-            btnGuardar1.Visible = true;
-            btnGuardar1.Enabled = true;
-            btnCancelar.Enabled = true;
-            btnCancelar.Visible = true;
+            if (dgvClientes.SelectedRows.Count == 1)
+            {
+                btna = false;
+                btnb = false;
+                btnc = true;
+                btnEliminar.Visible = false;
+                btnAgregar.Enabled = false;
+                btnAgregar.Visible = false;
+                btnModificar.Enabled = false;
+                btnModificar.Visible = false;
+                btnGuardar.Visible = true;
+                btnGuardar.Enabled = true;
+                btnCancelar.Enabled = true;
+                btnCancelar.Visible = true;
+                dgvClientes.Enabled = false;
+            }
+            else
+                MessageBox.Show("Porfavor seleccione una fila antes de eliminar");
+
         }
 
         private void txtnombrecli_KeyPress_1(object sender, KeyPressEventArgs e)
@@ -425,7 +459,7 @@ namespace Presentacion
 
         private void rtn_Enter(object sender, System.EventArgs e)
         {
-            tt.SetToolTip(this.rtn, "Ingrese los 14 numeros correspondientes");
+            tt.SetToolTip(this.txtrtn, "Ingrese los 14 numeros correspondientes");
         }
 
         private void txtTelefono1_Enter(object sender, System.EventArgs e)
@@ -441,19 +475,37 @@ namespace Presentacion
         private void btnCancelar_Click(object sender, System.EventArgs e)
         {
             limpiar();
+            dgvClientes.Rows[0].Selected = true;
+            dgvEmpleados_CellClick(null, null);
             btnCancelar.Visible = false;
+            btnCancelar.Enabled = false;
 
-            bnAgregar.Enabled = true;
-            bnAgregar.Visible = true;
+            btnAgregar.Enabled = true;
+            btnAgregar.Visible = true;
 
-            btnEliminar1.Enabled = true;
-            btnEliminar1.Visible = true;
+            btnEliminar.Enabled = true;
+            btnEliminar.Visible = true;
 
-            btnModificar1.Enabled = true;
-            btnModificar1.Visible = true;
+            btnModificar.Enabled = true;
+            btnModificar.Visible = true;
 
-            btnGuardar1.Enabled = true;
-            btnGuardar1.Visible = true;
+            btnGuardar.Enabled = false;
+            btnGuardar.Visible = false;
+            dgvClientes.Enabled = true;
+
+
+            txtCodigoCliente.Enabled=false;
+            nombre.Enabled = false;
+            Apellido.Enabled = false;
+            txtrtn.Enabled = false;
+            txtTelefono1.Enabled = false;
+            txtcodigocli.Enabled = false;
+            txtRegion.Enabled = false;
+            txtCiudad.Enabled = false;
+            txtDireccion.Enabled = false;
+            txtPais.Enabled = false;
+            txtCodPost.Enabled = false;
+            txtnombrecli.Enabled = false;
         }
 
         private void txtCodigoCliente_Validating(object sender, System.ComponentModel.CancelEventArgs e)
@@ -482,12 +534,12 @@ namespace Presentacion
         {
             int i;
 
-            if (string.IsNullOrEmpty(rtn.Text))
+            if (string.IsNullOrEmpty(txtrtn.Text))
             {
                 e.Cancel = false;
             }
 
-            else if (rtn.Text.Trim().Length < 14 || rtn.Text.Trim().Length > 14)
+            else if (txtrtn.Text.Trim().Length < 14 || txtrtn.Text.Trim().Length > 14)
             {
                 e.Cancel = true;
                 MessageBox.Show("El campo debe contener 14 caracteres");
@@ -497,7 +549,7 @@ namespace Presentacion
 
         private void rtn_Validated(object sender, System.EventArgs e)
         {
-            error1.SetError(rtn, "");
+            error1.SetError(txtrtn, "");
         }
 
         private void txtCodPost_Validating(object sender, System.ComponentModel.CancelEventArgs e)
@@ -542,6 +594,126 @@ namespace Presentacion
         private void txtTelefono1_Validated(object sender, System.EventArgs e)
         {
             error1.SetError(txtTelefono1, "");
+        }
+
+        private void txtCodigoCliente_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void lblCodigo_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void nombre_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void Apellido_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void rtn_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void txtDireccion_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono1_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void txtCodPost_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void txtPais_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void txtRegion_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void txtCiudad_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtcodigocli_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvClientes_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
     
