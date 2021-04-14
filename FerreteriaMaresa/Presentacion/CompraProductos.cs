@@ -27,7 +27,7 @@ namespace Presentacion
         {
 
             var product = productos.mostrar_inventario();
-            var prov = proveedor.mostrarProveedor();
+            var prov = proveedor.CargarDGVProveedores();
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
             product.DefaultView.RowFilter = "Estado = 'ACTIVO' ";
             prov.DefaultView.RowFilter = string.Format("[Estado] LIKE '%{0}%'", "Activo");

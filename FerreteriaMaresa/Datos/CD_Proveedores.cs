@@ -15,16 +15,16 @@ namespace Datos
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
 
-
         public DataTable Mostrar_Proveedor()
         {
 
             comando.Connection = conexion.abrir();
             comando.CommandText = "Mostrar_Proveedores";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Clear();
             leer = comando.ExecuteReader();
             tabla.Load(leer);
-            comando.Connection = conexion.cerrar();
+            conexion.cerrar();
             return tabla;
         }
 
@@ -41,15 +41,13 @@ namespace Datos
             return tabla;
         }
 
-        public void insertar_Proveedor(string idProveedor, string nombreProveedor, string apellidoProveedor, long telProveedor, string correo, string direccion, string ciudad, string region, string codigopostal, string pais, string estado)
+        public void insertar_Proveedor(string nombreProveedor, string telProveedor, string correo, string direccion, string ciudad, string region, string codigopostal, string pais, string estado)
         {
 
             comando.Connection = conexion.abrir();
             comando.CommandText = "pro_insertar";
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@id_proveedor", idProveedor);
             comando.Parameters.AddWithValue("@nom_proveedor", nombreProveedor);
-            comando.Parameters.AddWithValue("@apellido_proveedor", apellidoProveedor);
             comando.Parameters.AddWithValue("@telefono", telProveedor);
             comando.Parameters.AddWithValue("@correo", correo);
             comando.Parameters.AddWithValue("@direccion", direccion);
@@ -63,7 +61,7 @@ namespace Datos
             comando.Connection = conexion.cerrar();
         }
 
-        public void Editar_Proveedores(string idProveedor, string nombreProveedor, string apellidoProveedor, long telProveedor, string correo, string direccion, string ciudad, string region, string codigopostal, string pais, string estado)
+        public void Editar_Proveedores(string idProveedor, string nombreProveedor, string telProveedor, string correo, string direccion, string ciudad, string region, string codigopostal, string pais, string estado)
         {
 
             comando.Connection = conexion.abrir();
@@ -71,7 +69,6 @@ namespace Datos
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@id_proveedor", idProveedor);
             comando.Parameters.AddWithValue("@nom_proveedor", nombreProveedor);
-            comando.Parameters.AddWithValue("@apellido_proveedor", apellidoProveedor);
             comando.Parameters.AddWithValue("@telefono", telProveedor);
             comando.Parameters.AddWithValue("@correo", correo);
             comando.Parameters.AddWithValue("@direccion", direccion);
