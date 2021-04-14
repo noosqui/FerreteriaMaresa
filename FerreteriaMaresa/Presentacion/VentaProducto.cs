@@ -25,6 +25,10 @@ namespace Presentacion
             this.empleados.Id_empleado = idEmpleado;
             InitializeComponent();
             descuento = 0;
+            dgvProductList.DefaultCellStyle = dgvProductos.DefaultCellStyle;
+            dgvProductList.RowHeadersDefaultCellStyle = dgvProductos.RowsDefaultCellStyle;
+            dgvProductList.RowsDefaultCellStyle = dgvProductos.RowsDefaultCellStyle;
+            dgvProductList.ColumnHeadersDefaultCellStyle = dgvProductos.ColumnHeadersDefaultCellStyle;
         }
 
 
@@ -38,6 +42,17 @@ namespace Presentacion
                 {
                     if (cantidad > 0 && cantidad <= stock)
                     {
+                        foreach (DataGridViewRow row in dgvProductList.Rows)
+                        
+                            if (row.Cells[0].Value.ToString() == txtId.Text)
+                            {
+                                txtCantidad.Text = int.Parse(txtCantidad.Text)+ int.Parse (row.Cells[3].Value.ToString())+ ""  ;
+                                dgvProductList.Rows.Remove(row);
+                                txtSubtotal.Text =double.Parse(txtSubtotal.Text) - (double.Parse(row.Cells[2].Value.ToString()) * int.Parse(row.Cells[3].Value.ToString()))+"";
+
+                            }
+               
+                        
 
                         suma = double.Parse(txtprecio.Text) * int.Parse(txtCantidad.Text);
                         suma += double.Parse(txtSubtotal.Text);
@@ -54,9 +69,10 @@ namespace Presentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(this, "Ingrese la cantidad correcta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(this, "Ingrese la cantidad correcta"+ ex, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtCantidad.Focus();
                 }
+          
 
             }
             catch (Exception ex)
@@ -160,6 +176,7 @@ namespace Presentacion
             dgvProductos.Rows[1].Selected = true;
             dgvProductos.CurrentRow.Selected = true;
             dgvProductos_CellClick(null, null);
+      
 
             Cliente.Columns.Add("Concat");
             foreach (DataRow row in Cliente.Rows)
@@ -188,8 +205,9 @@ namespace Presentacion
 
         private void txtIdSrch_TextChanged(object sender, EventArgs e)
         {
-          //  var bd = (BindingSource)dgvProductos.DataSource;
-           // var dt = (DataTable)bd.DataSource;
+            //  var bd = (BindingSource)dgvProductos.DataSource;
+            // var dt = (DataTable)bd.DataSource;
+            txtNombreSrch.Text = "";
             if (txtIdSrch.Text != "")
                 (dgvProductos.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtIdSrch.Text));
             else
@@ -209,6 +227,7 @@ namespace Presentacion
         {
            // var bd = (BindingSource)dgvProductos.DataSource;
            // var dt = (DataTable)bd.DataSource;
+           txtIdSrch.Text="";
             (dgvProductos.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Nombre] LIKE '%{0}%'", txtNombreSrch.Text);
             dgvProductos.Refresh();
             if ((dgvProductos.DataSource as DataTable).DefaultView.Count < 1)
