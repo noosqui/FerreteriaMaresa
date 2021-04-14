@@ -149,6 +149,8 @@ namespace Presentacion
             txtpais.Enabled = false;
             txtcodpost.Enabled = false;
             txtregion.Enabled = false;
+            txtbuscarid.Enabled = true;
+            txtnombreemp.Enabled = true;
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -624,14 +626,42 @@ namespace Presentacion
             }
         }
 
-        private void txtbuscarid_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            letrasNum.SoloNumeros(e);
-        }
-
         private void txtnombreemp_KeyPress(object sender, KeyPressEventArgs e)
         {
             letrasNum.SoloLetras(e);
+        }
+
+        private void txtbuscarid_TextChanged_1(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                var dt = (DataTable)dgvEmpleados.DataSource;
+                if (txtbuscarid.Text != "")
+                    dt.DefaultView.RowFilter = string.Format("[Identidad] LIKE '%{0}%'", txtbuscarid.Text);
+
+                else
+                {
+                    dt.DefaultView.RowFilter = null;
+                }
+                dgvEmpleados.Refresh();
+
+                if (dt.DefaultView.Count < 1)
+                {
+                    SystemSounds.Exclamation.Play();
+                    ToolTip tt = new ToolTip();
+                    tt.Show("No se encontro parametros", this.txtbuscarid, 0, 25, 3000);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrio un Error" + ex);
+            }
+        }
+
+        private void txtbuscarid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            letrasNum.SoloNumeros(e);
         }
     }
 }
