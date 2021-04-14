@@ -23,23 +23,23 @@ namespace Dominio
 
             }
 
-            public void InsertarFacturaVenta(/*DOM_Empleados emp*/string id_emplado,string idCliente, string subtotal,string descuento,string tipopago)
-            {
-                  //empleados = emp;
-                facturacion.insertar_FacturaVenta(DateTime.Now,idCliente,id_emplado/* empleados.Id_empleado*/,int.Parse(tipopago),double.Parse(descuento),double.Parse(subtotal));
+        public void InsertarFacturaVenta(/*DOM_Empleados emp*/string id_emplado, string idCliente, string subtotal, string rtn, string isv, string descuento, string tipopago)
+        {
+            //empleados = emp;
+            facturacion.insertar_FacturaVenta(DateTime.Now, idCliente, id_emplado/* empleados.Id_empleado*/, int.Parse(tipopago), rtn, 0.15, double.Parse(descuento), double.Parse(subtotal));
 
-            }
-
-
+        }
 
 
-             public void InsertarFacturaCompra(string descuento,string subtotal, string tipoPago,string idEmpleado,string idProveedor)
-             {
-                 facturacion.insertar_FacturaCompra(DateTime.Now, int.Parse(idProveedor) , "1804200703610", int.Parse(tipoPago),double.Parse(descuento) , double.Parse(subtotal));
-             }
+
+        public void InsertarFacturaCompra(string descuento, string subtotal, string tipoPago, string idEmpleado, string idProveedor, string isv)
+        {
+            facturacion.insertar_FacturaCompra(DateTime.Now, int.Parse(idProveedor), "1804200703610", int.Parse(tipoPago), 0.15, double.Parse(descuento), double.Parse(subtotal));
+        }
 
 
-            public void insertarDetalleVenta (string cantidad,DOM_Inventario inv)
+
+        public void insertarDetalleVenta (string cantidad,DOM_Inventario inv)
             {
              product = inv;
              DataRow ultimaFila = facturacion.Mostrar_FacturaVenta().Rows[facturacion.Mostrar_FacturaVenta().Rows.Count -1];
@@ -73,6 +73,11 @@ namespace Dominio
         {
             tabla = facturacion.SP_Detalle_Compra();
             return tabla;
+        }
+
+        public void Insertar_Cheque(string numcuenta, DateTime date, string RutaBancaria, string numeroCheque, string idBanco, string monto)
+        {
+            facturacion.Insertar_Cheque(numcuenta, date, RutaBancaria, numeroCheque, int.Parse(idBanco), float.Parse(monto));
         }
    
         }

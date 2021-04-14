@@ -33,6 +33,7 @@ namespace Presentacion
 
             this.submenubotones = new System.Windows.Forms.Panel();
 
+
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -41,7 +42,9 @@ namespace Presentacion
             this.btnModificar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
 
+
             this.submenubotones.SuspendLayout();
+
 
             this.SuspendLayout();
             //
@@ -49,7 +52,11 @@ namespace Presentacion
             //
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
 
+
+
             this.panel2.Controls.Add(this.submenubotones);
+
+
 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -57,7 +64,7 @@ namespace Presentacion
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(993, 429);
             this.panel2.TabIndex = 4;
-            //
+
 
             // submenubotones
             //
@@ -75,7 +82,7 @@ namespace Presentacion
             this.submenubotones.Size = new System.Drawing.Size(230, 429);
             this.submenubotones.TabIndex = 3;
 
-            //
+
             // button1
             //
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -123,6 +130,7 @@ namespace Presentacion
             this.btnGuardar.Name = "btnGuardar";
 
             this.btnGuardar.Size = new System.Drawing.Size(230, 71);
+
 
             this.btnGuardar.TabIndex = 64;
             this.btnGuardar.Text = "Ultimos 30 dias";
@@ -201,9 +209,7 @@ namespace Presentacion
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-
         private System.Windows.Forms.Panel submenubotones;
-
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnGuardar;

@@ -91,14 +91,14 @@ namespace Presentacion
                     case 2:
                         {
 
-                            MenuAdmin adm = new MenuAdmin();
+                            MenuAdmin adm = new MenuAdmin(tabla.Rows[0][0].ToString());
                             adm.Show();
                             Hide();
                             break;
                         }
                     case 1:
                         {
-                            MenuEmpleados empl = new MenuEmpleados();
+                            MenuEmpleados empl = new MenuEmpleados(tabla.Rows[0][0].ToString());
                             empl.Show();
                             Hide();
                             break;
@@ -133,6 +133,28 @@ namespace Presentacion
         {
             /*Password_Recovery pass = new Password_Recovery();
             pass.Show();*/
+        }
+        private void txtContra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==13)
+            {
+                btnAcceder_Click(null, null);
+            }
+        }
+
+        private void chkMostrar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkMostrar.Checked)
+            {
+                txtContra.UseSystemPasswordChar = false;
+            }
+            else
+                txtContra.UseSystemPasswordChar = true; 
+        }
+
+        private void chkMostrar_ChangeUICues(object sender, UICuesEventArgs e)
+        {
+
         }
     }
 }
