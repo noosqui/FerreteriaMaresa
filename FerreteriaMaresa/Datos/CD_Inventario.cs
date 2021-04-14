@@ -14,8 +14,10 @@ namespace Datos
      {
         private CD_Conexion conexion = new CD_Conexion();
         SqlDataReader lee;
+        
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
+        
 
         public DataTable Mostrar_Inventario()
         {
@@ -28,8 +30,11 @@ namespace Datos
             lee.Close();
             comando.Connection = conexion.cerrar();
             lee.Close();
-            return tabla;
+            comando.Parameters.Clear();
+             return tabla;
         }
+
+     
 
         public DataTable Buscar_Inventario(string producto)
         {
@@ -42,7 +47,7 @@ namespace Datos
             tabla.Load(lee);
             comando.Connection = conexion.cerrar();
             lee.Close();
-
+            comando.Parameters.Clear();
             return tabla;
         }
 
@@ -54,6 +59,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@idproducto", idproducto);
             comando.ExecuteNonQuery();
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
         }
 
         public void Inventario_Activo(int idproducto)
@@ -64,6 +70,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@idproducto", idproducto);
             comando.ExecuteNonQuery();
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
         }
         public DataTable Mostrar_Marcas()
         {
@@ -75,6 +82,7 @@ namespace Datos
             tabla.Load(lee);
 
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
             lee.Close();
 
             return tabla;
@@ -91,6 +99,7 @@ namespace Datos
             tabla.Load(lee);
 
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
             lee.Close();
 
             return tabla;
@@ -106,10 +115,29 @@ namespace Datos
             tabla.Load(lee);
 
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
             lee.Close();
 
             return tabla;
         }
+
+
+        public DataTable Mostrar_Proveedor()
+        {
+            DataTable tabla = new DataTable();
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "Mostrar_Proveedores";
+            comando.CommandType = CommandType.StoredProcedure;
+            lee = comando.ExecuteReader();
+            tabla.Load(lee);
+
+            comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+            lee.Close();
+
+            return tabla;
+        }
+
 
         public DataTable Buscar_Categorias(string categoria)
         {
@@ -123,81 +151,157 @@ namespace Datos
      
 
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
             lee.Close();
 
             return tabla;
         }
 
 
-        public void insertar_Inventario(int IdProducto, string nom_producto, string nom_proveedor, string Marca, double costo_producto,
-            double precio_actual, int stock, string estado, string Categoria)
+        public void insertar_Inventario(int id_proveedor, string nom_producto, int id_marca, string cantidad_unidad, double costo_producto,
+            double precio_actual, int stock, string estado, int id_categoria)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "insertar_Inventario";
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@idproducto", IdProducto);
+            comando.Parameters.AddWithValue("@id_proveedor", id_proveedor);
             comando.Parameters.AddWithValue("@nom_producto", nom_producto);
-            comando.Parameters.AddWithValue("@nom_proveedor", nom_proveedor);
-            comando.Parameters.AddWithValue("@Marca", Marca);
-            //comando.Parameters.AddWithValue("@Cantidad_por_Unidad", cantidad_unidad);
+            //comando.Parameters.AddWithValue("@nom_proveedor", nom_proveedor);
+            comando.Parameters.AddWithValue("@id_marca", id_marca);
+            comando.Parameters.AddWithValue("@Cantidad_por_Unidad", cantidad_unidad);
             comando.Parameters.AddWithValue("@Costo_producto", costo_producto);
             comando.Parameters.AddWithValue("@precio_actual", precio_actual);
             comando.Parameters.AddWithValue("@stock", stock);
             comando.Parameters.AddWithValue("@Estado", estado);
-            comando.Parameters.AddWithValue("@descripcion", Categoria);
+            comando.Parameters.AddWithValue("@id_categoria ", id_categoria);
 
             comando.ExecuteNonQuery();
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
         }
 
-        public void modificar_Inventario(int IdProducto, string nom_producto, string nom_proveedor, string Marca, double costo_producto,
-            double precio_actual, int stock, string estado, string Categoria)
+        public void modificar_Inventario(int IdProducto,int id_proveedor, string nom_producto,int id_marca, string cantidad_unidad, double costo_producto,
+            double precio_actual, int stock, string estado,int id_categoria)
         {
             comando.Connection = conexion.abrir();
-            comando.CommandText = "Modificar_Inventario";
+            comando.CommandText = "editar_Inventario";
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@idproducto", IdProducto);
+            comando.Parameters.AddWithValue("@id_producto", IdProducto);
+            comando.Parameters.AddWithValue("@id_proveedor", id_proveedor);
             comando.Parameters.AddWithValue("@nom_producto", nom_producto);
-            comando.Parameters.AddWithValue("@nom_proveedor", nom_proveedor);
-            comando.Parameters.AddWithValue("@Marca", Marca);
-            //comando.Parameters.AddWithValue("@Cantidad_por_Unidad", cantidad_unidad);
+            comando.Parameters.AddWithValue("@id_marca", id_marca);
+            comando.Parameters.AddWithValue("@Cantidad_por_Unidad", cantidad_unidad);
             comando.Parameters.AddWithValue("@Costo_producto", costo_producto);
             comando.Parameters.AddWithValue("@precio_actual", precio_actual);
             comando.Parameters.AddWithValue("@stock", stock);
             comando.Parameters.AddWithValue("@Estado", estado);
+            comando.Parameters.AddWithValue("@id_categoria ", id_categoria);
+
+            comando.ExecuteNonQuery();
+            comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+        }
+
+        public void Eliminar_Inventario(int idinventario)
+        {
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "eliminar_inventario";
+            comando.CommandType = CommandType.StoredProcedure;
+            /*conexion.abrir();
+            string query = "execute  eliminar_inventario @id_producto";
+            SqlCommand c = new SqlCommand(query, conexion.abrir());*/
+            comando.Parameters.AddWithValue("@id_producto", idinventario);
+            comando.ExecuteNonQuery();
+            comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+        }
+
+
+
+
+
+
+        public void insertar_categoria(string Categoria)
+        {
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "insertar_categoria";
+            comando.CommandType = CommandType.StoredProcedure;
+           
             comando.Parameters.AddWithValue("@descripcion", Categoria);
 
             comando.ExecuteNonQuery();
             comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
         }
 
-        public void EliminarInventario(string idinventario)
+        public void modificar_categoria(int id_categoria, string Categoria)
         {
-            string query = "execute Eliminar_Producto @idproducto";
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "editar_categoria";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@id_categoria", id_categoria);
+            comando.Parameters.AddWithValue("@descripcion", Categoria);
+
+            comando.ExecuteNonQuery();
+            comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+        }
+
+        public void Eliminar_categoria(int id_categoria)
+        {
+            string query = "execute editar_categoria @id_categoria";
             conexion.abrir();
             SqlCommand c = new SqlCommand(query, conexion.abrir());
-            c.Parameters.AddWithValue("@idproducto", idinventario);
+            c.Parameters.AddWithValue("@id_categoria", id_categoria);
             c.ExecuteNonQuery();
             c.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
         }
 
-        /*public void LlenarMarca(ComboBox cb)
+
+        public void insertar_Marca(string Categoria)
         {
-            try
-            {
-                comando = new SqlCommand("Select descripcion from Marcas", conexion.abrir());
-                lee = comando.ExecuteReader();
-                while (lee.Read())
-                {
-                    cb.Items.Add(dr["descripcion"].ToString());
-                }
-                lee.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se lleno el Combobox" + ex.ToString());
-            }
-        }*/
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "insertar_marca";
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@descripcion", Categoria);
+
+            comando.ExecuteNonQuery();
+            comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+        }
+
+        public void modificar_Marca(int id_marca, string Categoria)
+        {
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "editar_marca";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@id_marca", id_marca);
+            comando.Parameters.AddWithValue("@descripcion", Categoria);
+
+            comando.ExecuteNonQuery();
+            comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+        }
+
+        public void Eliminar_marca(int id_marca)
+        {
+            string query = "execute eliminar_marca @id_categoria";
+            conexion.abrir();
+            SqlCommand c = new SqlCommand(query, conexion.abrir());
+            c.Parameters.AddWithValue("@id_marca", id_marca);
+            c.ExecuteNonQuery();
+            c.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+        }
+
+
+
+
+
+
+        
 
     }
 }
