@@ -28,7 +28,6 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtbuscarid = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtnombreemp = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -69,24 +68,14 @@ namespace Presentacion
             this.txtconfirmarident = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rbfiltroactivos = new System.Windows.Forms.RadioButton();
-            this.rbfiltrodespedidos = new System.Windows.Forms.RadioButton();
             this.rbfiltrotodos = new System.Windows.Forms.RadioButton();
+            this.rbfiltrodespedidos = new System.Windows.Forms.RadioButton();
+            this.rbfiltroactivos = new System.Windows.Forms.RadioButton();
+            this.txtbuscarid = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtbuscarid
-            // 
-            this.txtbuscarid.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtbuscarid.Location = new System.Drawing.Point(574, 477);
-            this.txtbuscarid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtbuscarid.Name = "txtbuscarid";
-            this.txtbuscarid.Size = new System.Drawing.Size(155, 22);
-            this.txtbuscarid.TabIndex = 66;
-            this.txtbuscarid.TextChanged += new System.EventHandler(this.txtbuscarid_TextChanged);
-            this.txtbuscarid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbuscarid_KeyPress);
             // 
             // label8
             // 
@@ -195,6 +184,7 @@ namespace Presentacion
             this.txtcorreo.Enabled = false;
             this.txtcorreo.Location = new System.Drawing.Point(1378, 245);
             this.txtcorreo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtcorreo.MaxLength = 60;
             this.txtcorreo.Name = "txtcorreo";
             this.txtcorreo.Size = new System.Drawing.Size(289, 22);
             this.txtcorreo.TabIndex = 13;
@@ -206,7 +196,7 @@ namespace Presentacion
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.ForeColor = System.Drawing.Color.Snow;
             this.label3.Location = new System.Drawing.Point(178, 307);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -634,18 +624,18 @@ namespace Presentacion
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Estado";
             // 
-            // rbfiltroactivos
+            // rbfiltrotodos
             // 
-            this.rbfiltroactivos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rbfiltroactivos.AutoSize = true;
-            this.rbfiltroactivos.Location = new System.Drawing.Point(38, 21);
-            this.rbfiltroactivos.Name = "rbfiltroactivos";
-            this.rbfiltroactivos.Size = new System.Drawing.Size(74, 21);
-            this.rbfiltroactivos.TabIndex = 0;
-            this.rbfiltroactivos.TabStop = true;
-            this.rbfiltroactivos.Text = "Activos";
-            this.rbfiltroactivos.UseVisualStyleBackColor = true;
-            this.rbfiltroactivos.CheckedChanged += new System.EventHandler(this.rbfiltroactivos_CheckedChanged);
+            this.rbfiltrotodos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbfiltrotodos.AutoSize = true;
+            this.rbfiltrotodos.Location = new System.Drawing.Point(295, 22);
+            this.rbfiltrotodos.Name = "rbfiltrotodos";
+            this.rbfiltrotodos.Size = new System.Drawing.Size(69, 21);
+            this.rbfiltrotodos.TabIndex = 2;
+            this.rbfiltrotodos.TabStop = true;
+            this.rbfiltrotodos.Text = "Todos";
+            this.rbfiltrotodos.UseVisualStyleBackColor = true;
+            this.rbfiltrotodos.CheckedChanged += new System.EventHandler(this.rbfiltrotodos_CheckedChanged);
             // 
             // rbfiltrodespedidos
             // 
@@ -660,25 +650,36 @@ namespace Presentacion
             this.rbfiltrodespedidos.UseVisualStyleBackColor = true;
             this.rbfiltrodespedidos.CheckedChanged += new System.EventHandler(this.rbfiltrodespedidos_CheckedChanged);
             // 
-            // rbfiltrotodos
+            // rbfiltroactivos
             // 
-            this.rbfiltrotodos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rbfiltrotodos.AutoSize = true;
-            this.rbfiltrotodos.Location = new System.Drawing.Point(295, 22);
-            this.rbfiltrotodos.Name = "rbfiltrotodos";
-            this.rbfiltrotodos.Size = new System.Drawing.Size(69, 21);
-            this.rbfiltrotodos.TabIndex = 2;
-            this.rbfiltrotodos.TabStop = true;
-            this.rbfiltrotodos.Text = "Todos";
-            this.rbfiltrotodos.UseVisualStyleBackColor = true;
-            this.rbfiltrotodos.CheckedChanged += new System.EventHandler(this.rbfiltrotodos_CheckedChanged);
+            this.rbfiltroactivos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rbfiltroactivos.AutoSize = true;
+            this.rbfiltroactivos.Location = new System.Drawing.Point(38, 21);
+            this.rbfiltroactivos.Name = "rbfiltroactivos";
+            this.rbfiltroactivos.Size = new System.Drawing.Size(74, 21);
+            this.rbfiltroactivos.TabIndex = 0;
+            this.rbfiltroactivos.TabStop = true;
+            this.rbfiltroactivos.Text = "Activos";
+            this.rbfiltroactivos.UseVisualStyleBackColor = true;
+            this.rbfiltroactivos.CheckedChanged += new System.EventHandler(this.rbfiltroactivos_CheckedChanged);
+            // 
+            // txtbuscarid
+            // 
+            this.txtbuscarid.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtbuscarid.Location = new System.Drawing.Point(561, 476);
+            this.txtbuscarid.Name = "txtbuscarid";
+            this.txtbuscarid.Size = new System.Drawing.Size(153, 22);
+            this.txtbuscarid.TabIndex = 107;
+            this.txtbuscarid.TextChanged += new System.EventHandler(this.txtbuscarid_TextChanged_1);
+            this.txtbuscarid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbuscarid_KeyPress);
             // 
             // RegistroEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(1836, 958);
+            this.ClientSize = new System.Drawing.Size(1837, 958);
+            this.Controls.Add(this.txtbuscarid);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtconfirmarident);
@@ -707,7 +708,6 @@ namespace Presentacion
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.txtbuscarid);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtnombreemp);
             this.Controls.Add(this.label7);
@@ -734,8 +734,6 @@ namespace Presentacion
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtbuscarid;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtnombreemp;
         private System.Windows.Forms.Label label7;
@@ -779,5 +777,6 @@ namespace Presentacion
         private System.Windows.Forms.RadioButton rbfiltroactivos;
         private System.Windows.Forms.RadioButton rbfiltrotodos;
         private System.Windows.Forms.RadioButton rbfiltrodespedidos;
+        private System.Windows.Forms.TextBox txtbuscarid;
     }
 }
