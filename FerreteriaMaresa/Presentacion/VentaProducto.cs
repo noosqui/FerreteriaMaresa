@@ -12,49 +12,72 @@ namespace Presentacion
         DOM_Empleados empleados = new DOM_Empleados();
         DOM_Validacion letrasNum = new DOM_Validacion();
         DOM_Clientes client = new DOM_Clientes();
-        double suma;
+        private double suma;
+        private double descuento;
         ToolTip tt = new ToolTip();
         public VentaProducto()
         {
             InitializeComponent();
+            descuento = 0;
         }
-        public VentaProducto(DOM_Empleados emp)
+        public VentaProducto(string idEmpleado)
         {
-            this.empleados = emp;
+            this.empleados.Id_empleado = idEmpleado;
             InitializeComponent();
+            descuento = 0;
+            dgvProductList.DefaultCellStyle = dgvProductos.DefaultCellStyle;
+            dgvProductList.RowHeadersDefaultCellStyle = dgvProductos.RowsDefaultCellStyle;
+            dgvProductList.RowsDefaultCellStyle = dgvProductos.RowsDefaultCellStyle;
+            dgvProductList.ColumnHeadersDefaultCellStyle = dgvProductos.ColumnHeadersDefaultCellStyle;
         }
 
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 int cantidad = int.Parse(txtCantidad.Text);
                 int stock = int.Parse(txtStock.Text);
-               try
+                try
                 {
-                    if (cantidad > 0 && cantidad<=stock)
+                    if (cantidad > 0 && cantidad <= stock)
                     {
-                        suma = double.Parse(txtprecio.Text)*int.Parse(txtCantidad.Text);
+                        foreach (DataGridViewRow row in dgvProductList.Rows)
+                        
+                            if (row.Cells[0].Value.ToString() == txtId.Text)
+                            {
+                                txtCantidad.Text = int.Parse(txtCantidad.Text)+ int.Parse (row.Cells[3].Value.ToString())+ ""  ;
+                                dgvProductList.Rows.Remove(row);
+                                txtSubtotal.Text =double.Parse(txtSubtotal.Text) - (double.Parse(row.Cells[2].Value.ToString()) * int.Parse(row.Cells[3].Value.ToString()))+"";
+
+                            }
+               
+                        
+
+                        suma = double.Parse(txtprecio.Text) * int.Parse(txtCantidad.Text);
                         suma += double.Parse(txtSubtotal.Text);
                         dgvProductList.Rows.Add(txtId.Text, txtNombre.Text, txtprecio.Text, txtCantidad.Text, dgvProductos.SelectedRows[0].Cells[2].Value);
                         txtSubtotal.Text = "" + suma;
                         btnCancelar.Enabled = true;
-                        txtCantidad.Text = ""+0;
+                        txtCantidad.Text = "" + 0;
+                        txtDescuento.Text = suma * descuento+ "";
+                        txtTotal.Text = suma + ((suma - (suma * descuento)) * 0.15)
+                            -(suma * descuento)+ "";
                     }
                     else
                         throw new Exception();
                 }
-                 catch(Exception ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(this, "Ingrese la cantidad correcta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(this, "Ingrese la cantidad correcta"+ ex, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtCantidad.Focus();
                 }
-                
+          
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(null,"Seleccione un producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(null, "Seleccione un producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -62,37 +85,89 @@ namespace Presentacion
         {
             try
             {
-                facturacion.InsertarFacturaVenta("0819200100077", ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
-                    , txtSubtotal.Text, txtDescuento.Text, "1");
-
-
-                foreach (DataGridViewRow row in dgvProductList.Rows)
+                if (dgvProductList.Rows.Count > 0)
                 {
-                    inventario.Id_producto = int.Parse(row.Cells[0].Value.ToString());
-                    inventario.Precio_actual = double.Parse(row.Cells[2].Value.ToString());
-                    facturacion.insertarDetalleVenta(row.Cells[3].Value.ToString(), inventario);
-                }
-                txtId.Enabled = true;
-                txtNombre.Enabled = true;
-                txtStock.Enabled = true;
-                txtprecio.Enabled = true;
-                txtCantidad.Enabled = true;
+                    TipoDePago tipoDePago = new TipoDePago();
+                    DialogResult dr = DialogResult.Cancel;
 
+                    while (dr == DialogResult.Cancel)
+                    {
+
+
+                        dr = tipoDePago.ShowDialog();
+
+                        if (dr == DialogResult.Yes)
+                        {
+                            TipoCheque cheque = new TipoCheque();
+                            MessageBox.Show(suma + "");
+                            cheque.monto = "" + (suma * 0.15 +suma);
+                            dr = cheque.ShowDialog();
+                            MessageBox.Show(((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString());
+
+                            if (dr == DialogResult.Yes)
+                            {
+                                if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length > 0)
+                                    facturacion.InsertarFacturaVenta(empleados.Id_empleado, ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                                    , txtSubtotal.Text, "1", "0.15",descuento+"", "1");
+                                if (!chkRTN.Checked)
+                                    facturacion.InsertarFacturaVenta(empleados.Id_empleado, ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                                       , txtSubtotal.Text, "0", "0.15", descuento + "", "1");
+                                if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length <= 0)
+                                    throw new Exception("Error el empleado no contiene rtn");
+                            }
+           
+
+                        }
+                    }
+                    if (dr == DialogResult.No)
+                        if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length > 0)
+                            facturacion.InsertarFacturaVenta(empleados.Id_empleado, ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                                       , txtSubtotal.Text, "1", "0.15", descuento + "", "2");
+                        else if (!chkRTN.Checked)
+                            facturacion.InsertarFacturaVenta(empleados.Id_empleado, ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
+                               , txtSubtotal.Text, "0", "0.15", descuento + "", "2");
+                    else
+                    throw new Exception("Error el empleado no contiene rtn");
+                   
+
+
+                    if (dr != DialogResult.None && dr != DialogResult.Abort)
+                    {
+                        foreach (DataGridViewRow row in dgvProductList.Rows)
+                        {
+                            inventario.Id_producto = int.Parse(row.Cells[0].Value.ToString());
+                            inventario.Precio_actual = double.Parse(row.Cells[2].Value.ToString());
+                            facturacion.insertarDetalleVenta(row.Cells[3].Value.ToString(), inventario);
+                        }
+                        txtId.Enabled = true;
+                        txtNombre.Enabled = true;
+                        txtStock.Enabled = true;
+                        txtprecio.Enabled = true;
+                        txtCantidad.Enabled = true;
+
+                        //aqui se debe abrir el reporte
+                    }
+
+
+                }
+                else throw new Exception("Producto no ingresado a la lista");
             }
+           
             catch (Exception ex)
             {
-
+                MessageBox.Show(this, "Ocurrio un error al insertar (Error) " + ex);
             }
-            }
 
+        }
+        
 
         private void VentaProducto_Load(object sender, EventArgs e)
         {
             var producto = inventario.mostrar_inventario();
             var Cliente = client.Mostrar_Cliente();
-
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
             producto.DefaultView.RowFilter = "Estado = 'ACTIVO' ";
+           
             dgvProductos.DataSource = producto;
             dgvProductos.Columns["Id Marca"].Visible = false;
             dgvProductos.Columns["Id Categoría"].Visible = false;
@@ -101,13 +176,15 @@ namespace Presentacion
             dgvProductos.Rows[1].Selected = true;
             dgvProductos.CurrentRow.Selected = true;
             dgvProductos_CellClick(null, null);
+      
+
             Cliente.Columns.Add("Concat");
             foreach (DataRow row in Cliente.Rows)
             {
                         row["Concat"] = (row["Nombres"]+" "+ row["Apellidos"]);
                 coleccion.Add(row["Concat"]+"");
             }
-
+          
             cmbClientes.DataSource = Cliente;
             cmbClientes.DisplayMember = "Concat";
             cmbClientes.ValueMember = "Concat";
@@ -128,8 +205,9 @@ namespace Presentacion
 
         private void txtIdSrch_TextChanged(object sender, EventArgs e)
         {
-          //  var bd = (BindingSource)dgvProductos.DataSource;
-           // var dt = (DataTable)bd.DataSource;
+            //  var bd = (BindingSource)dgvProductos.DataSource;
+            // var dt = (DataTable)bd.DataSource;
+            txtNombreSrch.Text = "";
             if (txtIdSrch.Text != "")
                 (dgvProductos.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtIdSrch.Text));
             else
@@ -149,6 +227,7 @@ namespace Presentacion
         {
            // var bd = (BindingSource)dgvProductos.DataSource;
            // var dt = (DataTable)bd.DataSource;
+           txtIdSrch.Text="";
             (dgvProductos.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Nombre] LIKE '%{0}%'", txtNombreSrch.Text);
             dgvProductos.Refresh();
             if ((dgvProductos.DataSource as DataTable).DefaultView.Count < 1)
@@ -210,6 +289,23 @@ namespace Presentacion
         {
             letrasNum.SoloNumeros(e);
 
+        }
+
+        private void cmbClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void chkEdad_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (chkEdad.Checked)
+                descuento = 0.4;
+
+                
+            else
+                descuento = 0;
+            txtDescuento.Text = suma * descuento + "";
+            txtTotal.Text = suma + ((suma - (suma * descuento)) * 0.15)
+                - (suma * descuento) + "";
         }
     }
 }

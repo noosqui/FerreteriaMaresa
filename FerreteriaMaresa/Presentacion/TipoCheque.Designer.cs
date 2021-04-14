@@ -32,24 +32,24 @@ namespace Presentacion
             this.panel1 = new System.Windows.Forms.Panel();
 
 
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbBancos = new System.Windows.Forms.ComboBox();
+            this.reegresar = new System.Windows.Forms.Button();
             this.dtfechan = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
-            this.rtn = new System.Windows.Forms.TextBox();
-            this.Apellido = new System.Windows.Forms.TextBox();
+            this.txtRuta = new System.Windows.Forms.TextBox();
+            this.txtMonto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.nombre = new System.Windows.Forms.TextBox();
+            this.txtOrden = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnSiguiente = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCodPost = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtCiudad = new System.Windows.Forms.TextBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.txtNumeroCheque = new System.Windows.Forms.TextBox();
+            this.txtNumeroCuenta = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-
-            this.reegresar = new System.Windows.Forms.Button();
-
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             //
@@ -57,22 +57,26 @@ namespace Presentacion
             //
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
 
+
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.cmbBancos);
+
             this.panel1.Controls.Add(this.reegresar);
 
             this.panel1.Controls.Add(this.dtfechan);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.rtn);
-            this.panel1.Controls.Add(this.Apellido);
+            this.panel1.Controls.Add(this.txtRuta);
+            this.panel1.Controls.Add(this.txtMonto);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.nombre);
+            this.panel1.Controls.Add(this.txtOrden);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.btnEliminar);
+            this.panel1.Controls.Add(this.btnSiguiente);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.txtCodPost);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.txtCiudad);
-            this.panel1.Controls.Add(this.txtDireccion);
+            this.panel1.Controls.Add(this.txtNumeroCheque);
+            this.panel1.Controls.Add(this.txtNumeroCuenta);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -80,9 +84,48 @@ namespace Presentacion
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(924, 453);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            //
 
+
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(43, 36);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 20);
+            this.label1.TabIndex = 74;
+            this.label1.Text = "Banco:";
+            // 
+            // cmbBancos
+            // 
+            this.cmbBancos.FormattingEnabled = true;
+            this.cmbBancos.Location = new System.Drawing.Point(127, 36);
+            this.cmbBancos.Name = "cmbBancos";
+            this.cmbBancos.Size = new System.Drawing.Size(121, 21);
+            this.cmbBancos.TabIndex = 73;
+            // 
+            // reegresar
+            // 
+            this.reegresar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.reegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.reegresar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.reegresar.FlatAppearance.BorderSize = 0;
+            this.reegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reegresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.reegresar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.reegresar.Location = new System.Drawing.Point(47, 348);
+            this.reegresar.Name = "reegresar";
+            this.reegresar.Size = new System.Drawing.Size(201, 71);
+            this.reegresar.TabIndex = 72;
+            this.reegresar.Text = "Regresar";
+            this.reegresar.UseVisualStyleBackColor = false;
+
+            // 
 
             // dtfechan
             //
@@ -107,25 +150,27 @@ namespace Presentacion
             this.label9.Size = new System.Drawing.Size(58, 20);
             this.label9.TabIndex = 66;
             this.label9.Text = "Fecha:";
-            //
-            // rtn
-            //
-            this.rtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rtn.Enabled = false;
-            this.rtn.Location = new System.Drawing.Point(230, 171);
-            this.rtn.Name = "rtn";
-            this.rtn.Size = new System.Drawing.Size(633, 20);
-            this.rtn.TabIndex = 50;
-            //
-            // Apellido
-            //
-            this.Apellido.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Apellido.Enabled = false;
-            this.Apellido.Location = new System.Drawing.Point(230, 128);
-            this.Apellido.Name = "Apellido";
-            this.Apellido.Size = new System.Drawing.Size(633, 20);
-            this.Apellido.TabIndex = 48;
-            //
+
+            // 
+            // txtRuta
+            // 
+            this.txtRuta.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtRuta.Location = new System.Drawing.Point(230, 171);
+            this.txtRuta.Name = "txtRuta";
+            this.txtRuta.Size = new System.Drawing.Size(633, 20);
+            this.txtRuta.TabIndex = 50;
+            this.txtRuta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rtn_KeyPress);
+            // 
+            // txtMonto
+            // 
+            this.txtMonto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtMonto.Location = new System.Drawing.Point(230, 128);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(633, 20);
+            this.txtMonto.TabIndex = 48;
+            this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Apellido_KeyPress);
+            // 
+
             // label3
             //
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -138,16 +183,18 @@ namespace Presentacion
             this.label3.Size = new System.Drawing.Size(96, 20);
             this.label3.TabIndex = 49;
             this.label3.Text = "La suma de:";
-            //
-            // nombre
-            //
-            this.nombre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.nombre.Enabled = false;
-            this.nombre.Location = new System.Drawing.Point(230, 84);
-            this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(633, 20);
-            this.nombre.TabIndex = 44;
-            //
+
+            // 
+            // txtOrden
+            // 
+            this.txtOrden.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtOrden.Location = new System.Drawing.Point(230, 84);
+            this.txtOrden.Name = "txtOrden";
+            this.txtOrden.Size = new System.Drawing.Size(633, 20);
+            this.txtOrden.TabIndex = 44;
+            this.txtOrden.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nombre_KeyPress);
+            // 
+
             // label2
             //
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -160,24 +207,27 @@ namespace Presentacion
             this.label2.Size = new System.Drawing.Size(172, 20);
             this.label2.TabIndex = 47;
             this.label2.Text = "Paguese a la orden de:";
-            //
-            // btnEliminar
-            //
-            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 
-            this.btnEliminar.Location = new System.Drawing.Point(662, 348);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(201, 71);
-            this.btnEliminar.TabIndex = 59;
-            this.btnEliminar.Text = "Siguiente";
+            // 
 
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            //
+            // btnSiguiente
+            // 
+            this.btnSiguiente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSiguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnSiguiente.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.btnSiguiente.FlatAppearance.BorderSize = 0;
+            this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.btnSiguiente.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSiguiente.Location = new System.Drawing.Point(662, 348);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(201, 71);
+            this.btnSiguiente.TabIndex = 59;
+            this.btnSiguiente.Text = "Siguiente";
+            this.btnSiguiente.UseVisualStyleBackColor = false;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+
+            // 
             // label10
             //
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -209,10 +259,10 @@ namespace Presentacion
             //
             this.txtCodPost.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCodPost.Enabled = false;
-            this.txtCodPost.Location = new System.Drawing.Point(693, 36);
+            this.txtCodPost.Location = new System.Drawing.Point(585, 36);
             this.txtCodPost.Margin = new System.Windows.Forms.Padding(2);
             this.txtCodPost.Name = "txtCodPost";
-            this.txtCodPost.Size = new System.Drawing.Size(165, 20);
+            this.txtCodPost.Size = new System.Drawing.Size(273, 20);
             this.txtCodPost.TabIndex = 69;
             //
             // label11
@@ -222,32 +272,35 @@ namespace Presentacion
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(617, 36);
+            this.label11.Location = new System.Drawing.Point(527, 36);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(58, 20);
+            this.label11.Size = new System.Drawing.Size(54, 20);
             this.label11.TabIndex = 70;
-            this.label11.Text = "Monto:";
-            //
-            // txtCiudad
-            //
-            this.txtCiudad.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCiudad.Enabled = false;
-            this.txtCiudad.Location = new System.Drawing.Point(230, 259);
-            this.txtCiudad.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCiudad.Name = "txtCiudad";
-            this.txtCiudad.Size = new System.Drawing.Size(633, 20);
-            this.txtCiudad.TabIndex = 65;
-            //
-            // txtDireccion
-            //
-            this.txtDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDireccion.Enabled = false;
-            this.txtDireccion.Location = new System.Drawing.Point(230, 213);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(633, 20);
-            this.txtDireccion.TabIndex = 52;
-            //
+
+            this.label11.Text = "Lugar:";
+            // 
+            // txtNumeroCheque
+            // 
+            this.txtNumeroCheque.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNumeroCheque.Location = new System.Drawing.Point(230, 259);
+            this.txtNumeroCheque.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNumeroCheque.Name = "txtNumeroCheque";
+            this.txtNumeroCheque.Size = new System.Drawing.Size(633, 20);
+            this.txtNumeroCheque.TabIndex = 65;
+            this.txtNumeroCheque.TextChanged += new System.EventHandler(this.txtCiudad_TextChanged);
+            this.txtNumeroCheque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCiudad_KeyPress);
+            // 
+            // txtNumeroCuenta
+            // 
+            this.txtNumeroCuenta.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNumeroCuenta.Location = new System.Drawing.Point(230, 213);
+            this.txtNumeroCuenta.Name = "txtNumeroCuenta";
+            this.txtNumeroCuenta.Size = new System.Drawing.Size(633, 20);
+            this.txtNumeroCuenta.TabIndex = 52;
+            this.txtNumeroCuenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
+            // 
+
             // label4
             //
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -260,23 +313,9 @@ namespace Presentacion
             this.label4.Size = new System.Drawing.Size(115, 20);
             this.label4.TabIndex = 51;
             this.label4.Text = "Ruta Bancaria:";
-            //
 
-            // reegresar
-            //
-            this.reegresar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.reegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.reegresar.FlatAppearance.BorderSize = 0;
-            this.reegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reegresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.reegresar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.reegresar.Location = new System.Drawing.Point(47, 348);
-            this.reegresar.Name = "reegresar";
-            this.reegresar.Size = new System.Drawing.Size(201, 71);
-            this.reegresar.TabIndex = 72;
-            this.reegresar.Text = "Regresar";
-            this.reegresar.UseVisualStyleBackColor = false;
-            //
+            // 
+ 
 
             // TipoCheque
             //
@@ -287,6 +326,7 @@ namespace Presentacion
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TipoCheque";
             this.Text = "TipoCheque";
+            this.Load += new System.EventHandler(this.TipoCheque_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -297,22 +337,23 @@ namespace Presentacion
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox rtn;
-        private System.Windows.Forms.TextBox Apellido;
+        private System.Windows.Forms.TextBox txtRuta;
+        private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox nombre;
+        private System.Windows.Forms.TextBox txtOrden;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCodPost;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtCiudad;
-        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.TextBox txtNumeroCheque;
+        private System.Windows.Forms.TextBox txtNumeroCuenta;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtfechan;
-
         private System.Windows.Forms.Button reegresar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbBancos;
 
     }
 }

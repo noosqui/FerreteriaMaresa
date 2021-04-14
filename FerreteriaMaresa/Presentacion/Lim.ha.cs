@@ -23,12 +23,6 @@ namespace Presentacion
                 {
                     ((ComboBox)txt).SelectedIndex = 0;
                 }
-
-                if (txt is RadioButton)
-                {
-                    ((RadioButton)txt).Checked = false;
-                }
-
             }
 
         }
@@ -49,16 +43,10 @@ namespace Presentacion
                     ((ComboBox)txt).Enabled = true;
                 }
 
-                if (txt is RadioButton)
-                {
-                    ((RadioButton)txt).Enabled = true;
-                }
-
                 if(txt is DateTimePicker)
                 {
                     ((DateTimePicker)txt).Enabled = true;
                 }
-
             }
 
         }
@@ -78,16 +66,10 @@ namespace Presentacion
                     ((ComboBox)txt).Enabled = false;
                 }
 
-                if (txt is RadioButton)
-                {
-                    ((RadioButton)txt).Enabled = false;
-                }
-
                 if (txt is DateTimePicker)
                 {
                     ((DateTimePicker)txt).Enabled = false;
                 }
-
             }
 
         }

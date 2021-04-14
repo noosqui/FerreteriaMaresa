@@ -10,8 +10,6 @@ namespace Dominio
 {
      public class DOM_proveedor
     {
-
-
         private int id_proveedor;
         private string nom_proveedor;
         private string apellido_proveedor;
@@ -41,12 +39,13 @@ namespace Dominio
             get { return id_proveedor; }
             set { id_proveedor = value; }
         }
-        public string Nombre
+
+        public string Nom_proveedor
         {
             get { return nom_proveedor; }
             set { nom_proveedor = value; }
         }
-        public string Apellido
+        public string Apellido_proveedor
         {
             get { return apellido_proveedor; }
             set { apellido_proveedor = value; }
@@ -67,24 +66,52 @@ namespace Dominio
             set { direccion = value; }
         }
 
+        public string Region
+        {
+            get { return region; }
+            set { region = value; }
+        }
 
-        public void editar_proveedor()
+        public string Ciudad
         {
-            // objeto.editar_proveedor(id_proveedor, nom_proveedor, apellido_proveedor, correo, telefono, direccion);/
+            get { return ciudad; }
+            set { ciudad = value; }
         }
-        public void eliminar_empleado()
+
+        public string CodPostal
         {
-            // objeto.eliminarproveedor(id_proveedor);/
+            get { return codPostal; }
+            set { codPostal = value; }
         }
-        public void crear_proveedor()
+
+        public string Pais
         {
-            // objeto.crearproveedor(id_proveedor, nom_proveedor, apellido_proveedor, correo, telefono, direccion) /
+            get { return pais; }
+            set { pais = value; }
         }
-        public DataTable mostrarProveedor()
+
+        public string Estado
+        {
+            get { return estado; }
+            set { estado = value; }
+        }
+
+        public void editar_proveedor(string idProveedor, string nombreProveedor, string telProveedor, string correo, string direccion, string ciudad, string region, string codigopostal, string pais, string estado)
+        {
+            prov.Editar_Proveedores(idProveedor, nombreProveedor, telProveedor, correo, direccion, ciudad, region, codigopostal, pais, estado);
+        }
+        public void eliminar_empleado(string idProveedor)
+        {
+            prov.eliminarempleado(idProveedor);
+        }
+        public void crear_proveedor(string nombreProveedor, string telProveedor, string correo, string direccion, string ciudad, string region, string codigopostal, string pais, string estado)
+        {
+            prov.insertar_Proveedor(nombreProveedor, telProveedor, correo, direccion, ciudad, region, codigopostal, pais, estado);
+        }
+        public DataTable CargarDGVProveedores()
         {
             return prov.Mostrar_Proveedor();
         }
-
 
     }
 
