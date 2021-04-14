@@ -139,6 +139,7 @@ namespace Presentacion
             this.lblinkContra.TabIndex = 0;
             this.lblinkContra.TabStop = true;
             this.lblinkContra.Text = "Has olvidado tu contraseña?";
+            this.lblinkContra.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblinkContra_LinkClicked);
             // 
             // btnMinimizar
             // 
