@@ -47,13 +47,15 @@ namespace Presentacion
 
 
             this.SuspendLayout();
-            // 
+            //
             // panel2
-            // 
+            //
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
 
 
+
             this.panel2.Controls.Add(this.submenubotones);
+
 
 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -62,11 +64,10 @@ namespace Presentacion
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(993, 429);
             this.panel2.TabIndex = 4;
-            // 
 
 
             // submenubotones
-            // 
+            //
             this.submenubotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
             this.submenubotones.Controls.Add(this.button1);
             this.submenubotones.Controls.Add(this.button2);
@@ -81,9 +82,9 @@ namespace Presentacion
             this.submenubotones.Size = new System.Drawing.Size(230, 429);
             this.submenubotones.TabIndex = 3;
 
-            // 
+
             // button1
-            // 
+            //
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
             this.button1.FlatAppearance.BorderSize = 0;
@@ -99,9 +100,9 @@ namespace Presentacion
             this.button1.Text = "Personalizado";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Visible = false;
-            // 
+            //
             // button2
-            // 
+            //
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.button2.Dock = System.Windows.Forms.DockStyle.Top;
             this.button2.FlatAppearance.BorderSize = 0;
@@ -116,9 +117,9 @@ namespace Presentacion
             this.button2.TabIndex = 65;
             this.button2.Text = "Por Año";
             this.button2.UseVisualStyleBackColor = false;
-            // 
+            //
             // btnGuardar
-            // 
+            //
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnGuardar.FlatAppearance.BorderSize = 0;
@@ -135,9 +136,9 @@ namespace Presentacion
             this.btnGuardar.Text = "Ultimos 30 dias";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Visible = false;
-            // 
+            //
             // btnEliminar
-            // 
+            //
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnEliminar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
@@ -152,9 +153,9 @@ namespace Presentacion
             this.btnEliminar.TabIndex = 59;
             this.btnEliminar.Text = "Por Mes";
             this.btnEliminar.UseVisualStyleBackColor = false;
-            // 
+            //
             // btnAgregar
-            // 
+            //
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAgregar.FlatAppearance.BorderSize = 0;
@@ -169,9 +170,9 @@ namespace Presentacion
             this.btnAgregar.TabIndex = 56;
             this.btnAgregar.Text = "Ultimos 7 dias";
             this.btnAgregar.UseVisualStyleBackColor = false;
-            // 
+            //
             // btnModificar
-            // 
+            //
             this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnModificar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnModificar.FlatAppearance.BorderSize = 0;
@@ -187,9 +188,9 @@ namespace Presentacion
             this.btnModificar.TabIndex = 58;
             this.btnModificar.Text = "Por Dia";
             this.btnModificar.UseVisualStyleBackColor = false;
-            // 
+            //
             // ReporteCompra
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(993, 429);

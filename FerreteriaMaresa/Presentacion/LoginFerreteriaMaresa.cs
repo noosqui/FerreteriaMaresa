@@ -129,6 +129,11 @@ namespace Presentacion
             }
         }
 
+        private void lblinkContra_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            /*Password_Recovery pass = new Password_Recovery();
+            pass.Show();*/
+        }
         private void txtContra_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar==13)
