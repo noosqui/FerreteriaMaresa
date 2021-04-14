@@ -108,7 +108,7 @@ namespace Dominio
             cli.Editar_Cliente(idCliente, nombrecliente, apellidocliente, RTN, direccion, ciudad, region, codigo_postal, pais, telefono);
         }
 
-        public void eliminar_empleado(string id_Cliente)
+        public void eliminar_cliente(string id_Cliente)
         {
             cli.Eliminar_Cliente(id_Cliente);
         }

@@ -75,7 +75,9 @@ namespace Datos
             comando.Parameters.AddWithValue("@idcliente", idcliente);
             comando.Parameters.AddWithValue("@nombrecliente", nombrecliente);
             comando.Parameters.AddWithValue("@apellidocliente", apellidocliente);
+            if (RTN!=null)
             comando.Parameters.AddWithValue("@RTN", RTN);
+
             comando.Parameters.AddWithValue("@direccion", direccion);
             comando.Parameters.AddWithValue("@ciudad", ciudad);
             comando.Parameters.AddWithValue("@region", region);
