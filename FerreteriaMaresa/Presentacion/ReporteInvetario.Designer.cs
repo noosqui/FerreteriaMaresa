@@ -58,9 +58,9 @@ namespace Presentacion
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.btnGuardar);
-            this.panel1.Controls.Add(this.btnEliminar);
             this.panel1.Controls.Add(this.btnAgregar);
             this.panel1.Controls.Add(this.btnModificar);
+            this.panel1.Controls.Add(this.btnEliminar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(781, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
@@ -123,7 +123,7 @@ namespace Presentacion
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminar.Location = new System.Drawing.Point(0, 142);
+            this.btnEliminar.Location = new System.Drawing.Point(0, 0);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(243, 71);
             this.btnEliminar.TabIndex = 59;
@@ -138,7 +138,7 @@ namespace Presentacion
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAgregar.Location = new System.Drawing.Point(0, 71);
+            this.btnAgregar.Location = new System.Drawing.Point(0, 142);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(243, 71);
             this.btnAgregar.TabIndex = 56;
@@ -153,7 +153,7 @@ namespace Presentacion
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnModificar.Location = new System.Drawing.Point(0, 0);
+            this.btnModificar.Location = new System.Drawing.Point(0, 71);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(243, 71);
@@ -170,6 +170,7 @@ namespace Presentacion
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReporteInvetario";
             this.Text = "Reporte Invetario";
+            this.Load += new System.EventHandler(this.ReporteInvetario_Load);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

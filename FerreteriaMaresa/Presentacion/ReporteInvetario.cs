@@ -16,5 +16,14 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+
+        private void ReporteInvetario_Load(object sender, EventArgs e)
+        {
+
+            /*  this.reportViewer1.RefreshReport();
+              this.reportViewer2.RefreshReport();*/
+            /*this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();*/
+        }
     }
 }
