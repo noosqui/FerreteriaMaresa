@@ -1095,6 +1095,7 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvCategoria.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvCategoria.EnableHeadersVisualStyles = false;
             this.dgvCategoria.Location = new System.Drawing.Point(342, 112);
             this.dgvCategoria.MultiSelect = false;
             this.dgvCategoria.Name = "dgvCategoria";
