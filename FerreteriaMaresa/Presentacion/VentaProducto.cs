@@ -148,6 +148,12 @@ namespace Presentacion
                         //aqui se debe abrir el reporte
                     }
 
+                    FacturaVenta fact = new FacturaVenta();
+                    fact.ShowDialog();
+                    VentaProducto_Load(null, null);
+
+                        
+                            
 
                 }
                 else throw new Exception("Producto no ingresado a la lista");
@@ -165,9 +171,10 @@ namespace Presentacion
         {
             var producto = inventario.mostrar_inventario();
             var Cliente = client.Mostrar_Cliente();
+
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
             producto.DefaultView.RowFilter = "Estado = 'ACTIVO' ";
-           
+            dgvProductList.Rows.Clear();
             dgvProductos.DataSource = producto;
             dgvProductos.Columns["Id Marca"].Visible = false;
             dgvProductos.Columns["Id Categoría"].Visible = false;

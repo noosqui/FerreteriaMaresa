@@ -40,8 +40,9 @@
     <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net45\FontAwesome.Sharp.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.10.0.40219.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms">
+      <HintPath>..\..\..\..\..\..\..\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\COMMON7\IDE\COMMONEXTENSIONS\MICROSOFT\SSAS\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.dll</HintPath>
@@ -53,7 +54,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -82,12 +86,6 @@
     </Compile>
     <Compile Include="FacturaVenta.Designer.cs">
       <DependentUpon>FacturaVenta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Graficos.cs">
       <SubType>Form</SubType>
@@ -146,18 +144,13 @@
     <Compile Include="RegistroProveedores.Designer.cs">
       <DependentUpon>RegistroProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReporteInvetario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteInvetario.Designer.cs">
-      <DependentUpon>ReporteInvetario.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmReportesVentas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmReportesVentas.Designer.cs">
       <DependentUpon>frmReportesVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="TipoCheque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,9 +177,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FacturaVenta.resx">
       <DependentUpon>FacturaVenta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Graficos.resx">
       <DependentUpon>Graficos.cs</DependentUpon>
@@ -225,12 +215,10 @@
     <EmbeddedResource Include="RegistroProveedores.resx">
       <DependentUpon>RegistroProveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteInvetario.resx">
-      <DependentUpon>ReporteInvetario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmReportesVentas.resx">
       <DependentUpon>frmReportesVentas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Report1.rdlc" />
     <EmbeddedResource Include="Reporte\ReporteVentas.rdlc" />
     <EmbeddedResource Include="TipoCheque.resx">
       <DependentUpon>TipoCheque.cs</DependentUpon>
@@ -242,8 +230,17 @@
       <DependentUpon>VentaProducto.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Dominio.DataSet1.datasource" />
+    <None Include="Properties\DataSources\Dominio.DOM_Bancos.datasource" />
+    <None Include="Properties\DataSources\Dominio.DOM_Clientes.datasource" />
+    <None Include="Properties\DataSources\Dominio.DOM_Empleados.datasource" />
+    <None Include="Properties\DataSources\Dominio.DOM_Facturacion.datasource" />
+    <None Include="Properties\DataSources\Dominio.DOM_Inventario.datasource" />
+    <None Include="Properties\DataSources\Dominio.DOM_proveedor.datasource" />
+    <None Include="Properties\DataSources\Dominio.DOM_Validacion.datasource" />
     <None Include="Properties\DataSources\Dominio.ListaVentas.datasource" />
     <None Include="Properties\DataSources\Dominio.ReporteVentas.datasource" />
+    <None Include="Properties\DataSources\Dominio.Usermodel.datasource" />
     <None Include="Properties\DataSources\Dominio.VentasNetasPeriodo.datasource" />
     <None Include="Properties\DataSources\ReporteCompra.datasource" />
     <None Include="Properties\Settings.settings">
@@ -271,6 +268,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Ferreteria Maresa Imagen.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
