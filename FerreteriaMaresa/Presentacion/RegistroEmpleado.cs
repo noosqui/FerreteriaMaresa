@@ -253,10 +253,11 @@ namespace Presentacion
                             dgvEmpleados.Refresh();
                             Lim_ha apagar = new Lim_ha();
                             apagar.Apagar(this);
+                            RegistroEmpleado_Load(null, null);
                     }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Error al Agregar Empleado/El numero de Identidad ya existe en la base de Datos");
+                            MessageBox.Show("Error al Agregar Empleado/El numero de Identidad ya existe en la base de Datos"+ ex);
                         }
 
                     }
@@ -289,7 +290,7 @@ namespace Presentacion
 
                                 emplea.modificar_empleado(txtidentidad.Text, txtnombre.Text, txtapellido.Text, txtcorreo.Text, txttelefono.Text, 
                                     txtdireccion.Text, txtciudad.Text, txtregion.Text, txtcodpost.Text, txtpais.Text, txtcodrol,
-                                    dtfecha.Value.ToString("dd/MM/yyyy"), estado);
+                                     dtfecha.Value.ToString("yyyy/MM/dd"), estado);
 
                                 btnAgregar.Visible = true;
                                 btnModificar.Visible = true;
@@ -511,16 +512,26 @@ namespace Presentacion
         {
             try
             {
-                var dt = (DataTable)dgvEmpleados.DataSource;
-                dt.DefaultView.RowFilter = string.Format("[Nombres] LIKE '%{0}'", txtnombreemp.Text);
-                dgvEmpleados.Refresh();
+               
+                
+                    
 
-                if (dt.DefaultView.Count < 1)
-                {
-                    SystemSounds.Exclamation.Play();
-                    ToolTip tt = new ToolTip();
-                    tt.Show("No se encontro parametros", this.txtnombreemp, 0, 25, 3000);
-                }
+                    var dt = (DataTable)dgvEmpleados.DataSource;
+                    dt.CaseSensitive = false;
+                if (txtnombreemp.Text != "")
+                    dt.DefaultView.RowFilter = string.Format("[Nombres] LIKE '{0}*' ", txtnombreemp.Text);
+               else 
+                    dt.DefaultView.RowFilter = null;
+                   
+                    dgvEmpleados.Refresh();
+
+                    if (dt.DefaultView.Count < 1)
+                    {
+                        SystemSounds.Exclamation.Play();
+                        ToolTip tt = new ToolTip();
+                        tt.Show("No se encontro parametros", this.txtnombreemp, 0, 25, 3000);
+                    }
+                
             }
             catch (Exception ex)
             {
@@ -636,22 +647,25 @@ namespace Presentacion
             
             try
             {
-                var dt = (DataTable)dgvEmpleados.DataSource;
-                if (txtbuscarid.Text != "")
-                    dt.DefaultView.RowFilter = string.Format("[Identidad] LIKE '%{0}%'", txtbuscarid.Text);
+                
+           
+                    var dt = (DataTable)dgvEmpleados.DataSource;
+                    if (txtbuscarid.Text != "")
+                        dt.DefaultView.RowFilter = string.Format("[Identidad] LIKE '%{0}%'", txtbuscarid.Text);
 
-                else
-                {
-                    dt.DefaultView.RowFilter = null;
-                }
-                dgvEmpleados.Refresh();
+                    else
+                    {
+                        dt.DefaultView.RowFilter = null;
+                    }
+                    dgvEmpleados.Refresh();
 
-                if (dt.DefaultView.Count < 1)
-                {
-                    SystemSounds.Exclamation.Play();
-                    ToolTip tt = new ToolTip();
-                    tt.Show("No se encontro parametros", this.txtbuscarid, 0, 25, 3000);
-                }
+                    if (dt.DefaultView.Count < 1)
+                    {
+                        SystemSounds.Exclamation.Play();
+                        ToolTip tt = new ToolTip();
+                        tt.Show("No se encontro parametros", this.txtbuscarid, 0, 25, 3000);
+                    }
+                
             }
             catch (Exception ex)
             {
@@ -662,6 +676,16 @@ namespace Presentacion
         private void txtbuscarid_KeyPress(object sender, KeyPressEventArgs e)
         {
             letrasNum.SoloNumeros(e);
+        }
+
+        private void txtbuscarid_Enter(object sender, EventArgs e)
+        {
+            txtnombreemp.Text = "";
+        }
+
+        private void txtnombreemp_Enter(object sender, EventArgs e)
+        {
+            txtbuscarid.Text = "";
         }
     }
 }

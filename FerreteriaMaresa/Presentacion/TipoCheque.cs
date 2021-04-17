@@ -81,6 +81,10 @@ namespace Presentacion
         {
             try
             {
+                foreach (Control ctr in this.panel1.Controls)
+                    if (ctr is TextBox && ctr.Text.Trim().Length < 1)
+                        throw new Exception("No debe dejar campos vacios");
+            
                 facturacion.Insertar_Cheque(txtNumeroCuenta.Text, dtfechan.Value, txtRuta.Text, txtNumeroCheque.Text, ((DataTable)cmbBancos.DataSource).Rows[cmbBancos.SelectedIndex][0].ToString(), txtMonto.Text);
             }
             catch (Exception ex)

@@ -19,7 +19,8 @@ namespace Presentacion
         private Panel leftBorderBtn;
         private Form currentForm;
         private string idEmpleado;
-        public MenuAdmin(string Empleado)
+        private int puesto;
+        public MenuAdmin(string Empleado,int puesto)
         {
 
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace Presentacion
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.idEmpleado = Empleado;
+            this.puesto = puesto;
         }
         private struct RGBColors
         {
@@ -100,7 +102,7 @@ namespace Presentacion
         private void btnInventario_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            AbrirForm(new Inventario());
+            AbrirForm(new Inventario(this.puesto));
             panelSubMenu.Visible = false;
         }
 
@@ -245,7 +247,7 @@ namespace Presentacion
         private void iconButton1_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            AbrirForm(new Inventario());
+            AbrirForm(new Inventario(this.puesto));
             panelSubMenu.Visible = false;
         }
 

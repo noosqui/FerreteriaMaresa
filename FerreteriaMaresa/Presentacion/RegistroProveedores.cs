@@ -96,12 +96,14 @@ namespace Presentacion
 
             txtnombre.Enabled = true;
             txtTelefono.Enabled = true;
-            txtcorreo.Enabled = true;
-            txtdireccion.Enabled = true;
-            txtciudad.Enabled = true;
-            txtregion.Enabled = true;
+             txtcorreo.Enabled = true;
+             txtdireccion.Enabled = true;
+             txtciudad.Enabled = true;
+             txtregion.Enabled = true;
             txtCodPost.Enabled = true;
             txtPais.Enabled = true;
+           
+
             rbActivo.Enabled = true;
             rbInactivo.Enabled = true;
             limpiar();
@@ -143,6 +145,11 @@ namespace Presentacion
                         {
                             estado = "Inactivo";
                         }
+                        var dt = (DataTable)dgvProveedores.DataSource;
+                        dt.DefaultView.RowFilter = string.Format("[Nombre] LIKE '{0}*'", txtnombre.Text);
+                        if (dgvProveedores.Rows.Count > 0)
+                            throw new Exception("Este proveedor ya existe");
+                        dt.DefaultView.RowFilter = null;
 
                         proveedor.crear_proveedor(txtnombre.Text, txtTelefono.Text, txtcorreo.Text, txtdireccion.Text, txtciudad.Text,
                             txtregion.Text, txtCodPost.Text, txtPais.Text, estado);
@@ -156,12 +163,9 @@ namespace Presentacion
                         rbActivo.Enabled = false;
                         rbInactivo.Enabled = false;
                         limpiar();
-                        var fuente = new BindingSource();
-                        fuente.DataSource = proveedor.CargarDGVProveedores();
-                        dgvProveedores.DataSource = fuente;
-                        dgvProveedores.Refresh();
                         Lim_ha apagar = new Lim_ha();
                         apagar.Apagar(this);
+                        RegistroProveedores_Load(null, null);
                     }
                     catch (Exception ex)
                     {
@@ -208,14 +212,11 @@ namespace Presentacion
                             rbActivo.Enabled = true;
                             rbInactivo.Enabled = true;
                             limpiar();
-                            var fuente = new BindingSource();
-                            fuente.DataSource = proveedor.CargarDGVProveedores();
-                            dgvProveedores.DataSource = fuente;
-                            dgvProveedores.Refresh();
                             Lim_ha apagar = new Lim_ha();
                             apagar.Apagar(this);
+                            RegistroProveedores_Load(null, null);
 
-                        }
+                    }
                         catch (Exception ex)
                         {
                             MessageBox.Show("Error de Modificacion" + ex);
@@ -226,7 +227,7 @@ namespace Presentacion
                 {
                     try
                     {
-                        if (MessageBox.Show("¿Seguro que desea despedir el Empleado?",
+                        if (MessageBox.Show("¿Seguro que desea eliminar el proveedor?",
                             "ADVERTENCIA", MessageBoxButtons.YesNo) == DialogResult.Yes)
                             proveedor.eliminar_empleado(txtcodigo.Text);
                     }
@@ -246,13 +247,10 @@ namespace Presentacion
                     rbActivo.Enabled = false;
                     rbInactivo.Enabled = false;
                     limpiar();
-                    var fuente = new BindingSource();
-                    fuente.DataSource = proveedor.CargarDGVProveedores();
-                    dgvProveedores.DataSource = fuente;
-                    dgvProveedores.Refresh();
                     Lim_ha apagar = new Lim_ha();
                     apagar.Apagar(this);
-                }
+                    RegistroProveedores_Load(null, null);
+            }
         }
 
         private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -313,13 +311,14 @@ namespace Presentacion
             txtnombre.Enabled = true;
             txtTelefono.Enabled = true;
             txtcorreo.Enabled = true;
-            txtdireccion.Enabled = true;
-            txtciudad.Enabled = true;
-            txtregion.Enabled = true;
-            txtCodPost.Enabled = true;
-            txtPais.Enabled = true;
+          //  txtdireccion.Enabled = true;
+          //  txtciudad.Enabled = true;
+           // txtregion.Enabled = true;
+           // txtCodPost.Enabled = true;
+          //  txtPais.Enabled = true;
             rbActivo.Enabled = true;
             rbInactivo.Enabled = true;
+            dgvProveedores.Enabled = false;
 
         }
 
@@ -519,7 +518,11 @@ namespace Presentacion
             try
             {
                 var dt = (DataTable)dgvProveedores.DataSource;
-                dt.DefaultView.RowFilter = string.Format("[Nombre] LIKE '%{0}'", txtbuscarnombre.Text);
+                dt.CaseSensitive = false;
+                if (txtbuscarnombre.Text != "")
+                    dt.DefaultView.RowFilter = string.Format("[Nombre] LIKE '{0}*'", txtbuscarnombre.Text);
+                else
+                    dt.DefaultView.RowFilter = null;
                 dgvProveedores.Refresh();
 
                 if (dt.DefaultView.Count < 1)
