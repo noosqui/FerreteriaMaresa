@@ -148,10 +148,13 @@ namespace Presentacion
                         //aqui se debe abrir el reporte
                     }
 
-                    FacturaVenta fact = new FacturaVenta();
-                    fact.ShowDialog();
-                    VentaProducto_Load(null, null);
-
+                    if (dr != DialogResult.Abort)
+                    {
+                        FacturaVenta fact = new FacturaVenta();
+                        fact.ShowDialog();
+                        VentaProducto_Load(null, null);
+                    }
+               
                         
                             
 

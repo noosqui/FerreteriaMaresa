@@ -179,8 +179,11 @@ namespace Presentacion
                         }
                         
                     }
-                    dgvListaProductos.Enabled = true;
-                    CompraProductos_Load(null, null);
+                    if (dr != DialogResult.Abort)
+                    {
+                        dgvListaProductos.Enabled = true;
+                        CompraProductos_Load(null, null);
+                    }
                 }
                 else throw new Exception("Producto no ingresado a la lista");
             }

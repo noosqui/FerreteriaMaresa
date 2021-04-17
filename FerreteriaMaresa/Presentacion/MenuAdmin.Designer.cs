@@ -34,9 +34,9 @@ namespace Presentacion
             this.panelSubMenu = new System.Windows.Forms.Panel();
             this.ReporteVentas = new FontAwesome.Sharp.IconButton();
             this.ReporteInventario = new FontAwesome.Sharp.IconButton();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.btnReport = new FontAwesome.Sharp.IconButton();
+            this.btnGraf = new FontAwesome.Sharp.IconButton();
+            this.btnProveedor = new FontAwesome.Sharp.IconButton();
             this.btnClientes = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnVentas = new FontAwesome.Sharp.IconButton();
@@ -73,9 +73,9 @@ namespace Presentacion
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
             this.panelMenu.Controls.Add(this.panelSubMenu);
-            this.panelMenu.Controls.Add(this.iconButton5);
-            this.panelMenu.Controls.Add(this.iconButton3);
-            this.panelMenu.Controls.Add(this.iconButton2);
+            this.panelMenu.Controls.Add(this.btnReport);
+            this.panelMenu.Controls.Add(this.btnGraf);
+            this.panelMenu.Controls.Add(this.btnProveedor);
             this.panelMenu.Controls.Add(this.btnClientes);
             this.panelMenu.Controls.Add(this.iconButton1);
             this.panelMenu.Controls.Add(this.btnVentas);
@@ -139,69 +139,69 @@ namespace Presentacion
             this.ReporteInventario.Text = "Reporte Inventario";
             this.ReporteInventario.UseVisualStyleBackColor = true;
             // 
-            // iconButton5
+            // btnReport
             // 
-            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton5.ForeColor = System.Drawing.Color.White;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.ChartBar;
-            this.iconButton5.IconColor = System.Drawing.Color.White;
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 40;
-            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(0, 511);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton5.Size = new System.Drawing.Size(220, 53);
-            this.iconButton5.TabIndex = 107;
-            this.iconButton5.Text = "Reportes";
-            this.iconButton5.UseVisualStyleBackColor = true;
-            this.iconButton5.Visible = false;
-            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click);
+            this.btnReport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReport.FlatAppearance.BorderSize = 0;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.IconChar = FontAwesome.Sharp.IconChar.ChartBar;
+            this.btnReport.IconColor = System.Drawing.Color.White;
+            this.btnReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReport.IconSize = 40;
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReport.Location = new System.Drawing.Point(0, 511);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnReport.Size = new System.Drawing.Size(220, 53);
+            this.btnReport.TabIndex = 107;
+            this.btnReport.Text = "Reportes";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Visible = false;
+            this.btnReport.Click += new System.EventHandler(this.iconButton5_Click);
             // 
-            // iconButton3
+            // btnGraf
             // 
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton3.ForeColor = System.Drawing.Color.White;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
-            this.iconButton3.IconColor = System.Drawing.Color.White;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 40;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(0, 458);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton3.Size = new System.Drawing.Size(220, 53);
-            this.iconButton3.TabIndex = 105;
-            this.iconButton3.Text = "Graficos";
-            this.iconButton3.UseVisualStyleBackColor = true;
-            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            this.btnGraf.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGraf.FlatAppearance.BorderSize = 0;
+            this.btnGraf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGraf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGraf.ForeColor = System.Drawing.Color.White;
+            this.btnGraf.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.btnGraf.IconColor = System.Drawing.Color.White;
+            this.btnGraf.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGraf.IconSize = 40;
+            this.btnGraf.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGraf.Location = new System.Drawing.Point(0, 458);
+            this.btnGraf.Name = "btnGraf";
+            this.btnGraf.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnGraf.Size = new System.Drawing.Size(220, 53);
+            this.btnGraf.TabIndex = 105;
+            this.btnGraf.Text = "Graficos";
+            this.btnGraf.UseVisualStyleBackColor = true;
+            this.btnGraf.Click += new System.EventHandler(this.iconButton3_Click);
             // 
-            // iconButton2
+            // btnProveedor
             // 
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.ForeColor = System.Drawing.Color.White;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.UserTie;
-            this.iconButton2.IconColor = System.Drawing.Color.White;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 40;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(0, 405);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton2.Size = new System.Drawing.Size(220, 53);
-            this.iconButton2.TabIndex = 104;
-            this.iconButton2.Text = "Proveedores";
-            this.iconButton2.UseVisualStyleBackColor = true;
-            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
+            this.btnProveedor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProveedor.FlatAppearance.BorderSize = 0;
+            this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProveedor.ForeColor = System.Drawing.Color.White;
+            this.btnProveedor.IconChar = FontAwesome.Sharp.IconChar.UserTie;
+            this.btnProveedor.IconColor = System.Drawing.Color.White;
+            this.btnProveedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnProveedor.IconSize = 40;
+            this.btnProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProveedor.Location = new System.Drawing.Point(0, 405);
+            this.btnProveedor.Name = "btnProveedor";
+            this.btnProveedor.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnProveedor.Size = new System.Drawing.Size(220, 53);
+            this.btnProveedor.TabIndex = 104;
+            this.btnProveedor.Text = "Proveedores";
+            this.btnProveedor.UseVisualStyleBackColor = true;
+            this.btnProveedor.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // btnClientes
             // 
@@ -526,13 +526,13 @@ namespace Presentacion
         private FontAwesome.Sharp.IconPictureBox btnMaximizar;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton btnClientes;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton btnGraf;
+        private FontAwesome.Sharp.IconButton btnProveedor;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Timer Tiempo;
-        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton btnReport;
         private System.Windows.Forms.Panel panelSubMenu;
         private FontAwesome.Sharp.IconButton ReporteVentas;
         private FontAwesome.Sharp.IconButton ReporteInventario;

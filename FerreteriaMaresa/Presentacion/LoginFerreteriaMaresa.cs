@@ -86,25 +86,9 @@ namespace Presentacion
 
             if (tabla.Rows.Count > 0)
             {
-                switch ((int)tabla.Rows[0][10])
-                {
-                    case 2:
-                        {
-
-                            MenuAdmin adm = new MenuAdmin(tabla.Rows[0][0].ToString(), 2);
-                            adm.Show();
-                            Hide();
-                            break;
-                        }
-                    case 1:
-                        {
-                            MenuEmpleados empl = new MenuEmpleados(tabla.Rows[0][0].ToString(), 1);
-                            empl.Show();
-                            Hide();
-                            break;
-                        }
-                }
-           
+                MenuAdmin adm = new MenuAdmin(tabla.Rows[0][0].ToString(), (int)tabla.Rows[0][10]);
+                adm.Show();
+                this.Hide();
             }
             else
                 MessageBox.Show(this, "Usuario o contraseña incorrectos. Verifique todo antes de continuar", "Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Error);

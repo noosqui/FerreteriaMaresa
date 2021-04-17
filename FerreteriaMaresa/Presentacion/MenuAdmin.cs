@@ -34,6 +34,13 @@ namespace Presentacion
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.idEmpleado = Empleado;
             this.puesto = puesto;
+            if (puesto!=2)
+            {
+                this.btnCompras.Visible = false;
+                this.btnProveedor.Visible = false;
+                this.btnGraf.Visible = false;
+                this.btnReport.Visible = false;
+            }
         }
         private struct RGBColors
         {
