@@ -14,7 +14,7 @@ namespace Presentacion
 {
     public partial class Graficos : Form
     {
-        SqlConnection Conectarbd = new SqlConnection("server=DESKTOP-LHRSL72\\SQLEXPRESS;DataBase=Ferreteria_Maresa;Integrated Security=True");
+        SqlConnection Conectarbd = new SqlConnection("server = (local); DataBase= Ferreteria_Maresa;Integrated Security = True");
         SqlCommand cmd;
         SqlDataReader dr;
         public Graficos()

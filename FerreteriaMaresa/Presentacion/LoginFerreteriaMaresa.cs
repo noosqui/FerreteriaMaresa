@@ -104,7 +104,7 @@ namespace Presentacion
                             break;
                         }
                 }
-                MessageBox.Show("Error! Usuario o Contraseña incorrecta intente de nuevo", "Mensaje de Error", MessageBoxButtons.OK);
+           
             }
             else
                 MessageBox.Show(this, "Usuario o contraseña incorrectos. Verifique todo antes de continuar", "Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Error);

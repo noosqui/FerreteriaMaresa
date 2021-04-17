@@ -117,6 +117,7 @@ namespace Presentacion
             this.ReporteVentas.TabIndex = 17;
             this.ReporteVentas.Text = "Reporte Ventas";
             this.ReporteVentas.UseVisualStyleBackColor = true;
+            this.ReporteVentas.Click += new System.EventHandler(this.ReporteVentas_Click_3);
             // 
             // ReporteInventario
             // 
@@ -157,6 +158,7 @@ namespace Presentacion
             this.iconButton5.TabIndex = 107;
             this.iconButton5.Text = "Reportes";
             this.iconButton5.UseVisualStyleBackColor = true;
+            this.iconButton5.Visible = false;
             this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click);
             // 
             // iconButton3

@@ -30,16 +30,18 @@ namespace Presentacion
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.piedepaginaventa = new System.Windows.Forms.Panel();
             this.encabezadoventa = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.piedepaginaventa = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.piedepaginaventa.SuspendLayout();
             this.encabezadoventa.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(35)))), ((int)(((byte)(92)))));
             this.panel1.Controls.Add(this.piedepaginaventa);
             this.panel1.Controls.Add(this.encabezadoventa);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -48,8 +50,19 @@ namespace Presentacion
             this.panel1.Size = new System.Drawing.Size(716, 794);
             this.panel1.TabIndex = 4;
             // 
+            // piedepaginaventa
+            // 
+            this.piedepaginaventa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
+            this.piedepaginaventa.Controls.Add(this.btnSalir);
+            this.piedepaginaventa.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.piedepaginaventa.Location = new System.Drawing.Point(0, 694);
+            this.piedepaginaventa.Name = "piedepaginaventa";
+            this.piedepaginaventa.Size = new System.Drawing.Size(716, 100);
+            this.piedepaginaventa.TabIndex = 162;
+            // 
             // encabezadoventa
             // 
+            this.encabezadoventa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
             this.encabezadoventa.Controls.Add(this.label1);
             this.encabezadoventa.Dock = System.Windows.Forms.DockStyle.Top;
             this.encabezadoventa.Location = new System.Drawing.Point(0, 0);
@@ -69,13 +82,19 @@ namespace Presentacion
             this.label1.TabIndex = 159;
             this.label1.Text = "Ferreteria Maresa";
             // 
-            // piedepaginaventa
+            // btnSalir
             // 
-            this.piedepaginaventa.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.piedepaginaventa.Location = new System.Drawing.Point(0, 694);
-            this.piedepaginaventa.Name = "piedepaginaventa";
-            this.piedepaginaventa.Size = new System.Drawing.Size(716, 100);
-            this.piedepaginaventa.TabIndex = 162;
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSalir.Location = new System.Drawing.Point(564, 24);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(140, 64);
+            this.btnSalir.TabIndex = 0;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
             // 
             // FacturaVenta
             // 
@@ -87,6 +106,7 @@ namespace Presentacion
             this.Name = "FacturaVenta";
             this.Text = "FacturaVenta";
             this.panel1.ResumeLayout(false);
+            this.piedepaginaventa.ResumeLayout(false);
             this.encabezadoventa.ResumeLayout(false);
             this.encabezadoventa.PerformLayout();
             this.ResumeLayout(false);
@@ -99,5 +119,6 @@ namespace Presentacion
         private System.Windows.Forms.Panel encabezadoventa;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel piedepaginaventa;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

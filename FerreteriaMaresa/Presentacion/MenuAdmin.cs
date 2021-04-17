@@ -326,7 +326,7 @@ namespace Presentacion
         private void ReporteInventario_Click_2(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            AbrirForm(new ReporteInvetario());
+          //  AbrirForm(new ReporteInvetario());
             panelSubMenu.Visible = false;
         }
 
@@ -354,6 +354,13 @@ namespace Presentacion
             panelSubMenu.Visible = true;
             panelSubMenu.Visible = true;
             TituloFormularioHijo.Text = "Reportes";
+        }
+
+        private void ReporteVentas_Click_3(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color4);
+            AbrirForm(new frmReportesVentas());
+            panelSubMenu.Visible = false;
         }
     }
 }

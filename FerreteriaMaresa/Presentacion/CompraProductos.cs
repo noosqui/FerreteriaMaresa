@@ -32,7 +32,7 @@ namespace Presentacion
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
             product.DefaultView.RowFilter = "Estado = 'ACTIVO' ";
             prov.DefaultView.RowFilter = string.Format("[Estado] LIKE '%{0}%'", "Activo");
-            
+            dgvListaProductos.Rows.Clear();
 
             foreach (DataRow row in prov.Rows)   
                     coleccion.Add(row["Nombre"] + "");
@@ -180,6 +180,7 @@ namespace Presentacion
                         
                     }
                     dgvListaProductos.Enabled = true;
+                    CompraProductos_Load(null, null);
                 }
                 else throw new Exception("Producto no ingresado a la lista");
             }
