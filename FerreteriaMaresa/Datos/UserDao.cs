@@ -10,17 +10,17 @@ using System.Net;
 
 namespace Datos
 {
-    public class UserDao: ConnectionToSql
+    public class UserDao: CD_Conexion
     {
         public string recoverPassword(string userRequesting)
         {
-            using (var connection = GetConnection())
+            using (var connection = Conectarbd)
             {
                 connection.Open();
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = " exec.Recoverpass @mail";
+                    command.CommandText = "exec.Recoverpass @mail";
                     command.Parameters.AddWithValue("@mail", userRequesting);
                     command.CommandType = CommandType.Text;
                     SqlDataReader reader = command.ExecuteReader();

@@ -29,6 +29,9 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -40,9 +43,9 @@ namespace Presentacion
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtcodigocli = new System.Windows.Forms.TextBox();
+            this.txtcodigocliSrch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtnombrecli = new System.Windows.Forms.TextBox();
+            this.txtnombrecliSrch = new System.Windows.Forms.TextBox();
             this.txtCodPost = new System.Windows.Forms.TextBox();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
@@ -56,7 +59,7 @@ namespace Presentacion
             this.label9 = new System.Windows.Forms.Label();
             this.txtRegion = new System.Windows.Forms.TextBox();
             this.txtCiudad = new System.Windows.Forms.TextBox();
-            this.Apellido = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtrtn = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -79,9 +82,9 @@ namespace Presentacion
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.txtcodigocli);
+            this.panel1.Controls.Add(this.txtcodigocliSrch);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtnombrecli);
+            this.panel1.Controls.Add(this.txtnombrecliSrch);
             this.panel1.Controls.Add(this.txtCodPost);
             this.panel1.Controls.Add(this.dgvClientes);
             this.panel1.Controls.Add(this.label7);
@@ -95,7 +98,7 @@ namespace Presentacion
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.txtRegion);
             this.panel1.Controls.Add(this.txtCiudad);
-            this.panel1.Controls.Add(this.Apellido);
+            this.panel1.Controls.Add(this.txtApellido);
             this.panel1.Controls.Add(this.txtrtn);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label5);
@@ -111,62 +114,82 @@ namespace Presentacion
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancelar.Location = new System.Drawing.Point(578, 555);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(185, 51);
             this.btnCancelar.TabIndex = 80;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Visible = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEliminar
             // 
             this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEliminar.Location = new System.Drawing.Point(665, 491);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(185, 51);
             this.btnEliminar.TabIndex = 79;
             this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar1_Click);
             // 
             // btnAgregar
             // 
             this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAgregar.Location = new System.Drawing.Point(476, 491);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(185, 51);
             this.btnAgregar.TabIndex = 78;
             this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.bnAgregar_Click);
             // 
             // btnModificar
             // 
             this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnModificar.Location = new System.Drawing.Point(287, 491);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(185, 51);
             this.btnModificar.TabIndex = 77;
             this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar1_Click);
             // 
             // btnGuardar
             // 
             this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnGuardar.Location = new System.Drawing.Point(376, 555);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(185, 51);
             this.btnGuardar.TabIndex = 76;
             this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Visible = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar1_Click);
             // 
@@ -242,16 +265,17 @@ namespace Presentacion
             this.label8.Text = "Id Cliente:";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
-            // txtcodigocli
+            // txtcodigocliSrch
             // 
-            this.txtcodigocli.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtcodigocli.Location = new System.Drawing.Point(324, 290);
-            this.txtcodigocli.Margin = new System.Windows.Forms.Padding(2);
-            this.txtcodigocli.Name = "txtcodigocli";
-            this.txtcodigocli.Size = new System.Drawing.Size(40, 20);
-            this.txtcodigocli.TabIndex = 63;
-            this.txtcodigocli.TextChanged += new System.EventHandler(this.txtcodigocli_TextChanged_1);
-            this.txtcodigocli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcodigocli_KeyPress_1);
+            this.txtcodigocliSrch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtcodigocliSrch.Location = new System.Drawing.Point(324, 290);
+            this.txtcodigocliSrch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtcodigocliSrch.Name = "txtcodigocliSrch";
+            this.txtcodigocliSrch.Size = new System.Drawing.Size(40, 20);
+            this.txtcodigocliSrch.TabIndex = 63;
+            this.txtcodigocliSrch.TextChanged += new System.EventHandler(this.txtcodigocli_TextChanged);
+            this.txtcodigocliSrch.Enter += new System.EventHandler(this.txtcodigocliSrch_Enter);
+            this.txtcodigocliSrch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcodigocli_KeyPress_1);
             // 
             // label1
             // 
@@ -266,16 +290,17 @@ namespace Presentacion
             this.label1.Text = "Clientes";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // txtnombrecli
+            // txtnombrecliSrch
             // 
-            this.txtnombrecli.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtnombrecli.Location = new System.Drawing.Point(476, 290);
-            this.txtnombrecli.Margin = new System.Windows.Forms.Padding(2);
-            this.txtnombrecli.Name = "txtnombrecli";
-            this.txtnombrecli.Size = new System.Drawing.Size(76, 20);
-            this.txtnombrecli.TabIndex = 61;
-            this.txtnombrecli.TextChanged += new System.EventHandler(this.txtnombrecli_TextChanged_1);
-            this.txtnombrecli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombrecli_KeyPress_1);
+            this.txtnombrecliSrch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtnombrecliSrch.Location = new System.Drawing.Point(476, 290);
+            this.txtnombrecliSrch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtnombrecliSrch.Name = "txtnombrecliSrch";
+            this.txtnombrecliSrch.Size = new System.Drawing.Size(76, 20);
+            this.txtnombrecliSrch.TabIndex = 61;
+            this.txtnombrecliSrch.TextChanged += new System.EventHandler(this.txtnombrecli_TextChanged_1);
+            this.txtnombrecliSrch.Enter += new System.EventHandler(this.txtnombrecliSrch_Enter);
+            this.txtnombrecliSrch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombrecli_KeyPress_1);
             // 
             // txtCodPost
             // 
@@ -288,6 +313,7 @@ namespace Presentacion
             this.txtCodPost.Name = "txtCodPost";
             this.txtCodPost.Size = new System.Drawing.Size(361, 26);
             this.txtCodPost.TabIndex = 69;
+            this.txtCodPost.Text = "11101";
             this.txtCodPost.TextChanged += new System.EventHandler(this.txtCodPost_TextChanged);
             this.txtCodPost.Enter += new System.EventHandler(this.txtCodPost_Enter);
             this.txtCodPost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodPost_KeyPress);
@@ -299,11 +325,41 @@ namespace Presentacion
             this.dgvClientes.AllowUserToAddRows = false;
             this.dgvClientes.AllowUserToDeleteRows = false;
             this.dgvClientes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(35)))), ((int)(((byte)(92)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(74)))), ((int)(((byte)(165)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(62)))), ((int)(((byte)(122)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(74)))), ((int)(((byte)(165)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvClientes.EnableHeadersVisualStyles = false;
             this.dgvClientes.Location = new System.Drawing.Point(98, 325);
             this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
+            this.dgvClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(62)))), ((int)(((byte)(122)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(74)))), ((int)(((byte)(165)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvClientes.RowHeadersVisible = false;
             this.dgvClientes.RowHeadersWidth = 51;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.Size = new System.Drawing.Size(941, 151);
@@ -351,6 +407,7 @@ namespace Presentacion
             this.txtPais.Name = "txtPais";
             this.txtPais.Size = new System.Drawing.Size(361, 26);
             this.txtPais.TabIndex = 71;
+            this.txtPais.Text = "Honduras";
             this.txtPais.TextChanged += new System.EventHandler(this.txtPais_TextChanged);
             this.txtPais.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPais_KeyPress);
             // 
@@ -391,6 +448,7 @@ namespace Presentacion
             this.nombre.Size = new System.Drawing.Size(330, 26);
             this.nombre.TabIndex = 44;
             this.nombre.TextChanged += new System.EventHandler(this.nombre_TextChanged);
+            this.nombre.Enter += new System.EventHandler(this.nombre_Enter);
             this.nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nombre_KeyPress);
             // 
             // label3
@@ -444,6 +502,7 @@ namespace Presentacion
             this.txtRegion.Name = "txtRegion";
             this.txtRegion.Size = new System.Drawing.Size(361, 26);
             this.txtRegion.TabIndex = 67;
+            this.txtRegion.Text = "Francisco Morazan";
             this.txtRegion.TextChanged += new System.EventHandler(this.txtRegion_TextChanged);
             this.txtRegion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRegion_KeyPress);
             // 
@@ -458,21 +517,23 @@ namespace Presentacion
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(361, 26);
             this.txtCiudad.TabIndex = 65;
+            this.txtCiudad.Text = "Tegucigalpa";
             this.txtCiudad.TextChanged += new System.EventHandler(this.txtCiudad_TextChanged);
             this.txtCiudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCiudad_KeyPress);
             // 
-            // Apellido
+            // txtApellido
             // 
-            this.Apellido.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Apellido.Enabled = false;
-            this.Apellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Apellido.Location = new System.Drawing.Point(175, 163);
-            this.Apellido.MaxLength = 79;
-            this.Apellido.Name = "Apellido";
-            this.Apellido.Size = new System.Drawing.Size(330, 26);
-            this.Apellido.TabIndex = 48;
-            this.Apellido.TextChanged += new System.EventHandler(this.Apellido_TextChanged);
-            this.Apellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Apellido_KeyPress);
+            this.txtApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtApellido.Enabled = false;
+            this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtApellido.Location = new System.Drawing.Point(175, 163);
+            this.txtApellido.MaxLength = 79;
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(330, 26);
+            this.txtApellido.TabIndex = 48;
+            this.txtApellido.TextChanged += new System.EventHandler(this.Apellido_TextChanged);
+            this.txtApellido.Enter += new System.EventHandler(this.Apellido_Enter);
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Apellido_KeyPress);
             // 
             // txtrtn
             // 
@@ -527,6 +588,7 @@ namespace Presentacion
             this.txtDireccion.Size = new System.Drawing.Size(330, 26);
             this.txtDireccion.TabIndex = 52;
             this.txtDireccion.TextChanged += new System.EventHandler(this.txtDireccion_TextChanged);
+            this.txtDireccion.Enter += new System.EventHandler(this.txtDireccion_Enter);
             this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
             // txtTelefono
@@ -570,7 +632,7 @@ namespace Presentacion
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtrtn;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Apellido;
+        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TextBox nombre;
@@ -585,8 +647,8 @@ namespace Presentacion
         private System.Windows.Forms.TextBox txtPais;
         private System.Windows.Forms.TextBox txtCodigoCliente;
         private System.Windows.Forms.Label lblCodigo;
-        private System.Windows.Forms.TextBox txtnombrecli;
-        private System.Windows.Forms.TextBox txtcodigocli;
+        private System.Windows.Forms.TextBox txtnombrecliSrch;
+        private System.Windows.Forms.TextBox txtcodigocliSrch;
         private System.Windows.Forms.TextBox txtTelefono1;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnModificar;

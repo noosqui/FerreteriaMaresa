@@ -63,12 +63,22 @@ namespace Presentacion
                 int cantidad = int.Parse(txtCantidad.Text);
                     if (cantidad > 0)
                     {
-                        suma = double.Parse(txtCosto.Text) * int.Parse(txtCantidad.Text);
+                    foreach (DataGridViewRow row in dgvListaProductos.Rows)
+
+                        if (row.Cells[0].Value.ToString() == txtId.Text)
+                        {
+                            txtCantidad.Text = int.Parse(txtCantidad.Text) + int.Parse(row.Cells[3].Value.ToString()) + "";
+                            dgvListaProductos.Rows.Remove(row);
+                            txtSubtotal.Text = double.Parse(txtSubtotal.Text) - (double.Parse(row.Cells[2].Value.ToString()) * int.Parse(row.Cells[3].Value.ToString())) + "";
+
+                        }
+                    suma = double.Parse(txtCosto.Text) * int.Parse(txtCantidad.Text);
                         suma += double.Parse(txtSubtotal.Text);
                         dgvListaProductos.Rows.Add(txtId.Text, txtnombre.Text,
                         txtCosto.Text, txtCantidad.Text, dgvProducto.SelectedRows[0].Cells[2].Value.ToString());
                         txtSubtotal.Text = "" + suma;
                     btnSiguiente.Visible = true;
+                    txtTotal.Text = "" + ((suma * 0.15) + (suma));
                      }
                     else
                     {
@@ -97,9 +107,11 @@ namespace Presentacion
                 btnAgregar.Enabled = false;
                 //btnModificar.Enabled = false;
                 btnSiguiente.Visible = true;
+                subtotal =double.Parse(txtSubtotal.Text)- int.Parse(dgvListaProductos.SelectedRows[0].Cells[3].Value.ToString()) * double.Parse(dgvListaProductos.SelectedRows[0].Cells[2].Value.ToString());
                 dgvListaProductos.Rows.RemoveAt(dgvListaProductos.SelectedRows[0].Index);
-                subtotal -= (int)dgvListaProductos.SelectedRows[0].Cells[3].Value * (double)dgvListaProductos.SelectedRows[0].Cells[2].Value;
                 txtSubtotal.Text = "" + subtotal;
+               
+                txtTotal.Text = "" + ((subtotal * 0.15) + (subtotal));
                 if (dgvListaProductos.Rows.Count == 0)
                 {
                     btnEliminar.Enabled = false;
@@ -146,7 +158,6 @@ namespace Presentacion
                         if (dr == DialogResult.Yes)
                         {
                             TipoCheque cheque = new TipoCheque();
-                            MessageBox.Show(suma + "");
                             cheque.monto = "" + (suma * 0.15 + suma);
                             dr = cheque.ShowDialog();
                             if (dr == DialogResult.Yes)
@@ -181,9 +192,14 @@ namespace Presentacion
         }
         private void txtnombrepor_TextChanged(object sender, EventArgs e)
         {
-            var bd = (BindingSource)dgvProducto.DataSource;
-            var dt = (DataTable)bd.DataSource;
-            dt.DefaultView.RowFilter = string.Format("[Nombre Producto] LIKE '%{0}%'", txtnombreprod.Text);
+            var dt = (DataTable)dgvProducto.DataSource;
+            if (txtnombreprod.Text != "")
+                dt.DefaultView.RowFilter = string.Format("[Nombre] LIKE '{0}*' and [Estado] like 'ACTIVO'  and [Nombre Proveedor] like '%"+ cmbProveedor.Text + "%' ", txtnombreprod.Text);
+            else
+                dt.DefaultView.RowFilter = string.Format("[Nombre Proveedor] LIKE '%{0}%' and [Estado] LIKE 'ACTIVO' ", cmbProveedor.Text);
+                dgvProducto.Refresh();
+
+       
             dgvProducto.Refresh();
 
             if (dt.DefaultView.Count < 1)
@@ -196,15 +212,15 @@ namespace Presentacion
 
         private void txtcodigopro_TextChanged(object sender, EventArgs e)
         {
-            var bd = (BindingSource)dgvProducto.DataSource;
-            var dt = (DataTable)bd.DataSource;
+            var dt = (DataTable)dgvProducto.DataSource;
+            dt.CaseSensitive = false;
             if (txtcodigoprod.Text != "")
 
-                dt.DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtcodigoprod.Text));
-
+            dt.DefaultView.RowFilter = string.Format("[Id Producto] = '{0}' and [Estado] like 'ACTIVO' and [Nombre Proveedor] like '%"+cmbProveedor.Text+"'", int.Parse(txtcodigoprod.Text));
+            
             else
             {
-                dt.DefaultView.RowFilter = null;
+                dt.DefaultView.RowFilter = string.Format("[Nombre Proveedor] LIKE '%{0}%' and [Estado] LIKE 'ACTIVO' ", cmbProveedor.Text);
             }
             dgvProducto.Refresh();
 
@@ -246,6 +262,26 @@ namespace Presentacion
                 (dgvProducto.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Nombre Proveedor] LIKE '%{0}%' and [Estado] LIKE 'ACTIVO' ", cmbProveedor.Text);
             }
          
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtcodigoprod_Enter(object sender, EventArgs e)
+        {
+            txtnombreprod.Text = "";
+        }
+
+        private void txtnombreprod_Enter(object sender, EventArgs e)
+        {
+            txtcodigoprod.Text = "";
         }
     }
 }

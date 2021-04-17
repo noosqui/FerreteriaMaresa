@@ -83,7 +83,7 @@ namespace Presentacion
         {
             DOM_Empleados emp = new DOM_Empleados();
             DataTable tabla = emp.autentificacion_empleado(txtUsuario.Text, txtContra.Text);
-          
+
             if (tabla.Rows.Count > 0)
             {
                 switch ((int)tabla.Rows[0][10])
@@ -91,23 +91,22 @@ namespace Presentacion
                     case 2:
                         {
 
-                            MenuAdmin adm = new MenuAdmin(tabla.Rows[0][0].ToString());
+                            MenuAdmin adm = new MenuAdmin(tabla.Rows[0][0].ToString(), 2);
                             adm.Show();
                             Hide();
                             break;
                         }
                     case 1:
                         {
-                            MenuEmpleados empl = new MenuEmpleados(tabla.Rows[0][0].ToString());
+                            MenuEmpleados empl = new MenuEmpleados(tabla.Rows[0][0].ToString(), 1);
                             empl.Show();
                             Hide();
                             break;
                         }
-                    default:
-                        MessageBox.Show("a");
-                        break;
                 }
             }
+            else
+                MessageBox.Show(this, "Usuario o contraseña incorrectos. Verifique todo antes de continuar", "Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 
         }
 
@@ -131,8 +130,8 @@ namespace Presentacion
 
         private void lblinkContra_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            /*Password_Recovery pass = new Password_Recovery();
-            pass.Show();*/
+            Password_Recovery pass = new Password_Recovery();
+            pass.Show();
         }
         private void txtContra_KeyPress(object sender, KeyPressEventArgs e)
         {

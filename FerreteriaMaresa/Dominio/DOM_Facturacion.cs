@@ -34,7 +34,7 @@ namespace Dominio
 
         public void InsertarFacturaCompra(string descuento, string subtotal, string tipoPago, string idEmpleado, string idProveedor, string isv)
         {
-            facturacion.insertar_FacturaCompra(DateTime.Now, int.Parse(idProveedor), "1804200703610", int.Parse(tipoPago), 0.15, double.Parse(descuento), double.Parse(subtotal));
+            facturacion.insertar_FacturaCompra(DateTime.Now, int.Parse(idProveedor),idEmpleado, int.Parse(tipoPago), 0.15, double.Parse(descuento), double.Parse(subtotal));
         }
 
 

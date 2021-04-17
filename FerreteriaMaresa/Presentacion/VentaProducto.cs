@@ -102,7 +102,7 @@ namespace Presentacion
                             MessageBox.Show(suma + "");
                             cheque.monto = "" + (suma * 0.15 +suma);
                             dr = cheque.ShowDialog();
-                            MessageBox.Show(((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString());
+                         
 
                             if (dr == DialogResult.Yes)
                             {
@@ -205,8 +205,43 @@ namespace Presentacion
 
         private void txtIdSrch_TextChanged(object sender, EventArgs e)
         {
-            //  var bd = (BindingSource)dgvProductos.DataSource;
-            // var dt = (DataTable)bd.DataSource;
+             var dt = (DataTable)dgvProductos.DataSource;
+            if (txtIdSrch.Text != "")
+                dt.DefaultView.RowFilter = string.Format("[Id Producto] = '{0}' and [Estado] like 'ACTIVO'", int.Parse(txtIdSrch.Text));
+            else
+                dt.DefaultView.RowFilter = string.Format("[Estado] like 'Activo'");
+
+            dgvProductos.Refresh();
+
+            if ((dgvProductos.DataSource as DataTable).DefaultView.Count < 1)
+            {
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.txtIdSrch, 0, 25, 3000);
+            }
+        }
+
+        private void txtNombreSrch_TextChanged(object sender, EventArgs e)
+        {
+
+            var dt = (DataTable)dgvProductos.DataSource;
+            if (txtNombreSrch.Text != "")
+                dt.DefaultView.RowFilter = string.Format("[Nombre] LIKE '{0}*' and [Estado] like 'Activo'", txtNombreSrch.Text);
+            else
+                dt.DefaultView.RowFilter = string.Format("[Estado] like 'Activo'");
+
+           dgvProductos.Refresh();
+            if ((dgvProductos.DataSource as DataTable).DefaultView.Count < 1)
+            {
+                SystemSounds.Exclamation.Play();
+                ToolTip tt = new ToolTip();
+                tt.Show("No se encontro parametros", this.txtNombreSrch, 0, 25, 3000);
+            }
+        }
+
+        private void txtIdSrch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            letrasNum.SoloNumeros(e);
             txtNombreSrch.Text = "";
             if (txtIdSrch.Text != "")
                 (dgvProductos.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtIdSrch.Text));
@@ -221,14 +256,18 @@ namespace Presentacion
                 ToolTip tt = new ToolTip();
                 tt.Show("No se encontro parametros", this.txtIdSrch, 0, 25, 3000);
             }
+
         }
 
-        private void txtNombreSrch_TextChanged(object sender, EventArgs e)
+        private void txtNombreSrch_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // var bd = (BindingSource)dgvProductos.DataSource;
-           // var dt = (DataTable)bd.DataSource;
-           txtIdSrch.Text="";
-            (dgvProductos.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Nombre] LIKE '%{0}%'", txtNombreSrch.Text);
+            letrasNum.SoloLetras(e);
+            txtIdSrch.Text = "";
+            if (txtNombreSrch.Text != "")
+                (dgvProductos.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Nombre] LIKE '%{0}'", txtNombreSrch.Text);
+            else
+                (dgvProductos.DataSource as DataTable).DefaultView.RowFilter = null;
+
             dgvProductos.Refresh();
             if ((dgvProductos.DataSource as DataTable).DefaultView.Count < 1)
             {
@@ -236,25 +275,18 @@ namespace Presentacion
                 ToolTip tt = new ToolTip();
                 tt.Show("No se encontro parametros", this.txtNombreSrch, 0, 25, 3000);
             }
-        }
 
-        private void txtIdSrch_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            letrasNum.SoloNumeros(e);
-        }
-
-        private void txtNombreSrch_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            letrasNum.SoloLetras(e);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             try
             {
-                suma -= double.Parse(dgvProductList.SelectedRows[0].Cells[2].Value.ToString()) * double.Parse(dgvProductList.SelectedRows[0].Cells[3].Value.ToString());
+                suma =double.Parse(txtSubtotal.Text) - double.Parse(dgvProductList.SelectedRows[0].Cells[2].Value.ToString()) * double.Parse(dgvProductList.SelectedRows[0].Cells[3].Value.ToString());
                 dgvProductList.Rows.RemoveAt(dgvProductList.SelectedRows[0].Index);
                 txtSubtotal.Text = "" + suma;
+                txtDescuento.Text = suma * descuento + "";
+                txtTotal.Text = (suma - double.Parse(txtDescuento.Text)) * 0.15 + (suma - double.Parse(txtDescuento.Text)) + "";
                 if (dgvProductList.Rows.Count == 0)
                     btnCancelar.Enabled = false;
             }
@@ -306,6 +338,26 @@ namespace Presentacion
             txtDescuento.Text = suma * descuento + "";
             txtTotal.Text = suma + ((suma - (suma * descuento)) * 0.15)
                 - (suma * descuento) + "";
+        }
+
+        private void txtTotal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombreSrch_Enter(object sender, EventArgs e)
+        {
+            txtIdSrch.Text = "";
+        }
+
+        private void txtIdSrch_Enter(object sender, EventArgs e)
+        {
+            txtNombreSrch.Text = "";
         }
     }
 }

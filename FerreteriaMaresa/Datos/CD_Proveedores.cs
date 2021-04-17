@@ -24,7 +24,8 @@ namespace Datos
             comando.Parameters.Clear();
             leer = comando.ExecuteReader();
             tabla.Load(leer);
-            conexion.cerrar();
+            comando.Connection = conexion.cerrar();
+            leer.Close();
             return tabla;
         }
 
