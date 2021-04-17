@@ -43,14 +43,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DOM_Bancos.cs" />
+    <Compile Include="DataSet1.cs" />
     <Compile Include="DOM_Facturacion.cs" />
     <Compile Include="DOM_Clientes.cs" />
     <Compile Include="DOM_proveedores.cs" />
     <Compile Include="DOM_Empleados.cs" />
     <Compile Include="DOM_Inventario.cs" />
     <Compile Include="DOM_Validacion.cs" />
+    <Compile Include="ListaVentas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usermodel.cs" />
+    <Compile Include="ReporteVentas.cs" />
+    <Compile Include="VentasNetasPeriodo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Datos\Datos.csproj">

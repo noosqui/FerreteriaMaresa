@@ -83,6 +83,18 @@
     <Compile Include="FacturaVenta.Designer.cs">
       <DependentUpon>FacturaVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Graficos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Graficos.Designer.cs">
+      <DependentUpon>Graficos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,35 +146,17 @@
     <Compile Include="RegistroProveedores.Designer.cs">
       <DependentUpon>RegistroProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReporteCompra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteCompra.Designer.cs">
-      <DependentUpon>ReporteCompra.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReporteEmpleados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteEmpleados.Designer.cs">
-      <DependentUpon>ReporteEmpleados.cs</DependentUpon>
-    </Compile>
     <Compile Include="ReporteInvetario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ReporteInvetario.Designer.cs">
       <DependentUpon>ReporteInvetario.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReporteProveedores.cs">
+    <Compile Include="frmReportesVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReporteProveedores.Designer.cs">
-      <DependentUpon>ReporteProveedores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReporteVentas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteVentas.Designer.cs">
-      <DependentUpon>ReporteVentas.cs</DependentUpon>
+    <Compile Include="frmReportesVentas.Designer.cs">
+      <DependentUpon>frmReportesVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="TipoCheque.cs">
       <SubType>Form</SubType>
@@ -190,6 +184,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FacturaVenta.resx">
       <DependentUpon>FacturaVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graficos.resx">
+      <DependentUpon>Graficos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
@@ -225,21 +225,13 @@
     <EmbeddedResource Include="RegistroProveedores.resx">
       <DependentUpon>RegistroProveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteCompra.resx">
-      <DependentUpon>ReporteCompra.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReporteEmpleados.resx">
-      <DependentUpon>ReporteEmpleados.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ReporteInvetario.resx">
       <DependentUpon>ReporteInvetario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteProveedores.resx">
-      <DependentUpon>ReporteProveedores.cs</DependentUpon>
+    <EmbeddedResource Include="frmReportesVentas.resx">
+      <DependentUpon>frmReportesVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteVentas.resx">
-      <DependentUpon>ReporteVentas.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\ReporteVentas.rdlc" />
     <EmbeddedResource Include="TipoCheque.resx">
       <DependentUpon>TipoCheque.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +242,10 @@
       <DependentUpon>VentaProducto.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Dominio.ListaVentas.datasource" />
+    <None Include="Properties\DataSources\Dominio.ReporteVentas.datasource" />
+    <None Include="Properties\DataSources\Dominio.VentasNetasPeriodo.datasource" />
+    <None Include="Properties\DataSources\ReporteCompra.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -264,10 +260,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{0dfcc74e-43b6-4887-a8ff-0888bb625553}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Dominio\Dominio.csproj">
       <Project>{b0300682-bdbf-4c42-87df-fbd81408e6fe}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ferreteria Maresa Imagen.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

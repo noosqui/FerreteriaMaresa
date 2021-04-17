@@ -236,7 +236,7 @@ namespace Presentacion
         private void ReporteVentas_Click_1(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
-            AbrirForm(new ReporteVentas());
+            AbrirForm(new frmReportesVentas());
             panelSubMenu.Visible = false;
 
         }
@@ -246,6 +246,12 @@ namespace Presentacion
             ActivateButton(sender, RGBColors.color5);
             AbrirForm(new ReporteInvetario());
             panelSubMenu.Visible = false;
+        }
+
+        private void tiempo2_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToString("h:mm:ss");
+            lblFecha.Text = DateTime.Now.ToLongDateString();
         }
     }
 }

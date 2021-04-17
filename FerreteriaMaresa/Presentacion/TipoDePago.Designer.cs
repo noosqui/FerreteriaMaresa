@@ -59,9 +59,9 @@ namespace Presentacion
             this.panel1.TabIndex = 0;
 
 
-            // 
+            //
             // reegresar
-            // 
+            //
             this.reegresar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.reegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.reegresar.DialogResult = System.Windows.Forms.DialogResult.Abort;
@@ -76,7 +76,7 @@ namespace Presentacion
             this.reegresar.Text = "Salir";
             this.reegresar.UseVisualStyleBackColor = false;
             this.reegresar.Click += new System.EventHandler(this.reegresar_Click);
-            // 
+            //
 
             // button1
             //
@@ -95,7 +95,7 @@ namespace Presentacion
             this.button1.UseVisualStyleBackColor = false;
 
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
+            //
 
             // btnAgregar
             //
@@ -108,7 +108,7 @@ namespace Presentacion
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 
 
-            this.btnAgregar.Location = new System.Drawing.Point(148, 146); 
+            this.btnAgregar.Location = new System.Drawing.Point(148, 146);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(201, 71);
             this.btnAgregar.TabIndex = 57;
@@ -116,7 +116,7 @@ namespace Presentacion
             this.btnAgregar.UseVisualStyleBackColor = false;
 
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
+            //
             // label1
             //
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -130,16 +130,16 @@ namespace Presentacion
             this.label1.TabIndex = 44;
             this.label1.Text = "Tipo de Pago";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
+            //
             // panel2
-            // 
+            //
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(18)))), ((int)(((byte)(59)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(494, 48);
             this.panel2.TabIndex = 74;
-            // 
+            //
 
             // TipoDePago
             //

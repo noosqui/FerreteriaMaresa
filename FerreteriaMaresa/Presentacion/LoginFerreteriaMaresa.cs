@@ -104,10 +104,11 @@ namespace Presentacion
                             break;
                         }
                 }
+                MessageBox.Show("Error! Usuario o Contraseña incorrecta intente de nuevo", "Mensaje de Error", MessageBoxButtons.OK);
             }
             else
                 MessageBox.Show(this, "Usuario o contraseña incorrectos. Verifique todo antes de continuar", "Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                
+
         }
 
         private void txtUsuario_Enter(object sender, EventArgs e)
@@ -148,7 +149,7 @@ namespace Presentacion
                 txtContra.UseSystemPasswordChar = false;
             }
             else
-                txtContra.UseSystemPasswordChar = true; 
+                txtContra.UseSystemPasswordChar = true;
         }
 
         private void chkMostrar_ChangeUICues(object sender, UICuesEventArgs e)
