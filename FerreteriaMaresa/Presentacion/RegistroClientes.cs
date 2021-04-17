@@ -207,7 +207,7 @@ namespace Presentacion
 
                 {
                     foreach (Control ctr in this.panel1.Controls)
-                        if (ctr is TextBox && ctr.Text.Trim().Length < 1 && ctr.Name.Trim() != "txtrtn" && ctr.Name.Trim() != "txtcodigocli" && ctr.Name.Trim() != "txtnombrecli")
+                        if (ctr is TextBox && ctr.Text.Trim().Length < 1 && ctr.Name.Trim() != "txtrtn" && ctr.Name.Trim() != "txtcodigocliSrch" && ctr.Name.Trim() != "txtnombrecliSrch")
                             throw new Exception("No debe dejar campos vacios");
 
                     if (txtrtn.Text.Contains(txtCodigoCliente.Text))

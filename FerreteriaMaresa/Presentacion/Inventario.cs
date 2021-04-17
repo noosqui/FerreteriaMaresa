@@ -600,7 +600,7 @@ namespace Presentacion
             btnGuardarCat.Visible = true;
             btnCancelarCat.Visible = true;
             btnModificarCat.Visible = false;
-            btnEliminarCat.Visible = false;
+            //btnEliminarCat.Visible = false;
         }
 
         private void btnModificarM_Click(object sender, EventArgs e)
@@ -857,8 +857,9 @@ namespace Presentacion
             btnGuardarMar.Visible = false;
             btnAgregarMar.Visible = true;
             btnModificarMar.Visible = true;
-            btnEliminarMar.Visible = true;
+            //btnEliminarMar.Visible = true;
             btnCancelarMar.Visible = false;
+            dgvMarca.Enabled = true;
         }
 
         private void btnEliminarMar_Click(object sender, EventArgs e)
@@ -881,12 +882,8 @@ namespace Presentacion
             btnModificarCat.Visible = true;
             btnGuardarCat.Visible = false;
             btnCancelarCat.Visible = false;
-            btnEliminarCat.Visible = true;
+            //btnEliminarCat.Visible = true;
             dgvCategoria.Enabled = true;
-
-
-
-
 
         }
     }
