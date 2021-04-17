@@ -302,9 +302,8 @@ namespace Presentacion
         private void iconButton3_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = true;
-            panelSubMenu.Visible = true;
-            TituloFormularioHijo.Text = "Reportes";
+            panelSubMenu.Visible = false;
+            AbrirForm(new Graficos());
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
@@ -316,16 +315,12 @@ namespace Presentacion
 
         private void iconButton4_Click_3(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color1);
-            AbrirForm(new ReporteEmpleados());
-            panelSubMenu.Visible = false;
+
         }
 
         private void btnReporteCompras_Click_1(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color2);
-            AbrirForm(new ReporteCompra());
-            panelSubMenu.Visible = false;
+
         }
 
         private void ReporteInventario_Click_2(object sender, EventArgs e)
@@ -338,15 +333,27 @@ namespace Presentacion
         private void ReporteVentas_Click_2(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
-            AbrirForm(new ReporteVentas());
+            AbrirForm(new frmReportesVentas());
             panelSubMenu.Visible = false;
         }
 
         private void ReporteProveedor_Click_2(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color5);
-            AbrirForm(new ReporteProveedores());
-            panelSubMenu.Visible = false;
+
+        }
+
+        private void Tiempo_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToString("h:mm:ss");
+            lblFecha.Text = DateTime.Now.ToLongDateString();
+        }
+
+        private void iconButton5_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color6);
+            panelSubMenu.Visible = true;
+            panelSubMenu.Visible = true;
+            TituloFormularioHijo.Text = "Reportes";
         }
     }
 }

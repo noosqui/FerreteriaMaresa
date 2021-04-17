@@ -29,14 +29,12 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAdmin));
+            this.components = new System.ComponentModel.Container();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panelSubMenu = new System.Windows.Forms.Panel();
-            this.ReporteProveedor = new FontAwesome.Sharp.IconButton();
             this.ReporteVentas = new FontAwesome.Sharp.IconButton();
             this.ReporteInventario = new FontAwesome.Sharp.IconButton();
-            this.btnReporteCompras = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.btnClientes = new FontAwesome.Sharp.IconButton();
@@ -54,7 +52,10 @@ namespace Presentacion
             this.iconCurrentChildfo = new FontAwesome.Sharp.IconPictureBox();
             this.panelSombra = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Tiempo = new System.Windows.Forms.Timer(this.components);
             this.panelMenu.SuspendLayout();
             this.panelSubMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -72,6 +73,7 @@ namespace Presentacion
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
             this.panelMenu.Controls.Add(this.panelSubMenu);
+            this.panelMenu.Controls.Add(this.iconButton5);
             this.panelMenu.Controls.Add(this.iconButton3);
             this.panelMenu.Controls.Add(this.iconButton2);
             this.panelMenu.Controls.Add(this.btnClientes);
@@ -83,41 +85,18 @@ namespace Presentacion
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 722);
+            this.panelMenu.Size = new System.Drawing.Size(220, 922);
             this.panelMenu.TabIndex = 0;
             // 
             // panelSubMenu
             // 
-            this.panelSubMenu.Controls.Add(this.ReporteProveedor);
             this.panelSubMenu.Controls.Add(this.ReporteVentas);
             this.panelSubMenu.Controls.Add(this.ReporteInventario);
-            this.panelSubMenu.Controls.Add(this.btnReporteCompras);
-            this.panelSubMenu.Controls.Add(this.iconButton4);
             this.panelSubMenu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelSubMenu.Location = new System.Drawing.Point(55, 511);
+            this.panelSubMenu.Location = new System.Drawing.Point(55, 564);
             this.panelSubMenu.Name = "panelSubMenu";
-            this.panelSubMenu.Size = new System.Drawing.Size(165, 211);
-            this.panelSubMenu.TabIndex = 106;
-            // 
-            // ReporteProveedor
-            // 
-            this.ReporteProveedor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ReporteProveedor.FlatAppearance.BorderSize = 0;
-            this.ReporteProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReporteProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReporteProveedor.ForeColor = System.Drawing.Color.White;
-            this.ReporteProveedor.IconChar = FontAwesome.Sharp.IconChar.UserFriends;
-            this.ReporteProveedor.IconColor = System.Drawing.Color.White;
-            this.ReporteProveedor.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.ReporteProveedor.IconSize = 17;
-            this.ReporteProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ReporteProveedor.Location = new System.Drawing.Point(0, 160);
-            this.ReporteProveedor.Name = "ReporteProveedor";
-            this.ReporteProveedor.Size = new System.Drawing.Size(165, 31);
-            this.ReporteProveedor.TabIndex = 18;
-            this.ReporteProveedor.Text = "Reporte Proveedores";
-            this.ReporteProveedor.UseVisualStyleBackColor = true;
-            this.ReporteProveedor.Click += new System.EventHandler(this.ReporteProveedor_Click_2);
+            this.panelSubMenu.Size = new System.Drawing.Size(165, 358);
+            this.panelSubMenu.TabIndex = 108;
             // 
             // ReporteVentas
             // 
@@ -131,14 +110,13 @@ namespace Presentacion
             this.ReporteVentas.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.ReporteVentas.IconSize = 17;
             this.ReporteVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ReporteVentas.Location = new System.Drawing.Point(0, 120);
+            this.ReporteVentas.Location = new System.Drawing.Point(0, 40);
             this.ReporteVentas.Name = "ReporteVentas";
             this.ReporteVentas.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.ReporteVentas.Size = new System.Drawing.Size(165, 40);
             this.ReporteVentas.TabIndex = 17;
             this.ReporteVentas.Text = "Reporte Ventas";
             this.ReporteVentas.UseVisualStyleBackColor = true;
-            this.ReporteVentas.Click += new System.EventHandler(this.ReporteVentas_Click_2);
             // 
             // ReporteInventario
             // 
@@ -152,55 +130,34 @@ namespace Presentacion
             this.ReporteInventario.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.ReporteInventario.IconSize = 17;
             this.ReporteInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ReporteInventario.Location = new System.Drawing.Point(0, 80);
+            this.ReporteInventario.Location = new System.Drawing.Point(0, 0);
             this.ReporteInventario.Name = "ReporteInventario";
             this.ReporteInventario.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
             this.ReporteInventario.Size = new System.Drawing.Size(165, 40);
             this.ReporteInventario.TabIndex = 16;
             this.ReporteInventario.Text = "Reporte Inventario";
             this.ReporteInventario.UseVisualStyleBackColor = true;
-            this.ReporteInventario.Click += new System.EventHandler(this.ReporteInventario_Click_2);
             // 
-            // btnReporteCompras
+            // iconButton5
             // 
-            this.btnReporteCompras.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReporteCompras.FlatAppearance.BorderSize = 0;
-            this.btnReporteCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporteCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporteCompras.ForeColor = System.Drawing.Color.White;
-            this.btnReporteCompras.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
-            this.btnReporteCompras.IconColor = System.Drawing.Color.White;
-            this.btnReporteCompras.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnReporteCompras.IconSize = 17;
-            this.btnReporteCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporteCompras.Location = new System.Drawing.Point(0, 40);
-            this.btnReporteCompras.Name = "btnReporteCompras";
-            this.btnReporteCompras.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
-            this.btnReporteCompras.Size = new System.Drawing.Size(165, 40);
-            this.btnReporteCompras.TabIndex = 15;
-            this.btnReporteCompras.Text = "Reporte Compras";
-            this.btnReporteCompras.UseVisualStyleBackColor = true;
-            this.btnReporteCompras.Click += new System.EventHandler(this.btnReporteCompras_Click_1);
-            // 
-            // iconButton4
-            // 
-            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton4.FlatAppearance.BorderSize = 0;
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton4.ForeColor = System.Drawing.Color.White;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.iconButton4.IconColor = System.Drawing.Color.White;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton4.IconSize = 17;
-            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(0, 0);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(165, 40);
-            this.iconButton4.TabIndex = 14;
-            this.iconButton4.Text = "Reporte Empleados";
-            this.iconButton4.UseVisualStyleBackColor = true;
-            this.iconButton4.Click += new System.EventHandler(this.iconButton4_Click_3);
+            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton5.FlatAppearance.BorderSize = 0;
+            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton5.ForeColor = System.Drawing.Color.White;
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.ChartBar;
+            this.iconButton5.IconColor = System.Drawing.Color.White;
+            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton5.IconSize = 40;
+            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton5.Location = new System.Drawing.Point(0, 511);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.iconButton5.Size = new System.Drawing.Size(220, 53);
+            this.iconButton5.TabIndex = 107;
+            this.iconButton5.Text = "Reportes";
+            this.iconButton5.UseVisualStyleBackColor = true;
+            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click);
             // 
             // iconButton3
             // 
@@ -209,7 +166,7 @@ namespace Presentacion
             this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton3.ForeColor = System.Drawing.Color.White;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.ChartBar;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
             this.iconButton3.IconColor = System.Drawing.Color.White;
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 40;
@@ -219,7 +176,7 @@ namespace Presentacion
             this.iconButton3.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton3.Size = new System.Drawing.Size(220, 53);
             this.iconButton3.TabIndex = 105;
-            this.iconButton3.Text = "Reportes";
+            this.iconButton3.Text = "Graficos";
             this.iconButton3.UseVisualStyleBackColor = true;
             this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
             // 
@@ -360,7 +317,7 @@ namespace Presentacion
             // 
             // btnHome
             // 
-            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
+            this.btnHome.Image = global::Presentacion.Properties.Resources.Ferreteria_Maresa_Imagen;
             this.btnHome.Location = new System.Drawing.Point(-24, 12);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(269, 114);
@@ -380,7 +337,7 @@ namespace Presentacion
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(220, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1162, 81);
+            this.panel1.Size = new System.Drawing.Size(1230, 81);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
@@ -393,7 +350,7 @@ namespace Presentacion
             this.btnMinimizar.IconColor = System.Drawing.Color.White;
             this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMinimizar.IconSize = 22;
-            this.btnMinimizar.Location = new System.Drawing.Point(1067, 12);
+            this.btnMinimizar.Location = new System.Drawing.Point(1135, 12);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(22, 31);
             this.btnMinimizar.TabIndex = 7;
@@ -408,7 +365,7 @@ namespace Presentacion
             this.btnMaximizar.IconColor = System.Drawing.Color.White;
             this.btnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMaximizar.IconSize = 23;
-            this.btnMaximizar.Location = new System.Drawing.Point(1095, 12);
+            this.btnMaximizar.Location = new System.Drawing.Point(1163, 12);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(23, 41);
             this.btnMaximizar.TabIndex = 6;
@@ -423,7 +380,7 @@ namespace Presentacion
             this.btCnCerrar.IconColor = System.Drawing.Color.White;
             this.btCnCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btCnCerrar.IconSize = 26;
-            this.btCnCerrar.Location = new System.Drawing.Point(1124, 12);
+            this.btCnCerrar.Location = new System.Drawing.Point(1192, 12);
             this.btCnCerrar.Name = "btCnCerrar";
             this.btCnCerrar.Size = new System.Drawing.Size(26, 41);
             this.btCnCerrar.TabIndex = 2;
@@ -463,41 +420,71 @@ namespace Presentacion
             this.panelSombra.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSombra.Location = new System.Drawing.Point(220, 81);
             this.panelSombra.Name = "panelSombra";
-            this.panelSombra.Size = new System.Drawing.Size(1162, 9);
+            this.panelSombra.Size = new System.Drawing.Size(1230, 9);
             this.panelSombra.TabIndex = 2;
             // 
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
+            this.panelDesktop.Controls.Add(this.lblFecha);
+            this.panelDesktop.Controls.Add(this.lblHora);
             this.panelDesktop.Controls.Add(this.pictureBox1);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(220, 90);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1162, 632);
+            this.panelDesktop.Size = new System.Drawing.Size(1230, 832);
             this.panelDesktop.TabIndex = 3;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblFecha.Location = new System.Drawing.Point(432, 487);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(113, 39);
+            this.lblFecha.TabIndex = 9;
+            this.lblFecha.Text = "Fecha";
+            this.lblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHora
+            // 
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblHora.Location = new System.Drawing.Point(568, 421);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(129, 55);
+            this.lblHora.TabIndex = 8;
+            this.lblHora.Text = "Hora";
+            this.lblHora.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(370, 140);
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Image = global::Presentacion.Properties.Resources.Ferreteria_Maresa_Imagen;
+            this.pictureBox1.Location = new System.Drawing.Point(347, 73);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(431, 335);
+            this.pictureBox1.Size = new System.Drawing.Size(592, 369);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            // 
+            // Tiempo
+            // 
+            this.Tiempo.Enabled = true;
+            this.Tiempo.Tick += new System.EventHandler(this.Tiempo_Tick);
             // 
             // MenuAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1382, 722);
+            this.ClientSize = new System.Drawing.Size(1450, 922);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelSombra);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuAdmin";
@@ -513,6 +500,7 @@ namespace Presentacion
             ((System.ComponentModel.ISupportInitialize)(this.btCnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildfo)).EndInit();
             this.panelDesktop.ResumeLayout(false);
+            this.panelDesktop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -532,18 +520,19 @@ namespace Presentacion
         private System.Windows.Forms.Panel panelSombra;
         private System.Windows.Forms.Panel panelDesktop;
         private FontAwesome.Sharp.IconPictureBox btCnCerrar;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private FontAwesome.Sharp.IconPictureBox btnMinimizar;
         private FontAwesome.Sharp.IconPictureBox btnMaximizar;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton btnClientes;
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label lblHora;
+        private System.Windows.Forms.Timer Tiempo;
+        private FontAwesome.Sharp.IconButton iconButton5;
         private System.Windows.Forms.Panel panelSubMenu;
-        private FontAwesome.Sharp.IconButton ReporteProveedor;
         private FontAwesome.Sharp.IconButton ReporteVentas;
         private FontAwesome.Sharp.IconButton ReporteInventario;
-        private FontAwesome.Sharp.IconButton btnReporteCompras;
-        private FontAwesome.Sharp.IconButton iconButton4;
     }
 }
