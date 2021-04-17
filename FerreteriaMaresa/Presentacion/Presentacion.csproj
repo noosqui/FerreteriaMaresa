@@ -40,37 +40,18 @@
     <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net45\FontAwesome.Sharp.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1440.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1440.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.dll</HintPath>
-      <Private>True</Private>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -105,6 +86,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Graficos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Graficos.Designer.cs">
+      <DependentUpon>Graficos.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario.cs">
       <SubType>Form</SubType>
@@ -151,35 +138,17 @@
     <Compile Include="RegistroProveedores.Designer.cs">
       <DependentUpon>RegistroProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReporteCompra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteCompra.Designer.cs">
-      <DependentUpon>ReporteCompra.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReporteEmpleados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteEmpleados.Designer.cs">
-      <DependentUpon>ReporteEmpleados.cs</DependentUpon>
-    </Compile>
     <Compile Include="ReporteInvetario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ReporteInvetario.Designer.cs">
       <DependentUpon>ReporteInvetario.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReporteProveedores.cs">
+    <Compile Include="frmReportesVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReporteProveedores.Designer.cs">
-      <DependentUpon>ReporteProveedores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReporteVentas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteVentas.Designer.cs">
-      <DependentUpon>ReporteVentas.cs</DependentUpon>
+    <Compile Include="frmReportesVentas.Designer.cs">
+      <DependentUpon>frmReportesVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="TipoCheque.cs">
       <SubType>Form</SubType>
@@ -210,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graficos.resx">
+      <DependentUpon>Graficos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
@@ -242,21 +214,13 @@
     <EmbeddedResource Include="RegistroProveedores.resx">
       <DependentUpon>RegistroProveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteCompra.resx">
-      <DependentUpon>ReporteCompra.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReporteEmpleados.resx">
-      <DependentUpon>ReporteEmpleados.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ReporteInvetario.resx">
       <DependentUpon>ReporteInvetario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteProveedores.resx">
-      <DependentUpon>ReporteProveedores.cs</DependentUpon>
+    <EmbeddedResource Include="frmReportesVentas.resx">
+      <DependentUpon>frmReportesVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteVentas.resx">
-      <DependentUpon>ReporteVentas.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\ReporteVentas.rdlc" />
     <EmbeddedResource Include="TipoCheque.resx">
       <DependentUpon>TipoCheque.cs</DependentUpon>
     </EmbeddedResource>
@@ -267,6 +231,10 @@
       <DependentUpon>VentaProducto.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Dominio.ListaVentas.datasource" />
+    <None Include="Properties\DataSources\Dominio.ReporteVentas.datasource" />
+    <None Include="Properties\DataSources\Dominio.VentasNetasPeriodo.datasource" />
+    <None Include="Properties\DataSources\ReporteCompra.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -281,10 +249,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{0dfcc74e-43b6-4887-a8ff-0888bb625553}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Dominio\Dominio.csproj">
       <Project>{b0300682-bdbf-4c42-87df-fbd81408e6fe}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ferreteria Maresa Imagen.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

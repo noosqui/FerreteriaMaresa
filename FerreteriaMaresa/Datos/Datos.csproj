@@ -50,6 +50,7 @@
     <Compile Include="CD_Inventario.cs" />
     <Compile Include="CD_Proveedores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteDatos.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Lineamientos.txt" />

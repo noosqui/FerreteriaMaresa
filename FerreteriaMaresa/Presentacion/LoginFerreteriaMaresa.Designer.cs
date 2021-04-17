@@ -29,7 +29,6 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginFerreteriaMaresa));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -60,10 +59,10 @@ namespace Presentacion
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(27, 73);
+            this.pictureBox1.Image = global::Presentacion.Properties.Resources.Ferreteria_Maresa_Imagen;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 49);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(332, 216);
+            this.pictureBox1.Size = new System.Drawing.Size(387, 257);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -187,6 +186,7 @@ namespace Presentacion
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginFerreteriaMaresa";
+            this.Load += new System.EventHandler(this.LoginFerreteriaMaresa_Load);
             this.Enter += new System.EventHandler(this.LoginFerreteriaMaresa_Enter);
             this.Leave += new System.EventHandler(this.LoginFerreteriaMaresa_Leave);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginFerreteriaMaresa_MouseDown);

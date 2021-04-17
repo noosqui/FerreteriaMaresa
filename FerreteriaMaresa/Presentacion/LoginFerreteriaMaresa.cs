@@ -107,8 +107,10 @@ namespace Presentacion
                         MessageBox.Show("a");
                         break;
                 }
+                MessageBox.Show("Error! Usuario o Contraseña incorrecta intente de nuevo", "Mensaje de Error", MessageBoxButtons.OK);
             }
-                
+            
+
         }
 
         private void txtUsuario_Enter(object sender, EventArgs e)
@@ -127,6 +129,11 @@ namespace Presentacion
                 txtUsuario.Text = "USUARIO";
                 txtUsuario.ForeColor = Color.DimGray;
             }
+        }
+
+        private void LoginFerreteriaMaresa_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
