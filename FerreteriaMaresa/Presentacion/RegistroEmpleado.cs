@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Data;
-using System.Windows.Forms;
-using Dominio;
 using System.Media;
+using System.Windows.Forms;
 
 
 namespace Presentacion
@@ -10,13 +10,13 @@ namespace Presentacion
     public partial class RegistroEmpleado : Form
     {
         private DOM_Empleados emplea = new DOM_Empleados();
-        DOM_Validacion letrasNum = new DOM_Validacion();
-        ToolTip tt = new ToolTip();
-        string estado;
-        string txtcodrol;
-        bool estadobtna = false;
-        bool estadobtnb = false;
-        bool estadobtnc = false;
+        private DOM_Validacion letrasNum = new DOM_Validacion();
+        private ToolTip tt = new ToolTip();
+        private string estado;
+        private string txtcodrol;
+        private bool estadobtna = false;
+        private bool estadobtnb = false;
+        private bool estadobtnc = false;
 
         private void roles()
         {
@@ -59,7 +59,7 @@ namespace Presentacion
                 dgvEmpleados.DataSource = emplea.CargarDGVEmpleados();
                 dgvEmpleados.Refresh();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("No se puedieron cargar los Datos");
             }
@@ -130,7 +130,7 @@ namespace Presentacion
             Limpiar.Limpiar(this);
 
             dgvEmpleados.Enabled = false;
-            btnModificar.Visible=false;
+            btnModificar.Visible = false;
             btnAgregar.Visible = false;
             btnEliminar.Visible = false;
             btnGuardar.Visible = true;
@@ -205,129 +205,92 @@ namespace Presentacion
         private void habilitar_Click(object sender, EventArgs e)
         {
             if (estadobtna == true)
+            {
+                if (txtidentidad.Text == "" || txtnombre.Text == "" || txtapellido.Text == "" || txtdireccion.Text == "" ||
+                    txttelefono.Text == "" || txtcorreo.Text == "" || cbcodrol.SelectedIndex.Equals(-1)
+                    || txtidentidad.Text != txtconfirmarident.Text || txtconfirmarident.Text == "")
                 {
-                    if (txtidentidad.Text == "" || txtnombre.Text == "" || txtapellido.Text == "" || txtdireccion.Text == "" ||
-                        txttelefono.Text == "" || txtcorreo.Text == "" || cbcodrol.SelectedIndex.Equals(-1)
-                        || txtidentidad.Text != txtconfirmarident.Text || txtconfirmarident.Text == "")
-                    {
-                        MessageBox.Show("Debe llenar todos los Campos y/o Verifique los Numeros de Identidad");
-                    }
-                    else if (txtidentidad.TextLength<13)
-                    {
-                        MessageBox.Show("La identidad debe tener al menos 13 numeros");
-                    }
-                    else if (txttelefono.TextLength < 8)
-                    {
-                        MessageBox.Show("Numero de Telefono incompleto, debe Ingresar 8 numeros");
-                    }
-                    
-                    else
-                    {
-                        try
-                        {
-                            if (rbactivo.Checked)
-                            {
-                                estado = "Activo";
-                            }
-                            if (rbdespedido.Checked)
-                            {
-                                estado = "Despedido";
-                            }
-                            
-                            emplea.agregar_empleado(txtidentidad.Text.ToString(), txtnombre.Text, txtapellido.Text, txtcorreo.Text,
-                            txttelefono.Text, txtdireccion.Text, txtciudad.Text, txtregion.Text, txtcodpost.Text,
-                            txtpais.Text, txtcodrol, dtfecha.Value.ToString("yyyy/MM/dd"), estado);
-
-                            btnAgregar.Visible = true;
-                            btnModificar.Visible = true;
-                            btnEliminar.Visible = true;
-                            btnGuardar.Visible = false;
-                            btncancelar.Visible = false;
-                            dgvEmpleados.Enabled = true;
-                            lblconfirmar.Visible = false;
-                            txtconfirmarident.Visible = false;
-                            rbactivo.Enabled = false;
-                            rbdespedido.Enabled = false;
-                            limpiar();
-                            dgvEmpleados.DataSource = emplea.CargarDGVEmpleados();
-                            dgvEmpleados.Refresh();
-                            Lim_ha apagar = new Lim_ha();
-                            apagar.Apagar(this);
-                            RegistroEmpleado_Load(null, null);
-                    }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error al Agregar Empleado/El numero de Identidad ya existe en la base de Datos"+ ex);
-                        }
-
-                    }
+                    MessageBox.Show("Debe llenar todos los Campos y/o Verifique los Numeros de Identidad");
+                }
+                else if (txtidentidad.TextLength < 13)
+                {
+                    MessageBox.Show("La identidad debe tener al menos 13 numeros");
+                }
+                else if (txttelefono.TextLength < 8)
+                {
+                    MessageBox.Show("Numero de Telefono incompleto, debe Ingresar 8 numeros");
                 }
 
-                if (estadobtnb == true)
-                    {
-                        if (txtidentidad.Text == "" || txtnombre.Text == "" || txtapellido.Text == "" || txtdireccion.Text == "" ||
-                        txtciudad.Text == "" || txtregion.Text == "" || txtcodpost.Text == "" || txtpais.Text == "" ||
-                        txttelefono.Text == "" || txtcorreo.Text == "" || cbcodrol.SelectedIndex.Equals(-1))
-                        {
-                            MessageBox.Show("Debe llenar todos los Campos");
-                        }
-                        else if (txttelefono.TextLength < 8)
-                        {
-                            MessageBox.Show("Numero de Telefono incompleto, debe Ingresar 8 numeros");
-                        }
-                        else
-                        {
-                            try
-                            {
-                                if (rbactivo.Checked)
-                                {
-                                    estado = "Activo";
-                                }
-                                if (rbdespedido.Checked)
-                                {
-                                    estado = "Despedido";
-                                }
-
-                                emplea.modificar_empleado(txtidentidad.Text, txtnombre.Text, txtapellido.Text, txtcorreo.Text, txttelefono.Text, 
-                                    txtdireccion.Text, txtciudad.Text, txtregion.Text, txtcodpost.Text, txtpais.Text, txtcodrol,
-                                     dtfecha.Value.ToString("yyyy/MM/dd"), estado);
-
-                                btnAgregar.Visible = true;
-                                btnModificar.Visible = true;
-                                btnEliminar.Visible = true;
-                                btnGuardar.Visible = false;
-                                btncancelar.Visible = false;
-                                dgvEmpleados.Enabled = true;
-                                lblconfirmar.Visible = false;
-                                txtconfirmarident.Visible = false;
-                                rbactivo.Enabled = false;
-                                rbdespedido.Enabled = false;
-                                dgvEmpleados.DataSource = emplea.CargarDGVEmpleados();
-                                dgvEmpleados.Refresh();
-                                limpiar();
-                                Lim_ha apagar = new Lim_ha();
-                                apagar.Apagar(this);
-                            }
-                            catch (Exception ex)
-                            {
-                                    MessageBox.Show("Error de Modificacion"+ex);
-                            }
-                        }
-                }
-
-                if (estadobtnc == true)
+                else
                 {
-                        try
+                    try
+                    {
+                        if (rbactivo.Checked)
                         {
-                            if (MessageBox.Show("¿Seguro que desea despedir el Empleado?",
-                                "ADVERTENCIA", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                                emplea.eliminar_empleado(txtidentidad.Text);
+                            estado = "Activo";
                         }
-                        catch (Exception ex)
+                        if (rbdespedido.Checked)
                         {
+                            estado = "Despedido";
+                        }
 
-                            MessageBox.Show("Error al Eliminar el Empleado");
+                        emplea.agregar_empleado(txtidentidad.Text.ToString(), txtnombre.Text, txtapellido.Text, txtcorreo.Text,
+                        txttelefono.Text, txtdireccion.Text, txtciudad.Text, txtregion.Text, txtcodpost.Text,
+                        txtpais.Text, txtcodrol, dtfecha.Value.ToString("yyyy/MM/dd"), estado);
+
+                        btnAgregar.Visible = true;
+                        btnModificar.Visible = true;
+                        btnEliminar.Visible = true;
+                        btnGuardar.Visible = false;
+                        btncancelar.Visible = false;
+                        dgvEmpleados.Enabled = true;
+                        lblconfirmar.Visible = false;
+                        txtconfirmarident.Visible = false;
+                        rbactivo.Enabled = false;
+                        rbdespedido.Enabled = false;
+                        limpiar();
+                        dgvEmpleados.DataSource = emplea.CargarDGVEmpleados();
+                        dgvEmpleados.Refresh();
+                        Lim_ha apagar = new Lim_ha();
+                        apagar.Apagar(this);
+                        RegistroEmpleado_Load(null, null);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al Agregar Empleado/El numero de Identidad ya existe en la base de Datos" + ex);
+                    }
+
+                }
+            }
+
+            if (estadobtnb == true)
+            {
+                if (txtidentidad.Text == "" || txtnombre.Text == "" || txtapellido.Text == "" || txtdireccion.Text == "" ||
+                txtciudad.Text == "" || txtregion.Text == "" || txtcodpost.Text == "" || txtpais.Text == "" ||
+                txttelefono.Text == "" || txtcorreo.Text == "" || cbcodrol.SelectedIndex.Equals(-1))
+                {
+                    MessageBox.Show("Debe llenar todos los Campos");
+                }
+                else if (txttelefono.TextLength < 8)
+                {
+                    MessageBox.Show("Numero de Telefono incompleto, debe Ingresar 8 numeros");
+                }
+                else
+                {
+                    try
+                    {
+                        if (rbactivo.Checked)
+                        {
+                            estado = "Activo";
                         }
+                        if (rbdespedido.Checked)
+                        {
+                            estado = "Despedido";
+                        }
+
+                        emplea.modificar_empleado(txtidentidad.Text, txtnombre.Text, txtapellido.Text, txtcorreo.Text, txttelefono.Text,
+                            txtdireccion.Text, txtciudad.Text, txtregion.Text, txtcodpost.Text, txtpais.Text, txtcodrol,
+                             dtfecha.Value.ToString("yyyy/MM/dd"), estado);
 
                         btnAgregar.Visible = true;
                         btnModificar.Visible = true;
@@ -344,7 +307,46 @@ namespace Presentacion
                         limpiar();
                         Lim_ha apagar = new Lim_ha();
                         apagar.Apagar(this);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error de Modificacion" + ex);
+                    }
                 }
+            }
+
+            if (estadobtnc == true)
+            {
+                try
+                {
+                    if (MessageBox.Show("¿Seguro que desea despedir el Empleado?",
+                        "ADVERTENCIA", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        emplea.eliminar_empleado(txtidentidad.Text);
+                    }
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Error al Eliminar el Empleado");
+                }
+
+                btnAgregar.Visible = true;
+                btnModificar.Visible = true;
+                btnEliminar.Visible = true;
+                btnGuardar.Visible = false;
+                btncancelar.Visible = false;
+                dgvEmpleados.Enabled = true;
+                lblconfirmar.Visible = false;
+                txtconfirmarident.Visible = false;
+                rbactivo.Enabled = false;
+                rbdespedido.Enabled = false;
+                dgvEmpleados.DataSource = emplea.CargarDGVEmpleados();
+                dgvEmpleados.Refresh();
+                limpiar();
+                Lim_ha apagar = new Lim_ha();
+                apagar.Apagar(this);
+            }
         }
 
         private void btnrecontratar_Click(object sender, EventArgs e)
@@ -364,8 +366,10 @@ namespace Presentacion
 
             Lim_ha apagar = new Lim_ha();
             apagar.Apagar(this);
+            groupBox2.Enabled = true;
             txtbuscarid.Enabled = true;
             txtnombreemp.Enabled = true;
+
 
         }
 
@@ -375,8 +379,9 @@ namespace Presentacion
             {
                 var dt = (DataTable)dgvEmpleados.DataSource;
                 if (txtbuscarid.Text != "")
+                {
                     dt.DefaultView.RowFilter = string.Format("[Identidad] LIKE '%{0}%'", txtbuscarid.Text);
-
+                }
                 else
                 {
                     dt.DefaultView.RowFilter = null;
@@ -410,7 +415,7 @@ namespace Presentacion
 
         private void txtidentidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            letrasNum.SoloNumeros(e);
+            letrasNum.SoloNumerosEnt(e);
         }
 
         private void txtnombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -425,12 +430,12 @@ namespace Presentacion
 
         private void txtcodpost_KeyPress(object sender, KeyPressEventArgs e)
         {
-            letrasNum.SoloNumeros(e);
+            letrasNum.SoloNumerosEnt(e);
         }
 
         private void txttelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            letrasNum.SoloNumeros(e);
+            letrasNum.SoloNumerosEnt(e);
         }
 
         private void txtidentidad_Enter(object sender, EventArgs e)
@@ -500,7 +505,7 @@ namespace Presentacion
 
         private void txtconfirmarident_KeyPress(object sender, KeyPressEventArgs e)
         {
-            letrasNum.SoloNumeros(e);
+            letrasNum.SoloNumerosEnt(e);
         }
 
         private void txtpais_KeyPress(object sender, KeyPressEventArgs e)
@@ -512,26 +517,30 @@ namespace Presentacion
         {
             try
             {
-               
-                
-                    
 
-                    var dt = (DataTable)dgvEmpleados.DataSource;
-                    dt.CaseSensitive = false;
+
+
+
+                var dt = (DataTable)dgvEmpleados.DataSource;
+                dt.CaseSensitive = false;
                 if (txtnombreemp.Text != "")
+                {
                     dt.DefaultView.RowFilter = string.Format("[Nombres] LIKE '{0}*' ", txtnombreemp.Text);
-               else 
+                }
+                else
+                {
                     dt.DefaultView.RowFilter = null;
-                   
-                    dgvEmpleados.Refresh();
+                }
 
-                    if (dt.DefaultView.Count < 1)
-                    {
-                        SystemSounds.Exclamation.Play();
-                        ToolTip tt = new ToolTip();
-                        tt.Show("No se encontro parametros", this.txtnombreemp, 0, 25, 3000);
-                    }
-                
+                dgvEmpleados.Refresh();
+
+                if (dt.DefaultView.Count < 1)
+                {
+                    SystemSounds.Exclamation.Play();
+                    ToolTip tt = new ToolTip();
+                    tt.Show("No se encontro parametros", this.txtnombreemp, 0, 25, 3000);
+                }
+
             }
             catch (Exception ex)
             {
@@ -541,17 +550,17 @@ namespace Presentacion
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void chkdespedido_CheckedChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void chktodos_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -587,7 +596,7 @@ namespace Presentacion
                     rbdespedido.Checked = true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // MessageBox.Show("Error de Seleccion");
             }
@@ -595,7 +604,7 @@ namespace Presentacion
 
         private void txtcorreo_Leave(object sender, EventArgs e)
         {
-            if(letrasNum.email(txtcorreo.Text) == false)
+            if (letrasNum.email(txtcorreo.Text) == false)
             {
                 txtcorreo.Focus();
             }
@@ -644,28 +653,29 @@ namespace Presentacion
 
         private void txtbuscarid_TextChanged_1(object sender, EventArgs e)
         {
-            
+
             try
             {
-                
-           
-                    var dt = (DataTable)dgvEmpleados.DataSource;
-                    if (txtbuscarid.Text != "")
-                        dt.DefaultView.RowFilter = string.Format("[Identidad] LIKE '%{0}%'", txtbuscarid.Text);
 
-                    else
-                    {
-                        dt.DefaultView.RowFilter = null;
-                    }
-                    dgvEmpleados.Refresh();
 
-                    if (dt.DefaultView.Count < 1)
-                    {
-                        SystemSounds.Exclamation.Play();
-                        ToolTip tt = new ToolTip();
-                        tt.Show("No se encontro parametros", this.txtbuscarid, 0, 25, 3000);
-                    }
-                
+                var dt = (DataTable)dgvEmpleados.DataSource;
+                if (txtbuscarid.Text != "")
+                {
+                    dt.DefaultView.RowFilter = string.Format("[Identidad] LIKE '%{0}%'", txtbuscarid.Text);
+                }
+                else
+                {
+                    dt.DefaultView.RowFilter = null;
+                }
+                dgvEmpleados.Refresh();
+
+                if (dt.DefaultView.Count < 1)
+                {
+                    SystemSounds.Exclamation.Play();
+                    ToolTip tt = new ToolTip();
+                    tt.Show("No se encontro parametros", this.txtbuscarid, 0, 25, 3000);
+                }
+
             }
             catch (Exception ex)
             {
@@ -675,7 +685,7 @@ namespace Presentacion
 
         private void txtbuscarid_KeyPress(object sender, KeyPressEventArgs e)
         {
-            letrasNum.SoloNumeros(e);
+            letrasNum.SoloNumerosEnt(e);
         }
 
         private void txtbuscarid_Enter(object sender, EventArgs e)

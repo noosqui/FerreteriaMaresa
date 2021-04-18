@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 //using System.Windows.Forms;
 
 namespace Datos
 {
-     public class CD_Inventario
+    public class CD_Inventario
 
-     {
+    {
         private CD_Conexion conexion = new CD_Conexion();
-        SqlDataReader lee;
-        
-        DataTable tabla = new DataTable();
-        SqlCommand comando = new SqlCommand();
-        
+        private SqlDataReader lee;
+        private DataTable tabla = new DataTable();
+        private SqlCommand comando = new SqlCommand();
+
 
         public DataTable Mostrar_Inventario()
         {
@@ -31,10 +25,10 @@ namespace Datos
             comando.Connection = conexion.cerrar();
             lee.Close();
             comando.Parameters.Clear();
-             return tabla;
+            return tabla;
         }
 
-     
+
 
         public DataTable Buscar_Inventario(string producto)
         {
@@ -148,7 +142,7 @@ namespace Datos
             comando.ExecuteNonQuery();
             lee = comando.ExecuteReader();
             tabla.Load(lee);
-     
+
 
             comando.Connection = conexion.cerrar();
             comando.Parameters.Clear();
@@ -180,8 +174,8 @@ namespace Datos
             comando.Parameters.Clear();
         }
 
-        public void modificar_Inventario(int IdProducto,int id_proveedor, string nom_producto,int id_marca, string cantidad_unidad, double costo_producto,
-            double precio_actual, int stock, string estado,int id_categoria)
+        public void modificar_Inventario(int IdProducto, int id_proveedor, string nom_producto, int id_marca, string cantidad_unidad, double costo_producto,
+            double precio_actual, int stock, string estado, int id_categoria)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "editar_Inventario";
@@ -226,7 +220,7 @@ namespace Datos
             comando.Connection = conexion.abrir();
             comando.CommandText = "insertar_categoria";
             comando.CommandType = CommandType.StoredProcedure;
-           
+
             comando.Parameters.AddWithValue("@descripcion", Categoria);
 
             comando.ExecuteNonQuery();
@@ -301,7 +295,7 @@ namespace Datos
 
 
 
-        
+
 
     }
 }

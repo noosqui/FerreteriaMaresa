@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Datos;
+using System;
 using System.Data;
 
 namespace Dominio
 {
 
-     public class DOM_Empleados
+    public class DOM_Empleados
     {
         private CD_Empleados emple = new CD_Empleados();
         private string idEmpleado;
@@ -33,12 +29,12 @@ namespace Dominio
             set { idEmpleado = value; }
         }
 
-        public void modificar_empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, 
-            string correoEmpleado, string telEmpleado, string direccion, string ciudad, string region, 
+        public void modificar_empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado,
+            string correoEmpleado, string telEmpleado, string direccion, string ciudad, string region,
             string codigopostal, string pais, string idrol, string fnacimiento, string estado)
         {
-            emple.Editar_Empleado(idEmpleado,nombreEmpleado,apellidoEmpleado,correoEmpleado,telEmpleado,direccion, 
-                ciudad,region,codigopostal,pais, int.Parse(idrol), fnacimiento,estado);
+            emple.Editar_Empleado(idEmpleado, nombreEmpleado, apellidoEmpleado, correoEmpleado, telEmpleado, direccion,
+                ciudad, region, codigopostal, pais, int.Parse(idrol), fnacimiento, estado);
         }
 
         public void agregar_empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado,

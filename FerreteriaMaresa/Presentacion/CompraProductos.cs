@@ -1,22 +1,21 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Data;
-using System.Windows.Forms;
-using Dominio;
 using System.Media;
+using System.Windows.Forms;
 
 namespace Presentacion
 {
     public partial class CompraProductos : Form
     {
-
-        DOM_Empleados empleados = new DOM_Empleados();
-        DOM_Facturacion facturacion = new DOM_Facturacion();
-        DOM_Validacion LetraNum = new DOM_Validacion();
+        private DOM_Empleados empleados = new DOM_Empleados();
+        private DOM_Facturacion facturacion = new DOM_Facturacion();
+        private DOM_Validacion LetraNum = new DOM_Validacion();
         private DOM_Inventario productos = new DOM_Inventario();
-        DOM_proveedor proveedor = new DOM_proveedor();
-        double suma;
-        ToolTip tt = new ToolTip();
-        double subtotal;
+        private DOM_proveedor proveedor = new DOM_proveedor();
+        private double suma;
+        private ToolTip tt = new ToolTip();
+        private double subtotal;
         public CompraProductos(string idEmpleado)
         {
             InitializeComponent();
@@ -34,10 +33,11 @@ namespace Presentacion
             prov.DefaultView.RowFilter = string.Format("[Estado] LIKE '%{0}%'", "Activo");
             dgvListaProductos.Rows.Clear();
 
-            foreach (DataRow row in prov.Rows)   
-                    coleccion.Add(row["Nombre"] + "");
-               
-       
+            foreach (DataRow row in prov.Rows)
+            {
+                coleccion.Add(row["Nombre"] + "");
+            }
+
             cmbProveedor.DataSource = prov;
             cmbProveedor.DisplayMember = "Nombre";
             cmbProveedor.ValueMember = "Nombre";
@@ -57,14 +57,14 @@ namespace Presentacion
 
 
         private void btnAgregar_Click(object sender, EventArgs e)
-        {  
+        {
             try
             {
                 int cantidad = int.Parse(txtCantidad.Text);
-                    if (cantidad > 0)
-                    {
+                if (cantidad > 0)
+                {
                     foreach (DataGridViewRow row in dgvListaProductos.Rows)
-
+                    {
                         if (row.Cells[0].Value.ToString() == txtId.Text)
                         {
                             txtCantidad.Text = int.Parse(txtCantidad.Text) + int.Parse(row.Cells[3].Value.ToString()) + "";
@@ -72,33 +72,35 @@ namespace Presentacion
                             txtSubtotal.Text = double.Parse(txtSubtotal.Text) - (double.Parse(row.Cells[2].Value.ToString()) * int.Parse(row.Cells[3].Value.ToString())) + "";
 
                         }
+                    }
+
                     suma = double.Parse(txtCosto.Text) * int.Parse(txtCantidad.Text);
-                        suma += double.Parse(txtSubtotal.Text);
-                        dgvListaProductos.Rows.Add(txtId.Text, txtnombre.Text,
-                        txtCosto.Text, txtCantidad.Text, dgvProducto.SelectedRows[0].Cells[2].Value.ToString());
-                        txtSubtotal.Text = "" + suma;
+                    suma += double.Parse(txtSubtotal.Text);
+                    dgvListaProductos.Rows.Add(txtId.Text, txtnombre.Text,
+                    txtCosto.Text, txtCantidad.Text, dgvProducto.SelectedRows[0].Cells[2].Value.ToString());
+                    txtSubtotal.Text = "" + suma;
                     btnSiguiente.Visible = true;
                     txtTotal.Text = "" + ((suma * 0.15) + (suma));
-                     }
-                    else
-                    {
-                        throw new Exception();
-                    }
+                }
+                else
+                {
+                    throw new Exception();
+                }
                 btnSiguiente.Enabled = true;
                 btnEliminar.Enabled = true;
                 txtCantidad.Text = "0";
                 cmbProveedor.Enabled = false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show(this, "Ingrese lo indicado en cantidad");
                 txtCantidad.Focus();
             }
 
         }
-    
 
-        
+
+
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -107,10 +109,10 @@ namespace Presentacion
                 btnAgregar.Enabled = false;
                 //btnModificar.Enabled = false;
                 btnSiguiente.Visible = true;
-                subtotal =double.Parse(txtSubtotal.Text)- int.Parse(dgvListaProductos.SelectedRows[0].Cells[3].Value.ToString()) * double.Parse(dgvListaProductos.SelectedRows[0].Cells[2].Value.ToString());
+                subtotal = double.Parse(txtSubtotal.Text) - int.Parse(dgvListaProductos.SelectedRows[0].Cells[3].Value.ToString()) * double.Parse(dgvListaProductos.SelectedRows[0].Cells[2].Value.ToString());
                 dgvListaProductos.Rows.RemoveAt(dgvListaProductos.SelectedRows[0].Index);
                 txtSubtotal.Text = "" + subtotal;
-               
+
                 txtTotal.Text = "" + ((subtotal * 0.15) + (subtotal));
                 if (dgvListaProductos.Rows.Count == 0)
                 {
@@ -120,8 +122,9 @@ namespace Presentacion
                 }
             }
             else
+            {
                 MessageBox.Show(this, "Seleccione un producto a eliminar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+            }
         }
 
 
@@ -135,7 +138,7 @@ namespace Presentacion
             txtCosto.Text = dgvProducto.CurrentRow.Cells[3].Value.ToString();
 
             btnAgregar.Enabled = true;
-           // btnModificar.Enabled = true;
+            // btnModificar.Enabled = true;
             btnEliminar.Enabled = true;
 
 
@@ -161,12 +164,15 @@ namespace Presentacion
                             cheque.monto = "" + (suma * 0.15 + suma);
                             dr = cheque.ShowDialog();
                             if (dr == DialogResult.Yes)
-                                facturacion.InsertarFacturaCompra("0", txtSubtotal.Text, "1", empleados.Id_empleado, ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex][0].ToString(),"0.15");
-
+                            {
+                                facturacion.InsertarFacturaCompra("0", txtSubtotal.Text, "1", empleados.Id_empleado, ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex][0].ToString(), "0.15");
+                            }
                         }
                     }
                     if (dr == DialogResult.No)
-                        facturacion.InsertarFacturaCompra("0", txtSubtotal.Text, "2", empleados.Id_empleado, ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex][0].ToString(),"0.15");
+                    {
+                        facturacion.InsertarFacturaCompra("0", txtSubtotal.Text, "2", empleados.Id_empleado, ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex][0].ToString(), "0.15");
+                    }
 
                     if (dr != DialogResult.None && dr != DialogResult.Abort)
                     {
@@ -177,33 +183,45 @@ namespace Presentacion
                             productos.Precio_actual = double.Parse(row.Cells[2].Value.ToString());
                             facturacion.insertarDetalleCompra(row.Cells[3].Value.ToString(), productos);
                         }
-                        
+
                     }
                     if (dr != DialogResult.Abort)
                     {
+                        suma = 0;
+                        subtotal = 0;
+                        txtSubtotal.Text = 0 + "";
+                        txtTotal.Text = 0 + "";
                         dgvListaProductos.Enabled = true;
                         CompraProductos_Load(null, null);
                     }
                 }
-                else throw new Exception("Producto no ingresado a la lista");
+                else
+                {
+                    throw new Exception("Producto no ingresado a la lista");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, "Agregue toda la informacion necesaria antes de continuar "+ ex);
+                MessageBox.Show(this, "Agregue toda la informacion necesaria antes de continuar " + ex);
 
             }
-           
+
         }
         private void txtnombrepor_TextChanged(object sender, EventArgs e)
         {
             var dt = (DataTable)dgvProducto.DataSource;
             if (txtnombreprod.Text != "")
-                dt.DefaultView.RowFilter = string.Format("[Nombre] LIKE '{0}*' and [Estado] like 'ACTIVO'  and [Nombre Proveedor] like '%"+ cmbProveedor.Text + "%' ", txtnombreprod.Text);
+            {
+                dt.DefaultView.RowFilter = string.Format("[Nombre] LIKE '{0}*' and [Estado] like 'ACTIVO'  and [Nombre Proveedor] like '%" + cmbProveedor.Text + "%' ", txtnombreprod.Text);
+            }
             else
+            {
                 dt.DefaultView.RowFilter = string.Format("[Nombre Proveedor] LIKE '%{0}%' and [Estado] LIKE 'ACTIVO' ", cmbProveedor.Text);
-                dgvProducto.Refresh();
+            }
 
-       
+            dgvProducto.Refresh();
+
+
             dgvProducto.Refresh();
 
             if (dt.DefaultView.Count < 1)
@@ -219,9 +237,9 @@ namespace Presentacion
             var dt = (DataTable)dgvProducto.DataSource;
             dt.CaseSensitive = false;
             if (txtcodigoprod.Text != "")
-
-            dt.DefaultView.RowFilter = string.Format("[Id Producto] = '{0}' and [Estado] like 'ACTIVO' and [Nombre Proveedor] like '%"+cmbProveedor.Text+"'", int.Parse(txtcodigoprod.Text));
-            
+            {
+                dt.DefaultView.RowFilter = string.Format("[Id Producto] = '{0}' and [Estado] like 'ACTIVO' and [Nombre Proveedor] like '%" + cmbProveedor.Text + "'", int.Parse(txtcodigoprod.Text));
+            }
             else
             {
                 dt.DefaultView.RowFilter = string.Format("[Nombre Proveedor] LIKE '%{0}%' and [Estado] LIKE 'ACTIVO' ", cmbProveedor.Text);
@@ -238,7 +256,7 @@ namespace Presentacion
 
         private void txtcodigoprod_KeyPress(object sender, KeyPressEventArgs e)
         {
-            LetraNum.SoloNumeros(e);
+            LetraNum.SoloNumerosEnt(e);
         }
 
         private void txtnombreprod_KeyPress(object sender, KeyPressEventArgs e)
@@ -248,12 +266,12 @@ namespace Presentacion
 
         private void txtCantidad_Enter(object sender, EventArgs e)
         {
-            tt.Show("Ingrese numeros mayores a 0", txtCantidad);
+            tt.Show("Ingrese numeros mayores a 0", txtCantidad, 3000);
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            LetraNum.SoloNumeros(e);
+            LetraNum.SoloNumerosEnt(e);
 
         }
 
@@ -261,11 +279,11 @@ namespace Presentacion
         {
 
             if ((dgvProducto.DataSource as DataTable) != null)
-            { 
+            {
                 proveedor.Id_proveedor = ((DataTable)cmbProveedor.DataSource).Rows[cmbProveedor.SelectedIndex].Field<int>("Id Proveedor");
                 (dgvProducto.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Nombre Proveedor] LIKE '%{0}%' and [Estado] LIKE 'ACTIVO' ", cmbProveedor.Text);
             }
-         
+
         }
 
         private void label13_Click(object sender, EventArgs e)

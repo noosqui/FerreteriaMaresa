@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Datos;
+﻿using Datos;
 using System.Data;
 namespace Dominio
 
@@ -23,11 +18,13 @@ namespace Dominio
         private string pais;
         private CD_Clientes cli = new CD_Clientes();
 
-        public DOM_Clientes() { 
+        public DOM_Clientes()
+        {
         }
 
         public DOM_Clientes(string id_Cliente, string nombre, string apellido, string rtn, string direccion,
-            string ciudad, string region, string codigo_postal, string pais, string telefono) {
+            string ciudad, string region, string codigo_postal, string pais, string telefono)
+        {
 
             this.idCliente = id_Cliente;
             this.nombrecliente = nombre;
@@ -57,7 +54,7 @@ namespace Dominio
             set { apellidocliente = value; }
         }
 
-        public string Rtn 
+        public string Rtn
         {
             get { return RTN; }
             set { RTN = value; }
@@ -98,14 +95,14 @@ namespace Dominio
             get { return telefono; }
             set { telefono = value; }
         }
-        
+
 
 
 
         public void editar_Clientes(string idCliente, string nombrecliente, string apellidocliente, string RTN,
-            string direccion, string ciudad, string region, string codigo_postal, string pais, string telefono)
+            string direccion, string ciudad, string region, string codigo_postal, string pais, string telefono, string estado)
         {
-            cli.Editar_Cliente(idCliente, nombrecliente, apellidocliente, RTN, direccion, ciudad, region, codigo_postal, pais, telefono);
+            cli.Editar_Cliente(idCliente, nombrecliente, apellidocliente, RTN, direccion, ciudad, region, codigo_postal, pais, telefono, (estado == "Activo") ? 1 : 0);
         }
 
         public void eliminar_cliente(string id_Cliente)

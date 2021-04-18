@@ -67,6 +67,7 @@ namespace Presentacion
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             // 
             // txtUsuario
             // 
@@ -204,7 +205,6 @@ namespace Presentacion
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginFerreteriaMaresa";
-          //  this.Load += new System.EventHandler(this.LoginFerreteriaMaresa_Load);
             this.Enter += new System.EventHandler(this.LoginFerreteriaMaresa_Enter);
             this.Leave += new System.EventHandler(this.LoginFerreteriaMaresa_Leave);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginFerreteriaMaresa_MouseDown);

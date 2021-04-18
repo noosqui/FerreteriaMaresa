@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Dominio;
+using System;
 using System.Windows.Forms;
-using Dominio; 
 
 namespace Presentacion
 {
@@ -28,9 +21,9 @@ namespace Presentacion
             ReporteVentas modelo = new ReporteVentas();
             modelo.crearReportedVentas(DeFecha, ParaFecha);
 
-           // ReporteVentasBindingSource.DataSource = modelo;
-             //  ListaVentasBindingSource.DataSource = modelo;
-              /* VentaNetasPeriodoBindingSource.DataSource = modelo;*/
+            // ReporteVentasBindingSource.DataSource = modelo;
+            //  ListaVentasBindingSource.DataSource = modelo;
+            /* VentaNetasPeriodoBindingSource.DataSource = modelo;*/
 
             ///this.reportViewer1.RefreshReport();
 
@@ -41,7 +34,7 @@ namespace Presentacion
             var deFecha = DateTime.Today;
             var paraFecha = DateTime.Now;
 
-            obtenerVentas(deFecha,paraFecha);
+            obtenerVentas(deFecha, paraFecha);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -81,14 +74,14 @@ namespace Presentacion
             var deFecha = dtpdeFecha.Value;
             var paraFecha = dtpparaFecha.Value;
 
-            obtenerVentas(deFecha, new DateTime(paraFecha.Year,paraFecha.Month,paraFecha.Day,23,59,59));
+            obtenerVentas(deFecha, new DateTime(paraFecha.Year, paraFecha.Month, paraFecha.Day, 23, 59, 59));
         }
 
         private void frmReportesVentas_Load(object sender, EventArgs e)
         {
 
-           // this.//reportViewer1.RefreshReport();
-           // this.reportViewer1.RefreshReport();
+            // this.//reportViewer1.RefreshReport();
+            // this.reportViewer1.RefreshReport();
             //this.//reportViewer1.RefreshReport();
         }
     }

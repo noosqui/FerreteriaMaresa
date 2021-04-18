@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 
 namespace Datos
@@ -11,13 +6,13 @@ namespace Datos
     public class CD_Proveedores
     {
         private CD_Conexion conexion = new CD_Conexion();
-        SqlDataReader leer;
-        DataTable tabla = new DataTable();
-        SqlCommand comando = new SqlCommand();
+        private SqlDataReader leer;
+        private DataTable tabla = new DataTable();
+        private SqlCommand comando = new SqlCommand();
 
         public DataTable Mostrar_Proveedor()
         {
-
+            tabla.Rows.Clear();
             comando.Connection = conexion.abrir();
             comando.CommandText = "Mostrar_Proveedores";
             comando.CommandType = CommandType.StoredProcedure;
@@ -29,18 +24,7 @@ namespace Datos
             return tabla;
         }
 
-        public DataTable buscar_Proveedores(string nombre)
-        {
-            comando.Connection = conexion.abrir();
-            comando.CommandText = "buscar_Proveedores";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@nombre", nombre);
-            comando.ExecuteNonQuery();
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
-            comando.Connection = conexion.cerrar();
-            return tabla;
-        }
+
 
         public void insertar_Proveedor(string nombreProveedor, string telProveedor, string correo, string direccion, string ciudad, string region, string codigopostal, string pais, string estado)
         {

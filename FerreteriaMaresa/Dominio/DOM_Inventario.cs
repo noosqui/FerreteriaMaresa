@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Datos;
+﻿using Datos;
 using System.Data;
 
 
@@ -29,11 +24,11 @@ namespace Dominio
         private int id_categoria;
         private string categoria;
         private CD_Inventario inventario = new CD_Inventario();
-        
+
 
         public DOM_Inventario() { }
 
-        public DOM_Inventario(string id_producto, string id_proveedor, string nom_producto, string nom_proveedor, string marca, string id_marca, string costo, 
+        public DOM_Inventario(string id_producto, string id_proveedor, string nom_producto, string nom_proveedor, string marca, string id_marca, string costo,
             string precio_actual, string stock, string estado, string id_categoria, string cantidad_unidad)
         {
             this.id_producto = int.Parse(id_producto);
@@ -130,7 +125,7 @@ namespace Dominio
         }
 
 
-    
+
         public DataTable buscar_inventario()
         {
             return inventario.Buscar_Inventario(Nom_producto);
@@ -146,9 +141,9 @@ namespace Dominio
         {
             return inventario.Mostrar_Marcas();
         }
-        
 
-             public DataTable mostrar_categoria()
+
+        public DataTable mostrar_categoria()
         {
             return inventario.Mostrar_Categorias();
         }
@@ -161,19 +156,19 @@ namespace Dominio
 
 
 
-        public DataTable ListarCategoria() 
+        public DataTable ListarCategoria()
         {
             return inventario.Mostrar_Categorias();
         }
 
-        public DataTable ListarMarcas() 
+        public DataTable ListarMarcas()
         {
             return inventario.Mostrar_Marcas();
         }
 
 
         public void crear_inventario(string id_proveedor, string nom_producto, string id_marca, string cantidad_unidad, string costo_producto,
-            string precio_actual, string stock, string estado,string id_categoria)
+            string precio_actual, string stock, string estado, string id_categoria)
         {
             inventario.insertar_Inventario(int.Parse(id_proveedor), nom_producto, int.Parse(id_marca), cantidad_unidad, double.Parse(costo_producto),
            double.Parse(precio_actual), int.Parse(stock), estado, int.Parse(id_categoria));
@@ -200,7 +195,7 @@ namespace Dominio
 
         public void modificarCategoria(string id_categoria, string categoria)
         {
-            inventario.modificar_categoria(int.Parse(id_categoria),categoria);
+            inventario.modificar_categoria(int.Parse(id_categoria), categoria);
         }
 
         public void eliminar_categoria(string id_categoria)

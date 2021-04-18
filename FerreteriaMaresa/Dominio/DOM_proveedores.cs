@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Datos;
+﻿using Datos;
 using System.Data;
 
 namespace Dominio
 {
-     public class DOM_proveedor
+    public class DOM_proveedor
     {
         private int id_proveedor;
         private string nom_proveedor;
@@ -27,7 +22,7 @@ namespace Dominio
         {
         }
 
-        public DOM_proveedor(string empleado,string nombre,string apellido)
+        public DOM_proveedor(string empleado, string nombre, string apellido)
         {
             this.id_proveedor = int.Parse(empleado);
             this.nom_proveedor = nombre;
