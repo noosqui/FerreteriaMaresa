@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Presentacion
 {
-    class Lim_ha
+    internal class Lim_ha
     {
         public void Limpiar(Control control)
         {
@@ -18,7 +13,7 @@ namespace Presentacion
                 {
                     ((TextBox)txt).Clear();
                 }
-                
+
                 if (txt is ComboBox)
                 {
                     ((ComboBox)txt).SelectedIndex = 0;
@@ -43,7 +38,7 @@ namespace Presentacion
                     ((ComboBox)txt).Enabled = true;
                 }
 
-                if(txt is DateTimePicker)
+                if (txt is DateTimePicker)
                 {
                     ((DateTimePicker)txt).Enabled = true;
                 }

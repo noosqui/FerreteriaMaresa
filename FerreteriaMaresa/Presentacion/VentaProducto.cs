@@ -1,20 +1,22 @@
-using System;
-using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
 using Dominio;
+using System;
 using System.Data;
 using System.Media;
+using System.Windows.Forms;
 namespace Presentacion
 {
     public partial class VentaProducto : Form
     {
-        DOM_Facturacion facturacion = new DOM_Facturacion();
-        DOM_Inventario inventario = new DOM_Inventario();
-        DOM_Empleados empleados = new DOM_Empleados();
-        DOM_Validacion letrasNum = new DOM_Validacion();
-        DOM_Clientes client = new DOM_Clientes();
+        private DOM_Facturacion facturacion = new DOM_Facturacion();
+        private DOM_Inventario inventario = new DOM_Inventario();
+        private DOM_Empleados empleados = new DOM_Empleados();
+        private DOM_Validacion letrasNum = new DOM_Validacion();
+        private DOM_Clientes client = new DOM_Clientes();
         private double suma;
         private double descuento;
-        ToolTip tt = new ToolTip();
+        private ToolTip tt = new ToolTip();
+        private ReportDocument report = new ReportDocument();
         public VentaProducto()
         {
             InitializeComponent();
@@ -43,16 +45,15 @@ namespace Presentacion
                     if (cantidad > 0 && cantidad <= stock)
                     {
                         foreach (DataGridViewRow row in dgvProductList.Rows)
-                        
+                        {
                             if (row.Cells[0].Value.ToString() == txtId.Text)
                             {
-                                txtCantidad.Text = int.Parse(txtCantidad.Text)+ int.Parse (row.Cells[3].Value.ToString())+ ""  ;
+                                txtCantidad.Text = int.Parse(txtCantidad.Text) + int.Parse(row.Cells[3].Value.ToString()) + "";
                                 dgvProductList.Rows.Remove(row);
-                                txtSubtotal.Text =double.Parse(txtSubtotal.Text) - (double.Parse(row.Cells[2].Value.ToString()) * int.Parse(row.Cells[3].Value.ToString()))+"";
+                                txtSubtotal.Text = double.Parse(txtSubtotal.Text) - (double.Parse(row.Cells[2].Value.ToString()) * int.Parse(row.Cells[3].Value.ToString())) + "";
 
                             }
-               
-                        
+                        }
 
                         suma = double.Parse(txtprecio.Text) * int.Parse(txtCantidad.Text);
                         suma += double.Parse(txtSubtotal.Text);
@@ -60,22 +61,24 @@ namespace Presentacion
                         txtSubtotal.Text = "" + suma;
                         btnCancelar.Enabled = true;
                         txtCantidad.Text = "" + 0;
-                        txtDescuento.Text = suma * descuento+ "";
+                        txtDescuento.Text = suma * descuento + "";
                         txtTotal.Text = suma + ((suma - (suma * descuento)) * 0.15)
-                            -(suma * descuento)+ "";
+                            - (suma * descuento) + "";
                     }
                     else
+                    {
                         throw new Exception();
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(this, "Ingrese la cantidad correcta"+ ex, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(this, "Ingrese la cantidad correcta" + ex, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtCantidad.Focus();
                 }
-          
+
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show(null, "Seleccione un producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -100,36 +103,50 @@ namespace Presentacion
                         {
                             TipoCheque cheque = new TipoCheque();
                             MessageBox.Show(suma + "");
-                            cheque.monto = "" + (suma * 0.15 +suma);
+                            cheque.monto = "" + (suma * 0.15 + suma);
                             dr = cheque.ShowDialog();
-                         
+
 
                             if (dr == DialogResult.Yes)
                             {
                                 if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length > 0)
+                                {
                                     facturacion.InsertarFacturaVenta(empleados.Id_empleado, ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
-                                    , txtSubtotal.Text, "1", "0.15",descuento+"", "1");
+                                    , txtSubtotal.Text, "1", "0.15", descuento + "", "1");
+                                }
+
                                 if (!chkRTN.Checked)
+                                {
                                     facturacion.InsertarFacturaVenta(empleados.Id_empleado, ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
                                        , txtSubtotal.Text, "0", "0.15", descuento + "", "1");
+                                }
+
                                 if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length <= 0)
+                                {
                                     throw new Exception("Error el empleado no contiene rtn");
+                                }
                             }
-           
+
 
                         }
                     }
                     if (dr == DialogResult.No)
+                    {
                         if (chkRTN.Checked && ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][3].ToString().Length > 0)
+                        {
                             facturacion.InsertarFacturaVenta(empleados.Id_empleado, ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
                                        , txtSubtotal.Text, "1", "0.15", descuento + "", "2");
+                        }
                         else if (!chkRTN.Checked)
+                        {
                             facturacion.InsertarFacturaVenta(empleados.Id_empleado, ((DataTable)cmbClientes.DataSource).Rows[cmbClientes.SelectedIndex][0].ToString()
                                , txtSubtotal.Text, "0", "0.15", descuento + "", "2");
-                    else
-                    throw new Exception("Error el empleado no contiene rtn");
-                   
-
+                        }
+                        else
+                        {
+                            throw new Exception("Error el empleado no contiene rtn");
+                        }
+                    }
 
                     if (dr != DialogResult.None && dr != DialogResult.Abort)
                     {
@@ -150,25 +167,33 @@ namespace Presentacion
 
                     if (dr != DialogResult.Abort)
                     {
-                        FacturaVenta fact = new FacturaVenta();
-                        fact.ShowDialog();
-                        VentaProducto_Load(null, null);
-                    }
-               
-                        
-                            
 
+                        FacturaVenta fact = new FacturaVenta();
+                        fact.crystalReportViewer1.RefreshReport();
+                        fact.ShowDialog();
+                        suma = 0;
+                        descuento = 0;
+                        txtDescuento.Text = 0 + "";
+                        txtSubtotal.Text = 0 + "";
+                        txtTotal.Text = 0 + "";
+                        VentaProducto_Load(null, null);
+                     
+
+                    }
                 }
-                else throw new Exception("Producto no ingresado a la lista");
+                else
+                {
+                    throw new Exception("Producto no ingresado a la lista");
+                }
             }
-           
+
             catch (Exception ex)
             {
                 MessageBox.Show(this, "Ocurrio un error al insertar (Error) " + ex);
             }
 
         }
-        
+
 
         private void VentaProducto_Load(object sender, EventArgs e)
         {
@@ -186,21 +211,27 @@ namespace Presentacion
             dgvProductos.Rows[1].Selected = true;
             dgvProductos.CurrentRow.Selected = true;
             dgvProductos_CellClick(null, null);
-      
+
 
             Cliente.Columns.Add("Concat");
             foreach (DataRow row in Cliente.Rows)
             {
-                        row["Concat"] = (row["Nombres"]+" "+ row["Apellidos"]);
-                coleccion.Add(row["Concat"]+"");
+                row["Concat"] = (row["Nombres"] + " " + row["Apellidos"]);
+                coleccion.Add(row["Concat"] + "");
             }
-          
+
             cmbClientes.DataSource = Cliente;
             cmbClientes.DisplayMember = "Concat";
             cmbClientes.ValueMember = "Concat";
             cmbClientes.AutoCompleteCustomSource = coleccion;
             cmbClientes.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbClientes.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            foreach (Control ctr in this.VentaProductos.Controls)
+            {
+                if (ctr is TextBox && ctr.Name != this.txtCantidad.Name && !(ctr is DataGridView) && ctr.Name != this.txtIdSrch.Name && ctr.Name != this.txtNombreSrch.Name)
+                    ctr.Enabled = false;
+
+            }
         }
 
         private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -215,11 +246,15 @@ namespace Presentacion
 
         private void txtIdSrch_TextChanged(object sender, EventArgs e)
         {
-             var dt = (DataTable)dgvProductos.DataSource;
+            var dt = (DataTable)dgvProductos.DataSource;
             if (txtIdSrch.Text != "")
+            {
                 dt.DefaultView.RowFilter = string.Format("[Id Producto] = '{0}' and [Estado] like 'ACTIVO'", int.Parse(txtIdSrch.Text));
+            }
             else
+            {
                 dt.DefaultView.RowFilter = string.Format("[Estado] like 'Activo'");
+            }
 
             dgvProductos.Refresh();
 
@@ -236,11 +271,15 @@ namespace Presentacion
 
             var dt = (DataTable)dgvProductos.DataSource;
             if (txtNombreSrch.Text != "")
+            {
                 dt.DefaultView.RowFilter = string.Format("[Nombre] LIKE '{0}*' and [Estado] like 'Activo'", txtNombreSrch.Text);
+            }
             else
+            {
                 dt.DefaultView.RowFilter = string.Format("[Estado] like 'Activo'");
+            }
 
-           dgvProductos.Refresh();
+            dgvProductos.Refresh();
             if ((dgvProductos.DataSource as DataTable).DefaultView.Count < 1)
             {
                 SystemSounds.Exclamation.Play();
@@ -251,12 +290,16 @@ namespace Presentacion
 
         private void txtIdSrch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            letrasNum.SoloNumeros(e);
+            letrasNum.SoloNumerosEnt(e);
             txtNombreSrch.Text = "";
             if (txtIdSrch.Text != "")
+            {
                 (dgvProductos.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtIdSrch.Text));
+            }
             else
+            {
                 (dgvProductos.DataSource as DataTable).DefaultView.RowFilter = null;
+            }
 
             dgvProductos.Refresh();
 
@@ -274,9 +317,13 @@ namespace Presentacion
             letrasNum.SoloLetras(e);
             txtIdSrch.Text = "";
             if (txtNombreSrch.Text != "")
+            {
                 (dgvProductos.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Nombre] LIKE '%{0}'", txtNombreSrch.Text);
+            }
             else
+            {
                 (dgvProductos.DataSource as DataTable).DefaultView.RowFilter = null;
+            }
 
             dgvProductos.Refresh();
             if ((dgvProductos.DataSource as DataTable).DefaultView.Count < 1)
@@ -292,18 +339,20 @@ namespace Presentacion
         {
             try
             {
-                suma =double.Parse(txtSubtotal.Text) - double.Parse(dgvProductList.SelectedRows[0].Cells[2].Value.ToString()) * double.Parse(dgvProductList.SelectedRows[0].Cells[3].Value.ToString());
+                suma = double.Parse(txtSubtotal.Text) - double.Parse(dgvProductList.SelectedRows[0].Cells[2].Value.ToString()) * double.Parse(dgvProductList.SelectedRows[0].Cells[3].Value.ToString());
                 dgvProductList.Rows.RemoveAt(dgvProductList.SelectedRows[0].Index);
                 txtSubtotal.Text = "" + suma;
                 txtDescuento.Text = suma * descuento + "";
                 txtTotal.Text = (suma - double.Parse(txtDescuento.Text)) * 0.15 + (suma - double.Parse(txtDescuento.Text)) + "";
                 if (dgvProductList.Rows.Count == 0)
+                {
                     btnCancelar.Enabled = false;
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show(this, "Seleccione un producto a eliminar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } 
+            }
         }
 
         private void dgvProductList_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -313,23 +362,23 @@ namespace Presentacion
                 dgvProductList.CurrentRow.Selected = false;
                 dgvProductList.CurrentRow.Selected = true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show(this, "No hay nada ingresado", "Error");
             }
 
         }
 
-       
+
         private void txtCantidad_Enter(object sender, EventArgs e)
         {
-            tt.Show("Ingrese un numero que sea menor o igual que la cantidad en inventaro", txtCantidad, 5000);
+            tt.Show("Ingrese un numero que sea menor o igual que la cantidad en inventaro", txtCantidad, 3000);
         }
 
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            letrasNum.SoloNumeros(e);
+            letrasNum.SoloNumerosEnt(e);
 
         }
 
@@ -340,11 +389,15 @@ namespace Presentacion
         private void chkEdad_CheckStateChanged(object sender, EventArgs e)
         {
             if (chkEdad.Checked)
+            {
                 descuento = 0.4;
+            }
 
-                
             else
+            {
                 descuento = 0;
+            }
+
             txtDescuento.Text = suma * descuento + "";
             txtTotal.Text = suma + ((suma - (suma * descuento)) * 0.15)
                 - (suma * descuento) + "";

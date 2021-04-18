@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace Datos
 {
-     public class CD_Facturacion
+    public class CD_Facturacion
     {
         private CD_Conexion conexion = new CD_Conexion();
-        SqlDataReader lee;
-        DataTable tabla = new DataTable();
-        SqlCommand comando = new SqlCommand();
+        private SqlDataReader lee;
+        private DataTable tabla = new DataTable();
+        private SqlCommand comando = new SqlCommand();
 
         public void insertar_FacturaVenta(DateTime Fecha, string IdCliente, string IdEmpleado, int Tipopago, string rtn, double isv, double Descuento, double Subtotal)
         {
@@ -188,18 +184,18 @@ namespace Datos
             lee.Close();
             return tabla;
         }
-        public void Insertar_Cheque(string numcuenta,DateTime date,string RutaBancaria,string numeroCheque,int idBanco,float monto)
+        public void Insertar_Cheque(string numcuenta, DateTime date, string RutaBancaria, string numeroCheque, int idBanco, float monto)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "insertarCheques";
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@numCuenta",numcuenta);
-            comando.Parameters.AddWithValue("@fecha",date);
-            comando.Parameters.AddWithValue("@rutaBancaria",RutaBancaria);
-            comando.Parameters.AddWithValue("@numeroCheque",numeroCheque);
-            comando.Parameters.AddWithValue("@idBanco",idBanco);
-            comando.Parameters.AddWithValue("@monto",monto);
-      
+            comando.Parameters.AddWithValue("@numCuenta", numcuenta);
+            comando.Parameters.AddWithValue("@fecha", date);
+            comando.Parameters.AddWithValue("@rutaBancaria", RutaBancaria);
+            comando.Parameters.AddWithValue("@numeroCheque", numeroCheque);
+            comando.Parameters.AddWithValue("@idBanco", idBanco);
+            comando.Parameters.AddWithValue("@monto", monto);
+
             comando.ExecuteNonQuery();
             comando.Connection = conexion.cerrar();
         }

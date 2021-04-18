@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 
 namespace Datos
@@ -12,9 +7,9 @@ namespace Datos
     {
 
         private CD_Conexion conexion = new CD_Conexion();
-        SqlDataReader lee;
-        DataTable tabla = new DataTable();
-        SqlCommand comando = new SqlCommand();
+        private SqlDataReader lee;
+        private DataTable tabla = new DataTable();
+        private SqlCommand comando = new SqlCommand();
 
 
         public DataTable VerificarUsuario(string usuario, string contrasenia)
@@ -35,7 +30,7 @@ namespace Datos
             tabla.Rows.Clear();
             comando.Connection = conexion.abrir();
             comando.CommandText = "Mostrar_Empleados";
-            comando.CommandType = CommandType.StoredProcedure; 
+            comando.CommandType = CommandType.StoredProcedure;
             lee = comando.ExecuteReader();
             tabla.Load(lee);
             conexion.cerrar();

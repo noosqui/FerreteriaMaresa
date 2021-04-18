@@ -1,23 +1,20 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Data;
-using System.Text;
-using Dominio;
-using System.Windows.Forms;
-using System.Media;
-using System.Data.SqlClient;
 using System.Drawing;
+using System.Media;
+using System.Windows.Forms;
 
 namespace Presentacion
 
 {
     public partial class Inventario : Form
     {
-
-        DOM_Inventario inventario = new DOM_Inventario();
-        DOM_Validacion LetraNum = new DOM_Validacion();
-        bool Estado1 = false;
-        bool Estado2 = false;
-        bool Estado3 = false;
+        private DOM_Inventario inventario = new DOM_Inventario();
+        private DOM_Validacion LetraNum = new DOM_Validacion();
+        private bool Estado1 = false;
+        private bool Estado2 = false;
+        private bool Estado3 = false;
         private int puesto;
 
         public Inventario(int puesto)
@@ -33,7 +30,7 @@ namespace Presentacion
             tabControl.Enabled = false;
         }
 
-        
+
 
 
         private void Inventario_Load(object sender, System.EventArgs e)
@@ -75,24 +72,24 @@ namespace Presentacion
             dgvInventario.Rows[1].Selected = true;
             dgvInventario.CurrentRow.Selected = true;
             dgvInventario_CellClick(null, null);
-            
-            
-
-             cmbMarcaAg.DataSource = marca;
-             cmbMarcaAg.DisplayMember = "Marca";
-             cmbMarcaAg.ValueMember = "Marca";
-             cmbMarcaAg.AutoCompleteCustomSource = mar;
-             cmbMarcaAg.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-             cmbMarcaAg.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
 
 
-             cmbCategoriaAg.DataSource = categoria;
-             cmbCategoriaAg.DisplayMember = "Marca";
-             cmbCategoriaAg.ValueMember = "Marca";
-             cmbCategoriaAg.AutoCompleteCustomSource = cat;
-             cmbCategoriaAg.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-             cmbCategoriaAg.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cmbMarcaAg.DataSource = marca;
+            cmbMarcaAg.DisplayMember = "Marca";
+            cmbMarcaAg.ValueMember = "Marca";
+            cmbMarcaAg.AutoCompleteCustomSource = mar;
+            cmbMarcaAg.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbMarcaAg.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+
+
+            cmbCategoriaAg.DataSource = categoria;
+            cmbCategoriaAg.DisplayMember = "Marca";
+            cmbCategoriaAg.ValueMember = "Marca";
+            cmbCategoriaAg.AutoCompleteCustomSource = cat;
+            cmbCategoriaAg.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbCategoriaAg.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             cmbProveedorAg.DataSource = proveedor;
             cmbProveedorAg.DisplayMember = "Nombre";
@@ -148,15 +145,15 @@ namespace Presentacion
 
         private void txtcodigo_TextChanged_1(object sender, EventArgs e)
         {
-            
-            
+
+
             btncancelar.Visible = true;
             //var bd = (BindingSource)dgvInventario.DataSource;
             var dt = (DataTable)dgvInventario.DataSource;
-            if(txtcodigoInv.Text != "")
-
-            dt.DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtcodigoInv.Text));
-
+            if (txtcodigoInv.Text != "")
+            {
+                dt.DefaultView.RowFilter = string.Format("[Id Producto] = {0}", int.Parse(txtcodigoInv.Text));
+            }
             else
             {
                 dt.DefaultView.RowFilter = null;
@@ -188,7 +185,7 @@ namespace Presentacion
         private void txtcodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
             btncancelar.Visible = true;
-            LetraNum.SoloNumeros(e);
+            LetraNum.SoloNumerosEnt(e);
             txtnombreInv.Visible = false;
             cmbMarcaInv.Visible = false;
             cmbCategoriaInv.Visible = false;
@@ -196,8 +193,8 @@ namespace Presentacion
             lc.Visible = false;
             ln.Visible = false;
 
-            
-            
+
+
         }
 
         private void txtnombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -205,7 +202,7 @@ namespace Presentacion
             lm.Visible = false;
             lc.Visible = false;
             li.Visible = false;
-            
+
             cmbMarcaInv.Visible = false;
             cmbCategoriaInv.Visible = false;
             txtcodigoInv.Visible = false;
@@ -267,19 +264,23 @@ namespace Presentacion
                 btncancelar.Visible = true;
             }
         }
-   
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
+
             dgvAgregar.Enabled = true;
             if (Estado1 == true)
             {
-               
+
                 try
                 {
                     foreach (Control ctr in tabControl.TabPages[tabControl.SelectedIndex].Controls)
+                    {
                         if (ctr is TextBox && ctr.Text.Trim() == "")
+                        {
                             throw new Exception("No deje campos vacios");
+                        }
+                    }
 
                     if (txtStockAg.Text == "0" && txtStockAg.Text == "")
                     {
@@ -290,10 +291,10 @@ namespace Presentacion
 
                     inventario.crear_inventario(((DataTable)cmbProveedorAg.DataSource).Rows[cmbProveedorAg.SelectedIndex][0].ToString(), txtNomInventarioAg.Text, ((DataTable)cmbMarcaAg.DataSource).Rows[cmbMarcaAg.SelectedIndex][0].ToString(), txtcantidad_unidadAg.Text, txtCompraAg.Text, txtVentaAg.Text, txtStockAg.Text, "Activo", ((DataTable)cmbCategoriaAg.DataSource).Rows[cmbCategoriaAg.SelectedIndex][0].ToString());
 
-                 
+
                     MessageBox.Show("Producto registrado con exito");
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Producto no registra" + ex);
                     btnmodificarAg.Visible = true;
@@ -307,12 +308,17 @@ namespace Presentacion
                 try
                 {
                     foreach (Control ctr in tabControl.TabPages[tabControl.SelectedIndex].Controls)
+                    {
                         if (ctr is TextBox && ctr.Text.Trim() == "")
+                        {
                             throw new Exception("No deje campos vacios");
-                    inventario.modificar_inventario(txtid.Text,((DataTable)cmbProveedorAg.DataSource).Rows[cmbProveedorAg.SelectedIndex][0].ToString(), txtNomInventarioAg.Text, ((DataTable)cmbMarcaAg.DataSource).Rows[cmbMarcaAg.SelectedIndex][0].ToString(), txtcantidad_unidadAg.Text, txtCompraAg.Text, txtVentaAg.Text, txtStockAg.Text, "Activo", ((DataTable)cmbCategoriaAg.DataSource).Rows[cmbCategoriaAg.SelectedIndex][0].ToString());
+                        }
+                    }
+
+                    inventario.modificar_inventario(txtid.Text, ((DataTable)cmbProveedorAg.DataSource).Rows[cmbProveedorAg.SelectedIndex][0].ToString(), txtNomInventarioAg.Text, ((DataTable)cmbMarcaAg.DataSource).Rows[cmbMarcaAg.SelectedIndex][0].ToString(), txtcantidad_unidadAg.Text, txtCompraAg.Text, txtVentaAg.Text, txtStockAg.Text, "Activo", ((DataTable)cmbCategoriaAg.DataSource).Rows[cmbCategoriaAg.SelectedIndex][0].ToString());
                     MessageBox.Show("Producto modificado");
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Producto no modificado" + ex);
                     btnmodificarAg.Visible = true;
@@ -326,10 +332,10 @@ namespace Presentacion
                 try
                 {
                     inventario.eliminar_Producto(txtid.Text);
-                    
+
                     MessageBox.Show("Producto eliminado con exito");
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Producto no eliminado" + ex);
                     btnmodificarAg.Visible = true;
@@ -338,15 +344,17 @@ namespace Presentacion
                 }
             }
 
-           foreach(Control ctr in tabAgrega.Controls)
+            foreach (Control ctr in tabAgrega.Controls)
             {
                 if (ctr is TextBox || ctr is ComboBox)
+                {
                     ctr.Enabled = false;
+                }
             }
-            
+
             btnmodificarAg.Visible = true;
             btnEliminarAg.Visible = true;
-            btnAgregarAg.Visible= true;
+            btnAgregarAg.Visible = true;
             btnGuardarAg.Visible = false;
             btnCancelarAg.Visible = false;
 
@@ -378,7 +386,7 @@ namespace Presentacion
 
             la.Visible = true;
             dgvAgregar.Enabled = false;
-            
+
             txtid.Visible = true;
             btnmodificarAg.Visible = false;
             btnAgregarAg.Visible = false;
@@ -389,14 +397,14 @@ namespace Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            
+
             txtNomInventarioAg.Enabled = true;
             cmbProveedorAg.Enabled = true;
             cmbMarcaAg.Enabled = true;
             txtcantidad_unidadAg.Enabled = true;
             txtCompraAg.Enabled = true;
             txtVentaAg.Enabled = true;
-          
+
             cmbEstadoAg.Enabled = true;
             cmbCategoriaAg.Enabled = true;
 
@@ -405,17 +413,17 @@ namespace Presentacion
             txtCompraAg.Clear();
             txtVentaAg.Clear();
             txtStockAg.Clear();
-            
+
 
             dgvAgregar.Enabled = false;
-           
-            
+
+
             Estado1 = true;
             Estado2 = false;
             Estado3 = false;
             btnmodificarAg.Visible = false;
             btnEliminarAg.Visible = false;
-           
+
             btnGuardarAg.Visible = true;
             btnCancelarAg.Visible = true;
             txtStockAg.Text = "0";
@@ -440,9 +448,9 @@ namespace Presentacion
                 txtStockAg.Text = dgvAgregar.SelectedRows[0].Cells[5].Value.ToString();
                 cmbEstadoAg.Text = dgvAgregar.SelectedRows[0].Cells[12].Value.ToString();
                 cmbCategoriaAg.Text = dgvAgregar.SelectedRows[0].Cells[9].Value.ToString();
-   
+
             }
-           
+
         }
 
         private void btnmodificar_Click(object sender, EventArgs e)
@@ -457,7 +465,7 @@ namespace Presentacion
             cmbEstadoAg.Enabled = true;
             cmbCategoriaAg.Enabled = true;
 
-            
+
             txtid.Enabled = false;
 
             Estado1 = false;
@@ -465,9 +473,9 @@ namespace Presentacion
             Estado3 = false;
             la.Visible = true;
             dgvAgregar.Enabled = false;
-            
+
             txtid.Visible = true;
-            
+
             btnEliminarAg.Visible = false;
             btnAgregarAg.Visible = false;
             btnGuardarAg.Visible = true;
@@ -481,12 +489,13 @@ namespace Presentacion
 
         private void txtCompra_KeyPress(object sender, KeyPressEventArgs e)
         {
-            LetraNum.SoloNumeros(e);
+            LetraNum.SoloNumerosDec(e);
+
         }
 
         private void txtVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
-            LetraNum.SoloNumeros(e);
+            LetraNum.SoloNumerosDec(e);
         }
 
         private void cbbProveedor_KeyPress(object sender, KeyPressEventArgs e)
@@ -504,7 +513,7 @@ namespace Presentacion
             dgvInventario.CurrentRow.Selected = true;
         }
 
-       
+
 
         private void txtNomInventario_TextChanged(object sender, EventArgs e)
         {
@@ -514,28 +523,19 @@ namespace Presentacion
         private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            LetraNum.SoloNumeros(e);
-           
-            
+            LetraNum.SoloNumerosEnt(e);
+
+
         }
 
         private void txtStock_TextChanged(object sender, EventArgs e)
         {
-            
-            
-                
-            
+
+
+
+
         }
 
-        private void txtmarca_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            LetraNum.SoloNumeros(e);
-        }
-
-        private void txtcategoria_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            LetraNum.SoloNumeros(e);
-        }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -549,20 +549,20 @@ namespace Presentacion
 
         private void txtIdMarca_KeyPress(object sender, KeyPressEventArgs e)
         {
-            LetraNum.SoloNumeros(e);
+            LetraNum.SoloNumerosEnt(e);
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            LetraNum.SoloNumeros(e);
+            LetraNum.SoloNumerosEnt(e);
         }
 
         private void dgvCategoria_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
             txtIdCategoriaCat.Text = dgvCategoria.SelectedRows[0].Cells[0].Value.ToString();
             txtNombreCat.Text = dgvCategoria.SelectedRows[0].Cells[1].Value.ToString();
-            
+
         }
 
         private void dgvMarca_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -574,7 +574,7 @@ namespace Presentacion
         private void btnAgregarM_Click(object sender, EventArgs e)
         {
             txtNombreMarcaMar.Enabled = true;
-            
+
             dgvMarca.Enabled = false;
             txtNombreMarcaMar.Clear();
             txtIdMarcaMar.Clear();
@@ -589,7 +589,7 @@ namespace Presentacion
         private void btnAgregarC_Click(object sender, EventArgs e)
         {
             txtNombreCat.Enabled = true;
-            
+
             dgvCategoria.Enabled = false;
             txtNombreCat.Clear();
             txtIdCategoriaCat.Clear();
@@ -615,12 +615,12 @@ namespace Presentacion
 
         private void btnModificarC_Click(object sender, EventArgs e)
         {
-            txtNombreCat.Enabled =true;
+            txtNombreCat.Enabled = true;
             btnCancelarCat.Visible = true;
             btnGuardarCat.Visible = true;
             btnAgregarCat.Visible = false;
             dgvCategoria.Enabled = false;
-            
+
             Estado1 = false;
             Estado2 = true;
             Estado3 = false;
@@ -640,8 +640,13 @@ namespace Presentacion
                     try
                     {
                         foreach (Control ctr in tabControl.TabPages[tabControl.SelectedIndex].Controls)
+                        {
                             if (ctr is TextBox && ctr.Text.Trim() == "")
+                            {
                                 throw new Exception("No deje campos vacios");
+                            }
+                        }
+
                         inventario.crear_Marca(txtNombreMarcaMar.Text);
                         MessageBox.Show("Marca registrada con exito");
                     }
@@ -653,13 +658,18 @@ namespace Presentacion
                     }
                 }
 
-                if (Estado2 == true || txtIdMarcaMar.Text == "")
+                if (Estado2 == true)
                 {
                     try
                     {
                         foreach (Control ctr in tabControl.TabPages[tabControl.SelectedIndex].Controls)
+                        {
                             if (ctr is TextBox && ctr.Text.Trim() == "")
+                            {
                                 throw new Exception("No deje campos vacios");
+                            }
+                        }
+
                         inventario.modificarMarca(txtIdMarcaMar.Text, txtNombreMarcaMar.Text);
 
                         MessageBox.Show("Marca modificado");
@@ -673,8 +683,8 @@ namespace Presentacion
                 }
 
             }
-            txtNombreMarcaMar.Enabled =false;
-            txtIdMarcaMar.Enabled =false;
+            txtNombreMarcaMar.Enabled = false;
+            txtIdMarcaMar.Enabled = false;
             dgvMarca.Enabled = true;
             txtNombreMarcaMar.Clear();
             txtIdMarcaMar.Clear();
@@ -682,9 +692,9 @@ namespace Presentacion
             btnModificarMar.Visible = true;
             btnAgregarMar.Visible = true;
             btnGuardarMar.Visible = false;
-            Inventario_Load(null,null);
+            Inventario_Load(null, null);
 
-            
+
 
 
         }
@@ -700,35 +710,28 @@ namespace Presentacion
 
 
                 if (Estado1 == true)
-            {
-                try
-                {
-                        foreach (Control ctr in tabControl.TabPages[tabControl.SelectedIndex].Controls)
-                            if (ctr is TextBox && ctr.Text.Trim() == "")
-                                throw new Exception("No deje campos vacios");
-                        inventario.crear_Categoria(txtNombreCat.Text);
-
-                    
-                    MessageBox.Show("Categoria registrada con exito");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Categoria no registrada" + ex);
-                    btnModificarCat.Visible = true;
-                    btnAgregarCat.Visible = true;
-                }
-            }
-
-                if (Estado2 == true || txtIdCategoriaCat.Text == "")
                 {
                     try
                     {
-                        foreach (Control ctr in tabControl.TabPages[tabControl.SelectedIndex].Controls)
-                            if (ctr is TextBox && ctr.Text.Trim() == "")
-                                throw new Exception("No deje campos vacios");
+
+                        inventario.crear_Categoria(txtNombreCat.Text);
+
+
+                        MessageBox.Show("Categoria registrada con exito");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Categoria no registrada" + ex);
+                        btnModificarCat.Visible = true;
+                        btnAgregarCat.Visible = true;
+                    }
+                }
+
+                if (Estado2 == true)
+                {
+                    try
+                    {
                         inventario.modificarCategoria(txtIdCategoriaCat.Text, txtNombreCat.Text);
-
-
                         MessageBox.Show("Categoria modificado");
                     }
                     catch (Exception ex)
@@ -738,31 +741,31 @@ namespace Presentacion
                         btnAgregarCat.Visible = true;
                     }
                 }
-            txtNombreCat.Enabled = false;
-            txtIdCategoriaCat.Enabled = false;
-            dgvCategoria.Enabled = true;
-            txtNombreCat.Clear();
-            txtIdCategoriaCat.Clear();
+                txtNombreCat.Enabled = false;
+                txtIdCategoriaCat.Enabled = false;
+                dgvCategoria.Enabled = true;
+                txtNombreCat.Clear();
+                txtIdCategoriaCat.Clear();
 
-            btnModificarCat.Visible = true;
-            btnAgregarCat.Visible = true;
-            btnGuardarCat.Visible = false;
+                btnModificarCat.Visible = true;
+                btnAgregarCat.Visible = true;
+                btnGuardarCat.Visible = false;
                 Inventario_Load(null, null);
 
 
 
-            
+
             }
         }
 
         private void cmbMarca_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
             lc.Visible = false;
             li.Visible = false;
             ln.Visible = false;
             txtnombreInv.Visible = false;
-            
+
             cmbCategoriaInv.Visible = false;
             txtcodigoInv.Visible = false;
             btncancelar.Visible = true;
@@ -771,36 +774,33 @@ namespace Presentacion
         private void cmbCategoria_KeyPress(object sender, KeyPressEventArgs e)
         {
             lm.Visible = false;
-            
+
             li.Visible = false;
             ln.Visible = false;
             txtnombreInv.Visible = false;
             cmbMarcaInv.Visible = false;
-            
+
             txtcodigoInv.Visible = false;
             btncancelar.Visible = true;
         }
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
-            
+
             txtnombreInv.Visible = true;
             cmbMarcaInv.Visible = true;
             cmbCategoriaInv.Visible = true;
             txtcodigoInv.Visible = true;
-            
-            
-
             lm.Visible = true;
             lc.Visible = true;
             li.Visible = true;
             ln.Visible = true;
-            txtnombreInv.Clear();
-         
-            txtcodigoInv.Clear();
             btncancelar.Visible = false;
             cmbCategoriaInv.SelectedIndex = -1;
             cmbMarcaInv.SelectedIndex = -1;
+            var dt = (DataTable)dgvInventario.DataSource;
+            dt.DefaultView.RowFilter = null;
+
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -828,16 +828,18 @@ namespace Presentacion
                     foreach (Control ctr in tabPage.Controls)
                     {
                         if (ctr is TextBox || ctr is ComboBox)
+                        {
                             ctr.Enabled = false;
+                        }
                     }
                 }
             }
 
-                Lim_ha limpiar = new Lim_ha();
-                dgvAgregar.Rows[0].Selected = true;
-                dgvAgregar_CellClick(null, null);
+            Lim_ha limpiar = new Lim_ha();
+            dgvAgregar.Rows[0].Selected = true;
+            dgvAgregar_CellClick(null, null);
             dgvAgregar.Enabled = true;
-            
+
             if (Estado1 || Estado2)
             {
                 limpiar.Apagar(this.tabAgrega);

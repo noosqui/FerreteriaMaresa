@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 
 namespace Datos
 {
-     public class CD_Bancos
+    public class CD_Bancos
 
     {
         private CD_Conexion conexion = new CD_Conexion();
-        SqlDataReader lee;
-        DataTable tabla = new DataTable();
-        SqlCommand comando = new SqlCommand();
+        private SqlDataReader lee;
+        private DataTable tabla = new DataTable();
+        private SqlCommand comando = new SqlCommand();
 
 
         public DataTable Mostrar_Bancos()

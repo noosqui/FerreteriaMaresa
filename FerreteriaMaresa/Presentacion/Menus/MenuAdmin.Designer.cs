@@ -85,7 +85,7 @@ namespace Presentacion
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 922);
+            this.panelMenu.Size = new System.Drawing.Size(220, 910);
             this.panelMenu.TabIndex = 0;
             // 
             // panelSubMenu
@@ -95,7 +95,7 @@ namespace Presentacion
             this.panelSubMenu.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelSubMenu.Location = new System.Drawing.Point(55, 564);
             this.panelSubMenu.Name = "panelSubMenu";
-            this.panelSubMenu.Size = new System.Drawing.Size(165, 358);
+            this.panelSubMenu.Size = new System.Drawing.Size(165, 346);
             this.panelSubMenu.TabIndex = 108;
             // 
             // ReporteVentas
@@ -319,10 +319,11 @@ namespace Presentacion
             // 
             // btnHome
             // 
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHome.Image = global::Presentacion.Properties.Resources.Ferreteria_Maresa_Imagen;
-            this.btnHome.Location = new System.Drawing.Point(-24, 12);
+            this.btnHome.Location = new System.Drawing.Point(-13, 12);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(269, 114);
+            this.btnHome.Size = new System.Drawing.Size(244, 114);
             this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnHome.TabIndex = 1;
             this.btnHome.TabStop = false;
@@ -339,9 +340,8 @@ namespace Presentacion
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(220, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1230, 81);
+            this.panel1.Size = new System.Drawing.Size(1280, 81);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // btnMinimizar
@@ -352,7 +352,7 @@ namespace Presentacion
             this.btnMinimizar.IconColor = System.Drawing.Color.White;
             this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMinimizar.IconSize = 22;
-            this.btnMinimizar.Location = new System.Drawing.Point(1135, 12);
+            this.btnMinimizar.Location = new System.Drawing.Point(1185, 12);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(22, 31);
             this.btnMinimizar.TabIndex = 7;
@@ -367,7 +367,7 @@ namespace Presentacion
             this.btnMaximizar.IconColor = System.Drawing.Color.White;
             this.btnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMaximizar.IconSize = 23;
-            this.btnMaximizar.Location = new System.Drawing.Point(1163, 12);
+            this.btnMaximizar.Location = new System.Drawing.Point(1213, 12);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(23, 41);
             this.btnMaximizar.TabIndex = 6;
@@ -382,7 +382,7 @@ namespace Presentacion
             this.btCnCerrar.IconColor = System.Drawing.Color.White;
             this.btCnCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btCnCerrar.IconSize = 26;
-            this.btCnCerrar.Location = new System.Drawing.Point(1192, 12);
+            this.btCnCerrar.Location = new System.Drawing.Point(1242, 12);
             this.btCnCerrar.Name = "btCnCerrar";
             this.btCnCerrar.Size = new System.Drawing.Size(26, 41);
             this.btCnCerrar.TabIndex = 2;
@@ -399,7 +399,7 @@ namespace Presentacion
             this.TituloFormularioHijo.Size = new System.Drawing.Size(86, 31);
             this.TituloFormularioHijo.TabIndex = 1;
             this.TituloFormularioHijo.Text = "Home";
-            this.TituloFormularioHijo.Click += new System.EventHandler(this.TituloFormularioHijo_Click);
+            this.TituloFormularioHijo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TituloFormularioHijo_MouseDown);
             // 
             // iconCurrentChildfo
             // 
@@ -414,7 +414,6 @@ namespace Presentacion
             this.iconCurrentChildfo.Size = new System.Drawing.Size(53, 51);
             this.iconCurrentChildfo.TabIndex = 0;
             this.iconCurrentChildfo.TabStop = false;
-            this.iconCurrentChildfo.Click += new System.EventHandler(this.iconCurrentChildfo_Click);
             // 
             // panelSombra
             // 
@@ -422,7 +421,7 @@ namespace Presentacion
             this.panelSombra.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSombra.Location = new System.Drawing.Point(220, 81);
             this.panelSombra.Name = "panelSombra";
-            this.panelSombra.Size = new System.Drawing.Size(1230, 9);
+            this.panelSombra.Size = new System.Drawing.Size(1280, 9);
             this.panelSombra.TabIndex = 2;
             // 
             // panelDesktop
@@ -434,7 +433,7 @@ namespace Presentacion
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(220, 90);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1230, 832);
+            this.panelDesktop.Size = new System.Drawing.Size(1280, 820);
             this.panelDesktop.TabIndex = 3;
             // 
             // lblFecha
@@ -454,7 +453,7 @@ namespace Presentacion
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblHora.Location = new System.Drawing.Point(568, 421);
+            this.lblHora.Location = new System.Drawing.Point(498, 421);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(129, 55);
             this.lblHora.TabIndex = 8;
@@ -465,7 +464,7 @@ namespace Presentacion
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::Presentacion.Properties.Resources.Ferreteria_Maresa_Imagen;
-            this.pictureBox1.Location = new System.Drawing.Point(347, 73);
+            this.pictureBox1.Location = new System.Drawing.Point(372, 67);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(592, 369);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -481,12 +480,14 @@ namespace Presentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1450, 922);
+            this.ClientSize = new System.Drawing.Size(1500, 910);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelSombra);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenu);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(1500, 910);
             this.Name = "MenuAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuAdmin";

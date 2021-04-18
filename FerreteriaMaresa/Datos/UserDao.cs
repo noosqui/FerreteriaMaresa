@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Net.Mail;
-using System.Net;
+using System.Data.SqlClient;
 
 namespace Datos
 {
-    public class UserDao: CD_Conexion
+    public class UserDao : CD_Conexion
     {
         public string recoverPassword(string userRequesting)
         {
@@ -32,13 +26,15 @@ namespace Datos
                         var mailService = new SystemSupportMail();
                         mailService.sendMail(
                           subject: "Ferreteria Maresa: Recuperación de contraseña",
-                          body: "Hola, " + name + "\n La contraseña de tu correo " + userMail +" es "+ accountPassword + ".",
+                          body: "Hola, " + name + "\n La contraseña de tu correo " + userMail + " es " + accountPassword + ".",
                           recipientMail: new List<string> { userMail }
                           );
                         return "Hola, " + name + "\nLa contraseña de tu correo " + userMail + " es " + accountPassword + ".";
                     }
                     else
+                    {
                         return "La dirección no existe en el sistema.";
+                    }
                 }
             }
         }

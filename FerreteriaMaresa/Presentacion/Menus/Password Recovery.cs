@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Net.Mail;
-using System.Net;
-using System.Threading.Tasks;
+﻿using Dominio;
+using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using Dominio;
 
 
 namespace Presentacion
@@ -21,8 +12,9 @@ namespace Presentacion
         {
             InitializeComponent();
         }
-        Usermodel user = new Usermodel();
-        
+
+        private Usermodel user = new Usermodel();
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -68,7 +60,8 @@ namespace Presentacion
                 button1.Visible = false;
                 btCnCerrar.Visible = true;
             }
-            else {
+            else
+            {
                 MessageBox.Show("El correo electronico ingresado no esta en el sistema.");
             }
         }

@@ -9,6 +9,6 @@ namespace Dominio
         public string productos { get; set; }
         public double total { get; set; }
 
-        
+
     }
 }

@@ -1,22 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SqlClient;
 using System.Collections;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Presentacion
 {
     public partial class Graficos : Form
     {
-        SqlConnection Conectarbd = new SqlConnection("server = (local); DataBase= Ferreteria_Maresa;Integrated Security = True");
-        SqlCommand cmd;
-        SqlDataReader dr;
+        private SqlConnection Conectarbd = new SqlConnection("server = (local); DataBase= Ferreteria_Maresa;Integrated Security = True");
+        private SqlCommand cmd;
+        private SqlDataReader dr;
         public Graficos()
         {
             InitializeComponent();
@@ -29,10 +23,10 @@ namespace Presentacion
             ProductosPreferidos();
         }
 
-        ArrayList  Categoria = new ArrayList();
-        ArrayList CantidadProductos = new ArrayList();
-        ArrayList Producto = new ArrayList();
-        ArrayList CantidadPeriodo = new ArrayList();
+        private ArrayList Categoria = new ArrayList();
+        private ArrayList CantidadProductos = new ArrayList();
+        private ArrayList Producto = new ArrayList();
+        private ArrayList CantidadPeriodo = new ArrayList();
 
         private void GraficosCategorias()
         {
@@ -66,10 +60,10 @@ namespace Presentacion
             Conectarbd.Close();
         }
         private void GraficosFerreteriaMaresa()
-        {           
+        {
             cmd = new SqlCommand("GraficosFerreteriaMaresa", Conectarbd);
             cmd.CommandType = CommandType.StoredProcedure;
-            SqlParameter total = new SqlParameter("@VentasTotal", 0);total.Direction = ParameterDirection.Output;
+            SqlParameter total = new SqlParameter("@VentasTotal", 0); total.Direction = ParameterDirection.Output;
             SqlParameter totalC = new SqlParameter("@ComprasTotal", 0); totalC.Direction = ParameterDirection.Output;
             SqlParameter producto = new SqlParameter("@Productos", 0); producto.Direction = ParameterDirection.Output;
             SqlParameter categoria = new SqlParameter("@Categoria", 0); categoria.Direction = ParameterDirection.Output;
@@ -100,7 +94,7 @@ namespace Presentacion
         }
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void chartProductos_Categoria_Click(object sender, EventArgs e)

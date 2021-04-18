@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace Dominio
 {
@@ -46,11 +41,12 @@ namespace Dominio
             }
         }
 
-        public void SoloNumeros(KeyPressEventArgs e)
+        public void SoloNumerosEnt(KeyPressEventArgs e)
         {
             try
             {
-                if (char.IsSeparator(e.KeyChar) || e.KeyChar =='.')
+
+                if (char.IsSeparator(e.KeyChar))
                 {
                     e.Handled = true;
                 }
@@ -70,6 +66,34 @@ namespace Dominio
                 {
                     e.Handled = true;
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Solo debe ingresar Numeros" + ex);
+            }
+        }
+        public void SoloNumerosDec(KeyPressEventArgs e)
+        {
+            try
+            {
+
+                if (char.IsSeparator(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+                if (char.IsLetter(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+                else if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsSymbol(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+
             }
             catch (Exception ex)
             {

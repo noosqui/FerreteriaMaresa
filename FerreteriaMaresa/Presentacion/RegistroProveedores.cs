@@ -1,26 +1,20 @@
 ﻿using Dominio;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Presentacion
 {
     public partial class RegistroProveedores : Form
     {
-        DOM_proveedor proveedor = new DOM_proveedor();
-        DOM_Validacion letrasNum = new DOM_Validacion();
-        ToolTip tt = new ToolTip();
-        bool estadobtna = false;
-        bool estadobtnb = false;
-        bool estadobtnc = false;
-        string estado = "";
+        private DOM_proveedor proveedor = new DOM_proveedor();
+        private DOM_Validacion letrasNum = new DOM_Validacion();
+        private ToolTip tt = new ToolTip();
+        private bool estadobtna = false;
+        private bool estadobtnb = false;
+        private bool estadobtnc = false;
+        private string estado = "";
 
         public RegistroProveedores()
         {
@@ -46,13 +40,12 @@ namespace Presentacion
         {
             try
             {
-                dgvProveedores.DataSource = null;
                 dgvProveedores.DataSource = proveedor.CargarDGVProveedores();
                 dgvProveedores.Refresh();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se puedieron cargar los Datos");
+                MessageBox.Show("No se puedieron cargar los Datos" + ex);
             }
         }
 
@@ -78,6 +71,8 @@ namespace Presentacion
             {
                 rbInactivo.Checked = true;
             }
+            dgvProveedores.Rows[0].Selected = true;
+
 
         }
 
@@ -96,14 +91,15 @@ namespace Presentacion
 
             txtnombre.Enabled = true;
             txtTelefono.Enabled = true;
-             txtcorreo.Enabled = true;
-             txtdireccion.Enabled = true;
-             txtciudad.Enabled = true;
-             txtregion.Enabled = true;
+            txtcorreo.Enabled = true;
+            txtdireccion.Enabled = true;
+            txtciudad.Enabled = true;
+            txtregion.Enabled = true;
             txtCodPost.Enabled = true;
             txtPais.Enabled = true;
-           
-
+            txtbuscaridp.Enabled = false;
+            txtbuscarnombre.Enabled = false;
+            groupBox2.Enabled = false;
             rbActivo.Enabled = true;
             rbInactivo.Enabled = true;
             limpiar();
@@ -148,24 +144,16 @@ namespace Presentacion
                         var dt = (DataTable)dgvProveedores.DataSource;
                         dt.DefaultView.RowFilter = string.Format("[Nombre] LIKE '{0}*'", txtnombre.Text);
                         if (dgvProveedores.Rows.Count > 0)
+                        {
                             throw new Exception("Este proveedor ya existe");
+                        }
+
                         dt.DefaultView.RowFilter = null;
 
                         proveedor.crear_proveedor(txtnombre.Text, txtTelefono.Text, txtcorreo.Text, txtdireccion.Text, txtciudad.Text,
                             txtregion.Text, txtCodPost.Text, txtPais.Text, estado);
 
-                        btnAgregar.Visible = true;
-                        btnModificar.Visible = true;
-                        btnEliminar.Visible = true;
-                        btnGuardar.Visible = false;
-                        btnCancelar.Visible = false;
-                        dgvProveedores.Enabled = true;
-                        rbActivo.Enabled = false;
-                        rbInactivo.Enabled = false;
-                        limpiar();
-                        Lim_ha apagar = new Lim_ha();
-                        apagar.Apagar(this);
-                        RegistroProveedores_Load(null, null);
+
                     }
                     catch (Exception ex)
                     {
@@ -173,118 +161,86 @@ namespace Presentacion
                     }
                 }
             }
-                if (estadobtnb == true)
+            if (estadobtnb == true)
+            {
+                if (txtnombre.Text == "" || txtTelefono.Text == "" || txtcorreo.Text == "" || txtdireccion.Text == "" ||
+                    txtciudad.Text == "" || txtregion.Text == "" || txtCodPost.Text == "" || txtPais.Text == "")
                 {
-                    if (txtnombre.Text == "" || txtTelefono.Text == "" || txtcorreo.Text == "" || txtdireccion.Text == "" ||
-                        txtciudad.Text == "" || txtregion.Text == "" || txtCodPost.Text=="" ||  txtPais.Text=="")
-                    {
-                        MessageBox.Show("Debe llenar todos los Campos");
-                    }
-                    else if (txtCodPost.TextLength < 5)
-                    {
-                        MessageBox.Show("Codigo Postal Incompleto/Ingrese 5 Numeros");
-                    }
-                    else if (txtTelefono.TextLength < 8)
-                    {
-                        MessageBox.Show("Numero de Telefono incompleto, debe Ingresar 8 numeros");
-                    }
-                    else
-                    {
-                        try
-                        {
-                            if (rbActivo.Checked)
-                            {
-                                estado = "Activo";
-                            }
-                            if (rbInactivo.Checked)
-                            {
-                                estado = "Inactivo";
-                            }
-
-                            proveedor.editar_proveedor(txtcodigo.Text, txtnombre.Text, txtTelefono.Text, txtcorreo.Text, txtdireccion.Text, txtciudad.Text,
-                                txtregion.Text, txtCodPost.Text, txtPais.Text, estado);
-                            btnAgregar.Visible = true;
-                            btnModificar.Visible = true;
-                            btnEliminar.Visible = true;
-                            btnGuardar.Visible = false;
-                            btnCancelar.Visible = false;
-                            dgvProveedores.Enabled = true;
-                            rbActivo.Enabled = true;
-                            rbInactivo.Enabled = true;
-                            limpiar();
-                            Lim_ha apagar = new Lim_ha();
-                            apagar.Apagar(this);
-                            RegistroProveedores_Load(null, null);
-
-                    }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error de Modificacion" + ex);
-                        }
-                    }
+                    MessageBox.Show("Debe llenar todos los Campos");
                 }
-                if (estadobtnc == true)
+                else if (txtCodPost.TextLength < 5)
+                {
+                    MessageBox.Show("Codigo Postal Incompleto/Ingrese 5 Numeros");
+                }
+                else if (txtTelefono.TextLength < 8)
+                {
+                    MessageBox.Show("Numero de Telefono incompleto, debe Ingresar 8 numeros");
+                }
+                else
                 {
                     try
                     {
-                        if (MessageBox.Show("¿Seguro que desea eliminar el proveedor?",
-                            "ADVERTENCIA", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                            proveedor.eliminar_empleado(txtcodigo.Text);
+                        if (rbActivo.Checked)
+                        {
+                            estado = "Activo";
+                        }
+                        if (rbInactivo.Checked)
+                        {
+                            estado = "Inactivo";
+                        }
+
+                        proveedor.editar_proveedor(txtcodigo.Text, txtnombre.Text, txtTelefono.Text, txtcorreo.Text, txtdireccion.Text, txtciudad.Text,
+                            txtregion.Text, txtCodPost.Text, txtPais.Text, estado);
+
+
                     }
                     catch (Exception ex)
                     {
-
-                        MessageBox.Show("Error al Eliminar el Empleado");
+                        MessageBox.Show("Error de Modificacion" + ex);
                     }
-
-                    btnAgregar.Visible = true;
-                    btnModificar.Visible = true;
-                    btnEliminar.Visible = true;
-                    btnGuardar.Visible = false;
-                    btnCancelar.Visible = false;
-                    dgvProveedores.Enabled = true;
-
-                    rbActivo.Enabled = false;
-                    rbInactivo.Enabled = false;
-                    limpiar();
-                    Lim_ha apagar = new Lim_ha();
-                    apagar.Apagar(this);
-                    RegistroProveedores_Load(null, null);
+                }
             }
+            if (estadobtnc == true)
+            {
+                try
+                {
+                    if (MessageBox.Show("¿Seguro que desea eliminar el proveedor?",
+                        "ADVERTENCIA", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        proveedor.eliminar_empleado(txtcodigo.Text);
+                    }
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Error al Eliminar el proveedor");
+                }
+            }
+            Lim_ha apagar = new Lim_ha();
+            apagar.Apagar(this.panel1);
+            btnAgregar.Visible = true;
+            btnModificar.Visible = true;
+            btnEliminar.Visible = true;
+            btnGuardar.Visible = false;
+            btnCancelar.Visible = false;
+            dgvProveedores.Enabled = true;
+            rbActivo.Enabled = false;
+            rbInactivo.Enabled = false;
+            groupBox2.Enabled = true;
+            txtbuscaridp.Enabled = true;
+            txtbuscarnombre.Enabled = true;
+            limpiar();
+
+            RegistroProveedores_Load(null, null);
         }
 
         private void dgvProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                txtcodigo.Text = dgvProveedores.CurrentRow.Cells[0].Value.ToString();
-                txtnombre.Text = dgvProveedores.CurrentRow.Cells[1].Value.ToString();
-                txtTelefono.Text = dgvProveedores.CurrentRow.Cells[2].Value.ToString();
-                txtcorreo.Text = dgvProveedores.CurrentRow.Cells[3].Value.ToString();
-                txtdireccion.Text = dgvProveedores.CurrentRow.Cells[4].Value.ToString();
-                txtciudad.Text = dgvProveedores.CurrentRow.Cells[5].Value.ToString();
-                txtregion.Text = dgvProveedores.CurrentRow.Cells[6].Value.ToString();
-                txtCodPost.Text = dgvProveedores.CurrentRow.Cells[7].Value.ToString();
-                txtPais.Text = dgvProveedores.CurrentRow.Cells[8].Value.ToString();
-                estado = dgvProveedores.CurrentRow.Cells[9].Value.ToString();
-                if (estado == "Activo")
-                {
-                    rbActivo.Checked = true;
-                }
-                if (estado == "Despedido")
-                {
-                    rbInactivo.Checked = true;
-                }
-            }
-            catch(Exception ex)
-            {
-                // MessageBox.Show("Error de Seleccion");
-            }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            limpiar();
             btnAgregar.Visible = true;
             btnModificar.Visible = true;
             btnEliminar.Visible = true;
@@ -292,6 +248,17 @@ namespace Presentacion
             btnGuardar.Visible = false;
             btnCancelar.Visible = false;
             dgvProveedores.Enabled = true;
+            txtbuscaridp.Enabled = true;
+            txtbuscarnombre.Enabled = true;
+            groupBox2.Enabled = true;
+            txtdireccion.Enabled = false;
+            txtciudad.Enabled = false;
+            txtregion.Enabled = false;
+            txtCodPost.Enabled = false;
+            txtPais.Enabled = false;
+            txtnombre.Enabled = false;
+            txtcorreo.Enabled = false;
+            txtTelefono.Enabled = false;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -299,7 +266,7 @@ namespace Presentacion
             estadobtna = false;
             estadobtnb = true;
             estadobtnc = false;
-           
+
             btnAgregar.Visible = false;
             btnGuardar.Visible = true;
             btnCancelar.Visible = true;
@@ -311,14 +278,17 @@ namespace Presentacion
             txtnombre.Enabled = true;
             txtTelefono.Enabled = true;
             txtcorreo.Enabled = true;
-          //  txtdireccion.Enabled = true;
-          //  txtciudad.Enabled = true;
-           // txtregion.Enabled = true;
-           // txtCodPost.Enabled = true;
-          //  txtPais.Enabled = true;
+            txtbuscaridp.Enabled = false;
+            txtbuscarnombre.Enabled = false;
+            groupBox2.Enabled = false;
             rbActivo.Enabled = true;
             rbInactivo.Enabled = true;
             dgvProveedores.Enabled = false;
+            txtdireccion.Enabled = true;
+            txtciudad.Enabled = true;
+            txtregion.Enabled = true;
+            txtCodPost.Enabled = true;
+            txtPais.Enabled = true;
 
         }
 
@@ -394,8 +364,9 @@ namespace Presentacion
             {
                 var dt = (DataTable)dgvProveedores.DataSource;
                 if (txtbuscaridp.Text != "")
+                {
                     dt.DefaultView.RowFilter = string.Format("[Id Proveedor] = {0}", txtbuscaridp.Text);
-
+                }
                 else
                 {
                     dt.DefaultView.RowFilter = null;
@@ -422,7 +393,7 @@ namespace Presentacion
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            letrasNum.SoloNumeros(e);
+            letrasNum.SoloNumerosEnt(e);
         }
 
         private void txtcorreo_Leave(object sender, EventArgs e)
@@ -445,7 +416,7 @@ namespace Presentacion
 
         private void txtCodPost_KeyPress(object sender, KeyPressEventArgs e)
         {
-            letrasNum.SoloNumeros(e);
+            letrasNum.SoloNumerosEnt(e);
         }
 
         private void txtPais_KeyPress(object sender, KeyPressEventArgs e)
@@ -455,7 +426,7 @@ namespace Presentacion
 
         private void txtbuscaridp_KeyPress(object sender, KeyPressEventArgs e)
         {
-            letrasNum.SoloNumeros(e);
+            letrasNum.SoloNumerosEnt(e);
         }
 
         private void txtbuscarnombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -486,11 +457,13 @@ namespace Presentacion
         private void txtbuscaridp_Enter(object sender, EventArgs e)
         {
             tt.Show("Ingrese Numeros", this.txtbuscaridp, 0, 25, 2000);
+            txtbuscarnombre.Text = "";
         }
 
         private void txtbuscarnombre_Enter(object sender, EventArgs e)
         {
             tt.Show("Ingrese Letras", this.txtbuscarnombre, 0, 25, 2000);
+            txtbuscaridp.Text = "";
         }
 
         private void txtciudad_Enter(object sender, EventArgs e)
@@ -520,9 +493,14 @@ namespace Presentacion
                 var dt = (DataTable)dgvProveedores.DataSource;
                 dt.CaseSensitive = false;
                 if (txtbuscarnombre.Text != "")
+                {
                     dt.DefaultView.RowFilter = string.Format("[Nombre] LIKE '{0}*'", txtbuscarnombre.Text);
+                }
                 else
+                {
                     dt.DefaultView.RowFilter = null;
+                }
+
                 dgvProveedores.Refresh();
 
                 if (dt.DefaultView.Count < 1)
@@ -536,6 +514,11 @@ namespace Presentacion
             {
                 MessageBox.Show("Ocurrio un Error" + ex);
             }
+        }
+
+        private void dgvProveedores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

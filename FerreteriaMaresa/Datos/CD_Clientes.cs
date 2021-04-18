@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 
 namespace Datos
@@ -11,9 +6,9 @@ namespace Datos
     public class CD_Clientes
     {
         private CD_Conexion conexion = new CD_Conexion();
-        SqlDataReader lee;
-        DataTable tabla = new DataTable();
-        SqlCommand comando = new SqlCommand();
+        private SqlDataReader lee;
+        private DataTable tabla = new DataTable();
+        private SqlCommand comando = new SqlCommand();
 
 
         public DataTable Mostrar_Cliente()
@@ -66,8 +61,8 @@ namespace Datos
         }
 
 
-        public void Editar_Cliente(string idcliente, string nombrecliente, string apellidocliente, 
-            string RTN, string direccion, string ciudad, string region, string codigopostal, string pais, string telefono)
+        public void Editar_Cliente(string idcliente, string nombrecliente, string apellidocliente,
+            string RTN, string direccion, string ciudad, string region, string codigopostal, string pais, string telefono, int Estado)
         {
             comando.Connection = conexion.abrir();
             comando.CommandText = "editar_Cliente";
@@ -75,8 +70,10 @@ namespace Datos
             comando.Parameters.AddWithValue("@idcliente", idcliente);
             comando.Parameters.AddWithValue("@nombrecliente", nombrecliente);
             comando.Parameters.AddWithValue("@apellidocliente", apellidocliente);
-            if (RTN!=null)
-            comando.Parameters.AddWithValue("@RTN", RTN);
+            if (RTN != null)
+            {
+                comando.Parameters.AddWithValue("@RTN", RTN);
+            }
 
             comando.Parameters.AddWithValue("@direccion", direccion);
             comando.Parameters.AddWithValue("@ciudad", ciudad);
@@ -84,6 +81,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@codigo_postal", codigopostal);
             comando.Parameters.AddWithValue("@pais", pais);
             comando.Parameters.AddWithValue("@telefono", telefono);
+            comando.Parameters.AddWithValue("@estado", Estado);
 
             comando.ExecuteNonQuery();
             comando.Cancel();

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Dominio;
+using System;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using Dominio;
+using System.Windows.Forms;
 
 namespace Presentacion
 {
@@ -49,7 +44,7 @@ namespace Presentacion
 
         private void txtContra_Leave(object sender, EventArgs e)
         {
-            if (txtContra.Text =="")
+            if (txtContra.Text == "")
             {
                 txtContra.Text = "CONTRASEÑA";
                 txtContra.ForeColor = Color.DimGray;
@@ -57,10 +52,10 @@ namespace Presentacion
             }
         }
         [DllImport("user32.Dll", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
+        private static extern void ReleaseCapture();
         [DllImport("user32.Dll", EntryPoint = "SendMessage")]
 
-        private extern static void SendMessage(System.IntPtr hwnd, int wMsg, int wParam, int lParam);
+        private static extern void SendMessage(System.IntPtr hwnd, int wMsg, int wParam, int lParam);
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -91,8 +86,9 @@ namespace Presentacion
                 this.Hide();
             }
             else
-                MessageBox.Show(this, "Usuario o contraseña incorrectos. Verifique todo antes de continuar", "Advertencia",MessageBoxButtons.OK,MessageBoxIcon.Error);
-
+            {
+                MessageBox.Show(this, "Usuario o contraseña incorrectos. Verifique todo antes de continuar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void txtUsuario_Enter(object sender, EventArgs e)
@@ -120,7 +116,7 @@ namespace Presentacion
         }
         private void txtContra_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar==13)
+            if (e.KeyChar == 13)
             {
                 btnAcceder_Click(null, null);
             }
@@ -133,12 +129,20 @@ namespace Presentacion
                 txtContra.UseSystemPasswordChar = false;
             }
             else
+            {
                 txtContra.UseSystemPasswordChar = true;
+            }
         }
 
         private void chkMostrar_ChangeUICues(object sender, UICuesEventArgs e)
         {
 
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }
