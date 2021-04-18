@@ -133,5 +133,17 @@ namespace Datos
             conexion.cerrar();
             return t;
         }
+
+        public void Restablecer_Contrasenia(string correo, string contrasenia)
+        {
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "Restablecer_Contrasenia";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@correo", correo);
+            comando.Parameters.AddWithValue("@contrasenia", contrasenia);
+            comando.ExecuteNonQuery();
+            comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
+        }
     }
 }

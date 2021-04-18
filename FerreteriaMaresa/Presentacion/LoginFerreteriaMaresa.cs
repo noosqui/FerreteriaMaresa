@@ -117,6 +117,7 @@ namespace Presentacion
         {
             Password_Recovery pass = new Password_Recovery();
             pass.Show();
+
         }
         private void txtContra_KeyPress(object sender, KeyPressEventArgs e)
         {

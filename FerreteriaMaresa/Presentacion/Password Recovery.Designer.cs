@@ -34,9 +34,12 @@ namespace Presentacion
             this.btnAcceder = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btCnCerrar = new FontAwesome.Sharp.IconPictureBox();
+            this.btnsiguiente = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtcodverificacion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.btCnCerrar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,30 +111,17 @@ namespace Presentacion
             this.label2.Size = new System.Drawing.Size(0, 24);
             this.label2.TabIndex = 81;
             // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(207, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 24);
-            this.label3.TabIndex = 82;
-            this.label3.Text = "¡Todo listo!";
-            this.label3.Visible = false;
-            // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(56, 124);
+            this.label4.Location = new System.Drawing.Point(12, 39);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(410, 24);
+            this.label4.Size = new System.Drawing.Size(498, 24);
             this.label4.TabIndex = 83;
-            this.label4.Text = "En breve recibiras un correo con tu contraseña.";
+            this.label4.Text = "Hemos enviado un codigo a tu correo, por favor ingresa el";
             this.label4.Visible = false;
             // 
             // btCnCerrar
@@ -150,12 +140,71 @@ namespace Presentacion
             this.btCnCerrar.Visible = false;
             this.btCnCerrar.Click += new System.EventHandler(this.btCnCerrar_Click);
             // 
+            // btnsiguiente
+            // 
+            this.btnsiguiente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnsiguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnsiguiente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btnsiguiente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnsiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnsiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsiguiente.ForeColor = System.Drawing.Color.DimGray;
+            this.btnsiguiente.Location = new System.Drawing.Point(197, 193);
+            this.btnsiguiente.Name = "btnsiguiente";
+            this.btnsiguiente.Size = new System.Drawing.Size(115, 33);
+            this.btnsiguiente.TabIndex = 85;
+            this.btnsiguiente.Text = "Continuar";
+            this.btnsiguiente.UseVisualStyleBackColor = false;
+            this.btnsiguiente.Visible = false;
+            this.btnsiguiente.Click += new System.EventHandler(this.btnsiguiente_Click);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Location = new System.Drawing.Point(22, 63);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(473, 24);
+            this.label5.TabIndex = 86;
+            this.label5.Text = "codigo para continuar con el proceso de recuperación.";
+            this.label5.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(153, 131);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(202, 24);
+            this.label3.TabIndex = 82;
+            this.label3.Text = "Codigo de verificación:";
+            this.label3.Visible = false;
+            // 
+            // txtcodverificacion
+            // 
+            this.txtcodverificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.txtcodverificacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtcodverificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcodverificacion.ForeColor = System.Drawing.Color.DimGray;
+            this.txtcodverificacion.Location = new System.Drawing.Point(141, 158);
+            this.txtcodverificacion.Name = "txtcodverificacion";
+            this.txtcodverificacion.Size = new System.Drawing.Size(224, 29);
+            this.txtcodverificacion.TabIndex = 87;
+            this.txtcodverificacion.Visible = false;
+            // 
             // Password_Recovery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(518, 257);
+            this.Controls.Add(this.txtcodverificacion);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btnsiguiente);
             this.Controls.Add(this.btCnCerrar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -183,8 +232,11 @@ namespace Presentacion
         private System.Windows.Forms.Button btnAcceder;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private FontAwesome.Sharp.IconPictureBox btCnCerrar;
+        private System.Windows.Forms.Button btnsiguiente;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtcodverificacion;
     }
 }
