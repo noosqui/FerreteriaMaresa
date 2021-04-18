@@ -58,5 +58,10 @@ namespace Dominio
         {
             return emple.cargar_roles();
         }
+
+        public void Restablecer_Contrasenia(string correo, string contrasenia)
+        {
+            emple.Restablecer_Contrasenia(correo, contrasenia);
+        }
     }
 }
