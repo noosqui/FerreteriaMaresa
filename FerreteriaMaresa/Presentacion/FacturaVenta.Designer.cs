@@ -30,12 +30,12 @@ namespace Presentacion
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.CrystalReport11 = new Presentacion.Reporte.CrystalReport1();
             this.piedepaginaventa = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.encabezadoventa = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.CrystalReport11 = new Presentacion.Reporte.CrystalReport1();
             this.panel1.SuspendLayout();
             this.piedepaginaventa.SuspendLayout();
             this.encabezadoventa.SuspendLayout();
@@ -52,6 +52,22 @@ namespace Presentacion
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1131, 1100);
             this.panel1.TabIndex = 4;
+            // 
+            // crystalReportViewer1
+            // 
+            this.crystalReportViewer1.ActiveViewIndex = 0;
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 100);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.ReportSource = this.CrystalReport11;
+            this.crystalReportViewer1.ReuseParameterValuesOnRefresh = true;
+            this.crystalReportViewer1.ShowGroupTreeButton = false;
+            this.crystalReportViewer1.ShowRefreshButton = false;
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1131, 890);
+            this.crystalReportViewer1.TabIndex = 163;
+            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // piedepaginaventa
             // 
@@ -100,21 +116,6 @@ namespace Presentacion
             this.label1.Size = new System.Drawing.Size(270, 37);
             this.label1.TabIndex = 159;
             this.label1.Text = "Ferreteria Maresa";
-            // 
-            // crystalReportViewer1
-            // 
-            this.crystalReportViewer1.ActiveViewIndex = 0;
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 100);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ReportSource = this.CrystalReport11;
-            this.crystalReportViewer1.ReuseParameterValuesOnRefresh = true;
-            this.crystalReportViewer1.ShowRefreshButton = false;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1131, 890);
-            this.crystalReportViewer1.TabIndex = 163;
-            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // FacturaVenta
             // 
