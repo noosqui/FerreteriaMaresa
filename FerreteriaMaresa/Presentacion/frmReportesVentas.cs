@@ -1,6 +1,8 @@
 ﻿using Dominio;
 using System;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 namespace Presentacion
 {
@@ -10,7 +12,7 @@ namespace Presentacion
         {
             InitializeComponent();
         }
-
+        
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
@@ -18,14 +20,14 @@ namespace Presentacion
 
         private void obtenerVentas(DateTime DeFecha, DateTime ParaFecha)
         {
-            ReporteVentas modelo = new ReporteVentas();
+          /*  ReporteVentas modelo = new ReporteVentas();
             modelo.crearReportedVentas(DeFecha, ParaFecha);
 
-            // ReporteVentasBindingSource.DataSource = modelo;
-            //  ListaVentasBindingSource.DataSource = modelo;
-            /* VentaNetasPeriodoBindingSource.DataSource = modelo;*/
+             ReporteVentasBindingSource.DataSource = modelo;
+             ListaVentasBindingSource.DataSource = modelo;
+             VentaNetasPeriodoBindingSource.DataSource = modelo;*/
 
-            ///this.reportViewer1.RefreshReport();
+            //this.reportViewer1.RefreshReport();
 
         }
 
@@ -34,7 +36,8 @@ namespace Presentacion
             var deFecha = DateTime.Today;
             var paraFecha = DateTime.Now;
 
-            obtenerVentas(deFecha, paraFecha);
+            CrystalReportVentasrpt1.SetParameterValue("@deFecha", deFecha);
+            CrystalReportVentasrpt1.SetParameterValue("@paraFecha", paraFecha);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -80,9 +83,6 @@ namespace Presentacion
         private void frmReportesVentas_Load(object sender, EventArgs e)
         {
 
-            // this.//reportViewer1.RefreshReport();
-            // this.reportViewer1.RefreshReport();
-            //this.//reportViewer1.RefreshReport();
         }
     }
 }

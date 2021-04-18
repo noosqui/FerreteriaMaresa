@@ -148,14 +148,14 @@ namespace Presentacion
         private void ReporteInventario_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = false;
+            panelSubMenuEmpleado.Visible = false;
 
         }
 
         private void ReporteVentas_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = false;
+            panelSubMenuEmpleado.Visible = false;
 
         }
 
@@ -186,7 +186,7 @@ namespace Presentacion
         private void btnReportes_Click_1(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = true;
+            panelSubMenuEmpleado.Visible = true;
             TituloFormularioHijo.Text = "Reportes";
         }
 
@@ -194,14 +194,14 @@ namespace Presentacion
         {
             ActivateButton(sender, RGBColors.color3);
             AbrirForm(new Inventario(this.puesto));
-            panelSubMenu.Visible = false;
+            panelSubMenuEmpleado.Visible = false;
         }
 
         private void btnVentas_Click_1(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
             AbrirForm(new VentaProducto());
-            panelSubMenu.Visible = false;
+            panelSubMenuEmpleado.Visible = false;
         }
 
         private void btnHome_Click_1(object sender, EventArgs e)
@@ -214,20 +214,20 @@ namespace Presentacion
         {
             ActivateButton(sender, RGBColors.color4);
             AbrirForm(new VentaProducto());
-            panelSubMenu.Visible = false;
+            panelSubMenuEmpleado.Visible = false;
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
             AbrirForm(new Inventario(this.puesto));
-            panelSubMenu.Visible = false;
+            panelSubMenuEmpleado.Visible = false;
         }
 
         private void btnReportes_Click_2(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = true;
+            panelSubMenuEmpleado.Visible = true;
             TituloFormularioHijo.Text = "Reportes";
         }
 
@@ -235,21 +235,31 @@ namespace Presentacion
         {
             ActivateButton(sender, RGBColors.color5);
             AbrirForm(new frmReportesVentas());
-            panelSubMenu.Visible = false;
+            panelSubMenuEmpleado.Visible = false;
 
         }
 
         private void ReporteInventario_Click_1(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
-            //AbrirForm(new ReporteInvetario());
-            panelSubMenu.Visible = false;
+            AbrirForm(new frmReporteInventario());
+            panelSubMenuEmpleado.Visible = false;
         }
 
         private void tiempo2_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToString("h:mm:ss");
             lblFecha.Text = DateTime.Now.ToLongDateString();
+        }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelSubMenu_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

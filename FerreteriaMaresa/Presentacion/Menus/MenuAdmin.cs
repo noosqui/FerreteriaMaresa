@@ -35,7 +35,7 @@ namespace Presentacion
                 this.btnCompras.Visible = false;
                 this.btnProveedor.Visible = false;
                 this.btnGraf.Visible = false;
-                this.btnReport.Visible = false;
+               // this.btnReport.Visible = false;
             }
 
         }
@@ -124,13 +124,6 @@ namespace Presentacion
             TituloFormularioHijo.Text = "Ventas";
         }
 
-        private void btnReportes_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color5);
-            TituloFormularioHijo.Text = "Reportes";
-            panelSubMenu.Visible = true;
-        }
-
         private void btnHome_Click(object sender, EventArgs e)
         {
             if (currentForm != null)
@@ -183,41 +176,6 @@ namespace Presentacion
             Childform.BringToFront();
             Childform.Show();
 
-        }
-
-        private void iconButton4_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = false;
-            TituloFormularioHijo.Text = "Reporte de Empleados";
-        }
-
-        private void btnReporteCompras_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = false;
-            TituloFormularioHijo.Text = "Reporte de Compras";
-        }
-
-        private void ReporteInventario_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = false;
-            TituloFormularioHijo.Text = "Reporte de Invetario";
-        }
-
-        private void ReporteVentas_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = false;
-            TituloFormularioHijo.Text = "Reporte de Ventas";
-        }
-
-        private void ReporteProveedor_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = false;
-            TituloFormularioHijo.Text = "Reporte de Proveedor";
         }
 
         private void btCnCerrar_Click(object sender, EventArgs e)
@@ -319,61 +277,54 @@ namespace Presentacion
             AbrirForm(new RegistroProveedores());
             TituloFormularioHijo.Text = "Proveedores";
         }
-
-        private void iconButton4_Click_3(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnReporteCompras_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ReporteInventario_Click_2(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color3);
-            //  AbrirForm(new ReporteInvetario());
-            panelSubMenu.Visible = false;
-        }
-
-        private void ReporteVentas_Click_2(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color4);
-            AbrirForm(new frmReportesVentas());
-            panelSubMenu.Visible = false;
-        }
-
-        private void ReporteProveedor_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
         private void Tiempo_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToString("h:mm:ss");
             lblFecha.Text = DateTime.Now.ToLongDateString();
         }
 
-        private void iconButton5_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = true;
-            panelSubMenu.Visible = true;
-            TituloFormularioHijo.Text = "Reportes";
-        }
-
-        private void ReporteVentas_Click_3(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color4);
-            AbrirForm(new frmReportesVentas());
-            panelSubMenu.Visible = false;
-        }
 
         private void TituloFormularioHijo_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelDesktop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color6);
+            panelSubMenu.Visible = true;
+            TituloFormularioHijo.Text = "Reportes";
+        }
+
+        private void ReporteVentas_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            AbrirForm(new frmReportesVentas());
+            panelSubMenu.Visible = false;
+        }
+
+        private void ReporteInventario_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color6);
+            AbrirForm(new frmReporteInventario());
+            panelSubMenu.Visible = false;
+        }
+
+        private void iconButton2_Click_1(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color6);
+            AbrirForm(new frmReporteCompras());
+            panelSubMenu.Visible = false;
         }
     }
 }

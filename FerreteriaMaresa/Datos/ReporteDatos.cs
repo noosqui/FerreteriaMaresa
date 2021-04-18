@@ -15,7 +15,7 @@ namespace Datos
                 using (var cmd = new SqlCommand())
                 {
                     cmd.Connection = cd;
-                    cmd.CommandText = "@ObtenerVentas";
+                    cmd.CommandText = "@ReporteFacturaVentas";
                     cmd.Parameters.AddWithValue("@deFecha", deFecha);
                     cmd.Parameters.AddWithValue("@paraFecha", paraFecha);
                     cmd.CommandType = CommandType.StoredProcedure;
