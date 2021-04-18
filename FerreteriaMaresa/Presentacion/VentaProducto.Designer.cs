@@ -83,7 +83,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCancelar.Location = new System.Drawing.Point(532, 707);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(5);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(389, 50);
             this.btnCancelar.TabIndex = 64;
@@ -99,7 +99,7 @@
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAgregar.Location = new System.Drawing.Point(143, 707);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(5);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(357, 50);
             this.btnAgregar.TabIndex = 62;
@@ -134,7 +134,7 @@
             this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProductos.EnableHeadersVisualStyles = false;
             this.dgvProductos.Location = new System.Drawing.Point(23, 394);
-            this.dgvProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvProductos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProductos.MultiSelect = false;
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
@@ -161,7 +161,7 @@
             // txtIdSrch
             // 
             this.txtIdSrch.Location = new System.Drawing.Point(760, 345);
-            this.txtIdSrch.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtIdSrch.Margin = new System.Windows.Forms.Padding(5);
             this.txtIdSrch.Name = "txtIdSrch";
             this.txtIdSrch.Size = new System.Drawing.Size(69, 22);
             this.txtIdSrch.TabIndex = 74;
@@ -174,7 +174,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(644, 350);
+            this.label8.Location = new System.Drawing.Point(634, 349);
             this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 20);
@@ -184,7 +184,7 @@
             // txtNombreSrch
             // 
             this.txtNombreSrch.Location = new System.Drawing.Point(943, 345);
-            this.txtNombreSrch.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtNombreSrch.Margin = new System.Windows.Forms.Padding(5);
             this.txtNombreSrch.Name = "txtNombreSrch";
             this.txtNombreSrch.Size = new System.Drawing.Size(175, 22);
             this.txtNombreSrch.TabIndex = 72;
@@ -241,7 +241,7 @@
             this.VentaProductos.Controls.Add(this.label5);
             this.VentaProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.VentaProductos.Location = new System.Drawing.Point(0, 0);
-            this.VentaProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.VentaProductos.Margin = new System.Windows.Forms.Padding(4);
             this.VentaProductos.Name = "VentaProductos";
             this.VentaProductos.Size = new System.Drawing.Size(1704, 801);
             this.VentaProductos.TabIndex = 1;
@@ -251,7 +251,7 @@
             this.chkEdad.AutoSize = true;
             this.chkEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.chkEdad.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.chkEdad.Location = new System.Drawing.Point(934, 266);
+            this.chkEdad.Location = new System.Drawing.Point(927, 270);
             this.chkEdad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkEdad.Name = "chkEdad";
             this.chkEdad.Size = new System.Drawing.Size(174, 29);
@@ -277,7 +277,7 @@
             // 
             this.txtTotal.Enabled = false;
             this.txtTotal.Location = new System.Drawing.Point(1368, 345);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(231, 22);
             this.txtTotal.TabIndex = 96;
@@ -289,8 +289,8 @@
             this.chkRTN.AutoSize = true;
             this.chkRTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.chkRTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.chkRTN.Location = new System.Drawing.Point(818, 269);
-            this.chkRTN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkRTN.Location = new System.Drawing.Point(794, 270);
+            this.chkRTN.Margin = new System.Windows.Forms.Padding(4);
             this.chkRTN.Name = "chkRTN";
             this.chkRTN.Size = new System.Drawing.Size(97, 29);
             this.chkRTN.TabIndex = 95;
@@ -317,7 +317,7 @@
             this.cmbClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbClientes.FormattingEnabled = true;
             this.cmbClientes.Location = new System.Drawing.Point(136, 270);
-            this.cmbClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbClientes.Margin = new System.Windows.Forms.Padding(4);
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(625, 24);
             this.cmbClientes.TabIndex = 93;
@@ -344,7 +344,7 @@
             this.btnSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSiguiente.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnSiguiente.Location = new System.Drawing.Point(1413, 708);
-            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(5);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(193, 50);
             this.btnSiguiente.TabIndex = 92;
@@ -414,7 +414,7 @@
             // 
             this.txtSubtotal.Enabled = false;
             this.txtSubtotal.Location = new System.Drawing.Point(1368, 263);
-            this.txtSubtotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSubtotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(231, 22);
             this.txtSubtotal.TabIndex = 88;
@@ -424,7 +424,7 @@
             // 
             this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(260, 114);
-            this.txtId.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtId.Margin = new System.Windows.Forms.Padding(5);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(175, 22);
             this.txtId.TabIndex = 75;
@@ -512,7 +512,7 @@
             // 
             this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(260, 180);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(5);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(175, 22);
             this.txtNombre.TabIndex = 77;
@@ -544,7 +544,7 @@
             // txtCantidad
             // 
             this.txtCantidad.Location = new System.Drawing.Point(943, 112);
-            this.txtCantidad.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtCantidad.Margin = new System.Windows.Forms.Padding(5);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(175, 22);
             this.txtCantidad.TabIndex = 79;
@@ -556,7 +556,7 @@
             // 
             this.txtStock.Enabled = false;
             this.txtStock.Location = new System.Drawing.Point(587, 114);
-            this.txtStock.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtStock.Margin = new System.Windows.Forms.Padding(5);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(175, 22);
             this.txtStock.TabIndex = 81;
@@ -565,7 +565,7 @@
             // 
             this.txtprecio.Enabled = false;
             this.txtprecio.Location = new System.Drawing.Point(587, 181);
-            this.txtprecio.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtprecio.Margin = new System.Windows.Forms.Padding(5);
             this.txtprecio.Name = "txtprecio";
             this.txtprecio.Size = new System.Drawing.Size(175, 22);
             this.txtprecio.TabIndex = 83;
@@ -591,7 +591,7 @@
             this.ClientSize = new System.Drawing.Size(1704, 801);
             this.Controls.Add(this.VentaProductos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "VentaProducto";
             this.Text = "Venta de Productos";
             this.Load += new System.EventHandler(this.VentaProducto_Load);

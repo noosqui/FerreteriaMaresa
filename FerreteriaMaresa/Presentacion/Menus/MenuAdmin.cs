@@ -48,7 +48,8 @@ namespace Presentacion
             public static Color color5 = Color.FromArgb(249, 68, 255);
             public static Color color6 = Color.FromArgb(24, 141, 253);
             public static Color color7 = Color.FromArgb(249, 118, 12);
-            public static Color color8 = Color.FromArgb(95, 77, 45);
+            public static Color color8 = Color.FromArgb(124, 77, 76);
+            public static Color color9 = Color.FromArgb(222, 90, 76);
         }
 
         //metodos
@@ -207,39 +208,10 @@ namespace Presentacion
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color2);
+            ActivateButton(sender, RGBColors.color5);
             AbrirForm(new Inventario(this.puesto));
             panelSubMenu.Visible = false;
             TituloFormularioHijo.Text = "Inventario";
-        }
-
-
-        private void iconButton4_Click_1(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = false;
-            TituloFormularioHijo.Text = "Reporte de Empleados";
-        }
-
-        private void ReporteInventario_Click_1(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = false;
-            TituloFormularioHijo.Text = "Reporte de Inventario";
-        }
-
-        private void ReporteVentas_Click_1(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = false;
-            TituloFormularioHijo.Text = "Reporte de Ventas";
-        }
-
-        private void ReporteProveedor_Click_1(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = false;
-            TituloFormularioHijo.Text = "Reporte de Proveedores";
         }
 
         private void panelSubMenu_Paint_1(object sender, PaintEventArgs e)
@@ -247,16 +219,9 @@ namespace Presentacion
 
         }
 
-        private void iconButton4_Click_2(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color6);
-            panelSubMenu.Visible = false;
-            TituloFormularioHijo.Text = "Reporte de Empleados";
-        }
-
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color7);
+            ActivateButton(sender, RGBColors.color9);
             panelSubMenu.Visible = false;
             AbrirForm(new RegistroClientes());
             TituloFormularioHijo.Text = "Clientes";
@@ -301,30 +266,33 @@ namespace Presentacion
         }
         private void btnReport_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color6);
+            ActivateButton(sender, RGBColors.color7);
             panelSubMenu.Visible = true;
             TituloFormularioHijo.Text = "Reportes";
         }
 
         private void ReporteVentas_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color1);
+            ActivateButton(sender, RGBColors.color3);
             AbrirForm(new frmReportesVentas());
+            TituloFormularioHijo.Text = "Reporte de Ventas del Mes";
             panelSubMenu.Visible = false;
         }
 
         private void ReporteInventario_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color6);
+            ActivateButton(sender, RGBColors.color1);
             AbrirForm(new frmReporteInventario());
+            TituloFormularioHijo.Text = "Reporte de Inventiario";
             panelSubMenu.Visible = false;
         }
 
         private void iconButton2_Click_1(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color6);
+            ActivateButton(sender, RGBColors.color2);
             AbrirForm(new frmReporteCompras());
             panelSubMenu.Visible = false;
+            TituloFormularioHijo.Text = "Reporte de Compras del Mes";
         }
     }
 }

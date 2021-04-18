@@ -29,12 +29,12 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.lblCompras = new System.Windows.Forms.Label();
@@ -64,6 +64,7 @@ namespace Presentacion
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.iconButton7);
             this.panel1.Controls.Add(this.lblCompras);
             this.panel1.Controls.Add(this.label3);
@@ -85,10 +86,10 @@ namespace Presentacion
             this.panel1.Controls.Add(this.btnVentas);
             this.panel1.Controls.Add(this.lbltotalVentas);
             this.panel1.Controls.Add(this.chartProductos_Preferidos);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 800);
+            this.panel1.Size = new System.Drawing.Size(1600, 985);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -99,20 +100,20 @@ namespace Presentacion
             this.iconButton7.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButton7.FlatAppearance.BorderSize = 0;
             this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton7.ForeColor = System.Drawing.Color.White;
             this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.ShoppingBag;
             this.iconButton7.IconColor = System.Drawing.Color.White;
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton7.IconSize = 40;
+            this.iconButton7.IconSize = 30;
             this.iconButton7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton7.Location = new System.Drawing.Point(888, 79);
+            this.iconButton7.Location = new System.Drawing.Point(1180, 99);
+            this.iconButton7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iconButton7.Name = "iconButton7";
-            this.iconButton7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton7.Size = new System.Drawing.Size(213, 53);
+            this.iconButton7.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.iconButton7.Size = new System.Drawing.Size(302, 65);
             this.iconButton7.TabIndex = 48;
             this.iconButton7.Text = "Monto de Compras:";
-            this.iconButton7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton7.UseVisualStyleBackColor = false;
             // 
             // lblCompras
@@ -121,9 +122,10 @@ namespace Presentacion
             this.lblCompras.AutoSize = true;
             this.lblCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCompras.ForeColor = System.Drawing.Color.White;
-            this.lblCompras.Location = new System.Drawing.Point(1122, 92);
+            this.lblCompras.Location = new System.Drawing.Point(1490, 114);
+            this.lblCompras.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompras.Name = "lblCompras";
-            this.lblCompras.Size = new System.Drawing.Size(20, 24);
+            this.lblCompras.Size = new System.Drawing.Size(26, 29);
             this.lblCompras.TabIndex = 47;
             this.lblCompras.Text = "0";
             this.lblCompras.Click += new System.EventHandler(this.label4_Click);
@@ -134,11 +136,12 @@ namespace Presentacion
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(393, 19);
+            this.label3.Location = new System.Drawing.Point(458, 29);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(369, 29);
+            this.label3.Size = new System.Drawing.Size(674, 36);
             this.label3.TabIndex = 46;
-            this.label3.Text = "DETALLE VENTAS Y COMPRAS";
+            this.label3.Text = "GRAFICAS DE VENTAS Y COMPRAS DEL MES";
             // 
             // label2
             // 
@@ -146,9 +149,10 @@ namespace Presentacion
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(779, 254);
+            this.label2.Location = new System.Drawing.Point(947, 313);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(322, 24);
+            this.label2.Size = new System.Drawing.Size(417, 29);
             this.label2.TabIndex = 45;
             this.label2.Text = "TOP 10 PRODUCTOS PREFERIDOS";
             // 
@@ -158,30 +162,32 @@ namespace Presentacion
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(108, 254);
+            this.label1.Location = new System.Drawing.Point(111, 313);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(419, 24);
+            this.label1.Size = new System.Drawing.Size(536, 29);
             this.label1.TabIndex = 44;
             this.label1.Text = "CANTIDAD DE PRODUCTOS POR CATEGORIA";
             // 
             // chartProductos_Categoria
             // 
             this.chartProductos_Categoria.Anchor = System.Windows.Forms.AnchorStyles.None;
-            chartArea1.Name = "ChartArea1";
-            this.chartProductos_Categoria.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartProductos_Categoria.Legends.Add(legend1);
-            this.chartProductos_Categoria.Location = new System.Drawing.Point(12, 311);
+            chartArea9.Name = "ChartArea1";
+            this.chartProductos_Categoria.ChartAreas.Add(chartArea9);
+            legend9.Name = "Legend1";
+            this.chartProductos_Categoria.Legends.Add(legend9);
+            this.chartProductos_Categoria.Location = new System.Drawing.Point(16, 383);
+            this.chartProductos_Categoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chartProductos_Categoria.Name = "chartProductos_Categoria";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.IsValueShownAsLabel = true;
-            series1.LabelForeColor = System.Drawing.Color.White;
-            series1.Legend = "Legend1";
-            series1.MarkerBorderColor = System.Drawing.Color.Navy;
-            series1.Name = "Series1";
-            this.chartProductos_Categoria.Series.Add(series1);
-            this.chartProductos_Categoria.Size = new System.Drawing.Size(645, 477);
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series9.IsValueShownAsLabel = true;
+            series9.LabelForeColor = System.Drawing.Color.White;
+            series9.Legend = "Legend1";
+            series9.MarkerBorderColor = System.Drawing.Color.Navy;
+            series9.Name = "Series1";
+            this.chartProductos_Categoria.Series.Add(series9);
+            this.chartProductos_Categoria.Size = new System.Drawing.Size(860, 587);
             this.chartProductos_Categoria.TabIndex = 43;
             this.chartProductos_Categoria.Text = "chart2";
             // 
@@ -192,20 +198,20 @@ namespace Presentacion
             this.iconButton6.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButton6.FlatAppearance.BorderSize = 0;
             this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton6.ForeColor = System.Drawing.Color.White;
             this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.UserFriends;
             this.iconButton6.IconColor = System.Drawing.Color.White;
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton6.IconSize = 40;
+            this.iconButton6.IconSize = 30;
             this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton6.Location = new System.Drawing.Point(588, 168);
+            this.iconButton6.Location = new System.Drawing.Point(779, 208);
+            this.iconButton6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton6.Size = new System.Drawing.Size(213, 53);
+            this.iconButton6.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.iconButton6.Size = new System.Drawing.Size(307, 65);
             this.iconButton6.TabIndex = 42;
             this.iconButton6.Text = "Cantidad Clientes:";
-            this.iconButton6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton6.UseVisualStyleBackColor = false;
             // 
             // iconButton5
@@ -215,19 +221,19 @@ namespace Presentacion
             this.iconButton5.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButton5.FlatAppearance.BorderSize = 0;
             this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton5.ForeColor = System.Drawing.Color.White;
             this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.UserTie;
             this.iconButton5.IconColor = System.Drawing.Color.White;
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 40;
+            this.iconButton5.IconSize = 30;
             this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(311, 168);
+            this.iconButton5.Location = new System.Drawing.Point(385, 208);
+            this.iconButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(213, 53);
+            this.iconButton5.Size = new System.Drawing.Size(314, 65);
             this.iconButton5.TabIndex = 41;
             this.iconButton5.Text = "Cantidad Proveedores:";
-            this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton5.UseVisualStyleBackColor = false;
             // 
             // iconButton4
@@ -237,20 +243,20 @@ namespace Presentacion
             this.iconButton4.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButton4.FlatAppearance.BorderSize = 0;
             this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton4.ForeColor = System.Drawing.Color.White;
             this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.User;
             this.iconButton4.IconColor = System.Drawing.Color.White;
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 40;
+            this.iconButton4.IconSize = 30;
             this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(32, 168);
+            this.iconButton4.Location = new System.Drawing.Point(22, 208);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton4.Size = new System.Drawing.Size(213, 53);
+            this.iconButton4.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.iconButton4.Size = new System.Drawing.Size(284, 65);
             this.iconButton4.TabIndex = 40;
             this.iconButton4.Text = "Cantidad Empleados:";
-            this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton4.UseVisualStyleBackColor = false;
             // 
             // iconButton3
@@ -260,20 +266,20 @@ namespace Presentacion
             this.iconButton3.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButton3.FlatAppearance.BorderSize = 0;
             this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton3.ForeColor = System.Drawing.Color.White;
             this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Shopify;
             this.iconButton3.IconColor = System.Drawing.Color.White;
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 40;
+            this.iconButton3.IconSize = 30;
             this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(32, 79);
+            this.iconButton3.Location = new System.Drawing.Point(22, 98);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton3.Size = new System.Drawing.Size(213, 53);
+            this.iconButton3.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.iconButton3.Size = new System.Drawing.Size(284, 65);
             this.iconButton3.TabIndex = 39;
             this.iconButton3.Text = "Cantidad Marcas:";
-            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton3.UseVisualStyleBackColor = false;
             // 
             // lblproveedores
@@ -282,9 +288,10 @@ namespace Presentacion
             this.lblproveedores.AutoSize = true;
             this.lblproveedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblproveedores.ForeColor = System.Drawing.Color.White;
-            this.lblproveedores.Location = new System.Drawing.Point(546, 181);
+            this.lblproveedores.Location = new System.Drawing.Point(723, 224);
+            this.lblproveedores.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblproveedores.Name = "lblproveedores";
-            this.lblproveedores.Size = new System.Drawing.Size(20, 24);
+            this.lblproveedores.Size = new System.Drawing.Size(26, 29);
             this.lblproveedores.TabIndex = 38;
             this.lblproveedores.Text = "0";
             // 
@@ -294,9 +301,10 @@ namespace Presentacion
             this.lblempleados.AutoSize = true;
             this.lblempleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblempleados.ForeColor = System.Drawing.Color.White;
-            this.lblempleados.Location = new System.Drawing.Point(266, 181);
+            this.lblempleados.Location = new System.Drawing.Point(328, 223);
+            this.lblempleados.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblempleados.Name = "lblempleados";
-            this.lblempleados.Size = new System.Drawing.Size(20, 24);
+            this.lblempleados.Size = new System.Drawing.Size(26, 29);
             this.lblempleados.TabIndex = 37;
             this.lblempleados.Text = "0";
             // 
@@ -306,9 +314,10 @@ namespace Presentacion
             this.lblclientes.AutoSize = true;
             this.lblclientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblclientes.ForeColor = System.Drawing.Color.White;
-            this.lblclientes.Location = new System.Drawing.Point(823, 181);
+            this.lblclientes.Location = new System.Drawing.Point(1106, 224);
+            this.lblclientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblclientes.Name = "lblclientes";
-            this.lblclientes.Size = new System.Drawing.Size(20, 24);
+            this.lblclientes.Size = new System.Drawing.Size(26, 29);
             this.lblclientes.TabIndex = 36;
             this.lblclientes.Text = "0";
             // 
@@ -318,9 +327,10 @@ namespace Presentacion
             this.lblmarcas.AutoSize = true;
             this.lblmarcas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmarcas.ForeColor = System.Drawing.Color.White;
-            this.lblmarcas.Location = new System.Drawing.Point(267, 92);
+            this.lblmarcas.Location = new System.Drawing.Point(329, 113);
+            this.lblmarcas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblmarcas.Name = "lblmarcas";
-            this.lblmarcas.Size = new System.Drawing.Size(20, 24);
+            this.lblmarcas.Size = new System.Drawing.Size(26, 29);
             this.lblmarcas.TabIndex = 35;
             this.lblmarcas.Text = "0";
             // 
@@ -331,20 +341,20 @@ namespace Presentacion
             this.iconButton2.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButton2.FlatAppearance.BorderSize = 0;
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton2.ForeColor = System.Drawing.Color.White;
             this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Book;
             this.iconButton2.IconColor = System.Drawing.Color.White;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 40;
+            this.iconButton2.IconSize = 30;
             this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(588, 79);
+            this.iconButton2.Location = new System.Drawing.Point(779, 98);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton2.Size = new System.Drawing.Size(213, 53);
+            this.iconButton2.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.iconButton2.Size = new System.Drawing.Size(307, 65);
             this.iconButton2.TabIndex = 34;
-            this.iconButton2.Text = "Cantidad Categorias:";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton2.Text = " Cantidad Categorias:";
             this.iconButton2.UseVisualStyleBackColor = false;
             // 
             // lblcategorias
@@ -353,9 +363,10 @@ namespace Presentacion
             this.lblcategorias.AutoSize = true;
             this.lblcategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcategorias.ForeColor = System.Drawing.Color.White;
-            this.lblcategorias.Location = new System.Drawing.Point(823, 92);
+            this.lblcategorias.Location = new System.Drawing.Point(1106, 114);
+            this.lblcategorias.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblcategorias.Name = "lblcategorias";
-            this.lblcategorias.Size = new System.Drawing.Size(20, 24);
+            this.lblcategorias.Size = new System.Drawing.Size(26, 29);
             this.lblcategorias.TabIndex = 33;
             this.lblcategorias.Text = "0";
             // 
@@ -366,20 +377,20 @@ namespace Presentacion
             this.iconButton1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButton1.FlatAppearance.BorderSize = 0;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButton1.ForeColor = System.Drawing.Color.White;
             this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Toolbox;
             this.iconButton1.IconColor = System.Drawing.Color.White;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 40;
+            this.iconButton1.IconSize = 30;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(312, 79);
+            this.iconButton1.Location = new System.Drawing.Point(386, 98);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton1.Size = new System.Drawing.Size(212, 53);
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.iconButton1.Size = new System.Drawing.Size(313, 65);
             this.iconButton1.TabIndex = 32;
             this.iconButton1.Text = "Cantidad Productos:";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
             // lblproductos
@@ -388,9 +399,10 @@ namespace Presentacion
             this.lblproductos.AutoSize = true;
             this.lblproductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblproductos.ForeColor = System.Drawing.Color.White;
-            this.lblproductos.Location = new System.Drawing.Point(546, 92);
+            this.lblproductos.Location = new System.Drawing.Point(723, 114);
+            this.lblproductos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblproductos.Name = "lblproductos";
-            this.lblproductos.Size = new System.Drawing.Size(20, 24);
+            this.lblproductos.Size = new System.Drawing.Size(26, 29);
             this.lblproductos.TabIndex = 31;
             this.lblproductos.Text = "0";
             // 
@@ -401,20 +413,20 @@ namespace Presentacion
             this.btnVentas.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnVentas.FlatAppearance.BorderSize = 0;
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.ForeColor = System.Drawing.Color.White;
             this.btnVentas.IconChar = FontAwesome.Sharp.IconChar.DollarSign;
             this.btnVentas.IconColor = System.Drawing.Color.White;
             this.btnVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVentas.IconSize = 40;
+            this.btnVentas.IconSize = 30;
             this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVentas.Location = new System.Drawing.Point(888, 168);
+            this.btnVentas.Location = new System.Drawing.Point(1180, 209);
+            this.btnVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVentas.Name = "btnVentas";
-            this.btnVentas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnVentas.Size = new System.Drawing.Size(213, 53);
+            this.btnVentas.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.btnVentas.Size = new System.Drawing.Size(302, 65);
             this.btnVentas.TabIndex = 30;
             this.btnVentas.Text = "Monto de Ventas:";
-            this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVentas.UseVisualStyleBackColor = false;
             // 
             // lbltotalVentas
@@ -423,41 +435,44 @@ namespace Presentacion
             this.lbltotalVentas.AutoSize = true;
             this.lbltotalVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltotalVentas.ForeColor = System.Drawing.Color.White;
-            this.lbltotalVentas.Location = new System.Drawing.Point(1122, 181);
+            this.lbltotalVentas.Location = new System.Drawing.Point(1490, 224);
+            this.lbltotalVentas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbltotalVentas.Name = "lbltotalVentas";
-            this.lbltotalVentas.Size = new System.Drawing.Size(20, 24);
+            this.lbltotalVentas.Size = new System.Drawing.Size(26, 29);
             this.lbltotalVentas.TabIndex = 29;
             this.lbltotalVentas.Text = "0";
             // 
             // chartProductos_Preferidos
             // 
             this.chartProductos_Preferidos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            chartArea2.Name = "ChartArea1";
-            this.chartProductos_Preferidos.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartProductos_Preferidos.Legends.Add(legend2);
-            this.chartProductos_Preferidos.Location = new System.Drawing.Point(687, 311);
+            chartArea10.Name = "ChartArea1";
+            this.chartProductos_Preferidos.ChartAreas.Add(chartArea10);
+            legend10.Name = "Legend1";
+            this.chartProductos_Preferidos.Legends.Add(legend10);
+            this.chartProductos_Preferidos.Location = new System.Drawing.Point(916, 383);
+            this.chartProductos_Preferidos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chartProductos_Preferidos.Name = "chartProductos_Preferidos";
             this.chartProductos_Preferidos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series2.IsValueShownAsLabel = true;
-            series2.LabelForeColor = System.Drawing.Color.White;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartProductos_Preferidos.Series.Add(series2);
-            this.chartProductos_Preferidos.Size = new System.Drawing.Size(485, 375);
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series10.IsValueShownAsLabel = true;
+            series10.LabelForeColor = System.Drawing.Color.White;
+            series10.Legend = "Legend1";
+            series10.Name = "Series1";
+            this.chartProductos_Preferidos.Series.Add(series10);
+            this.chartProductos_Preferidos.Size = new System.Drawing.Size(647, 462);
             this.chartProductos_Preferidos.TabIndex = 28;
             this.chartProductos_Preferidos.Text = "chart2";
             // 
             // Graficos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(23)))), ((int)(((byte)(74)))));
-            this.ClientSize = new System.Drawing.Size(1200, 800);
+            this.ClientSize = new System.Drawing.Size(1600, 985);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Graficos";
             this.Text = "Graficos";
             this.Load += new System.EventHandler(this.Graficos_Load);

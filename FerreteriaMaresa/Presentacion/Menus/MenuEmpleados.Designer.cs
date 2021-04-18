@@ -72,17 +72,18 @@ namespace Presentacion
             this.panelDesktop.Controls.Add(this.pictureBox1);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(293, 103);
-            this.panelDesktop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelDesktop.Margin = new System.Windows.Forms.Padding(4);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(1552, 711);
             this.panelDesktop.TabIndex = 7;
             // 
             // lblFecha
             // 
+            this.lblFecha.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblFecha.Location = new System.Drawing.Point(357, 524);
+            this.lblFecha.Location = new System.Drawing.Point(68, 524);
             this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(144, 52);
@@ -92,10 +93,11 @@ namespace Presentacion
             // 
             // lblHora
             // 
+            this.lblHora.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHora.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblHora.Location = new System.Drawing.Point(468, 443);
+            this.lblHora.Location = new System.Drawing.Point(179, 443);
             this.lblHora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(159, 69);
@@ -108,7 +110,7 @@ namespace Presentacion
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::Presentacion.Properties.Resources.Ferreteria_Maresa_Imagen;
             this.pictureBox1.Location = new System.Drawing.Point(348, -7);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(789, 446);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -120,7 +122,7 @@ namespace Presentacion
             this.panelSombra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(58)))));
             this.panelSombra.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSombra.Location = new System.Drawing.Point(293, 92);
-            this.panelSombra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSombra.Margin = new System.Windows.Forms.Padding(4);
             this.panelSombra.Name = "panelSombra";
             this.panelSombra.Size = new System.Drawing.Size(1552, 11);
             this.panelSombra.TabIndex = 6;
@@ -135,7 +137,7 @@ namespace Presentacion
             this.panel1.Controls.Add(this.iconCurrentChildfo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(293, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1552, 92);
             this.panel1.TabIndex = 5;
@@ -149,7 +151,7 @@ namespace Presentacion
             this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMinimizar.IconSize = 29;
             this.btnMinimizar.Location = new System.Drawing.Point(1425, 15);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(29, 38);
             this.btnMinimizar.TabIndex = 10;
@@ -165,7 +167,7 @@ namespace Presentacion
             this.btnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMaximizar.IconSize = 31;
             this.btnMaximizar.Location = new System.Drawing.Point(1463, 15);
-            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(31, 50);
             this.btnMaximizar.TabIndex = 9;
@@ -181,7 +183,7 @@ namespace Presentacion
             this.btCnCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btCnCerrar.IconSize = 35;
             this.btCnCerrar.Location = new System.Drawing.Point(1501, 15);
-            this.btCnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btCnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btCnCerrar.Name = "btCnCerrar";
             this.btCnCerrar.Size = new System.Drawing.Size(35, 50);
             this.btCnCerrar.TabIndex = 8;
@@ -209,7 +211,7 @@ namespace Presentacion
             this.iconCurrentChildfo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconCurrentChildfo.IconSize = 63;
             this.iconCurrentChildfo.Location = new System.Drawing.Point(23, 15);
-            this.iconCurrentChildfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconCurrentChildfo.Margin = new System.Windows.Forms.Padding(4);
             this.iconCurrentChildfo.Name = "iconCurrentChildfo";
             this.iconCurrentChildfo.Size = new System.Drawing.Size(71, 63);
             this.iconCurrentChildfo.TabIndex = 0;
@@ -225,7 +227,7 @@ namespace Presentacion
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(293, 814);
             this.panelMenu.TabIndex = 4;
@@ -237,7 +239,7 @@ namespace Presentacion
             this.panelSubMenuEmpleado.Controls.Add(this.ReporteInventario);
             this.panelSubMenuEmpleado.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelSubMenuEmpleado.Location = new System.Drawing.Point(66, 337);
-            this.panelSubMenuEmpleado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSubMenuEmpleado.Margin = new System.Windows.Forms.Padding(4);
             this.panelSubMenuEmpleado.Name = "panelSubMenuEmpleado";
             this.panelSubMenuEmpleado.Size = new System.Drawing.Size(227, 477);
             this.panelSubMenuEmpleado.TabIndex = 106;
@@ -256,7 +258,7 @@ namespace Presentacion
             this.ReporteVentas.IconSize = 17;
             this.ReporteVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ReporteVentas.Location = new System.Drawing.Point(0, 49);
-            this.ReporteVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ReporteVentas.Margin = new System.Windows.Forms.Padding(4);
             this.ReporteVentas.Name = "ReporteVentas";
             this.ReporteVentas.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
             this.ReporteVentas.Size = new System.Drawing.Size(227, 49);
@@ -278,7 +280,7 @@ namespace Presentacion
             this.ReporteInventario.IconSize = 17;
             this.ReporteInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ReporteInventario.Location = new System.Drawing.Point(0, 0);
-            this.ReporteInventario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ReporteInventario.Margin = new System.Windows.Forms.Padding(4);
             this.ReporteInventario.Name = "ReporteInventario";
             this.ReporteInventario.Padding = new System.Windows.Forms.Padding(0, 0, 9, 0);
             this.ReporteInventario.Size = new System.Drawing.Size(227, 49);
@@ -300,7 +302,7 @@ namespace Presentacion
             this.btnReportes.IconSize = 40;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportes.Location = new System.Drawing.Point(0, 282);
-            this.btnReportes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReportes.Margin = new System.Windows.Forms.Padding(4);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
             this.btnReportes.Size = new System.Drawing.Size(293, 55);
@@ -322,7 +324,7 @@ namespace Presentacion
             this.iconButton1.IconSize = 40;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton1.Location = new System.Drawing.Point(0, 227);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
             this.iconButton1.Size = new System.Drawing.Size(293, 55);
@@ -344,7 +346,7 @@ namespace Presentacion
             this.btnVentas.IconSize = 40;
             this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVentas.Location = new System.Drawing.Point(0, 172);
-            this.btnVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVentas.Margin = new System.Windows.Forms.Padding(4);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
             this.btnVentas.Size = new System.Drawing.Size(293, 55);
@@ -358,7 +360,7 @@ namespace Presentacion
             this.panelLogo.Controls.Add(this.btnHome);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(4);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(293, 172);
             this.panelLogo.TabIndex = 2;
@@ -367,7 +369,7 @@ namespace Presentacion
             // 
             this.btnHome.Image = global::Presentacion.Properties.Resources.Ferreteria_Maresa_Imagen;
             this.btnHome.Location = new System.Drawing.Point(0, -14);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(293, 209);
             this.btnHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -390,7 +392,7 @@ namespace Presentacion
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MenuEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuEmpleados";
