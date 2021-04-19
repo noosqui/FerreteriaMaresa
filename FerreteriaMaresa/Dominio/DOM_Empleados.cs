@@ -39,10 +39,10 @@ namespace Dominio
 
         public void agregar_empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado,
             string correoEmpleado, string telEmpleado, string direccion, string ciudad, string region,
-            string codigopostal, string pais, string idrol, string fnacimiento, string estado)
+            string codigopostal, string pais, string idrol, string fnacimiento, string estado,string contrasenia)
         {
             emple.insertar_Empleado(idEmpleado, nombreEmpleado, apellidoEmpleado, correoEmpleado, telEmpleado, direccion,
-                ciudad, region, codigopostal, pais, int.Parse(idrol), fnacimiento, estado);
+                ciudad, region, codigopostal, pais, int.Parse(idrol), fnacimiento, estado,contrasenia);
         }
 
         public void eliminar_empleado(string idEmpleado)
@@ -53,6 +53,11 @@ namespace Dominio
         public DataTable roles_combobox()
         {
             return emple.cargar_roles();
+        }
+
+        public void Restablecer_Contrasenia(string correo, string contrasenia)
+        {
+            emple.Restablecer_Contrasenia(correo, contrasenia);
         }
     }
 }

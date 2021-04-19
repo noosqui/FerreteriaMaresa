@@ -17,7 +17,7 @@ namespace Presentacion
         private bool estadobtna = false;
         private bool estadobtnb = false;
         private bool estadobtnc = false;
-
+        private string contrasenia;
         private void roles()
         {
             cbcodrol.DataSource = emplea.roles_combobox();
@@ -115,6 +115,7 @@ namespace Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+
             lblconfirmar.Visible = true;
             txtconfirmarident.Visible = true;
             txtbuscarid.Enabled = false;
@@ -233,10 +234,12 @@ namespace Presentacion
                         {
                             estado = "Despedido";
                         }
-
+                        RecoverPassword password = new RecoverPassword(this.txtcorreo.Text);
+                        password.ShowDialog();
+                        this.contrasenia = password.txtpassword.Text;
                         emplea.agregar_empleado(txtidentidad.Text.ToString(), txtnombre.Text, txtapellido.Text, txtcorreo.Text,
                         txttelefono.Text, txtdireccion.Text, txtciudad.Text, txtregion.Text, txtcodpost.Text,
-                        txtpais.Text, txtcodrol, dtfecha.Value.ToString("yyyy/MM/dd"), estado);
+                        txtpais.Text, txtcodrol, dtfecha.Value.ToString("yyyy/MM/dd"), estado,contrasenia);
 
                         btnAgregar.Visible = true;
                         btnModificar.Visible = true;

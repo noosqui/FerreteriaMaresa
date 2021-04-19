@@ -50,7 +50,7 @@ namespace Datos
             return tabla;
         }
 
-        public void insertar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, string telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, string fnacimiento, string estado)
+        public void insertar_Empleado(string idEmpleado, string nombreEmpleado, string apellidoEmpleado, string correoEmpleado, string telEmpleado, string direccion, string ciudad, string region, string codigopostal, string pais, int idrol, string fnacimiento, string estado,string contrasenia)
         {
 
             comando.Connection = conexion.abrir();
@@ -69,6 +69,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@id_rol_empleado", idrol);
             comando.Parameters.AddWithValue("@fnacimiento_empleado", fnacimiento);
             comando.Parameters.AddWithValue("@estado", estado);
+            comando.Parameters.AddWithValue("@contrasenia", contrasenia);
             comando.ExecuteNonQuery();
             comando.Connection = conexion.cerrar();
             comando.Parameters.Clear();
@@ -127,6 +128,18 @@ namespace Datos
             t.Load(lee);
             conexion.cerrar();
             return t;
+        }
+
+        public void Restablecer_Contrasenia(string correo, string contrasenia)
+        {
+            comando.Connection = conexion.abrir();
+            comando.CommandText = "Restablecer_Contrasenia";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@correo", correo);
+            comando.Parameters.AddWithValue("@contrasenia", contrasenia);
+            comando.ExecuteNonQuery();
+            comando.Connection = conexion.cerrar();
+            comando.Parameters.Clear();
         }
     }
 }
